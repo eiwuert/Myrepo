@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DataxResponse>
+  <GenerationTime>20090114025512</GenerationTime>
+  <CodeVersion>4.6.4</CodeVersion>
+  <RequestVersion>3.0</RequestVersion>
+  <TransactionId>66093489</TransactionId>
+  <TrackHash>081f22005dd89cea960363ca1dfe16e4</TrackHash>
+  <TrackId>196990681</TrackId>
+  <Response>
+    <Detail>
+      <ConsumerIDVerificationSegment>
+        <Input>
+          <LastName>bivona</LastName>
+          <FirstName>kelli</FirstName>
+          <MiddleName/>
+          <Address1>4308 n. hawthorne</Address1>
+          <Address2/>
+          <City>spokane</City>
+          <State>wa</State>
+          <Zip>99205</Zip>
+        </Input>
+        <Standardized>
+          <LastName>BIVONA</LastName>
+          <FirstName>KELLI</FirstName>
+          <MiddleName/>
+          <AddressVerification>5</AddressVerification>
+          <AddressVerificationMessage>No name match - residential</AddressVerificationMessage>
+          <AddressResult>S</AddressResult>
+          <DeliveryPointVerified>Y</DeliveryPointVerified>
+          <Address1>4308 N HAWTHORNE ST</Address1>
+          <City>SPOKANE</City>
+          <State>WA</State>
+          <Zip>99205</Zip>
+          <Zip4>1340</Zip4>
+          <CRRT>C020</CRRT>
+          <HighRiskAddress>N</HighRiskAddress>
+        </Standardized>
+        <PreviousAddresses>
+          <Address>
+            <Address1>1129 W 9TH AVE</Address1>
+            <City>SPOKANE</City>
+            <State>WA</State>
+            <Zip>99204</Zip>
+            <Zip4>3109</Zip4>
+            <ReportDate>20000908</ReportDate>
+            <LastUpdate>20040110</LastUpdate>
+          </Address>
+          <Address>
+            <Address1>403 YELLOW PINE DR</Address1>
+            <City>HATTIESBURG</City>
+            <State>MS</State>
+            <Zip>39402</Zip>
+            <Zip4>9238</Zip4>
+            <ReportDate>19900618</ReportDate>
+            <LastUpdate>20000813</LastUpdate>
+          </Address>
+        </PreviousAddresses>
+        <SocialSecurityNumber>
+          <InputSSN>425020762</InputSSN>
+          <Return>1</Return>
+          <ReturnMessage>Match to address</ReturnMessage>
+          <Deceased>2</Deceased>
+          <DeceasedMessage>Not Deceased</DeceasedMessage>
+          <Valid>1</Valid>
+          <ValidMessage>Valid</ValidMessage>
+          <Issue>3</Issue>
+          <IssueMessage>Issued</IssueMessage>
+          <IssueState>MS</IssueState>
+          <IssueStartRange>1969</IssueStartRange>
+          <IssueEndRange>1971</IssueEndRange>
+        </SocialSecurityNumber>
+        <Aggregates>
+          <AddressUnitMismatch/>
+          <AddressUnitMismatchMessage/>
+          <AddressType>10</AddressType>
+          <AddressTypeMessage>Single-family residential</AddressTypeMessage>
+          <AddressHighRisk>1</AddressHighRisk>
+          <AddressHighRiskMessage>No high risk information found</AddressHighRiskMessage>
+          <ChangeOfAddress>2</ChangeOfAddress>
+          <ChangeOfAddressMessage>No change of address information found</ChangeOfAddressMessage>
+          <PhoneHighRisk>1</PhoneHighRisk>
+          <PhoneHighRiskMessage>No high risk information found</PhoneHighRiskMessage>
+        </Aggregates>
+        <SSNAddresses>
+          <Address>
+            <LastName>MARTIN</LastName>
+            <FirstName>KELLI</FirstName>
+            <MiddleInitial>V</MiddleInitial>
+            <Address1>4308 N HAWTHORNE ST</Address1>
+            <City>SPOKANE</City>
+            <State>WA</State>
+            <Zip>99205</Zip>
+            <Zip4>1340</Zip4>
+            <ReportedDate>20041015</ReportedDate>
+            <LastTouchedDate>20080903</LastTouchedDate>
+            <AreaCode>509</AreaCode>
+            <PhoneNumber>3281743</PhoneNumber>
+            <DateOfBirthMatch>1</DateOfBirthMatch>
+          </Address>
+        </SSNAddresses>
+        <ResidentialAddresses>
+          <Address>
+            <LastName>MORAN</LastName>
+            <FirstName>ANDRIA</FirstName>
+            <MiddleInitial/>
+            <Address1>4308 N HAWTHORNE ST</Address1>
+            <City>SPOKANE</City>
+            <State>WA</State>
+            <Zip>99205</Zip>
+            <Zip4>1340</Zip4>
+            <AreaCode>509</AreaCode>
+            <PhoneNumber>3281743</PhoneNumber>
+            <SpouseName/>
+            <HouseMember1/>
+            <HouseMember2/>
+            <HouseMember3/>
+            <LastTouchedDate>20081124</LastTouchedDate>
+            <ResidenceLength>0002</ResidenceLength>
+          </Address>
+          <Address>
+            <LastName>AVERY</LastName>
+            <FirstName>LISA</FirstName>
+            <MiddleInitial/>
+            <Address1>4308 N HAWTHORNE ST</Address1>
+            <City>SPOKANE</City>
+            <State>WA</State>
+            <Zip>99205</Zip>
+            <Zip4>1340</Zip4>
+            <AreaCode>509</AreaCode>
+            <PhoneNumber>7476092</PhoneNumber>
+            <SpouseName/>
+            <HouseMember1/>
+            <HouseMember2/>
+            <HouseMember3/>
+            <LastTouchedDate>20040928</LastTouchedDate>
+            <ResidenceLength>0051</ResidenceLength>
+          </Address>
+        </ResidentialAddresses>
+        <HighRiskAddresses>
+          <Address>
+            <BusinessName/>
+            <Address1/>
+            <City/>
+            <State/>
+            <Zip/>
+            <Zip4/>
+            <AreaCode/>
+            <PhoneNumber/>
+            <Description>No high risk business at address/phone</Description>
+          </Address>
+        </HighRiskAddresses>
+        <ResidentialPhones>
+          <Phone>
+            <LastName>MORAN</LastName>
+            <FirstName>ANDRIA</FirstName>
+            <MiddleInitial/>
+            <Address1/>
+            <City>SPOKANE</City>
+            <State>WA</State>
+            <Zip/>
+            <Zip4>1340</Zip4>
+            <AreaCode>509</AreaCode>
+            <PhoneNumber>3281743</PhoneNumber>
+            <SpouseName/>
+            <HouseMember1/>
+            <HouseMember2/>
+            <HouseMember3/>
+          </Phone>
+        </ResidentialPhones>
+        <ChangesOfAddress>
+          <ResultCode>N</ResultCode>
+          <Description/>
+        </ChangesOfAddress>
+        <DateOfBirth>
+          <InputMonth>12</InputMonth>
+          <InputDay>19</InputDay>
+          <InputYear>1969</InputYear>
+          <Result>1</Result>
+          <ResultMessage>Full date of birth match</ResultMessage>
+          <Age>39</Age>
+        </DateOfBirth>
+        <DriversLicense>
+          <InputState>wa</InputState>
+          <InputNumber>bivonkv312rr</InputNumber>
+          <LastName/>
+          <FirstName/>
+          <MiddleInitial/>
+          <Address1/>
+          <City/>
+          <State/>
+          <Zip/>
+          <Zip4/>
+          <Format>V</Format>
+          <Result>6</Result>
+          <ResultMessage>No match</ResultMessage>
+        </DriversLicense>
+        <HomePhone>
+          <InputNumber>5093281743</InputNumber>
+          <Result>1</Result>
+          <ResultMessage>Match to address - residential</ResultMessage>
+          <Type>Standard</Type>
+          <AreaCodeZipMatch>Y</AreaCodeZipMatch>
+          <AreaCodePrefixMatch>Y</AreaCodePrefixMatch>
+          <HighRiskPhone>N</HighRiskPhone>
+          <ListingType>Residential</ListingType>
+        </HomePhone>
+        <CellPhone>
+          <InputNumber>5094349252</InputNumber>
+          <Type>Standard</Type>
+        </CellPhone>
+        <InputEmployerInformation>
+          <Name>wa state dshs</Name>
+          <Address1/>
+          <Address2/>
+          <City/>
+          <State/>
+          <Zip/>
+        </InputEmployerInformation>
+        <WorkPhone>
+          <InputEmployerName>wa state dshs</InputEmployerName>
+          <InputNumber>5093633496</InputNumber>
+          <InputExtension/>
+          <Type>Standard</Type>
+          <EmployerMatch>N</EmployerMatch>
+          <Name/>
+          <Address1/>
+          <City/>
+          <State/>
+          <Zip/>
+          <ListingType>Unidentified</ListingType>
+        </WorkPhone>
+        <OFAC>1</OFAC>
+        <OFACMessage>No match</OFACMessage>
+        <IPAddress>
+          <InputAddress>198.239.226.121</InputAddress>
+          <MatchCountry>1</MatchCountry>
+          <MatchCountryMessage>Match for US</MatchCountryMessage>
+          <Country>USA</Country>
+          <MatchState>1</MatchState>
+          <MatchStateMessage>Match for input</MatchStateMessage>
+          <State>WA</State>
+          <MatchCity>2</MatchCity>
+          <MatchCityMessage>No match for input</MatchCityMessage>
+          <City>OLYMPIA</City>
+          <MatchZip>2</MatchZip>
+          <MatchZipMessage>No match for input</MatchZipMessage>
+          <Zip>98504</Zip>
+          <MSA>819</MSA>
+          <Latitude>46.975</Latitude>
+          <Longitude>-122.872</Longitude>
+        </IPAddress>
+        <BankInformation>
+          <InputBankName>washington state employees credit union</InputBankName>
+          <InputABANumber>325181028</InputABANumber>
+          <InputAccountNumber>109005182404</InputAccountNumber>
+          <Valid>Y</Valid>
+          <BankNameMatch>Y</BankNameMatch>
+          <BankName>Washington State Empl CU</BankName>
+        </BankInformation>
+        <NumberRecords>
+          <AddressVerResidentialMatch>2</AddressVerResidentialMatch>
+          <AddressVerBusinessMatch>0</AddressVerBusinessMatch>
+          <PhoneVerResidentialMatch>1</PhoneVerResidentialMatch>
+          <PhoneVerBusinessMatch>0</PhoneVerBusinessMatch>
+          <ResidentialAddressDetRec>2</ResidentialAddressDetRec>
+          <BusinessAddressDetRec>0</BusinessAddressDetRec>
+          <AddressHighRiskDetRec>0</AddressHighRiskDetRec>
+          <AddressHighRiskDescRec>1</AddressHighRiskDescRec>
+          <ResidentialPhoneDetRec>0</ResidentialPhoneDetRec>
+          <BusinessPhoneDetRec>0</BusinessPhoneDetRec>
+          <PhoneHighRiskDetRec>0</PhoneHighRiskDetRec>
+          <PhoneHighRiskDescRet>0</PhoneHighRiskDescRet>
+          <SSNDetailRecords>1</SSNDetailRecords>
+          <COARecords>0</COARecords>
+        </NumberRecords>
+        <AuthenticationScore>628</AuthenticationScore>
+        <CustomDecision>
+          <Result>Y</Result>
+          <Bucket>A1</Bucket>
+        </CustomDecision>
+        <LooseDecision>
+          <Result>R</Result>
+          <Bucket>R3</Bucket>
+        </LooseDecision>
+        <ModerateDecision>
+          <Result>R</Result>
+          <Bucket>R5</Bucket>
+        </ModerateDecision>
+        <ConservativeDecision>
+          <Result>R</Result>
+          <Bucket>R11</Bucket>
+        </ConservativeDecision>
+      </ConsumerIDVerificationSegment>
+      <CRASegment>
+        <Decision>
+          <Result>Y</Result>
+          <Bucket>A1</Bucket>
+        </Decision>
+      </CRASegment>
+      <TLTSegment>
+        <Decision>
+          <Result>N</Result>
+          <Bucket>D1</Bucket>
+        </Decision>
+      </TLTSegment>
+      <GlobalDecision>
+        <Result>N</Result>
+        <IDVBucket>A1</IDVBucket>
+        <CRABucket>A1</CRABucket>
+        <TLTBucket>D1</TLTBucket>
+      </GlobalDecision>
+    </Detail>
+  </Response>
+</DataxResponse>

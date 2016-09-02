@@ -1,0 +1,65 @@
+
+	<func:function name="olp:lc">
+		<xsl:param name="a" />
+		<func:result><xsl:value-of select="translate($a,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')" /></func:result>
+	</func:function>
+
+	<func:function name="olp:parse-y-m-d">
+		<xsl:param name="a" />
+		<xsl:variable name="b" select="str:split($a, '-')" />
+		<xsl:variable name="res">
+			<year>{$b[1]}</year>
+			<month>{$b[2]}</month>
+			<day>{$b[3]}</day>
+		</xsl:variable>
+		<func:result select="exslt:node-set($res)" />
+	</func:function>
+
+	<func:function name="olp:ymd-to-mdy">
+		<xsl:param name="a" />
+		<xsl:variable name="b" select="str:split($a, '-')" />
+		<func:result select="concat($b[2], '/', $b[3], '/', $b[1])" />
+	</func:function>
+
+	<func:function name="olp:time-since">
+		<xsl:param name="a" />
+		<xsl:variable name="sec" select="date:seconds(date:difference($a, date:date()))" />
+		<xsl:variable name="res">
+			<years><xsl:value-of select="floor($sec div 31536000)" /></years>
+			<months><xsl:value-of select="floor(($sec mod 31536000) div 2592000)" /></months>
+		</xsl:variable>	
+		<func:result select="exslt:node-set($res)" />	
+	</func:function>
+
+    <func:function name="olp:cac-payment-method">
+		<xsl:param name="a"/>
+		<func:result>
+			<xsl:choose>
+				<xsl:when test="$a = 'TRUE'">directdeposit</xsl:when>
+				<xsl:otherwise>papercheck</xsl:otherwise>
+			</xsl:choose>
+		</func:result>
+	</func:function>
+
+    <func:function name="olp:cac-payment-frequency">
+		<xsl:param name="a"/>
+		<xsl:variable name="freq"><xsl:value-of select="str:replace($a, '_', '')" /></xsl:variable>
+		<func:result>
+			<xsl:choose>
+				<xsl:when test="$freq = 'TWICE_MONTHLY'">semimonthly</xsl:when>
+				<xsl:otherwise><xsl:value-of select="olp:lc($freq)" /></xsl:otherwise>
+            </xsl:choose>
+		</func:result>
+    </func:function>
+	
+    <func:function name="olp:bool-to-yesno">
+        <xsl:param name="bool" select="'TRUE'" />
+        <func:result>
+            <xsl:choose>
+				<xsl:when test="$bool = 'TRUE'">yes</xsl:when>
+				<xsl:otherwise>no</xsl:otherwise>
+            </xsl:choose>
+		</func:result>
+    </func:function>
+	
+

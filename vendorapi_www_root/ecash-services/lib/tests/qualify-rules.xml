@@ -1,0 +1,284 @@
+<dataset>
+	<company company_id="1" name="US Fast Cash" name_short="ufc" co_entity_type="clk_company"/>
+
+	<loan_type company_id="1" loan_type_id="1" name="Standard Loan Type" name_short="standard"/>
+
+	<rule_set rule_set_id="1" name="Qualify Test Rule Set" loan_type_id="1"/>
+		
+		<rule_component rule_component_id="1" name="Max Re-Activate Loan Amount (Ecash)" name_short="max_react_loan_amount_ecash" grandfathering_enabled="yes"/>
+		<rule_component rule_component_id="2" name="Max Re-Activate Loan Amount (OLP)" name_short="max_react_loan_amount" grandfathering_enabled="yes"/>
+		<rule_component rule_component_id="3" name="New Loan Amount" name_short="new_loan_amount" grandfathering_enabled="yes"/>
+		<rule_component rule_component_id="4" name="Re-Activate Loan Amount Increase" name_short="react_amount_increase" grandfathering_enabled="yes"/>
+		<rule_component rule_component_id="5" name="Service Charge Percentage" name_short="svc_charge_percentage" grandfathering_enabled="yes"/>
+
+		<rule_set_component rule_set_id="1" rule_component_id="1" sequence_no="1"/>
+		<rule_set_component rule_set_id="1" rule_component_id="2" sequence_no="2"/>
+		<rule_set_component rule_set_id="1" rule_component_id="3" sequence_no="3"/>
+		<rule_set_component rule_set_id="1" rule_component_id="4" sequence_no="4"/>
+		<rule_set_component rule_set_id="1" rule_component_id="5" sequence_no="5"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="1" 
+			rule_component_id="1" 
+			parm_name="weekly" 
+			sequence_no="1" 
+			display_name="Weekly" 
+			description="Weekly"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Paydate Model: weekly"
+			value_min="100"
+			value_max="1000"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="1" rule_component_parm_id="1" parm_value="600"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="2" 
+			rule_component_id="1" 
+			parm_name="bi_weekly" 
+			sequence_no="2" 
+			display_name="Bi-Weekly" 
+			description="Bi-Weekly"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Paydate Model: bi-weekly"
+			value_min="100"
+			value_max="1000"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="1" rule_component_parm_id="2" parm_value="600"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="3" 
+			rule_component_id="1" 
+			parm_name="twice_monthly" 
+			sequence_no="3" 
+			display_name="Twice-Monthly" 
+			description="Twice-Monthly"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Paydate Model: twice-monthly"
+			value_min="100"
+			value_max="1000"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="1" rule_component_parm_id="3" parm_value="600"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="4" 
+			rule_component_id="1" 
+			parm_name="monthly" 
+			sequence_no="4" 
+			display_name="Monthly" 
+			description="Monthly"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Paydate Model: monthly"
+			value_min="100"
+			value_max="1000"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="1" rule_component_parm_id="4" parm_value="500"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="5" 
+			rule_component_id="2" 
+			parm_name="800" 
+			sequence_no="1" 
+			display_name="800 - 1199" 
+			description="800 - 1199"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Monthly Income: 800 to 1199 - Max Amount"
+			value_min="100"
+			value_max="500"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="2" rule_component_parm_id="5" parm_value="300"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="6" 
+			rule_component_id="2" 
+			parm_name="1200" 
+			sequence_no="2" 
+			display_name="1200 - 1699" 
+			description="1200 - 1699"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Monthly Income: 1200 to 1699 - Max Amount"
+			value_min="100"
+			value_max="500"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="2" rule_component_parm_id="6" parm_value="400"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="7" 
+			rule_component_id="2" 
+			parm_name="1700" 
+			sequence_no="3" 
+			display_name="1700 - 1999" 
+			description="1700 - 1999"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Monthly Income: 1700 to 1999 - Max Amount"
+			value_min="100"
+			value_max="500"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="2" rule_component_parm_id="7" parm_value="500"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="8" 
+			rule_component_id="2" 
+			parm_name="2000" 
+			sequence_no="4" 
+			display_name="2000 +" 
+			description="2000 +"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Monthly Income: > 2000 - Max Amount"
+			value_min="100"
+			value_max="500"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="2" rule_component_parm_id="8" parm_value="500"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="9" 
+			rule_component_id="3" 
+			parm_name="1200" 
+			sequence_no="1" 
+			display_name="800 - 1199" 
+			description="800 - 1199"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Monthly Income: 800 to 1199 - Max Amount"
+			value_min="100"
+			value_max="500"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="3" rule_component_parm_id="9" parm_value="150"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="10" 
+			rule_component_id="3" 
+			parm_name="1700" 
+			sequence_no="2" 
+			display_name="1200 - 1699" 
+			description="1200 - 1699"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Monthly Income: 1200 to 1699 - Max Amount"
+			value_min="100"
+			value_max="500"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="3" rule_component_parm_id="10" parm_value="200"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="11" 
+			rule_component_id="3" 
+			parm_name="2000" 
+			sequence_no="3" 
+			display_name="1700 - 1999" 
+			description="1700 - 1999"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Monthly Income: 1700 to 1999 - Max Amount"
+			value_min="100"
+			value_max="500"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="3" rule_component_parm_id="11" parm_value="200"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="12" 
+			rule_component_id="3" 
+			parm_name="50000" 
+			sequence_no="4" 
+			display_name="2000 +" 
+			description="2000 +"
+			parm_type="integer" 
+			presentation_type="array"
+			value_label="Dollars"
+			subscript_label="Monthly Income: > 2000 - Max Amount"
+			value_min="100"
+			value_max="500"
+			value_increment="50"
+			length_min="3"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="3" rule_component_parm_id="12" parm_value="300"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="13" 
+			rule_component_id="4" 
+			parm_name="react_loan_amnt_increase" 
+			sequence_no="1" 
+			display_name="React Loan Amount Increase" 
+			description="React Loan Amount Increase"
+			parm_type="integer" 
+			presentation_type="scalar"
+			value_label="Dollars"
+			value_min="10"
+			value_max="100"
+			value_increment="10"
+			length_min="2"
+			length_max="3"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="4" rule_component_parm_id="13" parm_value="50"/>
+
+		<rule_component_parm 
+			rule_component_parm_id="14" 
+			rule_component_id="5" 
+			parm_name="service_charge_percent" 
+			sequence_no="1" 
+			display_name="Service Charge Percent" 
+			description="Service Charge Percent"
+			parm_type="integer" 
+			presentation_type="scalar"
+			value_label="Percent"
+			value_min="1"
+			value_max="30"
+			value_increment="1"
+			length_min="1"
+			length_max="2"/>
+
+		<rule_set_component_parm_value rule_set_id="1" rule_component_id="5" rule_component_parm_id="14" parm_value="30"/>
+
+</dataset>

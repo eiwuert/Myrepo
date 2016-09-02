@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset>
+	<node id="submitPage">
+		<expression type="VendorAPI_CFE_Actions_SetBlackboxConfig">
+			<param name="blackbox_config" type="ECash_CFE_Expression_Variable">blackbox_config</param>
+			<param name="config_variable">test_thing</param>
+			<param name="value">1</param>
+		</expression>
+	</node>
+</ruleset>

@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<dataset>	
+	<table name="blackbox_post">
+    <column>application_id</column>
+    <column>winner</column>
+    <column>date_created</column>
+    <column>success</column>
+    <column>type</column>
+    <column>vendor_decision</column>
+    <row>
+        <value>1</value>
+        <value>aaa</value>
+        <value>2009-07-08 08:02:00</value>
+        <value>FALSE</value>
+        <value>POST</value>
+        <value>REJECTED</value>
+    </row>
+    <row>
+        <value>2</value>
+        <value>aaa</value>
+        <value>2009-07-08 10:02:00</value>
+        <value>TRUE</value>
+        <value>POST</value>
+        <value>ACCEPTED</value>
+    </row>
+    <row>
+        <value>3</value>
+        <value>aaa</value>
+        <value>2009-07-08 10:20:00</value>
+        <value>FALSE</value>
+        <value>POST</value>
+        <value>REJECTED</value>
+    </row>
+    <row>
+        <value>4</value>
+        <value>aaa</value>
+        <value>2009-07-08 10:40:00</value>
+        <value>TRUE</value>
+        <value>POST</value>
+        <value>ACCEPTED</value>
+    </row>
+    <row>
+        <value>5</value>
+        <value>aaa</value>
+        <value>2009-07-08 11:20:00</value>
+        <value>FALSE</value>
+        <value>POST</value>
+        <value>TIMEOUT</value>
+    </row>
+    <row>
+        <value>6</value>
+        <value>aaa</value>
+        <value>2009-07-08 11:40:00</value>
+        <value>FALSE</value>
+        <value>POST</value>
+        <value>TIMEOUT</value>
+    </row>
+    <row>
+        <value>7</value>
+        <value>xxx</value>
+        <value>2009-07-08 10:20:00</value>
+        <value>FALSE</value>
+        <value>POST</value>
+        <value>TIMEOUT</value>
+    </row>
+    <row>
+        <value>8</value>
+        <value>xxx</value>
+        <value>2009-07-08 10:40:00</value>
+        <value>FALSE</value>
+        <value>POST</value>
+        <value>TIMEOUT</value>
+    </row>
+	</table>
+	
+	<table name="campaign_shutoff_config">
+    <column>campaign_shutoff_config_id</column>
+    <column>name</column>
+    <column>value</column>
+    <row>
+        <value>1</value>
+        <value>global_alert_list</value>
+        <value>test1@sellingsource.com,test2@sellingsource.com</value>
+    </row>
+    <row>
+        <value>2</value>
+        <value>ignored_campaigns</value>
+        <value>xxx</value>
+    </row>
+    <row>
+        <value>3</value>
+        <value>min_timeouts</value>
+        <value>2</value>
+    </row>
+    <row>
+        <value>4</value>
+        <value>recent_timeouts</value>
+        <value>1</value>
+    </row>
+    <row>
+        <value>5</value>
+        <value>accept_rate</value>
+        <value>.5</value>
+    </row>
+	</table>
+</dataset>

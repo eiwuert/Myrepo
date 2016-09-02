@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<phpunit
+	bootstrap="./bootstrap.php">
+	<testsuite name="Libolution Test Suite">
+		<directory>.</directory>
+	</testsuite>
+  <filter>
+    <whitelist>
+        <directory>..</directory>
+				<exclude>
+					<directory>.</directory>
+					<directory>../examples</directory>
+				</exclude>
+    </whitelist>
+  </filter>
+</phpunit>

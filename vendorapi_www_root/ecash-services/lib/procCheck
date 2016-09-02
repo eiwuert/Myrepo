@@ -1,0 +1,14 @@
+#!/bin/bash
+
+PS=`ps -ef --cols=300 | grep statProScrub.php | grep -v grep | wc -l`
+if [ "$PS" -eq 0 ]; then
+        echo "Restarting statProScrub"
+        (cd /virtualhosts/lib/ ; php statProScrub.php >/dev/null 2>&1 &)
+fi
+
+PS=`ps -ef --cols=300 | grep enterpriseProScrub.php | grep -v grep | wc -l`
+if [ "$PS" -eq 0 ]; then
+        echo "Restarting enterpriseProScrub"
+        (cd /virtualhosts/lib/ ; php enterpriseProScrub.php >/dev/null 2>&1 &)
+fi
+

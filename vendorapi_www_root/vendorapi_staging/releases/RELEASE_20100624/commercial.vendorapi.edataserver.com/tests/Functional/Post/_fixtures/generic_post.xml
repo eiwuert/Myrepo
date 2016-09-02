@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<dataset>
+	<table name="bureau">
+		<column>date_created</column>
+		<column>date_modified</column>
+		<column>active_status</column>
+		<column>bureau_id</column>
+		<column>name</column>
+		<column>name_short</column>
+		<row>
+			<value>2005-06-28 16:17:33</value>
+			<value>2005-04-20 23:01:09</value>
+			<value>active</value>
+			<value>2</value>
+			<value>DataX</value>
+			<value>datax</value>
+		</row>
+	</table>
+	<table name="loan_type">
+		<column>loan_type_id</column>
+		<column>name_short</column>
+		<column>company_id</column>
+		<row>
+			<value>1</value>
+			<value>standard</value>
+			<value>2</value>
+		</row>
+	</table>
+	<table name="rule_set">
+		<column>rule_set_id</column>
+		<column>loan_type_id</column>
+		<row>
+			<value>277</value>
+			<value>1</value>
+		</row>
+	</table>
+	<table name="rule_component">
+		<column>rule_component_id</column>
+		<column>name_short</column>
+		<row>
+			<value>1</value>
+			<value>react_amount_increase</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>new_loan_amount</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>max_react_loan_amount</value>
+		</row>
+	</table>
+	<table name="rule_component_parm">
+		<column>rule_component_parm_id</column>
+		<column>parm_name</column>
+		<row>
+			<value>1</value>
+			<value>junk</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>800</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>1000</value>
+		</row>
+	</table>
+	<table name="rule_set_component">
+		<column>rule_set_id</column>
+		<column>rule_component_id</column>
+		<row>
+			<value>277</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>277</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>277</value>
+			<value>3</value>
+		</row>
+	</table>
+	<table name="rule_set_component_parm_value">
+		<column>rule_component_parm_id</column>
+		<column>rule_component_id</column>
+		<column>rule_set_id</column>
+		<column>parm_value</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>277</value>
+			<value>set</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2</value>
+			<value>277</value>
+			<value>300</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>2</value>
+			<value>277</value>
+			<value>300</value>
+		</row>
+		<row>
+			<value>1</value>
+			<value>3</value>
+			<value>277</value>
+			<value>set</value>
+		</row>
+	</table>
+
+	<table name="site">
+		<column>site_id</column>
+		<column>name</column>
+		<column>license_key</column>
+		<row>
+			<value>2</value>
+			<value>rc.oneclickcash.com</value>
+			<value>1f1baa5b8edac74eb4eaa329f14a03610a2177d7a01cd1a59258c95fdb31f87b</value>
+		</row>
+	</table>
+	<table name="company_property">
+		<column>company_id</column>
+		<column>property</column>
+		<column>value</column>
+		<row>
+			<value>2</value>
+			<value>ENTERPRISE_SITE_LICENSE_KEY</value>
+			<value>1f1baa5b8edac74eb4eaa329f14a03610a2177d7a01cd1a59258c95fdb31f87b</value>
+		</row>
+	</table>
+
+	<table name="application_contact_category">
+		<column>application_contact_category_id</column>
+		<column>company_id</column>
+		<column>column_name</column>
+		<column>category</column>
+		<row>
+			<value>7</value>
+			<value>2</value>
+			<value>phone_home</value>
+			<value>Home Phone</value>
+		</row>
+		<row>
+			<value>8</value>
+			<value>2</value>
+			<value>phone_work</value>
+			<value>Work Phone</value>
+		</row>
+		<row>
+			<value>9</value>
+			<value>2</value>
+			<value>phone_cell</value>
+			<value>Cell Phone</value>
+		</row>
+		<row>
+			<value>10</value>
+			<value>2</value>
+			<value>phone_fax</value>
+			<value>Fax</value>
+		</row>
+	</table>
+</dataset>

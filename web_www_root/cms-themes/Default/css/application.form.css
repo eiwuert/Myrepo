@@ -1,0 +1,320 @@
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+/*form styles*/
+#application_form {
+}
+#application_form fieldset {
+	background: white;
+	border: 0 none;
+	width: 100%;
+	
+}
+/*Hide all except first fieldset*/
+#application_form fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#application_form input {
+	padding: 5px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	width: 98%;
+	height: 20px;
+	color: #2C3E50;
+	font-size: 13px;
+	display: inline-block;
+}
+/*textarea*/
+#application_form textarea select, #paydate_widget{
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        font-family: montserrat;
+        color: #2C3E50;
+        font-size: 13px;
+}
+
+/*buttons*/
+#application_form .action-button {
+	width: 50%;
+	cursor: pointer;
+	background: #11adfd; /* Old browsers */
+	background: -moz-linear-gradient(top,  #11adfd 0%, #045394 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#11adfd), color-stop(100%,#045394)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #11adfd 0%,#045394 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #11adfd 0%,#045394 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #11adfd 0%,#045394 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #11adfd 0%,#045394 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#11adfd', endColorstr='#045394',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #035091;
+	border-radius: 5px;
+	padding: 0 15px;
+	height: 38px;
+	display: inline-block;
+	font: bold 16px/32px Verdana, Arial, sans-serif;
+	color: #cdeeff;
+	text-shadow: 0 -1px #045698, 0 1px #fff;
+	text-transform: uppercase;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+	cursor: pointer;
+	float: right;
+}
+
+#application_form .action-button.no_thanks {
+	background: #FC2623; /* Old browsers */
+	background: -moz-linear-gradient(top,  #FC2623 0%, #930009 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FC2623), color-stop(100%,#930009)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #FC2623 0%,#930009 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #FC2623 0%,#930009 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #FC2623 0%,#930009 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #FC2623 0%,#930009 100%); /* W3C */
+}
+
+#application_form .action-button:hover, #application_form .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+
+/*headings*/
+.fs-title {
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #000;
+	margin-bottom: 5px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 11px;
+	color: #000;
+	margin-bottom: 10px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 10px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	text-transform: uppercase;
+	font-size: 10px;
+	width: 14.285%;
+	float: left;
+	position: relative;
+	text-align: center;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: #eee;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after {
+	background: #27AE60;
+	color: white;
+}
+
+.fill_spot {
+	float: right;
+	width : 40%;
+	margin: 0px;
+}
+
+.ui-widget,.ui-datepicker {
+        color: #2C3E50 !important;
+        font-size: 13px !important;
+	float : center;
+}
+.military, .income_source, .direct_deposit, .bank_type {
+        font-size: 13px !important;
+}
+input[type=radio], input.radio { 
+ 	float:center;
+ 	clear:none; 
+ 	margin: 2px 0 0 2px !important;
+	width: 10px !important;
+}
+.military_answer, .direct_deposit_answer {
+	width: 30%;
+	display: block;
+	margin:0px auto;
+	float:center;
+}
+.income_source_answer, .bank_type_answer {
+	width: 40%;
+	display: block;
+	margin:0px auto;
+	float:center;
+}
+.check_image {        
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+.ref_01_relationship {
+	width : 98% !important;
+}
+
+.ref_02_relationship {
+        width : 98% !important;
+}
+
+.all_space {
+	width : 100% !important;
+}
+
+.most_space {
+	width : 55% !important;
+}
+
+.some_space {
+	width : 45% !important;
+}
+
+.full_space {
+	width : 98% !important;
+}
+.half_space{
+        width: 47.7% !important;
+}
+.half_space_select{
+        width: 47.5% !important;
+}
+.qrtr_space {
+	width : 24% !important;
+}
+.eith_space {
+	width : 17% !important;
+}
+.thei_space {
+	width : 28% !important;
+}
+.qrth_space {
+	width : 20% !important;
+}
+
+.dbl_tall {
+	height: 76px !important;
+}
+
+.pretty_select {
+/*	width: 48% !important;  */
+	margin-right: 0;
+	margin-bottom: 5px;
+}
+.right_side {
+	float: right !important;
+}
+.left_side {
+	float: left !important;
+}
+.center_side {
+	margin: auto;
+	float: none !important;
+}
+.center_button {
+	margin: 0 auto;
+	text-align: center;
+}
+p.waiting_text {
+	width: 300px;
+	margin: auto;
+}
+img.waiting_image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+div.waiting_page {
+	width: 431px;
+	height: 191px;
+	min-height: 10em;
+	vertical-align: middle;
+	background-image: url(../images/rotate.png);
+	background-position: center center;
+	background-repeat:no-repeat;
+	position:inherit;
+	float:inherit;
+}
+
+.waiting_page_tbl {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.waiting_page_td {
+	vertical-align: middle;
+	text-align: center;
+}
+	
+.captcha {
+	float : center;
+}
+.esig_arrow {
+	position: relative;
+	top: -10px;
+}
+.esig_checkbox {
+	position: relative;
+	top: 5px;
+	margin: 10px;	
+}
+#application_form td input[type="checkbox"] {
+    float: left;
+    margin: 0 auto;
+    width: 100%;
+}
+.label_cell{
+	text-align: right;
+	margin-right: 10px;
+	pad-right: 10px;
+	width: 20%;
+	font-size: 12px;
+}
+.input_cell{
+	width: 40%;
+}
+.merge_cell{
+	width: 60%;
+	margin-left: 160px;
+}
+.section_label{
+	margin-left: 50px;
+}
+.ap_table{
+	width: 70%;
+}
+.hide {
+	display:	none ;
+}
+

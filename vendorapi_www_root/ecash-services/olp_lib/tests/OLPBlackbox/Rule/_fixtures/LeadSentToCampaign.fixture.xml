@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="personal_encrypted">
+		<column>application_id</column>
+		<column>social_security_number</column>
+		<column>email</column>
+		<row>
+			<value>1</value>
+			<value>800991111</value>
+			<value>1@tssmasterd.com</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>800991111</value>
+			<value>312423@tssmasterd.com</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>800991113</value>
+			<value>2@tssmasterd.com</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>800991151</value>
+			<value>2@tssmasterd.com</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>800991113</value>
+			<value>3496234@tssmasterd.com</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>800991123</value>
+			<value>2@tssmasterd.com</value>
+		</row>
+	</table>
+	<table name="blackbox_post">
+		<column>application_id</column>
+		<column>date_created</column>
+		<column>winner</column>
+		<row>
+			<value>1</value>
+			<value>2009-11-10 07:00:00</value>
+			<value>pp1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2009-11-09 15:31:21</value>
+			<value>pp2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>2009-11-10 07:00:00</value>
+			<value>pp1</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>2009-11-09 13:31:21</value>
+			<value>pp2</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>2009-10-01 16:43:21</value>
+			<value>pp1</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>2009-10-01 12:31:21</value>
+			<value>pp2</value>
+		</row>
+	</table>
+</dataset>

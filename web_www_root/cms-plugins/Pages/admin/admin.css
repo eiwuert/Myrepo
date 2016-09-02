@@ -1,0 +1,68 @@
+
+/* Site Structure CSS */
+.placeholder {
+	background-color: #cfcfcf;
+	width: 150px;
+}
+
+.ui-nestedSortable-error {
+	background:#ff0000;
+	color:#8a1f11;
+}
+
+ol {
+	margin: 0;
+	padding: 0;
+	padding-left: 30px;
+}
+
+#not_on_menu {
+	width:auto !important;
+}
+
+#not_on_menu.placeholder {
+	background-color: #cfcfcf;
+	width: 150px;
+}
+
+#not_on_menu li {
+	float: left !important;
+	width: 150px;
+	margin: 5px;
+}
+
+#not_on_menu li div{
+	width: 150px !important;
+}
+
+ol.sortable, ol.sortable ol {
+	margin: 0 0 0 100px;
+	padding: 0;
+	list-style-type: none;
+	width: 150px;
+}
+
+ol.sortable {
+	margin: 0;
+}
+
+.sortable li {
+	margin: 7px 0 0 0;
+	padding: 0;
+}
+
+.sortable li div  {
+	background: #FFF7AA;
+	border: 2px solid #E3CA4B;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	color: black;
+	display: block;
+	font-weight: bold;
+	margin: 0 20px 0 0;
+	padding: 10px 0;
+	text-align: center;
+	font-family: "Trebuchet MS";
+	font-size: 13px;
+}
+

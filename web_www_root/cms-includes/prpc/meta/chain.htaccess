@@ -1,0 +1,12 @@
+php_flag register_globals off
+php_flag magic_quotes_gpc off
+php_flag magic_quotes_runtime off
+
+<Files ~ vendor|property|llama >
+	ForceType application/x-httpd-php
+</Files>
+
+RewriteEngine  on
+RewriteBase    /
+RewriteRule    ^(chain_server\.(\d)\.php)$           chain_server.php?cs=$1  [L]
+

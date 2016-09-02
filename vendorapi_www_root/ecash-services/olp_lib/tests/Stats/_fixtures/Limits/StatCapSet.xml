@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <table name="stat_limits">
+    <column>stat_date</column>
+    <column>stat_name</column>
+    <column>site_id</column>
+    <column>promo_id</column>
+    <column>vendor_id</column>
+    <column>count</column>
+    <row>
+    	<value>2009-09-06</value>
+    	<value>daily</value>
+    	<value></value>
+    	<value>324</value>
+    	<value></value>
+    	<value>1000</value>
+   </row>
+   <row>
+    	<value>2009-09-06</value>
+    	<value>weekly</value>
+    	<value></value>
+    	<value>324</value>
+    	<value></value>
+    	<value>50</value>
+   </row>
+   <row>
+    	<value>2009-09-07</value>
+    	<value>weekly</value>
+    	<value></value>
+    	<value>324</value>
+    	<value></value>
+    	<value>50</value>
+   </row>
+   <row>
+    	<value>2009-09-08</value>
+    	<value>weekly</value>
+    	<value></value>
+    	<value>324</value>
+    	<value></value>
+    	<value>25</value>
+   </row>
+ </table>
+</dataset>

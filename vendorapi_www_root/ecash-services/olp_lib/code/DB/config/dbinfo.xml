@@ -1,0 +1,866 @@
+<?xml version="1.0"?>
+<olp>
+	<dbinfo>
+		<olp>
+			<accounts>
+				<live>
+					<username>olp</username>
+					<password>password</password>
+					<database>olp</database>
+					<db_type>mysql</db_type>
+				</live>
+				<development>
+					<username>olp</username>
+					<password>password</password>
+					<database>olp</database>
+					<db_type>mysql</db_type>
+				</development>
+			</accounts>
+			<hosts>
+				<live>
+					<host>writer.olp.ept.tss</host>
+				</live>
+				<slave>
+					<host>reporting1.olp.ept.tss</host>
+				</slave>
+				<report>
+					<host>reporting.olp.ept.tss</host>
+				</report>
+				<archive>
+					<host>analytics.tss</host>
+					<port>3307</port>
+					<database>olp_200905</database>
+				</archive>
+				<reportproxy>
+					<host>reporting.dbproxy.tss</host>
+					<port>3314</port>
+				</reportproxy>
+				<rc>
+					<host>db101.ept.tss</host>
+					<port>3317</port>
+					<database>rc_olp</database>
+				</rc>
+				<local>
+					<host>monster.tss</host>
+					<port>3326</port>
+				</local>
+				<qa_manual>
+					<host>db1.qa.tss</host>
+					<port>3307</port>
+					<database>qa_olp</database>
+				</qa_manual>
+				<qa2_manual>
+					<host>db1.qa.tss</host>
+					<port>3307</port>
+					<database>qa2_olp</database>
+				</qa2_manual>
+				<qa_semiautomated>
+					<host>db1.qa.tss</host>
+					<port>3309</port>
+					<database>saqa_olp</database>
+				</qa_semiautomated>
+				<qa_automated>
+					<host>db1.qa.tss</host>
+					<port>3309</port>
+					<database>aqa_olp</database>
+				</qa_automated>
+			</hosts>
+			<environments>
+				<live>
+					<account>live</account>
+					<host>live</host>
+				</live>
+				<live_readonly extends="live" />
+				<staging extends="live" />
+				<staging_readonly extends="live" />
+				<slave extends="live">
+					<host>slave</host>
+				</slave>
+				<report extends="live">
+					<host>report</host>
+				</report>
+				<archive extends="live">
+					<host>archive</host>
+				</archive>
+				<rc>
+					<account>development</account>
+					<host>rc</host>
+				</rc>
+				<rc_readonly extends="rc" />
+				<local extends="rc">
+					<host>local</host>
+				</local>
+				<local_readonly extends="local" />
+				<qa_manual extends="rc">
+					<host>qa_manual</host>
+				</qa_manual>
+				<qa2_manual extends="rc">
+					<host>qa2_manual</host>
+				</qa2_manual>
+				<qa_semiautomated extends="rc">
+					<host>qa_semiautomated</host>
+				</qa_semiautomated>
+				<qa_automated extends="rc">
+					<host>qa_automated</host>
+				</qa_automated>
+			</environments>
+		</olp>
+		
+		<olpschema>
+			<accounts extends="/dbinfo/olp/accounts">
+				<live>
+					<database>information_schema</database>
+				</live>
+				<development>
+					<database>information_schema</database>
+				</development>
+			</accounts>
+			<hosts extends="/dbinfo/olp/hosts" />
+			<environments extends="/dbinfo/olp/environments" />
+		</olpschema>
+		
+		<olpblackbox>
+			<accounts extends="/dbinfo/olp/accounts">
+				<live>
+					<database>olp_blackbox</database>
+				</live>
+				<development>
+					<database>olp_blackbox</database>
+				</development>
+			</accounts>
+			<hosts extends="/dbinfo/olp/hosts">
+				<archive>
+					<database>olp_blackbox</database>
+				</archive>
+				<rc extends="/dbinfo/olp/hosts/rc">
+					<database extends="/dbinfo/olpblackbox/accounts/development/database" />
+				</rc>
+				<qa_manual extends="rc" />
+				<qa2_manual extends="rc" />
+				<qa_semiautomated extends="rc" />
+				<qa_automated extends="rc" />
+			</hosts>
+			<environments extends="/dbinfo/olp/environments" />
+		</olpblackbox>
+		
+		<olpsession>
+			<accounts extends="/dbinfo/olp/accounts" />
+			<hosts extends="/dbinfo/olp/hosts">
+				<live>
+					<host>writer.olpsession.ept.tss</host>
+				</live>
+				<slave extends="live" />
+				<report>
+					<host>reporting.olpsession.ept.tss</host>
+					<port>3311</port>
+				</report>
+				<archive extends="report" />
+				<rc>
+					<database extends="/dbinfo/olpsession/accounts/development/database" />
+					<port>3319</port>
+				</rc>
+				<local>
+					<port>3327</port>
+				</local>
+			</hosts>
+			<environments extends="/dbinfo/olp/environments" />
+		</olpsession>
+		
+		<olpmanagement>
+			<accounts extends="/dbinfo/olp/accounts">
+				<live>
+					<database>management</database>
+				</live>
+				<development>
+					<database>management</database>
+				</development>
+			</accounts>
+			<hosts extends="/dbinfo/olp/hosts">
+				<rc extends="/dbinfo/olp/hosts/rc" />
+				<qa_manual extends="rc" />
+				<qa2_manual extends="rc" />
+				<qa_automated extends="rc" />
+				<qa_semiautomated extends="rc" />
+			</hosts>
+			<environments extends="/dbinfo/olp/environments" />
+		</olpmanagement>
+		
+		<sitetype>
+			<accounts extends="/dbinfo/olp/accounts">
+				<live>
+					<database>olp_site_types</database>
+				</live>
+				<development>
+					<database>olp_site_types</database>
+				</development>
+			</accounts>
+			<hosts extends="/dbinfo/olp/hosts">
+				<rc extends="/dbinfo/olp/hosts/rc">
+					<database>rc_olp_site_types</database>
+				</rc>
+				<qa_manual extends="rc" />
+				<qa2_manual extends="rc" />
+				<qa_automated extends="rc" />
+				<qa_semiautomated extends="rc" />
+			</hosts>
+			<environments extends="/dbinfo/olp/environments" />
+		</sitetype>
+		
+		<statpro>
+			<accounts>
+				<live>
+					<username>olp</username>
+					<password>password</password>
+					<database>sp2</database>
+					<db_type>mysql</db_type>
+				</live>
+				<development>
+					<username>olp</username>
+					<password>password</password>
+					<database>sp2</database>
+					<db_type>mysql</db_type>
+				</development>
+			</accounts>
+			<hosts>
+				<live>
+					<host>readers.statpro2.ept.tss</host>
+					<port>3307</port>
+				</live>
+				<live_readonly extends="live" />
+				<slave extends="live" />
+				<report>
+					<host>reporting.statpro2.ept.tss</host>
+					<port>3307</port>
+				</report>
+				<archive extends="report" />
+				<rc>
+					<host>db101.clkonline.com</host>
+					<port>3325</port>
+				</rc>
+				<rc_readonly extends="rc" />
+				<local extends="rc" />
+				<local_readonly extends="rc" />
+				<qa_manual extends="rc" />
+				<qa2_manual extends="rc" />
+				<qa_automated extends="rc" />
+				<qa_semiautomated extends="rc" />
+			</hosts>
+			<environments extends="/dbinfo/olp/environments" />
+		</statpro>
+		
+		<condor>
+			<accounts>
+				<live>
+					<username>condor</username>
+					<password>password</password>
+					<database>condor</database>
+					<db_type>mysql</db_type>
+				</live>
+				<rc>
+					<username>condor</username>
+					<password>password</password>
+					<database>condor</database>
+					<db_type>mysql</db_type>
+				</rc>
+			</accounts>
+			<hosts>
+				<live>
+					<host>reader.condor2.ept.tss</host>
+					<port>3308</port>
+				</live>
+				<rc>
+					<host>db101.ept.tss</host>
+					<port>3313</port>
+				</rc>
+				<local>
+					<host>monster.tss</host>
+					<port>3311</port>
+				</local>
+			</hosts>
+			<environments>
+				<live>
+					<account>live</account>
+					<host>live</host>
+				</live>
+				<slave extends="live" />
+				<report extends="live" />
+				<rc>
+					<account>rc</account>
+					<host>rc</host>
+				</rc>
+				<qa_manual extends="rc" />
+				<qa2_manual extends="rc" />
+				<qa_automated extends="rc" />
+				<qa_semiautomated extends="rc" />
+				<local>
+					<account>live</account>
+					<host>local</host>
+				</local>
+			</environments>
+		</condor>
+		
+		<ocs>
+			<accounts>
+				<live>
+					<username>ocs_resvn</username>
+					<password>password</password>
+					<database>ocs</database>
+					<db_type>mysql</db_type>
+				</live>
+				<rc>
+					<username>ocs_resvn</username>
+					<password>password</password>
+					<database>ocs</database>
+					<db_type>mysql</db_type>
+				</rc>
+				<development extends="/dbinfo/olp/accounts/development">
+					<database>ocs</database>
+				</development>
+			</accounts>
+			<hosts>
+				<live>
+					<host>writer.olp.ept.tss</host>
+				</live>
+				<rc>
+					<host>db101.ept.tss</host>
+					<port>3317</port>
+				</rc>
+				<local extends="/dbinfo/olp/hosts/local" />
+			</hosts>
+			<environments>
+				<live>
+					<account>live</account>
+					<host>live</host>
+				</live>
+				<live_readonly extends="live" />
+				<staging extends="live" />
+				<staging_readonly extends="live" />
+				<slave extends="live" />
+				<report extends="live" />
+				<rc>
+					<account>rc</account>
+					<host>rc</host>
+				</rc>
+				<rc_readonly extends="rc" />
+				<qa_manual extends="rc" />
+				<qa2_manual extends="rc" />
+				<qa_automated extends="rc" />
+				<qa_semiautomated extends="rc" />
+				<local>
+					<account>development</account>
+					<host>local</host>
+				</local>
+				<local_readonly extends="local" />
+			</environments>
+		</ocs>
+		
+		<enterprise>
+			<base>
+				<clk>
+					<accounts>
+						<live>
+							<username>olp</username>
+							<password>password</password>
+							<database>ldb</database>
+							<db_type>mysqli</db_type>
+						</live>
+						<development>
+							<username>ecash</username>
+							<password>password</password>
+							<database />
+							<db_type>mysqli</db_type>
+						</development>
+						<qa_manual extends="development">
+							<database />
+						</qa_manual>
+						<qa2_manual extends="development">
+							<database />
+						</qa2_manual>
+					</accounts>
+					<hosts>
+						<rc>
+							<host>db117.ept.tss</host>
+							<port>3306</port>
+						</rc>
+						<rc_readonly extends="rc" />
+						<qa_manual extends="rc" />
+						<qa2_manual extends="rc" />
+						<local extends="rc" />
+						<local_readonly extends="local" />
+					</hosts>
+					<environments>
+						<live>
+							<account>live</account>
+							<host>live</host>
+						</live>
+						<staging extends="live" />
+						<live_readonly extends="live">
+							<host>live_readonly</host>
+						</live_readonly>
+						<staging_readonly extends="live_readonly" />
+						<slave extends="live">
+							<host>slave</host>
+						</slave>
+						<qa_manual>
+							<account>qa_manual</account>
+							<host>qa_manual</host>
+						</qa_manual>
+						<qa2_manual>
+							<account>qa2_manual</account>
+							<host>qa2_manual</host>
+						</qa2_manual>
+						<rc>
+							<account>development</account>
+							<host>rc</host>
+						</rc>
+						<rc_readonly extends="rc" />
+						<local extends="rc" />
+						<local_readonly extends="local" />
+					</environments>
+				</clk>
+				<commercial>
+					<accounts>
+						<live>
+							<username>olp</username>
+							<password>password</password>
+							<database />
+							<db_type>mysqli</db_type>
+						</live>
+						<qa>
+							<username>olp</username>
+							<password>password</password>
+							<database />
+							<db_type>mysqli</db_type>
+						</qa>
+						<development>
+							<username>olp</username>
+							<password>password</password>
+							<database />
+							<db_type>mysqli</db_type>
+						</development>
+					</accounts>
+					<hosts>
+						<rc>
+							<host>db101.ept.tss</host>
+							<port>3308</port>
+						</rc>
+						<rc_readonly extends="rc" />
+						<local extends="rc" />
+						<local_readonly extends="local" />
+						<qa_manual>
+							<host>db1.qa.tss</host>
+							<port>3306</port>
+						</qa_manual>
+						<qa_automated extends="qa_manual">
+							<port>3308</port>
+						</qa_automated>
+						<qa_semiautomated extends="qa_automated">
+							<port>3310</port>
+						</qa_semiautomated>
+					</hosts>
+					<environments>
+						<live>
+							<account>live</account>
+							<host>live</host>
+						</live>
+						<staging extends="live" />
+						<live_readonly extends="live">
+							<host>live_readonly</host>
+						</live_readonly>
+						<staging_readonly extends="live_readonly" />
+						<slave extends="live">
+							<host>slave</host>
+						</slave>
+						<rc>
+							<account>development</account>
+							<host>rc</host>
+						</rc>
+						<rc_readonly extends="rc" />
+						<local extends="rc" />
+						<local_readonly extends="local" />
+						<qa_manual>
+							<account>qa</account>
+							<host>qa_manual</host>
+						</qa_manual>
+						<qa_automated extends="qa_manual">
+							<host>qa_automated</host>
+						</qa_automated>
+						<qa_semiautomated extends="qa_manual">
+							<host>qa_semiautomated</host>
+						</qa_semiautomated>
+					</environments>
+				</commercial>
+			</base>
+			<companies>
+				<_default extends="clk" />
+				<clk>
+					<ca>
+						<accounts extends="/dbinfo/enterprise/base/clk/accounts">
+							<development>
+								<database>ldb_aml</database>
+							</development>
+							<qa_manual extends="development">
+								<database>ldb_qa_aml</database>
+							</qa_manual>
+							<qa2_manual extends="development">
+								<database>ldb_qa2_aml</database>
+							</qa2_manual>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/base/clk/hosts">
+							<live>
+								<host>writer.ecashca.ept.tss</host>
+								<port>3306</port>
+							</live>
+							<live_readonly>
+								<host>reader.ecashcaolp.ept.tss</host>
+								<port>3307</port>
+							</live_readonly>
+							<slave>
+								<host>reader.ecashca.ept.tss</host>
+								<port>3306</port>
+							</slave>
+						</hosts>
+						<environments extends="/dbinfo/enterprise/base/clk/environments" />
+					</ca>
+					<d1>
+						<accounts extends="/dbinfo/enterprise/base/clk/accounts">
+							<development>
+								<database>ldb_5fc</database>
+							</development>
+							<qa_manual>
+								<database>ldb_qa_5fc</database>
+							</qa_manual>
+							<qa2_manual>
+								<database>ldb_qa2_5fc</database>
+							</qa2_manual>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/base/clk/hosts">
+							<live>
+								<host>writer.ecash3d1.ept.tss</host>
+								<port>3306</port>
+							</live>
+							<live_readonly>
+								<host>reader.ecashd1olp.ept.tss</host>
+								<port>3306</port>
+							</live_readonly>
+							<slave>
+								<host>reader.ecash3d1.ept.tss</host>
+								<port>3306</port>
+							</slave>
+						</hosts>
+						<environments extends="/dbinfo/enterprise/base/clk/environments" />
+					</d1>
+					<pcl>
+						<accounts extends="/dbinfo/enterprise/base/clk/accounts">
+							<development>
+								<database>ldb_occ</database>
+							</development>
+							<qa_manual>
+								<database>ldb_qa_occ</database>
+							</qa_manual>
+							<qa2_manual>
+								<database>ldb_qa2_occ</database>
+							</qa2_manual>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/base/clk/hosts">
+							<live>
+								<host>writer.ecashpcl.ept.tss</host>
+								<port>3306</port>
+							</live>
+							<live_readonly>
+								<host>reader.ecashpclolp.ept.tss</host>
+								<port>3308</port>
+							</live_readonly>
+							<slave>
+								<host>reader.ecashpcl.ept.tss</host>
+								<port>3306</port>
+							</slave>
+						</hosts>
+						<environments extends="/dbinfo/enterprise/base/clk/environments" />
+					</pcl>
+					<ucl>
+						<accounts extends="/dbinfo/enterprise/base/clk/accounts">
+							<development>
+								<database>ldb_ucl</database>
+							</development>
+							<qa_manual>
+								<database>ldb_qa_ucl</database>
+							</qa_manual>
+							<qa2_manual>
+								<database>ldb_qa2_ucl</database>
+							</qa2_manual>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/base/clk/hosts">
+							<live>
+								<host>writer.ecashucl.ept.tss</host>
+								<port>3306</port>
+							</live>
+							<live_readonly>
+								<host>reader.ecashuclolp.ept.tss</host>
+								<port>3308</port>
+							</live_readonly>
+							<slave>
+								<host>reader.ecashucl.ept.tss</host>
+								<port>3306</port>
+							</slave>
+						</hosts>
+						<environments extends="/dbinfo/enterprise/base/clk/environments" />
+					</ucl>
+					<ufc>
+						<accounts extends="/dbinfo/enterprise/base/clk/accounts">
+							<development>
+								<database>ldb_ufc</database>
+							</development>
+							<qa_manual>
+								<database>ldb_qa_ufc</database>
+							</qa_manual>
+							<qa2_manual>
+								<database>ldb_qa2_ufc</database>
+							</qa2_manual>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/base/clk/hosts">
+							<live>
+								<host>writer.ecashufc.ept.tss</host>
+								<port>3306</port>
+							</live>
+							<live_readonly>
+								<host>reader.ecashufcolp.ept.tss</host>
+								<port>3307</port>
+							</live_readonly>
+							<slave>
+								<host>reader.ecashufc.ept.tss</host>
+								<port>3306</port>
+							</slave>
+						</hosts>
+						<environments extends="/dbinfo/enterprise/base/clk/environments" />
+					</ufc>
+					<_default extends="ufc" />
+				</clk>
+				<generic>
+					<_default>
+						<accounts extends="/dbinfo/enterprise/base/commercial/accounts">
+							<live>
+								<database>ldb_generic</database>
+							</live>
+							<qa>
+								<database>ldb_generic</database>
+							</qa>
+							<development>
+								<database>ldb_generic</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/base/commercial/hosts">
+							<live>
+								<host>writer.ecashaalm.ept.tss</host>
+								<port>3306</port>
+							</live>
+							<slave>
+								<host>failover.ecashaalmolp.ept.tss</host>
+								<port>3306</port>
+							</slave>
+							<live_readonly>
+								<host>reader.ecashaalmolp.ept.tss</host>
+								<port>3308</port>
+							</live_readonly>
+						</hosts>
+						<environments extends="/dbinfo/enterprise/base/commercial/environments" />
+					</_default>
+				</generic>
+				<agean>
+					<_default>
+						<accounts extends="/dbinfo/enterprise/base/commercial/accounts">
+							<live>
+								<database>ldb_agean</database>
+							</live>
+							<qa>
+								<database>ldb_agean</database>
+							</qa>
+							<development>
+								<database>ldb_agean</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/base/commercial/hosts">
+							<live>
+								<host>writer.ecashagean.ept.tss</host>
+								<port>3306</port>
+							</live>
+							<slave>
+								<host>failover.ecashageanolp.ept.tss</host>
+								<port>3306</port>
+							</slave>
+							<live_readonly>
+								<host>reader.ecashageanolp.ept.tss</host>
+								<port>3307</port>
+							</live_readonly>
+						</hosts>
+						<environments extends="/dbinfo/enterprise/base/commercial/environments" />
+					</_default>
+				</agean>
+				<dmp>
+					<_default>
+						<accounts extends="/dbinfo/enterprise/base/commercial/accounts">
+							<live>
+								<database>ldb_mcc</database>
+							</live>
+							<qa>
+								<database>ldb_mcc</database>
+							</qa>
+							<development>
+								<database>ldb_mcc</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/companies/generic/_default/hosts" />
+						<environments extends="/dbinfo/enterprise/base/commercial/environments" />
+					</_default>
+				</dmp>
+				<hms>
+					<_default>
+						<accounts extends="/dbinfo/enterprise/base/commercial/accounts">
+							<live>
+								<username>olp</username>
+								<password>password</password>
+								<database>ldb_hms</database>
+								<db_type>mysqli</db_type>
+							</live>
+							<qa>
+								<database>ldb_hms</database>
+							</qa>
+							<development>
+								<database>ldb_hms</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/base/commercial/hosts">
+							<live>
+								<host>writer.hms.ept.tss</host>
+								<port>3306</port>
+							</live>
+							<slave>
+								<host>failover.hmsolp.ept.tss</host>
+								<port>3306</port>
+							</slave>
+							<live_readonly>
+								<host>reader.hmsolp.ept.tss</host>
+								<port>3309</port>
+							</live_readonly>
+						</hosts>
+						<environments extends="/dbinfo/enterprise/base/commercial/environments" />
+					</_default>
+				</hms>
+				<impact>
+					<_default>
+						<accounts extends="/dbinfo/enterprise/base/commercial/accounts">
+							<live>
+								<password>password</password>
+								<database>ldb_impact</database>
+							</live>
+							<qa>
+								<database>ldb_impact</database>
+							</qa>
+							<development>
+								<database>ldb_impact</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/base/commercial/hosts">
+							<live>
+								<host>writer.ecashimpact.ept.tss</host>
+								<port>3307</port>
+							</live>
+							<slave>
+								<host>failover.ecashimpactolp.ept.tss</host>
+								<port>3307</port>
+							</slave>
+							<live_readonly>
+								<host>reader.ecashimpactolp.ept.tss</host>
+								<port>3306</port>
+							</live_readonly>
+						</hosts>
+						<environments extends="/dbinfo/enterprise/base/commercial/environments" />
+					</_default>
+					<iic>
+						<accounts extends="/dbinfo/enterprise/companies/impact/_default/accounts">
+							<live>
+								<database>ldb_intacash</database>
+							</live>
+							<qa>
+								<database>ldb_intacash</database>
+							</qa>
+							<development>
+								<database>ldb_intacash</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/companies/impact/_default/hosts" />
+						<environments extends="/dbinfo/enterprise/companies/impact/_default/environments" />
+					</iic>
+				</impact>
+				<lcs>
+					<_default>
+						<accounts extends="/dbinfo/enterprise/base/commercial/accounts">
+							<live>
+								<database>ldb_lcs</database>
+							</live>
+							<qa>
+								<database>ldb_lcs</database>
+							</qa>
+							<development>
+								<database>ldb_lcs</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/companies/generic/_default/hosts" />
+						<environments extends="/dbinfo/enterprise/base/commercial/environments" />
+					</_default>
+				</lcs>
+				<mmp>
+					<_default>
+						<accounts extends="/dbinfo/enterprise/base/commercial/accounts">
+							<live>
+								<database>ldb_gr</database>
+							</live>
+							<qa>
+								<database>ldb_gr</database>
+							</qa>
+							<development>
+								<database>ldb_gr</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/companies/generic/_default/hosts" />
+						<environments extends="/dbinfo/enterprise/base/commercial/environments" />
+					</_default>
+				</mmp>
+				<opm>
+					<_default>
+						<accounts extends="/dbinfo/enterprise/base/commercial/accounts">
+							<live>
+								<database>ldb_opm</database>
+							</live>
+							<qa>
+								<database>ldb_opm</database>
+							</qa>
+							<development>
+								<database>ldb_opm</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/companies/generic/_default/hosts" />
+						<environments extends="/dbinfo/enterprise/base/commercial/environments" />
+					</_default>
+				</opm>
+				<qeasy>
+					<_default>
+						<accounts extends="/dbinfo/enterprise/base/commercial/accounts">
+							<live>
+								<database>ldb_qeasy</database>
+							</live>
+							<qa>
+								<database>ldb_qeasy</database>
+							</qa>
+							<development>
+								<database>ldb_qeasy</database>
+							</development>
+						</accounts>
+						<hosts extends="/dbinfo/enterprise/companies/generic/_default/hosts" />
+						<environments extends="/dbinfo/enterprise/base/commercial/environments" />
+					</_default>
+				</qeasy>
+			</companies>
+		</enterprise>
+	</dbinfo>
+</olp>

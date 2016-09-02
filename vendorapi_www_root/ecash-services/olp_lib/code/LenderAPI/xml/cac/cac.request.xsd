@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="leads.cashadvance.com/soap_cashadvance.php" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xs:element name="create_lead" xmlns="leads.cashadvance.com/soap_cashadvance.php">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="user_name" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="lead_info">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Email" type="xs:string" minOccurs="0" />
+              <xs:element name="First_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Last_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Address_1" type="xs:string" minOccurs="0" />
+              <xs:element name="Address_2" type="xs:string" minOccurs="0" />
+              <xs:element name="Apartment_Number" type="xs:string" minOccurs="0" />
+              <xs:element name="City" type="xs:string" minOccurs="0" />
+              <xs:element name="State" type="xs:string" minOccurs="0" />
+              <xs:element name="ZIP_Code" type="xs:int" minOccurs="0" />
+              <xs:element name="Home_Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="Work_Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="Cell_Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="Military" type="xs:string" minOccurs="0" />
+              <xs:element name="Occupation" type="xs:string" minOccurs="0" />
+              <xs:element name="Employer" type="xs:string" minOccurs="0" />
+              <xs:element name="Monthly_Income" type="xs:short" minOccurs="0" />
+              <xs:element name="Income_Source" type="xs:string" minOccurs="0" />
+              <xs:element name="Gender" type="xs:string" minOccurs="0" />
+              <xs:element name="SSN" type="xs:int" minOccurs="0" />
+              <xs:element name="DOB" type="xs:string" minOccurs="0" />
+              <xs:element name="Payment_Method" type="xs:string" minOccurs="0" />
+              <xs:element name="Payment_Frequency" type="xs:string" minOccurs="0" />
+              <xs:element name="Account_Number" type="xs:int" minOccurs="0" />
+              <xs:element name="Routing_Number" type="xs:int" minOccurs="0" />
+              <xs:element name="Account_Type" type="xs:string" minOccurs="0" />
+              <xs:element name="Drivers_License_Number" type="xs:int" minOccurs="0" />
+              <xs:element name="Drivers_License_State" type="xs:string" minOccurs="0" />
+              <xs:element name="Bank_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Bank_Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="Outstanding_Loans" type="xs:int" minOccurs="0" />
+              <xs:element name="Pay_Date_1" type="xs:string" minOccurs="0" />
+              <xs:element name="Pay_Date_2" type="xs:string" minOccurs="0" />
+              <xs:element name="Reference_1_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Reference_1_Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="Reference_1_Relationship" type="xs:string" minOccurs="0" />
+              <xs:element name="Reference_2_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Reference_2_Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="Reference_2_Relationship" type="xs:string" minOccurs="0" />
+              <xs:element name="IP_Address" type="xs:string" minOccurs="0" />
+              <xs:element name="Best_Time_To_Call" type="xs:string" minOccurs="0" />
+              <xs:element name="Own_Rent" type="xs:string" minOccurs="0" />
+              <xs:element name="US_Citizen" type="xs:string" minOccurs="0" />
+              <xs:element name="Years_At_Residence" type="xs:int" minOccurs="0" />
+              <xs:element name="Months_At_Residence" type="xs:int" minOccurs="0" />
+              <xs:element name="Years_Employed" type="xs:int" minOccurs="0" />
+              <xs:element name="Months_Employed" type="xs:int" minOccurs="0" />
+              <xs:element name="Supervisor_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Supervisor_Phone" type="xs:string" minOccurs="0" />
+              <xs:element name="Work_City" type="xs:string" minOccurs="0" />
+              <xs:element name="Work_State" type="xs:string" minOccurs="0" />
+              <xs:element name="Work_Zip" type="xs:int" minOccurs="0" />
+              <xs:element name="Years_Bank_Account" type="xs:int" minOccurs="0" />
+              <xs:element name="SRC" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

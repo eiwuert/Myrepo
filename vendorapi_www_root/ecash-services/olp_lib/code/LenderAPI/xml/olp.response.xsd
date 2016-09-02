@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="result">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="post_time" minOccurs="0"/>
+				<xs:element ref="empty_response" minOccurs="0"/>
+				<xs:element ref="data_sent" minOccurs="0"/>
+				<xs:element ref="success" minOccurs="0"/>
+				<xs:element ref="message" minOccurs="0"/>
+				<xs:element ref="next_page" minOccurs="0"/>
+				<xs:element ref="decision" minOccurs="0"/>
+				<xs:element ref="reason" minOccurs="0"/>
+				<xs:element ref="data_received" minOccurs="0"/>
+				<xs:element ref="thank_you_content" minOccurs="0"/>
+				<xs:element ref="timeout_exceeded" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="post_time" type="xs:int"/>
+	<xs:element name="success" type="xs:boolean"/>
+	<xs:element name="empty_response" type="xs:boolean"/>
+	<xs:element name="message" type="xs:string"/>
+	<xs:element name="next_page" type="xs:string"/>
+	<xs:element name="decision" type="xs:string"/>
+	<xs:element name="reason" type="xs:string"/>
+	<xs:element name="data_sent" type="xs:string"/>
+	<xs:element name="data_received" type="xs:string"/>
+	<xs:element name="thank_you_content" type="xs:string"/>
+	<xs:element name="timeout_exceeded" type="xs:boolean"/>
+</xs:schema>

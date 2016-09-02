@@ -1,0 +1,305 @@
+New York, NY-NJ/Nassau-Suffolk, NY/Newark, Jersey City and Paterson-Clifton-Passaic, NJ
+Los Angeles-Long Beach/Anaheim-Santa Ana-Garden Grove/Riverside-San Bernardino-Ontario, CA
+Chicago
+Philadelphia
+Detroit/Ann Arbor 
+Boston-Lowell-Brockton-Lawrence-Haverhill
+San Francisco-Oakland
+Washington
+Dallas-Fort Worth 
+Houston
+St. Louis 
+Miami-Fort Lauderdale-Hollywood 
+Pittsburgh 
+Baltimore 
+Minneapolis-St. Paul
+Cleveland 
+Atlanta 
+San Diego 
+Denver-Boulder 
+Seattle-Everett 
+Milwaukee
+Tampa-St. Petersburg
+Cincinnati
+Kansas City
+Buffalo
+Phoenix
+San Jose
+Indianapolis
+New Orleans
+Portland
+Columbus
+Hartford-New Britain-Bristol
+San Antonio
+Rochester
+Sacramento
+Memphis
+Louisville
+Providence-Warwick-Pawtucket
+Salt Lake City-Ogden
+Dayton
+Birmingham
+Bridgeport-Stamford-Norwalk-Danbury
+Norfolk-Virginia Beach-Portsmouth
+Albany-Schenectady-Troy
+Oklahoma City
+Nashville-Davidson
+Greensboro-Winston-Salem-High Point
+Toledo
+New Haven-West Haven-Waterbury-Meriden
+Honolulu
+Jacksonville
+Akron
+Syracuse
+Gary-Hammond-East Chicago
+Worchester-Fitchburg-Leominster
+Northeast Pennsylvania
+Tulsa
+Allentown-Bethlehem-Easton
+Richmond
+Orlando
+Charlotte-Gastonia
+New Brunswick-Perth Amboy-Sayreville
+Springfield-Chicopee-Holyoke
+Grand Rapids
+Omaha
+Youngstown-Warren
+Greenville-Spartanburg
+Flint
+Wilmington
+Long Branch-Asbury Park
+Raleigh-Durham
+West Palm Beach-Boca Raton
+Oxnard-Simi Valley-Ventura
+Fresno
+Austin
+New Bedford-Fall River
+Tucson
+Lansing-East Lansing
+Knoxville
+Baton Rouge
+El Paso
+Tacoma
+Mobile
+Harrisburg
+Johnson City-Kingsport-Bristol
+Albuquerque
+Canton
+Chattanooga
+Wichita
+Charleston-North Charleston
+San Juan-Caguas
+Little Rock-North Little Rock
+Las Vegas
+Saginaw-Bay City-Midland
+Columbia
+Fort Wayne
+Bakersfield
+Davenport-Rock Island-Moline
+York
+Shreveport
+Beaumont-Port Arthur
+Des Moines
+Peoria, IL 
+Newport News-Hampton
+Lancaster
+Jackson
+Stockton
+Augusta
+Spokane
+Huntington-Ashland
+Vallejo-Fairfield-Napa
+Corpus Christi
+Madison
+Lakeland-Winter Haven
+Utica-Rome
+Lexington-Fayette
+Colorado Springs
+Reading
+Evansville
+Huntsville
+Trenton
+Binghamton
+Santa Rosa-Petaluma
+Santa Barbara-Santa Maria-Lompoc
+Appleton-Oshkosh-Neenah
+Salinas-Seaside-Monterey
+Pensacola
+McAllen-Edinburg-Mission
+South Bend-Mishawaka
+Erie
+Rockford
+Kalamazoo
+Manchester-Nashua
+Atlantic City
+Eugene-Springfield
+Lorain-Elyria
+Melbourne-Titusville-Palm Bay
+Macon-Warner Robins
+Montgomery
+Charleston
+Duluth
+Modesto
+Johnstown
+Orange County
+Hamilton-Middletown
+Daytona Beach
+Ponce
+Salem
+Fayetteville
+Visalia-Tulare-Porterville
+Poughkeepsie
+Columbus
+New London-Norwich
+Savannah
+Portsmouth-Dover-Rochester
+Roanoke
+Lima
+Provo-Orem
+Killeen-Temple
+Lubbock
+Brownsville-Harlingen
+Springfield
+Fort Myers
+Fort Smith AR-OK 
+Hickory
+Sarasota
+Tallahassee
+Mayaguez
+Galveston-Texas City
+Reno
+Lincoln
+Biloxi-Gulfpor
+Lafayette
+Santa Cruz
+Springfield
+Battle Creek
+Wheeling
+Topeka
+Springfield
+Muskegon
+Fayetteville-Springdale
+Asheville
+Houma-Thibodaux
+Terre Haute
+Green Bay
+Anchorage
+Racine
+Boise City
+Yakima
+Gainesville
+Benton Harbor
+Waco
+Cedar Rapids
+Champaign-Urbana-Rantoul
+Lake Charles
+St. Cloud
+Steubenville-Weirton
+Parkersburg-Marietta
+Waterloo-Cedar Falls
+Arecibo
+Lynchburg
+Aguadilla
+Alexandria
+Longview-Marshall
+Jackson
+Fort Pierce
+Clarksville-Hopkinsville
+Fort Collins-Loveland
+Bradenton
+Bremerton
+Pittsfield
+Richland-Kennewick-Pasco
+Chico
+Janesville-Beloit
+Anderson
+Wilmington
+Monroe
+Abilene
+Fargo-Moorehead
+Tuscaloosa
+Elkhart-Goshen
+Bangor
+Altoona
+Florence
+Anderson
+Vineland-Millville-Bridgeton
+Medford
+Decatur
+Mansfield
+Eau Claire
+Wichita Falls
+Athens
+Petersburg-Colonial Heights-Hopewell
+Muncie
+Tyler
+Sharon
+Joplin
+Texarkana
+Pueblo
+Olympia
+Greeley
+Kenosha
+Ocala
+Dothan
+Lafayette
+Burlington
+Anniston
+Bloomington-Normal
+Williamsport
+Pascagoula
+Sioux City
+Redding
+Odessa
+Charlottesville
+Hagerstown
+Jacksonville
+State College
+Lawton
+Albany
+Danville
+Wausau
+Florence
+Fort Walton Beach
+Glens Falls
+Sioux Falls
+Billings
+Cumberland
+Bellingham
+Kokomo
+Gadsden
+Kankakee
+Yuba City
+St. Joseph
+Grand Forks
+Sheboygan
+Columbia
+Lewiston-Auburn
+Burlington
+Laredo
+Bloomington
+Panama City
+Elmira
+Las Cruces
+Dubuque
+Bryan-College Station
+Rochester
+Rapid City
+La Crosse
+Pine Bluff
+Sherman-Denison
+Owensboro
+San Angelo
+Midland
+Iowa City
+Great Falls
+Bismarck
+Casper
+Victoria
+Lawrence
+Enid
+Aurora-Elgin
+Joliet
+Alton-Granite City
+Gulf of Mexico
+

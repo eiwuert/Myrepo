@@ -1,0 +1,11 @@
+.Users-icon{
+	background-image: url('cms-plugins/Users/admin/images/user.png');
+}
+
+.cs-adminmenu_body a.Members-edit-icon{
+	background-image: url('cms-plugins/Members/admin/images/user_edit.png');
+}
+
+.cs-adminmenu_body a.Members-add-icon{
+	background-image: url('cms-plugins/Members/admin/images/user_add.png');
+}

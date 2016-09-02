@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<data>
+  <campaign>
+    <campaign_name>uk_xml</campaign_name>
+  </campaign>
+  <application>
+    <application_id>12345678</application_id>
+    <name_first>BOB</name_first>
+    <name_middle>LUCKY</name_middle>
+    <name_last>ANDERSON</name_last>
+    <home_street>1234 Pecos Rd.</home_street>
+    <home_unit>1180</home_unit>
+    <home_city>Las Vegas</home_city>
+    <home_state>NV</home_state>
+    <home_zip>89119</home_zip>
+    <phone_home>3332224444</phone_home>
+    <phone_cell>33322224444</phone_cell>
+    <phone_work>3332224444</phone_work>
+    <ext_work>4545</ext_work>
+    <email_primary>SOMETHING@SOMETHING.COM</email_primary>
+    <date_of_birth>06/30/1982</date_of_birth>
+    <date_dob_y>1979</date_dob_y>
+    <date_dob_m>05</date_dob_m>
+    <date_dob_d>01</date_dob_d>
+    <ssn_part_1>999</ssn_part_1>
+    <ssn_part_2>66</ssn_part_2>
+    <ssn_part_3>1111</ssn_part_3>
+    <social_security_number>999661111</social_security_number>
+    <bank_name>BANK OF KINGS</bank_name>
+    <bank_aba>102301564</bank_aba>
+    <bank_account>22031053</bank_account>
+    <bank_account_type>CHECKING</bank_account_type>
+    <employer_name>SUPERFAST PHOTOGRAPHY</employer_name>
+    <income_monthly_net>3000</income_monthly_net>
+    <income_direct_deposit>TRUE</income_direct_deposit>
+    <hire_day>09</hire_day>
+    <hire_month>11</hire_month>
+    <hire_year>2007</hire_year>
+	<date_of_hire>2007-11-09</date_of_hire>
+    <loan_amount_desired>300</loan_amount_desired>
+    <residence_start_day>27</residence_start_day>
+    <residence_start_month>06</residence_start_month>
+    <residence_start_year>2003</residence_start_year>
+    <residence_type>OWN</residence_type>
+	<residence_start_date>2003-06-27</residence_start_date>
+    <client_ip_address>10.20.130.140</client_ip_address>
+    <income_type>EMPLOYMENT</income_type>
+    <income_frequency>WEEKLY</income_frequency>
+    <paydate1>2008-12-01</paydate1>
+    <paydate2>2008-12-08</paydate2>
+    <paydate3>2008-12-15</paydate3>
+    <paydate4>2008-12-22</paydate4>
+    <paydate5>2008-12-29</paydate5>
+    <next_pay_date>2008-12-01</next_pay_date>
+    <last_pay_date>2008-11-03</last_pay_date>
+    <today_day_string>MON</today_day_string>
+    <today_day_of_week>1</today_day_of_week>
+    <military>FALSE</military>
+    <vehicle_vin>1G1YZ23J9P5800001</vehicle_vin>
+    <vehicle_make>NISSAN</vehicle_make>
+    <vehicle_year>2005</vehicle_year>
+    <vehicle_model>ALTIMA</vehicle_model>
+    <vehicle_style>SEDAN 4D SE</vehicle_style>
+    <vehicle_series>ALTIMA-4 CYL.</vehicle_series>
+    <vehicle_mileage>110000</vehicle_mileage>
+    <ref_01_name_full>JERINO BIBBS</ref_01_name_full>
+    <ref_01_phone_home>6325647894</ref_01_phone_home>
+    <ref_01_relationship>EXTENDED_FAMILY</ref_01_relationship>
+    <ref_02_name_full>MARTINE HICKMAN</ref_02_name_full>
+    <ref_02_phone_home>7894561234</ref_02_phone_home>
+    <ref_02_relationship>FRIEND</ref_02_relationship>
+    <nin>AA012344B</nin>
+    <best_call_time>MORNING</best_call_time>
+    <promo_id>3128</promo_id>
+    <site_name>primecashadvance.com</site_name>
+    <test_app>0</test_app>
+  </application>
+</data>

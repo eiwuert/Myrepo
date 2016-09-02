@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messageconfig>
+    <destination>
+        <environment name="local">http://bfw.1.edataserver.com.ds79.tss/message_handler.php</environment>
+        <environment name="rc">http://rc.bfw.1.edataserver.com/message_handler.php</environment>
+        <environment name="live">http://bfw.1.edataserver.com/message_handler.php</environment>
+    </destination>
+	<messages>
+		<message name="record-bbx-post">
+			<source>record-bbx-post</source>
+			<class>OLP_Message_BlackboxPostRecorder</class>
+		</message>
+		<message name="exit-strategy-coreg">
+			<source>exit-strategy-coreg</source>
+			<class>BFW_ExitStrategy_Coreg_Message</class>
+		</message>
+	</messages>
+</messageconfig>

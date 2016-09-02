@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="StatProSoapApi" 
+	targetNamespace="StatProSoapApi" 
+	xmlns:tns="StatProSoapApi" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:enc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="StatProSoapApi">
+
+			<xsd:complexType name="spaceDefinition">
+			<xsd:all>
+				<xsd:element name="page_id" type="xsd:int" />
+				<xsd:element name="promo_id" type="xsd:int" />
+				<xsd:element name="promo_sub_code" type="xsd:string" />
+			</xsd:all>
+			</xsd:complexType>
+
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="testConnection">
+		<wsdl:part name="access_key" type="xsd:string" />
+	</wsdl:message>
+	<wsdl:message name="testConnectionResponse">
+		<wsdl:part name="response" type="xsd:boolean" />
+	</wsdl:message>
+
+	<wsdl:message name="getSpaceKey">
+		<wsdl:part name="access_key" type="xsd:string" />
+		<wsdl:part name="space_definition" type="tns:spaceDefinition" />
+	</wsdl:message>
+	<wsdl:message name="getSpaceKeyResponse">
+		<wsdl:part name="space_key" type="xsd:string" />
+	</wsdl:message>
+	
+	<wsdl:message name="createTrackKey">
+		<wsdl:part name="access_key" type="xsd:string" />
+	</wsdl:message>
+	<wsdl:message name="createTrackKeyResponse">
+		<wsdl:part name="track_key" type="xsd:string" />
+	</wsdl:message>
+	
+	<wsdl:message name="recordEvent">
+		<wsdl:part name="access_key" type="xsd:string" />
+		<wsdl:part name="track_key" type="xsd:string" />
+		<wsdl:part name="space_key" type="xsd:string" />
+		<wsdl:part name="event_type_key" type="xsd:string" />
+		<wsdl:part name="date_occurred" type="xsd:int" />
+	</wsdl:message>
+	<wsdl:message name="recordEventResponse">
+		<wsdl:part name="recordEventResponse" type="xsd:boolean" />
+	</wsdl:message>
+
+	<wsdl:portType name="StatProSoapApiPortType">
+
+		<wsdl:operation name="testConnection">
+			<wsdl:documentation>
+				Used for intergation testing, always returns true
+			</wsdl:documentation>
+
+			<wsdl:input message="tns:testConnection" />
+			<wsdl:output message="tns:testConnectionResponse" />
+		</wsdl:operation>
+
+		<wsdl:operation name="getSpaceKey">
+			<wsdl:documentation>
+				Creates the space key and inserts it into the database 
+				if needed
+			</wsdl:documentation>
+
+			<wsdl:input message="tns:getSpaceKey" />
+			<wsdl:output message="tns:getSpaceKeyResponse" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="createTrackKey">
+			<wsdl:documentation>Creates a new track key</wsdl:documentation>
+
+			<wsdl:input message="tns:createTrackKey" />
+			<wsdl:output message="tns:createTrackKeyResponse" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="recordEvent">
+			<wsdl:documentation>
+				Records the event in the database
+			</wsdl:documentation>
+
+			<wsdl:input message="tns:recordEvent" />
+			<wsdl:output message="tns:recordEventResponse" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+	
+	<wsdl:binding name="StatProSoapApiBinding" type="tns:StatProSoapApiPortType">
+		
+		<soap:binding style="rpc" 
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="testConnection">
+			<soap:operation soapAction="StatProSoapApi#testConnection" />
+			<wsdl:input>
+				<soap:body use="literal"
+					namespace="http://soap.epointmarketing.com/StatProSoapApi" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" 
+					namespace="http://soap.epointmarketing.com/StatProSoapApi" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getSpaceKey">
+			<soap:operation soapAction="StatProSoapApi#getSpaceKey"/>
+			<wsdl:input>
+				<soap:body use="literal"
+					namespace="http://soap.epointmarketing.com/StatProSoapApi" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" 
+					namespace="http://soap.epointmarketing.com/StatProSoapApi" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="createTrackKey">
+			<soap:operation soapAction="StatProSoapApi#createTrackKey"/>
+			<wsdl:input>
+				<soap:body use="literal"
+					namespace="http://soap.epointmarketing.com/StatProSoapApi" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" 
+					namespace="http://soap.epointmarketing.com/StatProSoapApi" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="recordEvent">
+			<soap:operation soapAction="StatProSoapApi#recordEvent"/>
+			<wsdl:input>
+				<soap:body use="literal"
+					namespace="http://soap.epointmarketing.com/StatProSoapApi" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" 
+					namespace="http://soap.epointmarketing.com/StatProSoapApi" />
+			</wsdl:output>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<wsdl:service name="StatProSoapApiService">
+		<wsdl:documentation>
+			Soap interface for triggering StatPro events
+		</wsdl:documentation>
+
+		<wsdl:port name="StatProSoapApiPort" binding="tns:StatProSoapApiBinding">
+			<soap:address 
+				location="http://soap.epointmarketing.com/StatProSoapApi.php" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<dataset>
+	<table name="ace_stores">
+		<column>zip_code</column>
+		<column>property_short</column>
+		<row>
+			<value>11111</value>
+			<value>aaa</value>
+		</row>
+		<row>
+			<value>22222</value>
+			<value>aaa</value>
+		</row>
+		<row>
+			<value>33333</value>
+			<value>bbb</value>
+		</row>
+	</table>
+</dataset>

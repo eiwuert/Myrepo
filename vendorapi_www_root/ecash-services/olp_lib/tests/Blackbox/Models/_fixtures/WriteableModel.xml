@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="target_tag">
+		<column>target_tag_id</column>
+		<column>tag</column>
+		
+		<row>
+			<value>1</value>
+			<value>first</value>
+		</row>
+		
+		<row>
+			<value>2</value>
+			<value>second</value>
+		</row>
+		
+		<row>
+			<value>3</value>
+			<value>third</value>
+		</row>
+		
+	</table>
+</dataset>

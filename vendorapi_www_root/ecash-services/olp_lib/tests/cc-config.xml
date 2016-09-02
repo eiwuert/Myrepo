@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="bootstrap.php">
+	<testsuite name="OLP Library Test Suite">
+		<directory>.</directory>
+	</testsuite>
+	<groups>
+		<exclude>
+		<group>stats</group>
+		<group>blackbox_models</group>
+		<group>Cache</group>
+		<group>olpbbx_factory_test</group>
+    		<group>datax_tests</group>
+    		<group>used_aba_check</group>
+    		<group>previousCustomer</group>
+		</exclude>
+	</groups>
+	<php>
+		<!-- cruise control overrides for olp test database -->
+		<var name="TEST_OLP_DB_INFO_HOST" value="monster.tss"></var>
+		<var name="TEST_OLP_DB_INFO_PORT" value="3326"></var>
+		<var name="TEST_OLP_DB_INFO_USER" value="olplibtest"></var>
+		<var name="TEST_OLP_DB_INFO_PASS" value="olplibtest"></var>
+		<var name="TEST_OLP_DB_INFO_NAME" value="olplib_test"></var>
+		<var name="TEST_OLP_DB_INFO_LDB_NAME" value="ldb_test"></var>
+
+		<!-- cruise control overrides for blackbox database -->
+		<var name="TEST_BLACKBOX_DB_INFO_HOST" value="monster.tss"></var>
+		<var name="TEST_BLACKBOX_DB_INFO_PORT" value="3326"></var>
+		<var name="TEST_BLACKBOX_DB_INFO_USER" value="bbxtest"></var>
+		<var name="TEST_BLACKBOX_DB_INFO_PASS" value="bbxtest"></var>
+		<var name="TEST_BLACKBOX_DB_INFO_NAME" value="bbxadmin_test"></var>
+		<var name="TEST_BLACKBOX_DB_INFO_LDB_NAME" value="ldb_test"></var>
+		<var name="CRUISE_CONTROL" value="TRUE"/>
+	</php>
+	<filter>
+		<blacklist>
+			<directory>/virtualhosts/lib</directory>
+			<directory>/virtualhosts/lib5</directory>
+			<directory>/virtualhosts/libolution</directory>
+			<directory>/virtualhosts/ecash_common</directory>
+		</blacklist>
+	</filter>
+</phpunit>

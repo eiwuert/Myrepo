@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<dataset>
+	<table name="no_checks_ssn_list">
+		<column>social_security_number</column>
+		<row>
+			<value>111225555</value>
+		</row>
+		<row>
+			<value>111229999</value>
+		</row>
+	</table>
+</dataset>

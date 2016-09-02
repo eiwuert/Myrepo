@@ -1,0 +1,13 @@
+php_value include_path "/virtualhosts/lib:."
+php_flag register_globals off
+php_flag magic_quotes_gpc on
+php_flag magic_quotes_runtime off
+
+<Files ~ vendor|property|llama >
+	ForceType application/x-httpd-php
+</Files>
+
+RewriteEngine  on
+RewriteBase    /
+RewriteRule    ^(vendor)$           $1/  [R]
+

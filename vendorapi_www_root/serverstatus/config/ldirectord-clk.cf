@@ -1,0 +1,251 @@
+#####################
+###               ###
+### ***WARNING ** ###
+###               ###
+#####################
+# 
+# ipvsadm is rather particular about the order in which
+# virtual server entries are added to the ipvs table.
+# for instance, if a group of real servers is created with 
+# a virtual server, and then later on another virtual block
+# has one same real server from the group, the real server
+# will be removed from the group while being added to the
+# new rule.   
+#
+# i.e. if you put the ps1 section below the LIVE
+# section ipvs will remove ps1 from the LIVE group while 
+# adding it to the port 8001 rule.  
+#
+# Avoid this by putting your groups below the individual
+# port entries
+#
+# Also, if two virtual blocks contain the same one real server
+# the incoming virtual entry that has the higher port number must
+# be listed first (look at the two ps5 entries as an example)
+#
+# The real way to check that ldirectord is executing the ipvsadm 
+# commands in the right order is by running:
+#
+# ldirectord -d /etc/ha.d/conf/ldirectord.cf start 2>&1 | grep ipvsadm
+#
+# Justin
+
+ 
+##ps1
+#virtual = 71.4.57.153:8001
+#        real = 192.168.1.101:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps2
+#virtual = 71.4.57.153:8002
+#        real = 192.168.1.102:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps3
+#virtual = 71.4.57.153:8003
+#        real = 192.168.1.103:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps4
+#virtual = 71.4.57.153:8004
+#        real = 192.168.1.104:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps10
+#virtual = 71.4.57.153:8010
+#        real = 192.168.1.110:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps11
+#virtual = 71.4.57.153:8011
+#        real = 192.168.1.111:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps12
+#virtual = 71.4.57.153:8012
+#        real = 192.168.1.112:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+
+#LIVE
+virtual = 71.4.57.153:80
+        real = 192.168.1.101:80 masq 1
+        real = 192.168.1.102:80 masq 1
+        real = 192.168.1.103:80 masq 1
+        real = 192.168.1.104:80 masq 1
+        real = 192.168.1.110:80 masq 1
+        real = 192.168.1.111:80 masq 1
+        real = 192.168.1.112:80 masq 1
+        #fallback = 192.168.1.101:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=olp"
+        receive = "PASS"
+
+
+###LOANERS
+##mq4.clkonline.com
+##virtual = 71.4.57.156:8001
+##        real = 71.4.57.147:80 masq 1
+##        scheduler = wlc
+##        protocol = tcp
+##		checktype = connect
+#
+##old
+##virtual = 71.4.57.156:8002
+##        real = 71.4.57.148:80 masq 1
+##        scheduler = wlc
+##        protocol = tcp
+##		checktype = connect
+#
+##old
+##virtual = 71.4.57.156:80
+##        real = 71.4.57.147:80 masq 1
+##        real = 71.4.57.148:80 masq 1
+##        scheduler = wlc
+##        protocol = tcp
+##		checktype = connect
+#
+##ps5 (?)
+#virtual = 71.4.57.154:8001
+#        real = 192.168.1.105:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps5 (?)
+#virtual = 71.4.57.154:80
+#        real = 192.168.1.105:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps7 (?)
+#virtual = 71.4.57.155:8001
+#        real = 192.168.1.107:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps7 (?)
+#virtual = 71.4.57.155:80
+#        real = 192.168.1.107:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps8 (requested by dona)
+#virtual = 71.4.57.140:80
+#        real = 192.168.1.108:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##ps13 (used for load testing)
+#virtual = 71.4.57.153:8013
+#        real = 192.168.1.113:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##report1.clkonline.com
+#virtual = 71.4.57.158:8001
+#        real = 192.168.1.109:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+#virtual = 71.4.57.158:80
+#        real = 192.168.1.109:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##dev.ecash.clkonline.com
+#virtual = 71.4.57.155:443
+#        real = 192.168.1.107:40000 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##rc.ecash.clkonline.com [secure]
+#virtual = 71.4.57.141:443
+#        real = 192.168.1.107:40001 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##rc.ecash.clkonline.com
+#virtual = 71.4.57.141:80
+#        real = 192.168.1.107:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##parallel.ecash.clkonline.com [secure]
+#virtual = 71.4.57.142:443
+#        real = 192.168.1.107:40002 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##parallel.ecash.clkonline.com 
+#virtual = 71.4.57.142:80
+#        real = 192.168.1.107:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##live.ecash.clkonline.com [secure]
+#virtual = 71.4.57.144:443
+#        real = 192.168.1.107:40003 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+##live.ecash.clkonline.com
+#virtual = 71.4.57.144:80
+#        real = 192.168.1.107:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#		checktype = connect
+#
+## old ecash
+##ecash.edataserver.com [secure]
+##virtual = 71.4.57.130:443
+##        real = 192.168.1.107:40004 masq 1
+##        scheduler = wlc
+##        protocol = tcp
+##		checktype = connect
+#
+## old ecash
+##ecash.edataserver.com
+##virtual = 71.4.57.130:80
+##        real = 192.168.1.107:80 masq 1
+##        scheduler = wlc
+##        protocol = tcp
+##		checktype = connect
+
+#secure.edataserver.com
+virtual = 71.4.57.153:443
+        real = 192.168.1.101:40000 masq 1
+        real = 192.168.1.102:40000 masq 1
+        real = 192.168.1.103:40000 masq 1
+        real = 192.168.1.104:40000 masq 1
+        scheduler = wlc
+        protocol = tcp
+		checktype = connect

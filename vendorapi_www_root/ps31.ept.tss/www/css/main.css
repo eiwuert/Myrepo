@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial;
+}
+
+h1 {
+	padding: 8px;
+	margin: 0px;
+	background-color: #333;
+	font-size: 18pt;
+	color: white;
+}
+
+.content {
+	border: 1px solid #bbb;
+	margin-top: 10px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+table {
+	width: 100%
+}
+
+td {
+	text-align: center;
+}
+
+td.host {
+	width: 40%;
+	font-weight: bold;
+}
+
+td.scrub_on {
+	background-color: lightgreen;
+}
+
+td.scrub_off {
+	background-color: red;
+}

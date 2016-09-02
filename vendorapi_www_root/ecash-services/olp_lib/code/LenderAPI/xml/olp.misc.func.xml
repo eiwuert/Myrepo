@@ -1,0 +1,100 @@
+<?xml version='1.0' ?>
+<xsl:stylesheet version="1.0" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:fn="http://www.w3.org/2005/02/xpath-functions" 
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:exslt="http://exslt.org/common" 
+	xmlns:func="http://exslt.org/functions" 
+	xmlns:str="http://exslt.org/strings" 
+	xmlns:olp="http://olp.edataserver.com" 
+	exclude-result-prefixes="olp func exslt fn" 
+	extension-element-prefixes="exslt func str"
+	>
+	
+	<func:function name="olp:bool-to-yesno">
+		<xsl:param name="bool" select="'TRUE'" />
+		<func:result>
+			<xsl:choose>
+				<xsl:when test="$bool = 'TRUE'">yes</xsl:when>
+				<xsl:otherwise>no</xsl:otherwise>
+			</xsl:choose>
+		</func:result>
+	</func:function>
+	
+	<func:function name="olp:bool-to-yn">
+		<xsl:param name="bool" select="'TRUE'" />
+		<func:result>
+			<xsl:choose>
+				<xsl:when test="$bool = 'TRUE'">y</xsl:when>
+				<xsl:otherwise>n</xsl:otherwise>
+			</xsl:choose>
+		</func:result>
+	</func:function>
+	
+	<func:function name="olp:bool-to-numeric">
+		<xsl:param name="bool" select="'TRUE'" />
+		<func:result>
+			<xsl:choose>
+				<xsl:when test="$bool = 'TRUE'">1</xsl:when>
+				<xsl:otherwise>0</xsl:otherwise>
+			</xsl:choose>
+		</func:result>
+	</func:function>
+	
+	<func:function name="olp:var-to-yesno">
+		<xsl:param name="var" />
+		<xsl:param name="expected" />
+		<func:result>
+			<xsl:choose>
+				<xsl:when test="$var = $expected">yes</xsl:when>
+				<xsl:otherwise>no</xsl:otherwise>
+			</xsl:choose>
+		</func:result>
+	</func:function>
+	
+	<func:function name="olp:var-or-default">
+		<xsl:param name="var" />
+		<xsl:param name="default" />
+		<func:result>
+			<xsl:choose>
+				<xsl:when test="$var != ''"><xsl:value-of select="$var" /></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$default" /></xsl:otherwise>
+			</xsl:choose>
+		</func:result>
+	</func:function>
+	
+	<func:function name="olp:split-phone">
+		<xsl:param name="phone" />
+		<xsl:variable name="phone_parts">
+			<part1><xsl:value-of select="substring($phone, 1, 3)" /></part1>
+			<part2><xsl:value-of select="substring($phone, 4, 3)" /></part2>
+			<part3><xsl:value-of select="substring($phone, 7, 4)" /></part3>
+		</xsl:variable>
+		<func:result select="exslt:node-set($phone_parts)" />
+	</func:function>
+	
+	<func:function name="olp:phone-with-dashes">
+		<xsl:param name="phone" />
+		<xsl:if test="$phone != ''">
+			<xsl:variable name="phone_parts" select="olp:split-phone($phone)"/>
+			<func:result select="concat($phone_parts/part1, '-', $phone_parts/part2, '-', $phone_parts/part3)" />
+		</xsl:if>
+	</func:function>
+	
+	<func:function name="olp:income_frequency">
+		<xsl:param name="weekly" />
+		<xsl:param name="biweekly" />
+		<xsl:param name="twicemonthly" />
+		<xsl:param name="monthly" />
+		<xsl:variable name="income_frequency" select="data/application/income_frequency"/>
+		<func:result>
+			<xsl:choose>
+				<xsl:when test="$income_frequency = 'WEEKLY'"><xsl:value-of select="$weekly" /></xsl:when>
+				<xsl:when test="$income_frequency = 'BI_WEEKLY'"><xsl:value-of select="$biweekly" /></xsl:when>
+				<xsl:when test="$income_frequency = 'TWICE_MONTHLY'"><xsl:value-of select="$twicemonthly" /></xsl:when>
+				<xsl:when test="$income_frequency = 'MONTHLY'"><xsl:value-of select="$monthly" /></xsl:when>
+			</xsl:choose>
+		</func:result>
+	</func:function>
+	
+</xsl:stylesheet>

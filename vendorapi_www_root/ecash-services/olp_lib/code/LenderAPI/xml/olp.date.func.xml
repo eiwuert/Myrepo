@@ -1,0 +1,75 @@
+<?xml version='1.0' ?>
+<xsl:stylesheet version="1.0" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:fn="http://www.w3.org/2005/02/xpath-functions" 
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:exslt="http://exslt.org/common" 
+	xmlns:func="http://exslt.org/functions" 
+	xmlns:str="http://exslt.org/strings" 
+	xmlns:date="http://exslt.org/dates-and-times"
+	xmlns:olp="http://olp.edataserver.com" 
+	exclude-result-prefixes="olp func exslt fn" 
+	extension-element-prefixes="exslt func str date"
+	>
+	<xsl:import href="../exslt/date.format-date.function.xsl" />
+                
+	<func:function name="olp:add-days-today">
+		<xsl:param name="date" />
+		<func:result>
+			<xsl:variable name="new_date" select="concat('P', $date, 'D')" />
+			<xsl:value-of select="date:add(date:date(), $new_date)" />
+		</func:result>
+	</func:function>
+	
+	<func:function name="olp:format-date">
+		<xsl:param name="format" />
+		<xsl:param name="date" select="date:date-time()"/>
+		<func:result>
+			<xsl:value-of select="date:format-date($date, $format)" />
+		</func:result>
+	</func:function>
+	
+	<func:function name="olp:is-date-after">
+		<xsl:param name="date1" />
+		<xsl:param name="date2"/>
+		<func:result>
+			<xsl:value-of select="0 &lt; date:seconds(date:difference($date1, $date2))" />
+		</func:result>
+	</func:function>
+	
+	<func:function name="olp:next-paydate-after-date">
+		<xsl:param name="date_after" select="0" />
+		<func:result>
+			<xsl:variable name="date1" select="data/application/paydate1" />
+			<xsl:variable name="date2" select="data/application/paydate2" />
+			<xsl:variable name="date3" select="data/application/paydate3" />
+			<xsl:variable name="date4" select="data/application/paydate4" />
+			<xsl:choose>
+				<xsl:when test="olp:is-date-after($date_after, date:date($date1)) = 'true'">
+					<xsl:value-of select="$date1" />
+				</xsl:when>
+				<xsl:when test="olp:is-date-after($date_after, date:date($date2)) = 'true'">
+					<xsl:value-of select="$date2" />
+				</xsl:when>
+				<xsl:when test="olp:is-date-after($date_after, date:date($date3)) = 'true'">
+					<xsl:value-of select="$date3" />
+				</xsl:when>
+				<xsl:when test="olp:is-date-after($date_after, date:date($date4)) = 'true'">
+					<xsl:value-of select="$date4" />
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="olp:format-date('yyyy-MM-dd', $date_after)" />
+				</xsl:otherwise>
+			</xsl:choose>
+		</func:result>
+	</func:function>
+	
+	<func:function name="olp:next-paydate-after-days">
+		<xsl:param name="days" select="0" />
+		<func:result>
+			<xsl:variable name="date_after" select="olp:add-days-today($days)" />
+			<xsl:value-of select="olp:next-paydate-after-date($date_after)" />
+		</func:result>
+	</func:function>
+
+</xsl:stylesheet>

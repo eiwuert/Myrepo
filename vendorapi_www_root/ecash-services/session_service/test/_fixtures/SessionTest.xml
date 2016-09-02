@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="session_0">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+		<row>
+			<value>001e42f3ffcae46d7ae67951cee60ea2</value>
+			<value>2009-09-08 09:47:29</value>
+			<value>2009-09-08 09:47:29</value>
+			<value />
+			<value>gz</value>
+			<!-- array('fruit' => 'mango'); see tests/encode.php -->
+			<value>eJxLKyrNLKkptjK1UspNzEvPV7IGAEDIBlQ=</value>
+			<value>0</value>
+		</row>
+	</table>
+	<table name="session_1">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_2">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_3">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_4">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_5">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_6">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_7">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_8">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_9">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_a">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_b">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_c">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_d">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_e">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+	<table name="session_f">
+		<column>session_id</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_locked</column>
+		<column>compression</column>
+		<column>session_info</column>
+		<column>session_lock</column>
+	</table>
+</dataset>

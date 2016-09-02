@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<project name="Vendor API" default="" description="Vendor API Project">
+	
+	<!-- ssh stuff !-->
+	<typedef name="server" classname="phing.types.Server"/>
+	<typedef name="serverlist" classname="phing.types.ServerList"/>
+	<taskdef name="ssh" classname="phing.tasks.SSHTask"/>
+	
+	<property file='./build.properties'/>
+	<tstamp>
+		<format property="DATETIME" pattern="%Y%m%d%H%M%S"/>
+	</tstamp>
+	<serverlist id="rc-servers">
+		<server id="rc2" host="rc2.ept.tss"/>
+	<!--	<server id="qa_s" host="ps2.qa.tss"/> -->
+	</serverlist>
+	
+	<target name="test-vapi" description="Run PHPUnit tests for VendorAPI">
+		<echo message="VendorAPI Unit Tests"/>
+		<exec
+			command="phpunit --configuration config.xml"
+			dir="tests"
+			passthru="true"
+			checkreturn="true"
+		/>
+	</target>
+	<target name="test-clk" description="Run PHPUnit for CLK Tests" depends="test-vapi">
+		<echo message="ECash AMG VendorAPI Tests"/>
+		<exec
+			command="phpunit --configuration config.xml ECash/VendorAPI"
+			dir="../ecash_clk/tests"
+			passthru="true"
+			checkreturn="true"
+		/>
+	</target>
+
+	<target 
+		name="test-commercial"
+			description="Run PHPUnit tests for Commercial" depends="test-vapi">
+		<echo message="ECash Agean Tests"/>
+		<exec
+			command="phpunit --configuration config.xml"
+			dir="../ecash_agean/tests"
+			passthru="true"
+			checkreturn="true"
+		/>
+		<echo message="ECash AALM Tests"/>
+		<exec
+			command="phpunit --configuration config.xml"
+			dir="../ecash_aalm/tests"
+			passthru="true"
+			checkreturn="true"
+		/>
+		<echo message="ECash HMS Tests"/>
+		<exec
+			command="phpunit --configuration config.xml"
+			dir="../ecash_hms/tests"
+			passthru="true"
+			checkreturn="true"
+		/>
+		<echo message="ECash Impact Tests"/>
+		<exec
+			command="phpunit --configuration config.xml"
+			dir="../ecash_impact/tests"
+			passthru="true"
+			checkreturn="true"
+		/>
+		<echo message="ECash OPM Tests"/>
+		<exec
+			command="phpunit --configuration config.xml"
+			dir="../ecash_opm/tests"
+			passthru="true"
+			checkreturn="true"
+		/>
+		<exec
+			command="phpunit --configuration config.xml"
+			dir="../ecash_commercial/tests"
+			passthru="true"
+			checkreturn="true"
+		/>
+	</target>
+	<target name="test" description="Runs All PHPUnit tests" depends="test-vapi, test-clk, test-commercial"/>
+	
+	<target name="stage-release" description="Stages a release locally. ">
+		<delete dir="${local.staging.directory}" failonerror="false" verbose="false"/>
+		<svnexport
+			username="${svn.username}"
+			password="${svn.password}"
+			repositoryurl="${stage.svn.repository}"
+			todir="${local.staging.directory}"
+			svnpath="${svn.bin}"
+		/>
+	</target>
+	<target name="do-release" description="Performs an actual release to servers.">
+		<ssh>
+			<serverlist refid="${release.servers}"/>
+			<![CDATA[
+				cd ${remote.staging.directory};
+				sudo svn --username=${svn.username} --password=${svn.password} export ${stage.svn.repository} ${remote.checkout.directory};
+			]]>
+		</ssh>
+		<echo message="Switching current release."/>
+		<ssh>
+			<serverlist refid="${release.servers}"/>
+			<![CDATA[
+				cd ${remote.staging.directory};
+				sudo rm rollback
+				sudo ln -s `readlink current_release` rollback;
+				sudo rm current_release;
+				sudo ln -s ${remote.checkout.directory} current_release;
+				sudo /etc/init.d/apache2 graceful
+			]]>
+		</ssh>
+	</target>
+	<target name="update-rc" description="Update the RC Server.">
+		<property name="remote.staging.directory" value="/virtualhosts/vendorapi_staging"/>
+		<property name="local.staging.directory" value="/projects/vendor_api/rc/staging"/>
+		<property name="stage.svn.repository" value="http://gforge.sellingsource.com/svn/ecash/vendor_api/releases/stable"/>
+		<property name="remote.checkout.directory" value="releases/${DATETIME}"/>
+		<property name="release.servers" value="rc-servers"/>
+		<phingcall target="stage-release"/>
+		<exec
+			command="phing test"
+			dir="${local.staging.directory}/vendor_api"
+			checkreturn="true"
+		/>
+		<phingcall target="do-release"/>
+	</target>
+
+</project>

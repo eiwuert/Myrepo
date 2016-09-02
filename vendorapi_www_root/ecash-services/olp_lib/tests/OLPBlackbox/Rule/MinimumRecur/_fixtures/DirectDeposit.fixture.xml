@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<dataset>
+	<table name="personal_encrypted">
+		<column>application_id</column>
+		<column>social_security_number</column>
+		<column>modified_date</column>
+		<row>
+			<value>1</value>
+			<value>800991111</value>
+			<value>2008-02-01 08:00:00</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>800992222</value>
+			<value>2008-02-01 08:00:00</value>
+		</row>
+	</table>
+	<table name="bank_info_encrypted">
+		<column>application_id</column>
+		<column>direct_deposit</column>
+		<row>
+			<value>1</value>
+			<value>TRUE</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>FALSE</value>
+		</row>
+	</table>
+</dataset>

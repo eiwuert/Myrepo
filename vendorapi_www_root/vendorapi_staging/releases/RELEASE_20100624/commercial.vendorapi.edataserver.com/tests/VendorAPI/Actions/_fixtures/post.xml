@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset>
+	<node id="post">
+		<expression name="qualify" type="VendorAPI_CFE_Actions_Qualify"/>
+		<transition when="qualify.false" to="qualifyFailed"/>
+		<transition to="preBBxQualifyPassed"/>
+	</node>
+	<node id="qualifyFailed">
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">qualified</param>
+			<param name="value">0</param>
+		</expression>
+		<expression name="process" type="ECash_CFE_Expression_Variable">
+			<param>olp_process</param>
+		</expression>
+		<transition when="process.ecashapp_react" to="denyEcashReact"/>
+	</node>
+	
+	<node id="denyEcashReact">
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">save_now</param>
+			<param name="value">1</param>
+		</expression>
+		<transition to="bbFailed"/>			
+	</node>
+	
+	<node id="preBBxQualifyPassed">
+		<expression name="bb" type="ECash_CFE_Action_AttributeSet">
+			<param name="name">winner</param>
+			<param name="value" type="VendorAPI_CFE_Actions_Blackbox"/>
+		</expression>
+		<transition when="bb.false" to="bbFailed"/>
+		<transition to="bbPassed"/>
+	</node>
+	
+	<node id="bbFailed">
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>denied::application::*root</param></expression>
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">qualified</param>
+			<param name="value">0</param>
+		</expression>
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">save_app</param>
+			<param name="value">1</param>
+		</expression>
+		<expression name="process" type="ECash_CFE_Expression_Variable">
+			<param>olp_process</param>
+		</expression>
+	</node>
+	
+	<node id="bbPassed">
+		<expression name="qualify" type="VendorAPI_CFE_Actions_Qualify"/>
+		<transition when="qualify.false" to="qualifyFailed"/>
+		<transition to="postBBxQualifyPassed"/>
+	</node>
+	
+	<node id="postBBxQualifyPassed">
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus">
+			<param>pending::prospect::*root</param>
+		</expression>
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">save_app</param>
+			<param name="value">1</param>
+		</expression>
+		<expression name="process" type="ECash_CFE_Expression_Variable">
+			<param>olp_process</param>
+		</expression>
+		<transition when="process.ecashapp_react" to="denyEcashReact"/>
+	</node>
+	
+</ruleset>

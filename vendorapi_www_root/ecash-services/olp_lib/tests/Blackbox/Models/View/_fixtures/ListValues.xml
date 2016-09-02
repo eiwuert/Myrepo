@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<dataset>
+	<table name="list_revisions">
+		<column>list_id</column>
+		<column>revision_id</column>
+		<column>status</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>ACTIVE</value>
+		</row>
+	</table>
+	<table name="list_revision_values">
+		<column>list_id</column>
+		<column>revision_id</column>
+		<column>value_id</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>2</value>
+		</row>
+	</table>
+	<table name="list_values">
+		<column>value_id</column>
+		<column>value</column>
+		<row>
+			<value>1</value>
+			<value>test_value1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>test_value2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>test_value3</value>
+		</row>
+	</table>
+</dataset>

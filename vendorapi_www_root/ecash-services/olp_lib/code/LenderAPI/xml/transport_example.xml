@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<data>
+  <campaign>
+     <campaign_name>uk_xml</campaign_name>
+  </campaign>
+  <application>
+    <application_id formGroup="identity" formLabel="Application ID">12345678</application_id>
+    <name_first formGroup="identity" formLabel="First Name">BOB</name_first>
+    <name_middle formGroup="identity" formLabel="Middle Name">LUCKY</name_middle>
+    <name_last formGroup="identity" formLabel="Last Name">ANDERSON</name_last>
+    <date_of_birth formGroup="identity" formLabel="DOB Y-m-d">1982-06-30</date_of_birth>
+    <date_dob_y formGroup="identity" formLabel="DOB Year">1982</date_dob_y>
+    <date_dob_m formGroup="identity" formLabel="DOB Month">06</date_dob_m>
+    <date_dob_d formGroup="identity" formLabel="DOB Day">30</date_dob_d>
+	<dob formGroup="identity" formLabel="DOB m/d/Y">06/30/1982</dob>
+    <ssn_part_1 formGroup="identity" formLabel="SSN Part 1">999</ssn_part_1>
+    <ssn_part_2 formGroup="identity" formLabel="SSN Part 2">66</ssn_part_2>
+    <ssn_part_3 formGroup="identity" formLabel="SSN Part 3">1111</ssn_part_3>
+    <social_security_number formGroup="identity" formLabel="">999661111</social_security_number>
+    <military formGroup="identity" formLabel="" formType="select" formMultiOptions="bool">FALSE</military>
+	<state_id_number formGroup="identity" formLabel="State ID Number">1234567890</state_id_number>
+	<state_issued_id formGroup="identity" formLabel="State Issued ID" formType="select" formMultiOptions="list_of_states">NV</state_issued_id>
+    <nin formGroup="identity" formLabel="National ID Number">AA012344B</nin>
+    <test_app formGroup="identity" formLabel="Test Application">1</test_app>
+
+    <home_street formGroup="contact" formLabel="Address">1234 Pecos Rd.</home_street>
+    <home_unit formGroup="contact" formLabel="Unit">1180</home_unit>
+    <home_city formGroup="contact" formLabel="City">Las Vegas</home_city>
+    <home_state formGroup="contact" formLabel="State" formType="select" formMultiOptions="list_of_states">NV</home_state>
+    <home_zip formGroup="contact" formLabel="Zip">89119</home_zip>
+    <phone_home formGroup="contact" formLabel="Home Phone">3332224444</phone_home>
+    <phone_cell formGroup="contact" formLabel="Mobile Phone">3332224444</phone_cell>
+    <phone_work formGroup="contact" formLabel="Work Phone">3332224444</phone_work>
+    <ext_work formGroup="contact" formLabel="Work Extension">4545</ext_work>
+    <email_primary formGroup="contact" formLabel="EMail Address">SOMETHING@SOMETHING.COM</email_primary>
+    <residence_start_date formGroup="contact" formLabel="">2003-06-27</residence_start_date>
+    <residence_type formGroup="contact" formLabel="">OWN</residence_type>
+    <client_ip_address formGroup="contact" formLabel="Client IP Address">10.20.130.140</client_ip_address>
+    <best_call_time formGroup="contact" formLabel="">MORNING</best_call_time>
+    <promo_id formGroup="contact" formLabel="Promo ID">3128</promo_id>
+    <site_name formGroup="contact" formLabel="">primecashadvance.com</site_name>
+
+    <bank_name formGroup="income" formLabel="">BANK OF KINGS</bank_name>
+    <bank_aba formGroup="income" formLabel="Bank ABA">102301564</bank_aba>
+    <bank_account formGroup="income" formLabel="">22031053</bank_account>
+    <bank_account_type formGroup="income" formLabel="">CHECKING</bank_account_type>
+    <employer_name formGroup="income" formLabel="">SUPERFAST PHOTOGRAPHY</employer_name>
+	<supervisor_phone formGroup="income" formLabel="">5553334444</supervisor_phone>
+    <income_monthly_net formGroup="income" formLabel="">3000</income_monthly_net>
+    <paycheck_amount formGroup="income" formLabel="">750</paycheck_amount>
+    <income_direct_deposit formGroup="income" formLabel="" formType="select" formMultiOptions="bool">TRUE</income_direct_deposit>
+    <date_of_hire formGroup="income" formLabel="">2007-11-09</date_of_hire>
+    <loan_amount_desired formGroup="income" formLabel="">300</loan_amount_desired>
+    <income_type formGroup="income" formLabel="" formType="select" formMultiOptions="income_types">EMPLOYMENT</income_type>
+    <income_frequency formGroup="income" formLabel="" formType="select" formMultiOptions="income_frequency">WEEKLY</income_frequency>
+    <paydate1 formGroup="income" formLabel="">2008-12-01</paydate1>
+    <paydate2 formGroup="income" formLabel="">2008-12-08</paydate2>
+    <paydate3 formGroup="income" formLabel="">2008-12-15</paydate3>
+    <paydate4 formGroup="income" formLabel="">2008-12-22</paydate4>
+    <paydate5 formGroup="income" formLabel="">2008-12-29</paydate5>
+    <model_name formGroup="income" formLabel="Paydate Model">DW</model_name>
+    <next_pay_date formGroup="income" formLabel="">2008-12-01</next_pay_date>
+    <last_pay_date formGroup="income" formLabel="">2008-11-03</last_pay_date>
+    <day_string_1 formGroup="income" formLabel="">MON</day_string_1>
+    <day_of_week formGroup="income" formLabel="">1</day_of_week>
+
+    <ref_01_name_first formGroup="references" formLabel="Reference 1 First Name">JERINO</ref_01_name_first>
+    <ref_01_name_last formGroup="references" formLabel="Reference 1 Last Name">BIBBS</ref_01_name_last>
+    <ref_01_name_full formGroup="references" formLabel="Reference 1 Full Name">JERINO BIBBS</ref_01_name_full>
+    <ref_01_phone_home formGroup="references" formLabel="Reference 1 Home Phone">6325647894</ref_01_phone_home>
+    <ref_01_relationship formGroup="references" formLabel="Reference 1 Relation">EXTENDED_FAMILY</ref_01_relationship>
+    <ref_02_name_first formGroup="references" formLabel="Reference 2 First Name">MARTINE</ref_02_name_first>
+    <ref_02_name_last formGroup="references" formLabel="Reference 2 Last Name">HICKMAN</ref_02_name_last>
+    <ref_02_name_full formGroup="references" formLabel="Reference 2 Full Name">MARTINE HICKMAN</ref_02_name_full>
+    <ref_02_phone_home formGroup="references" formLabel="Reference 2 Home Phone">7894561234</ref_02_phone_home>
+    <ref_02_relationship formGroup="references" formLabel="Reference 2 Relation">FRIEND</ref_02_relationship>
+    <ref_03_name_first formGroup="references" formLabel="Reference 3 First Name">LESTER</ref_03_name_first>
+    <ref_03_name_last formGroup="references" formLabel="Reference 3 Last Name">CLINTON</ref_03_name_last>
+    <ref_03_name_full formGroup="references" formLabel="Reference 3 Full Name">LESTER CLINTON</ref_03_name_full>
+    <ref_03_phone_home formGroup="references" formLabel="Reference 3 Home Phone">2482329232</ref_03_phone_home>
+    <ref_03_relationship formGroup="references" formLabel="Reference 3 Relation">SIBLING</ref_03_relationship>
+    <ref_04_name_first formGroup="references" formLabel="Reference 4 First Name">STEVE</ref_04_name_first>
+    <ref_04_name_last formGroup="references" formLabel="Reference 4 Last Name">JORDAN</ref_04_name_last>
+    <ref_04_name_full formGroup="references" formLabel="Reference 4 Full Name">STEVE JORDAN</ref_04_name_full>
+    <ref_04_phone_home formGroup="references" formLabel="Reference 4 Home Phone">7394238921</ref_04_phone_home>
+    <ref_04_relationship formGroup="references" formLabel="Reference 4 Relation">PARENT</ref_04_relationship>
+
+    <vehicle_vin formGroup="vehicle" formLabel="">1G1YZ23J9P5800001</vehicle_vin>
+    <vehicle_make formGroup="vehicle" formLabel="">NISSAN</vehicle_make>
+    <vehicle_year formGroup="vehicle" formLabel="">2005</vehicle_year>
+    <vehicle_model formGroup="vehicle" formLabel="">ALTIMA</vehicle_model>
+    <vehicle_style formGroup="vehicle" formLabel="">SEDAN 4D SE</vehicle_style>
+    <vehicle_series formGroup="vehicle" formLabel="">ALTIMA-4 CYL.</vehicle_series>
+    <vehicle_mileage formGroup="vehicle" formLabel="">110000</vehicle_mileage>
+  </application>
+</data>

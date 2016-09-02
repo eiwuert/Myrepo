@@ -1,0 +1,2476 @@
+<?xml version="1.0"?>
+<dataset>
+  <table name="rule_definition">
+    <column>rule_definition_id</column>
+    <column>display_type_id</column>
+    <column>rule_class_id</column>
+    <column>name</column>
+    <column>name_short</column>
+    <column>description</column>
+    <column>event</column>
+    <column>stat</column>
+    <column>field</column>
+    <column>default_rule</column>
+    <column>active</column>
+    <row>
+      <value>1</value>
+      <value>1</value>
+      <value>29</value>
+      <value>daily limit</value>
+      <value>daily_limit</value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>3</value>
+      <value>1</value>
+      <value>6</value>
+      <value>bank account type</value>
+      <value>bank_account_type</value>
+      <value></value>
+      <value>ACCOUNT_TYPE</value>
+      <value>account_type</value>
+      <value>bank_account_type</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>5</value>
+      <value>1</value>
+      <value>13</value>
+      <value>minimum income</value>
+      <value>minimum_income</value>
+      <value></value>
+      <value>MIN_INCOME</value>
+      <value>min_income</value>
+      <value>income_monthly_net</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>7</value>
+      <value>1</value>
+      <value>25</value>
+      <value>excluded states</value>
+      <value>excluded_states</value>
+      <value></value>
+      <value>EXCL_STATES</value>
+      <value>excl_states</value>
+      <value>home_state</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>9</value>
+      <value>1</value>
+      <value>2</value>
+      <value>income frequency</value>
+      <value>income_frequency</value>
+      <value></value>
+      <value>INCOME_FREQ</value>
+      <value>income_freq</value>
+      <value>income_frequency</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>11</value>
+      <value>1</value>
+      <value>16</value>
+      <value>minimum recur ssn</value>
+      <value>minimum_recur_ssn</value>
+      <value></value>
+      <value>SSN_RECUR</value>
+      <value>ssn_recur</value>
+      <value>social_security_number_encrypted</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>13</value>
+      <value>1</value>
+      <value>17</value>
+      <value>minimum recur email</value>
+      <value>minimum_recur_email</value>
+      <value></value>
+      <value>EMAIL_RECUR</value>
+      <value>email_recur</value>
+      <value>email_primary</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>15</value>
+      <value>1</value>
+      <value>2</value>
+      <value>income source</value>
+      <value>income_source</value>
+      <value></value>
+      <value>INCOME_SOURCE</value>
+      <value>income_source</value>
+      <value>income_type</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>17</value>
+      <value>1</value>
+      <value>20</value>
+      <value>dd check</value>
+      <value>dd_check</value>
+      <value></value>
+      <value>DIRECT_DEPOSIT_RECUR</value>
+      <value>direct_deposit_recur</value>
+      <value>social_security_number_encrypted</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>19</value>
+      <value>1</value>
+      <value>24</value>
+      <value>military</value>
+      <value>military</value>
+      <value></value>
+      <value>ALLOW_MILITARY</value>
+      <value>allow_military</value>
+      <value></value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>21</value>
+      <value>1</value>
+      <value>28</value>
+      <value>frequency decline</value>
+      <value>frequency_decline</value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value>email_primary</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>23</value>
+      <value>1</value>
+      <value>26</value>
+      <value>suppression lists</value>
+      <value>suppression_lists</value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>25</value>
+      <value>1</value>
+      <value>14</value>
+      <value>minimum age</value>
+      <value>minimum_age</value>
+      <value></value>
+      <value>MINIMUM_AGE</value>
+      <value>minimum_age</value>
+      <value>dob</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value>1</value>
+      <value>23</value>
+      <value>required references</value>
+      <value>required_references</value>
+      <value></value>
+      <value>REQ_REFS</value>
+      <value>req_refs</value>
+      <value></value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>29</value>
+      <value>1</value>
+      <value>31</value>
+      <value>weekends</value>
+      <value>weekends</value>
+      <value></value>
+      <value>WEEKEND</value>
+      <value>weekend</value>
+      <value></value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>31</value>
+      <value>1</value>
+      <value>4</value>
+      <value>income direct deposit</value>
+      <value>income_direct_deposit</value>
+      <value></value>
+      <value>DIRECT_DEPOSIT</value>
+      <value>direct_deposit</value>
+      <value>income_direct_deposit</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value>1</value>
+      <value>2</value>
+      <value>restricted states</value>
+      <value>restricted_states</value>
+      <value></value>
+      <value>RESTR_STATES</value>
+      <value>restr_states</value>
+      <value>home_state</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>35</value>
+      <value>1</value>
+      <value>11</value>
+      <value>operating hours</value>
+      <value>operating_hours</value>
+      <value></value>
+      <value>OPERATING_HOURS</value>
+      <value>operating_hours</value>
+      <value></value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>37</value>
+      <value>1</value>
+      <value>30</value>
+      <value>withheld targets</value>
+      <value>withheld_targets</value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value>1</value>
+      <value>5</value>
+      <value>state id required</value>
+      <value>state_id_required</value>
+      <value></value>
+      <value>STATE_ID</value>
+      <value>state_id</value>
+      <value>state_id_number</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>41</value>
+      <value>1</value>
+      <value>5</value>
+      <value>state issued id required</value>
+      <value>state_issued_id_required</value>
+      <value></value>
+      <value>STATE_ISSUED_ID</value>
+      <value>state_issued_id</value>
+      <value>state_issued_id</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>43</value>
+      <value>1</value>
+      <value>32</value>
+      <value>identical phone numbers</value>
+      <value>identical_phone_numbers</value>
+      <value></value>
+      <value>ALLOW_IDENTICAL_PHONE_NUMBERS</value>
+      <value>allow_identical_phone_numbers</value>
+      <value>a:2:{i:0;s:10:"phone_home";i:1;s:10:"phone_work";}</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>45</value>
+      <value>1</value>
+      <value>9</value>
+      <value>identical work cell numbers</value>
+      <value>identical_work_cell_numbers</value>
+      <value></value>
+      <value>ALLOW_IDENTICAL_WORK_CELL_NUMBERS</value>
+      <value>allow_identical_work_cell_numbers</value>
+      <value>a:2:{i:0;s:10:"phone_work";i:1;s:10:"phone_cell";}</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>47</value>
+      <value>1</value>
+      <value>27</value>
+      <value>filter</value>
+      <value>filter</value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>49</value>
+      <value>1</value>
+      <value>10</value>
+      <value>non dates</value>
+      <value>non_dates</value>
+      <value></value>
+      <value>NON_DATE</value>
+      <value>non_date</value>
+      <value></value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>51</value>
+      <value>1</value>
+      <value>29</value>
+      <value>hourly limit</value>
+      <value>hourly_limit</value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>53</value>
+      <value>1</value>
+      <value>18</value>
+      <value>income recur</value>
+      <value>income_recur</value>
+      <value></value>
+      <value>INCOME_RECUR</value>
+      <value></value>
+      <value></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>55</value>
+      <value>1</value>
+      <value>19</value>
+      <value>pay date recur</value>
+      <value>pay_date_recur</value>
+      <value></value>
+      <value>PAY_DATE_RECUR</value>
+      <value></value>
+      <value></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>57</value>
+      <value>1</value>
+      <value>12</value>
+      <value>employer length</value>
+      <value>employer_length</value>
+      <value></value>
+      <value>EMP_LENGTH</value>
+      <value>emp_length</value>
+      <value>date_of_hire</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>59</value>
+      <value>1</value>
+      <value>33</value>
+      <value>max loan amount requested</value>
+      <value>max_loan_amount_requested</value>
+      <value></value>
+      <value>MAX_LOAN_REQ</value>
+      <value>max_loan_req</value>
+      <value>loan_amount_desired</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>61</value>
+      <value>1</value>
+      <value>12</value>
+      <value>residence length</value>
+      <value>residence_length</value>
+      <value></value>
+      <value>RES_LENGTH</value>
+      <value>res_length</value>
+      <value>residence_start_date</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>63</value>
+      <value>1</value>
+      <value>21</value>
+      <value>minimum recur withheld email</value>
+      <value>minimum_recur_withheld_email</value>
+      <value></value>
+      <value>WITHHELD_EMAIL_RECUR</value>
+      <value>withheld_email_recur</value>
+      <value>email_primary</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>65</value>
+      <value>1</value>
+      <value>22</value>
+      <value>minimum recur withheld ssn</value>
+      <value>minimum_recur_withheld_ssn</value>
+      <value></value>
+      <value>WITHHELD_SSN_RECUR</value>
+      <value>withheld_ssn_recur</value>
+      <value>social_security_number_encrypted</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>67</value>
+      <value>1</value>
+      <value>6</value>
+      <value>residence type</value>
+      <value>residence_type</value>
+      <value></value>
+      <value>RES_TYPE</value>
+      <value>res_type</value>
+      <value>residence_type</value>
+      <value>1</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>69</value>
+      <value>1</value>
+      <value>5</value>
+      <value>nin required</value>
+      <value>nin_required</value>
+      <value>Require national identification number (uk)</value>
+      <value>NIN</value>
+      <value>nin</value>
+      <value>nin</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>71</value>
+      <value>1</value>
+      <value>5</value>
+      <value>residence type required</value>
+      <value>residence_type_required</value>
+      <value>Require residence type (uk).</value>
+      <value>RESIDENCE_TYPE</value>
+      <value>residence_type</value>
+      <value>residence_type</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>73</value>
+      <value>1</value>
+      <value>5</value>
+      <value>employer phone required</value>
+      <value>employer_phone_required</value>
+      <value>Require employer phone (uk)</value>
+      <value>EMPLOYER_PHONE</value>
+      <value>employer_phone</value>
+      <value>supervisor_phone</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>75</value>
+      <value>6</value>
+      <value>2</value>
+      <value>best call time</value>
+      <value>best_call_time</value>
+      <value>Best time to call (uk).</value>
+      <value>BEST_CALL_TIME</value>
+      <value>best_call_type</value>
+      <value>best_call_time</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>77</value>
+      <value>1</value>
+      <value>5</value>
+      <value>bank name</value>
+      <value>bank_name</value>
+      <value>Require bank name (uk).</value>
+      <value>BANK_NAME</value>
+      <value>bank_name</value>
+      <value>bank_name</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>78</value>
+      <value>0</value>
+      <value>34</value>
+      <value>Lender Post</value>
+      <value>lender_post</value>
+      <value>Post to Blackbox Lenders</value>
+      <value>POST</value>
+      <value></value>
+      <value></value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>79</value>
+      <value>1</value>
+      <value>35</value>
+      <value>maximum age</value>
+      <value>maximum_age</value>
+      <value>Indicates the maximum age allowed</value>
+      <value>MAXIMUM_AGE</value>
+      <value>maximum_age</value>
+      <value>dob</value>
+      <value>0</value>
+      <value>1</value>
+    </row>
+  </table>
+  <table name="rule">
+    <column>rule_id</column>
+    <column>rule_collection_class_id</column>
+    <column>blackbox_type_id</column>
+    <column>rule_definition_id</column>
+    <column>name</column>
+    <column>rule_value</column>
+    <column>rule_action</column>
+    <column>date_created</column>
+    <row>
+      <value>27</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:47</value>
+    </row>
+    <row>
+      <value>28</value>
+      <value>0</value>
+      <value>4</value>
+      <value>31</value>
+      <value>income_direct_deposit</value>
+      <value>TRUE</value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>29</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>30</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>31</value>
+      <value>0</value>
+      <value>4</value>
+      <value>31</value>
+      <value>income_direct_deposit</value>
+      <value>TRUE</value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>32</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>34</value>
+      <value>0</value>
+      <value>4</value>
+      <value>31</value>
+      <value>income_direct_deposit</value>
+      <value>TRUE</value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>35</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>36</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>37</value>
+      <value>0</value>
+      <value>4</value>
+      <value>31</value>
+      <value>income_direct_deposit</value>
+      <value>TRUE</value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>38</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>40</value>
+      <value>0</value>
+      <value>4</value>
+      <value>31</value>
+      <value>income_direct_deposit</value>
+      <value>TRUE</value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>41</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>42</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>43</value>
+      <value>0</value>
+      <value>4</value>
+      <value>31</value>
+      <value>income_direct_deposit</value>
+      <value>TRUE</value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>44</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>45</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>46</value>
+      <value>0</value>
+      <value>4</value>
+      <value>31</value>
+      <value>income_direct_deposit</value>
+      <value>TRUE</value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>47</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>49</value>
+      <value>0</value>
+      <value>4</value>
+      <value>31</value>
+      <value>income_direct_deposit</value>
+      <value>TRUE</value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>50</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 08:38:48</value>
+    </row>
+    <row>
+      <value>51</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 09:00:22</value>
+    </row>
+    <row>
+      <value>52</value>
+      <value>0</value>
+      <value>4</value>
+      <value>5</value>
+      <value>minimum_income</value>
+      <value>1500</value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 09:00:22</value>
+    </row>
+    <row>
+      <value>53</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-02-13 09:00:22</value>
+    </row>
+    <row>
+      <value>54</value>
+      <value>0</value>
+      <value>4</value>
+      <value>78</value>
+      <value>lender_post</value>
+      <value>1</value>
+      <value>EXCLUDE</value>
+      <value>2009-03-05 15:14:56</value>
+    </row>
+    <row>
+      <value>55</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-03-05 15:19:18</value>
+    </row>
+    <row>
+      <value>56</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-03-05 15:19:18</value>
+    </row>
+    <row>
+      <value>57</value>
+      <value>0</value>
+      <value>4</value>
+      <value>79</value>
+      <value>maximum_age</value>
+      <value>55</value>
+      <value>EXCLUDE</value>
+      <value>2009-04-15 08:55:24</value>
+    </row>
+    <row>
+      <value>68</value>
+      <value>0</value>
+      <value>4</value>
+      <value>25</value>
+      <value>minimum_age</value>
+      <value>23</value>
+      <value>EXCLUDE</value>
+      <value>2009-05-07 13:30:32</value>
+    </row>
+    <row>
+      <value>69</value>
+      <value>0</value>
+      <value>4</value>
+      <value>5</value>
+      <value>minimum_income</value>
+      <value>1001</value>
+      <value>EXCLUDE</value>
+      <value>2009-05-07 13:30:32</value>
+    </row>
+    <row>
+      <value>70</value>
+      <value>0</value>
+      <value>4</value>
+      <value>5</value>
+      <value>minimum_income</value>
+      <value>1001</value>
+      <value>EXCLUDE</value>
+      <value>2009-05-07 13:30:32</value>
+    </row>
+    <row>
+      <value>72</value>
+      <value>0</value>
+      <value>4</value>
+      <value>5</value>
+      <value>minimum_income</value>
+      <value>999</value>
+      <value>EXCLUDE</value>
+      <value>2009-05-07 14:47:30</value>
+    </row>
+    <row>
+      <value>73</value>
+      <value>0</value>
+      <value>4</value>
+      <value>25</value>
+      <value>minimum_age</value>
+      <value>23</value>
+      <value>EXCLUDE</value>
+      <value>2009-05-07 14:55:44</value>
+    </row>
+    <row>
+      <value>75</value>
+      <value>0</value>
+      <value>4</value>
+      <value>11</value>
+      <value>minimum_recur_ssn</value>
+      <value>33</value>
+      <value>EXCLUDE</value>
+      <value>2009-05-28 09:35:41</value>
+    </row>
+    <row>
+      <value>76</value>
+      <value>1</value>
+      <value>2</value>
+      <null/>
+      <null/>
+      <value></value>
+      <value>EXCLUDE</value>
+      <value>2009-05-28 09:39:55</value>
+    </row>
+    <row>
+      <value>78</value>
+      <value>0</value>
+      <value>4</value>
+      <value>7</value>
+      <value>excluded_states</value>
+      <value>a:5:{i:0;s:2:"WC";i:1;s:2:"VA";i:2;s:2:"OH";i:3;s:2:"NY";i:4;s:2:"NJ";}</value>
+      <value>EXCLUDE</value>
+      <value>2009-05-29 15:08:54</value>
+    </row>
+    <row>
+      <value>79</value>
+      <value>0</value>
+      <value>4</value>
+      <value>15</value>
+      <value>income_source</value>
+      <value>a:2:{i:0;s:10:"EMPLOYMENT";i:1;s:8:"BENEFITS";}</value>
+      <value>EXCLUDE</value>
+      <value>2009-05-29 15:33:24</value>
+    </row>
+    <row>
+      <value>80</value>
+      <value>0</value>
+      <value>4</value>
+      <value>7</value>
+      <value>excluded_states</value>
+      <value>a:4:{i:0;s:2:"NY";i:1;s:2:"NJ";i:2;s:2:"KS";i:3;s:2:"NC";}</value>
+      <value>EXCLUDE</value>
+      <value>2009-06-01 10:20:45</value>
+    </row>
+    <row>
+      <value>81</value>
+      <value>0</value>
+      <value>4</value>
+      <value>7</value>
+      <value>excluded_states</value>
+      <value>a:3:{i:0;s:2:"CA";i:1;s:2:"NV";i:2;s:2:"VT";}</value>
+      <value>EXCLUDE</value>
+      <value>2009-06-01 10:20:45</value>
+    </row>
+    <row>
+      <value>82</value>
+      <value>0</value>
+      <value>4</value>
+      <value>7</value>
+      <value>excluded_states</value>
+      <value>a:2:{i:0;s:2:"AK";i:1;s:2:"NV";}</value>
+      <value>EXCLUDE</value>
+      <value>2009-06-01 10:20:45</value>
+    </row>
+  </table>
+  <table name="rule_relation">
+    <column>rule_id</column>
+    <column>rule_revision_id</column>
+    <column>child_id</column>
+    <row>
+      <value>27</value>
+      <value>1</value>
+      <value>28</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value>33</value>
+      <value>28</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value>33</value>
+      <value>78</value>
+    </row>
+    <row>
+      <value>30</value>
+      <value>3</value>
+      <value>31</value>
+    </row>
+    <row>
+      <value>30</value>
+      <value>24</value>
+      <value>68</value>
+    </row>
+    <row>
+      <value>30</value>
+      <value>24</value>
+      <value>69</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value>5</value>
+      <value>34</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value>34</value>
+      <value>34</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value>34</value>
+      <value>79</value>
+    </row>
+    <row>
+      <value>36</value>
+      <value>7</value>
+      <value>37</value>
+    </row>
+    <row>
+      <value>36</value>
+      <value>25</value>
+      <value>37</value>
+    </row>
+    <row>
+      <value>36</value>
+      <value>25</value>
+      <value>70</value>
+    </row>
+    <row>
+      <value>38</value>
+      <value>37</value>
+      <value>82</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value>9</value>
+      <value>40</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value>22</value>
+      <value>40</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value>22</value>
+      <value>57</value>
+    </row>
+    <row>
+      <value>41</value>
+      <value>36</value>
+      <value>81</value>
+    </row>
+    <row>
+      <value>42</value>
+      <value>11</value>
+      <value>43</value>
+    </row>
+    <row>
+      <value>44</value>
+      <value>35</value>
+      <value>80</value>
+    </row>
+    <row>
+      <value>45</value>
+      <value>13</value>
+      <value>46</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>15</value>
+      <value>49</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>28</value>
+      <value>49</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>29</value>
+      <value>49</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>30</value>
+      <value>49</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>31</value>
+      <value>49</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>31</value>
+      <value>75</value>
+    </row>
+    <row>
+      <value>51</value>
+      <value>17</value>
+      <value>52</value>
+    </row>
+    <row>
+      <value>51</value>
+      <value>26</value>
+      <value>72</value>
+    </row>
+    <row>
+      <value>53</value>
+      <value>19</value>
+      <value>54</value>
+    </row>
+    <row>
+      <value>56</value>
+      <value>27</value>
+      <value>73</value>
+    </row>
+  </table>
+  <table name="target">
+    <column>target_id</column>
+    <column>target_collection_class_id</column>
+    <column>weight_class_id</column>
+    <column>property_short</column>
+    <column>name</column>
+    <column>active</column>
+    <column>date_modified</column>
+    <column>date_created</column>
+    <column>date_effective</column>
+    <column>company_id</column>
+    <column>blackbox_type_id</column>
+    <column>rule_id</column>
+    <column>list_mgmt_nosell</column>
+    <column>paydate_minimum</column>
+    <column>reference_data</column>
+    <column>lead_cost</column>
+    <column>deleted</column>
+    <row>
+      <value>1</value>
+      <null/>
+      <value>0</value>
+      <value>nsc</value>
+      <value>Norstar Cash</value>
+      <value>1</value>
+      <value>2009-05-29 15:08:54</value>
+      <value>2009-02-13 08:38:47</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>1</value>
+      <value>1</value>
+      <value>27</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>2</value>
+      <null/>
+      <value>0</value>
+      <value>nsc</value>
+      <value>Norstar Cash</value>
+      <value>1</value>
+      <value>2009-05-29 15:08:54</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>1</value>
+      <value>3</value>
+      <value>29</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:0:{}i:2;a:0:{}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>3</value>
+      <null/>
+      <value>0</value>
+      <value>bgc</value>
+      <value>Biggest Cash</value>
+      <value>1</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>1</value>
+      <value>30</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>4</value>
+      <null/>
+      <value>0</value>
+      <value>bgc</value>
+      <value>Biggest Cash</value>
+      <value>1</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>3</value>
+      <value>32</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:0:{}i:2;a:0:{}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>5</value>
+      <null/>
+      <value>0</value>
+      <value>ezc</value>
+      <value>EZ Cash Media</value>
+      <value>1</value>
+      <value>2009-05-29 15:33:24</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>1</value>
+      <value>1</value>
+      <value>33</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>6</value>
+      <null/>
+      <value>0</value>
+      <value>ezc</value>
+      <value>EZ Cash Media</value>
+      <value>1</value>
+      <value>2009-05-29 15:33:24</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>1</value>
+      <value>3</value>
+      <value>35</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:0:{}i:2;a:0:{}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>7</value>
+      <null/>
+      <value>0</value>
+      <value>csg</value>
+      <value>Cash Star Group</value>
+      <value>0</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>1</value>
+      <value>36</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>8</value>
+      <null/>
+      <value>0</value>
+      <value>csg</value>
+      <value>Cash Star Group</value>
+      <value>1</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>3</value>
+      <value>38</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}i:2;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>9</value>
+      <null/>
+      <value>0</value>
+      <value>tgc</value>
+      <value>Together Cash</value>
+      <value>1</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>1</value>
+      <value>39</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>10</value>
+      <null/>
+      <value>0</value>
+      <value>tgc</value>
+      <value>Together Cash</value>
+      <value>1</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>3</value>
+      <value>41</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}i:2;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>11</value>
+      <null/>
+      <value>0</value>
+      <value>gtc</value>
+      <value>Good Time Cash</value>
+      <value>1</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>1</value>
+      <value>42</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>12</value>
+      <null/>
+      <value>0</value>
+      <value>gtc</value>
+      <value>Good Time Cash</value>
+      <value>1</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>3</value>
+      <value>44</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}i:2;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>13</value>
+      <null/>
+      <value>0</value>
+      <value>obb</value>
+      <value>Outback Bucks</value>
+      <value>1</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>1</value>
+      <value>45</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>14</value>
+      <null/>
+      <value>0</value>
+      <value>obb</value>
+      <value>Outback Bucks</value>
+      <value>1</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>95</value>
+      <value>3</value>
+      <value>47</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:0:{}i:2;a:0:{}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>15</value>
+      <null/>
+      <value>0</value>
+      <value>cvc</value>
+      <value>City View Cash</value>
+      <value>1</value>
+      <value>2009-05-26 15:24:23</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>1</value>
+      <value>1</value>
+      <value>48</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>16</value>
+      <null/>
+      <value>0</value>
+      <value>cvc</value>
+      <value>City View Cash</value>
+      <value>1</value>
+      <value>2009-05-26 15:24:23</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>1</value>
+      <value>3</value>
+      <value>50</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:0:{}i:2;a:0:{}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>17</value>
+      <value>2</value>
+      <value>1</value>
+      <value>pw</value>
+      <value>Partner Weekly</value>
+      <value>1</value>
+      <value>2009-02-13 08:41:33</value>
+      <value>2009-02-13 08:41:33</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>18</value>
+      <value>1</value>
+      <value>1</value>
+      <value>t1</value>
+      <value>Tier 1</value>
+      <value>1</value>
+      <value>2009-02-13 08:41:33</value>
+      <value>2009-02-13 08:41:33</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>19</value>
+      <value>1</value>
+      <value>1</value>
+      <value>hms_t1</value>
+      <value>HMS Tier 1</value>
+      <value>1</value>
+      <value>2009-02-13 08:41:33</value>
+      <value>2009-02-13 08:41:33</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>20</value>
+      <null/>
+      <value>0</value>
+      <value>grv2</value>
+      <value>Geneva Roth Ventures - GRV2</value>
+      <value>1</value>
+      <value>2009-02-13 09:00:22</value>
+      <value>2009-02-13 09:00:22</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>25</value>
+      <value>1</value>
+      <value>51</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>21</value>
+      <null/>
+      <value>0</value>
+      <value>grv2</value>
+      <value>Geneva Roth Ventures - GRV2</value>
+      <value>1</value>
+      <value>2009-03-05 15:14:56</value>
+      <value>2009-02-13 09:00:22</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>25</value>
+      <value>3</value>
+      <value>53</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}i:2;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>22</value>
+      <value>1</value>
+      <value>1</value>
+      <value>t2</value>
+      <value>Tier 2</value>
+      <value>1</value>
+      <value>2009-02-13 09:10:41</value>
+      <value>2009-02-13 09:10:41</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>23</value>
+      <value>1</value>
+      <value>1</value>
+      <value>clk_prequal</value>
+      <value>CLK Prequal</value>
+      <value>1</value>
+      <value>2009-02-19 07:33:53</value>
+      <value>2009-02-19 07:33:53</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>24</value>
+      <null/>
+      <value>0</value>
+      <value>tdc</value>
+      <value>trans.com</value>
+      <value>0</value>
+      <value>2009-03-05 15:19:18</value>
+      <value>2009-03-05 15:19:18</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>69</value>
+      <value>1</value>
+      <value>55</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>25</value>
+      <null/>
+      <value>0</value>
+      <value>tdc</value>
+      <value>trans.com</value>
+      <value>0</value>
+      <value>2009-03-05 15:19:18</value>
+      <value>2009-03-05 15:19:18</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>69</value>
+      <value>3</value>
+      <value>56</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:0:{}i:2;a:0:{}}</value>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>26</value>
+      <value>1</value>
+      <value>1</value>
+      <value>emptycollection</value>
+      <value>emptycollection</value>
+      <value>1</value>
+      <value>2009-04-15 08:55:24</value>
+      <value>2009-04-15 08:55:24</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value>1</value>
+      <value>1</value>
+      <value>nonempty</value>
+      <value>nonempty</value>
+      <value>1</value>
+      <value>2009-04-15 08:55:24</value>
+      <value>2009-04-15 08:55:24</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>28</value>
+      <value>1</value>
+      <value>1</value>
+      <value>one</value>
+      <value>one</value>
+      <value>0</value>
+      <value>2009-04-15 09:05:46</value>
+      <value>2009-04-15 09:01:54</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>29</value>
+      <value>1</value>
+      <value>1</value>
+      <value>two</value>
+      <value>two</value>
+      <value>1</value>
+      <value>2009-04-15 09:01:54</value>
+      <value>2009-04-15 09:01:54</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>0</value>
+      <value>2</value>
+      <value>0</value>
+      <null/>
+      <null/>
+      <null/>
+      <value>0.00</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>30</value>
+      <null/>
+      <value>0</value>
+      <value>cvc2</value>
+      <value>City View Cash - Tier 2 Campaign</value>
+      <value>1</value>
+      <value>2009-05-28 09:39:55</value>
+      <value>2009-05-28 09:39:55</value>
+      <value>0000-00-00 00:00:00</value>
+      <value>1</value>
+      <value>3</value>
+      <value>76</value>
+      <value>0</value>
+      <value>0</value>
+      <value>a:2:{i:1;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}i:2;a:4:{s:2:"fn";s:0:"";s:2:"ln";s:0:"";s:5:"phone";s:0:"";s:8:"relation";s:0:"";}}</value>
+      <value>15.00</value>
+      <value>0</value>
+    </row>
+  </table>
+  <table name="blackbox_type">
+    <column>blackbox_type_id</column>
+    <column>name</column>
+    <row>
+      <value>1</value>
+      <value>TARGET</value>
+    </row>
+    <row>
+      <value>2</value>
+      <value>COLLECTION</value>
+    </row>
+    <row>
+      <value>3</value>
+      <value>CAMPAIGN</value>
+    </row>
+    <row>
+      <value>4</value>
+      <value>RULE</value>
+    </row>
+  </table>
+  <table name="target_relation">
+    <column>target_relation_id</column>
+    <column>target_id</column>
+    <column>child_id</column>
+    <column>weight</column>
+    <row>
+      <value>1</value>
+      <value>2</value>
+      <value>1</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>2</value>
+      <value>4</value>
+      <value>3</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>3</value>
+      <value>6</value>
+      <value>5</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>4</value>
+      <value>8</value>
+      <value>7</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>5</value>
+      <value>10</value>
+      <value>9</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>6</value>
+      <value>12</value>
+      <value>11</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>7</value>
+      <value>14</value>
+      <value>13</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>8</value>
+      <value>16</value>
+      <value>15</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>9</value>
+      <value>17</value>
+      <value>18</value>
+      <value>3</value>
+    </row>
+    <row>
+      <value>10</value>
+      <value>18</value>
+      <value>19</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>11</value>
+      <value>19</value>
+      <value>4</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>12</value>
+      <value>19</value>
+      <value>8</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>13</value>
+      <value>19</value>
+      <value>16</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>14</value>
+      <value>19</value>
+      <value>6</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>15</value>
+      <value>19</value>
+      <value>12</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>16</value>
+      <value>19</value>
+      <value>2</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>17</value>
+      <value>19</value>
+      <value>14</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>18</value>
+      <value>19</value>
+      <value>10</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>19</value>
+      <value>21</value>
+      <value>20</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>20</value>
+      <value>17</value>
+      <value>22</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>21</value>
+      <value>22</value>
+      <value>21</value>
+      <value>5</value>
+    </row>
+    <row>
+      <value>22</value>
+      <value>25</value>
+      <value>24</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>23</value>
+      <value>17</value>
+      <value>26</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>25</value>
+      <value>27</value>
+      <value>6</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>26</value>
+      <value>29</value>
+      <value>12</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value>17</value>
+      <value>28</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>28</value>
+      <value>17</value>
+      <value>29</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>29</value>
+      <value>30</value>
+      <value>15</value>
+      <value>0</value>
+    </row>
+  </table>
+  <table name="rule_revision">
+    <column>rule_id</column>
+    <column>rule_revision_id</column>
+    <column>date_modified</column>
+    <column>date_created</column>
+    <column>active</column>
+    <row>
+      <value>27</value>
+      <value>1</value>
+      <value>2009-05-29 15:08:54</value>
+      <value>2009-02-13 08:38:47</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value>33</value>
+      <value>2009-05-29 15:08:54</value>
+      <value>2009-05-29 15:08:54</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>29</value>
+      <value>2</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>30</value>
+      <value>3</value>
+      <value>2009-05-06 14:51:35</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>30</value>
+      <value>23</value>
+      <value>2009-05-07 13:30:32</value>
+      <value>2009-05-06 14:51:35</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>30</value>
+      <value>24</value>
+      <value>2009-05-07 13:30:32</value>
+      <value>2009-05-07 13:30:32</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>32</value>
+      <value>4</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value>5</value>
+      <value>2009-05-29 15:33:24</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value>34</value>
+      <value>2009-05-29 15:33:24</value>
+      <value>2009-05-29 15:33:24</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>35</value>
+      <value>6</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>36</value>
+      <value>7</value>
+      <value>2009-05-07 13:30:32</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>36</value>
+      <value>25</value>
+      <value>2009-05-07 13:30:32</value>
+      <value>2009-05-07 13:30:32</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>38</value>
+      <value>8</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>38</value>
+      <value>37</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value>9</value>
+      <value>2009-04-15 08:55:24</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value>22</value>
+      <value>2009-04-15 08:55:24</value>
+      <value>2009-04-15 08:55:24</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>41</value>
+      <value>10</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>41</value>
+      <value>36</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>42</value>
+      <value>11</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>44</value>
+      <value>12</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>44</value>
+      <value>35</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>2009-06-01 10:20:45</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>45</value>
+      <value>13</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>47</value>
+      <value>14</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>15</value>
+      <value>2009-05-26 15:24:23</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>28</value>
+      <value>2009-05-28 09:35:41</value>
+      <value>2009-05-26 15:24:23</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>29</value>
+      <value>2009-05-28 09:13:08</value>
+      <value>2009-05-28 09:13:08</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>30</value>
+      <value>2009-05-28 09:25:46</value>
+      <value>2009-05-28 09:25:46</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>48</value>
+      <value>31</value>
+      <value>2009-05-28 09:35:41</value>
+      <value>2009-05-28 09:35:41</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>50</value>
+      <value>16</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>2009-02-13 08:38:48</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>51</value>
+      <value>17</value>
+      <value>2009-05-07 14:47:30</value>
+      <value>2009-02-13 09:00:22</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>51</value>
+      <value>26</value>
+      <value>2009-05-07 14:47:30</value>
+      <value>2009-05-07 14:47:30</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>53</value>
+      <value>18</value>
+      <value>2009-03-05 15:14:56</value>
+      <value>2009-02-13 09:00:22</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>53</value>
+      <value>19</value>
+      <value>2009-03-05 15:14:56</value>
+      <value>2009-03-05 15:14:56</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>55</value>
+      <value>20</value>
+      <value>2009-03-05 15:19:18</value>
+      <value>2009-03-05 15:19:18</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>56</value>
+      <value>21</value>
+      <value>2009-05-07 14:55:44</value>
+      <value>2009-03-05 15:19:18</value>
+      <value>0</value>
+    </row>
+    <row>
+      <value>56</value>
+      <value>27</value>
+      <value>2009-05-07 14:55:44</value>
+      <value>2009-05-07 14:55:44</value>
+      <value>1</value>
+    </row>
+    <row>
+      <value>76</value>
+      <value>32</value>
+      <value>2009-05-28 09:39:55</value>
+      <value>2009-05-28 09:39:55</value>
+      <value>1</value>
+    </row>
+  </table>
+  <table name="company">
+    <column>company_id</column>
+    <column>name</column>
+    <column>contact_name</column>
+    <column>email_address</column>
+    <column>phone_number</column>
+    <column>date_modified</column>
+    <column>date_created</column>
+    <row>
+      <value>1</value>
+      <value>Crazy Town</value>
+      <value>Tom Beghe</value>
+      <value>mark.mcmillan@nowhere.com</value>
+      <value>1231231234</value>
+      <value>2009-05-26 15:22:19</value>
+      <value>2009-05-26 15:22:19</value>
+    </row>
+  </table>
+  <table name="rule_field">
+    <column>rule_field_id</column>
+    <column>rule_definition_id</column>
+    <column>field</column>
+    <row>
+      <value>1</value>
+      <value>3</value>
+      <value>bank_account_type</value>
+    </row>
+    <row>
+      <value>3</value>
+      <value>5</value>
+      <value>income_monthly_net</value>
+    </row>
+    <row>
+      <value>5</value>
+      <value>7</value>
+      <value>home_state</value>
+    </row>
+    <row>
+      <value>7</value>
+      <value>9</value>
+      <value>income_frequency</value>
+    </row>
+    <row>
+      <value>9</value>
+      <value>11</value>
+      <value>social_security_number_encrypted</value>
+    </row>
+    <row>
+      <value>11</value>
+      <value>13</value>
+      <value>email_primary</value>
+    </row>
+    <row>
+      <value>13</value>
+      <value>15</value>
+      <value>income_type</value>
+    </row>
+    <row>
+      <value>15</value>
+      <value>17</value>
+      <value>social_security_number_encrypted</value>
+    </row>
+    <row>
+      <value>17</value>
+      <value>21</value>
+      <value>email_primary</value>
+    </row>
+    <row>
+      <value>19</value>
+      <value>25</value>
+      <value>dob</value>
+    </row>
+    <row>
+      <value>21</value>
+      <value>31</value>
+      <value>income_direct_deposit</value>
+    </row>
+    <row>
+      <value>23</value>
+      <value>33</value>
+      <value>home_state</value>
+    </row>
+    <row>
+      <value>25</value>
+      <value>39</value>
+      <value>state_id_number</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value>41</value>
+      <value>state_issued_id</value>
+    </row>
+    <row>
+      <value>29</value>
+      <value>43</value>
+      <value>phone_home</value>
+    </row>
+    <row>
+      <value>31</value>
+      <value>43</value>
+      <value>phone_work</value>
+    </row>
+    <row>
+      <value>33</value>
+      <value>45</value>
+      <value>phone_work</value>
+    </row>
+    <row>
+      <value>35</value>
+      <value>45</value>
+      <value>phone_cell</value>
+    </row>
+    <row>
+      <value>37</value>
+      <value>57</value>
+      <value>date_of_hire</value>
+    </row>
+    <row>
+      <value>39</value>
+      <value>59</value>
+      <value>loan_amount_desired</value>
+    </row>
+    <row>
+      <value>41</value>
+      <value>61</value>
+      <value>residence_start_date</value>
+    </row>
+    <row>
+      <value>43</value>
+      <value>63</value>
+      <value>email_primary</value>
+    </row>
+    <row>
+      <value>45</value>
+      <value>65</value>
+      <value>social_security_number_encrypted</value>
+    </row>
+    <row>
+      <value>47</value>
+      <value>67</value>
+      <value>residence_type</value>
+    </row>
+  </table>
+  <table name="rule_mode">
+    <column>rule_mode_id</column>
+    <column>rule_id</column>
+    <column>rule_mode_type_id</column>
+    <row>
+      <value>1</value>
+      <value>28</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>2</value>
+      <value>31</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>3</value>
+      <value>34</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>4</value>
+      <value>37</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>5</value>
+      <value>40</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>6</value>
+      <value>43</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>7</value>
+      <value>46</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>8</value>
+      <value>49</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>9</value>
+      <value>52</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>10</value>
+      <value>54</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>11</value>
+      <value>57</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>12</value>
+      <value>67</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>13</value>
+      <value>68</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>14</value>
+      <value>69</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>15</value>
+      <value>70</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>16</value>
+      <value>71</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>17</value>
+      <value>72</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>18</value>
+      <value>73</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>19</value>
+      <value>74</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>20</value>
+      <value>75</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>21</value>
+      <value>75</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>22</value>
+      <value>75</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>23</value>
+      <value>78</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>24</value>
+      <value>79</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>25</value>
+      <value>80</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>26</value>
+      <value>81</value>
+      <value>2</value>
+    </row>
+    <row>
+      <value>27</value>
+      <value>82</value>
+      <value>2</value>
+    </row>
+  </table>
+</dataset>

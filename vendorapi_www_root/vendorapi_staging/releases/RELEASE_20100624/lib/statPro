@@ -1,0 +1,15 @@
+#!/usr/bin/php5
+<?php
+
+require_once ('statProClient.php');
+
+array_shift($argv);
+$name = array_shift($argv);
+
+$s = new statProClient($name);
+
+$m = array_shift($argv);
+call_user_func_array(array(&$s, $m), $argv);
+
+
+?>

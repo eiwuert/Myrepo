@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="blackbox_type">
+		<column>blackbox_type_id</column>
+		<column>name</column>
+		<row>
+			<value>1</value>
+			<value>TARGET</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>COLLECTION</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>CAMPAIGN</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>RULE</value>
+		</row>
+	</table>
+	<table name="target">
+		<column>target_id</column>
+		<column>property_short</column>
+		<column>name</column>
+		<column>active</column>
+		<column>deleted</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>date_effective</column>
+		<column>company_id</column>
+		<column>blackbox_type_id</column>
+		<column>list_mgmt_nosell</column>
+		<column>paydate_minimum</column>
+		<column>reference_data</column>
+		<row>
+			<value>1</value>
+			<value>ex1</value>
+			<value>example 1</value>
+			<value>1</value>
+			<value>0</value>
+			<value>2009-01-12 10:17:05.0</value>
+			<value>2005-04-18 10:23:42.0</value>
+			<value>2008-10-16 09:59:08.0</value>
+			<value>1</value>
+			<value>1</value>
+			<value>0</value>
+			<value>0</value>
+			<value></value>
+		</row>
+	</table>
+	<table name="company">
+		<column>company</column>
+		<column>name</column>
+		<column>contact_name</column>
+		<column>email</column>
+		<column>phone_number</column>
+		<row>
+			<value>1</value>
+			<value>example inc</value>
+			<value>John Smith</value>
+			<value>ex@nowhere.com</value>
+			<value>5551234567</value>
+		</row>
+	</table>
+</dataset>

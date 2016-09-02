@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messageconfig>
+	<destination>
+		<environment name="rc">rc.somemessageserver.tss</environment>
+		<environment name="live" default="true">live.somemessageserver.tss</environment>
+	</destination>
+	<messages>
+		<message name="message1">
+			<source>source1</source>
+			<class>TheTestmessageClass</class>
+		</message>
+		<message name="message2">
+			<source>message2</source>
+			<destination>
+				<environment name="live" default="true">live.message2.tss</environment>
+			</destination>
+		</message>
+	</messages>
+</messageconfig>

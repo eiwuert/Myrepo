@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<dataset>
+	<table name="rules">
+		<column>target_id</column>
+		<column>withheld_targets</column>
+		<column>status</column>
+		<row>
+			<value>1</value>
+			<value>CM1</value>
+			<value>ACTIVE</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>CAC</value>
+			<value>ACTIVE</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>CM1_A</value>
+			<value>ACTIVE</value>
+		</row>
+	</table>
+	<table name="personal_encrypted">
+		<column>application_id</column>
+		<column>social_security_number</column>
+		<row>
+			<value>1</value>
+			<value>123456789</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>923456781</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>987654321</value>
+		</row>
+	</table>
+	<table name="blackbox_post">
+		<column>application_id</column>
+		<column>winner</column>
+		<column>date_modified</column>
+		<column>success</column>
+		<row>
+			<value>1</value>
+			<value>CAC</value>
+			<value>2008-07-20 08:00:00</value>
+			<value>FALSE</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>CM1</value>
+			<value>2008-07-20 08:00:00</value>
+			<value>FALSE</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>CM1_A</value>
+			<value>2008-07-20 08:00:00</value>
+			<value>FALSE</value>
+		</row>
+	</table>
+	<table name="target">
+		<column>target_id</column>
+		<column>property_short</column>
+		<column>active</column>
+		<row>
+			<value>1</value>
+			<value>CAC</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>CM1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>CM1_A</value>
+			<value>1</value>
+		</row>
+	</table>
+</dataset>

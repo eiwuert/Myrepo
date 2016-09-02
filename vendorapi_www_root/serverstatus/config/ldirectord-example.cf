@@ -1,0 +1,11 @@
+logfile="local0"
+
+virtual = 10.1.8.1:80
+        real = 10.9.3.3:80 masq 10
+        real = 10.9.2.2:80 masq 10
+        #fallback = 10.1.8.1:80 masq 10
+        scheduler = lc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=php5example"
+        receive = "PASS"

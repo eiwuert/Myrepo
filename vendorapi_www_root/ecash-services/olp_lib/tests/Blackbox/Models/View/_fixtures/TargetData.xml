@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="blackbox_type">
+		<column>blackbox_type_id</column>
+		<column>name</column>
+		<row>
+			<value>1</value>
+			<value>TARGET</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>COLLECTION</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>CAMPAIGN</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>RULE</value>
+		</row>
+	</table>
+	<table name="target">
+		<column>target_id</column>
+		<column>property_short</column>
+		<column>name</column>
+		<column>active</column>
+		<column>blackbox_type_id</column>
+		<row>
+			<value>1</value>
+			<value>ex1</value>
+			<value>example 1</value>
+			<value>1</value>
+			<value>3</value>
+		</row>
+	</table>
+	<table name="target_data_type">
+		<column>target_data_type_id</column>
+		<column>name</column>
+		<row>
+			<value>1</value>
+			<value>outgoing_transform</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>incoming_transform</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>vendor_api_url_LOCAL</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>vendor_api_post_method_LOCAL</value>
+		</row>
+	</table>
+	<table name="target_data">
+		<column>target_id</column>
+		<column>target_data_type_id</column>
+		<column>data_value</column>
+		<row>
+			<value>1</value>
+			<value>3</value>
+			<value>http://nowhere.com</value>
+		</row>
+	</table>
+</dataset>

@@ -1,0 +1,42 @@
+#####################
+###               ###
+### ***WARNING ** ###
+###               ###
+#####################
+# 
+# ipvsadm is rather particular about the order in which
+# virtual server entries are added to the ipvs table.
+# for instance, if a group of real servers is created with 
+# a virtual server, and then later on another virtual block
+# has one same real server from the group, the real server
+# will be removed from the group while being added to the
+# new rule.   
+#
+# i.e. if you put the ps1 section below the LIVE
+# section ipvs will remove ps1 from the LIVE group while 
+# adding it to the port 8001 rule.  
+#
+# Avoid this by putting your groups below the individual
+# port entries
+#
+# Also, if two virtual blocks contain the same one real server
+# the incoming virtual entry that has the higher port number must
+# be listed first (look at the two ps5 entries as an example)
+#
+# The real way to check that ldirectord is executing the ipvsadm 
+# commands in the right order is by running:
+#
+# ldirectord -d /etc/ha.d/conf/ldirectord.cf start 2>&1 | grep ipvsadm
+#
+# Justin
+
+ 
+virtual = 38.98.16.169:80
+        real = 38.98.16.170:80 masq 1
+        real = 38.98.16.171:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=impact"
+        receive = "PASS"
+

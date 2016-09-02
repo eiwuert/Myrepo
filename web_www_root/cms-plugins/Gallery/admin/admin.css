@@ -1,0 +1,77 @@
+.width300 {
+	width: 300px;
+}
+
+.imagecontainer {
+	width: 218px;
+}
+
+.imagecontainer img {
+	width: 100%;
+}
+
+
+.small_thumbs {
+	width: 100px !important;
+	height: auto !important;
+}
+
+.small_thumbs .imagecontainer{
+	width: 100px !important;
+}
+
+.small_thumbs fieldset {
+	padding: 3px;
+	margin: 0px;
+}
+
+.small_thumbs fieldset legend {
+	display: none;
+}
+.small_thumbs input{
+	width: 80px !important;
+}
+
+.hide_slideshow fieldset {
+	display: none;
+}
+
+#divPhotoList
+{
+	margin: 0px auto 0px auto;
+	width: 95%;			
+	padding: 20px 10px 20px 50px;		
+}
+#ulThumbnailList
+{
+	padding: 0px;	
+	margin: 0px;	
+}	
+.photolistitem
+{
+	position: relative;
+	display: block;
+	float: left;	
+	list-style-type: none;
+    height: auto;	
+    width: auto;	
+	padding: 10px;
+	border: solid 1px #555555;
+	margin: 12px;
+	background: #dddddd;
+	text-align: center;
+	-moz-border-radius: 5px 5px 3px 3px;
+    -webkit-border-radius: 4px;    
+}
+/* container around image inside of photolistitem*/
+.photolistitem div:first-child
+{		
+	height: auto;
+	margin-bottom: 3px;	
+}
+
+.deletethumbnail {
+	cursor: pointer;
+	margin-top: 5px;
+}
+

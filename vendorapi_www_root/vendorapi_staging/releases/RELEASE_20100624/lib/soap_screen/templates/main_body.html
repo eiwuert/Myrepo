@@ -1,0 +1,46 @@
+
+<html>
+	<head>
+		<title>Soap Screen</title>
+		<style>
+			body { padding: 0; margin: 0; }
+			td.heading { color: white; background-color: #003366;; font-size: 2em; padding-left: 0.5em;  }
+			table.data { padding-left: 1em; padding-right: 1em; }
+			table.debug { background-color:#eeeeee; border:1px solid red; font-size:0.9em; font-style:monospace; }
+			a { color: #3333cc; }
+			a:hover { background-color: yellow; }
+			.head, tr.head td { background: #99cccc; font-weight: bold; }
+			tr.rowOne { background: whitesmoke; }
+			tr.rowTwo { background: #eef0f4; }
+			li { margin-top: 0.7em; }
+		</style>
+
+	</head>
+	<body>
+
+		<form %%%form_target%%% method="post" action="%%%form_url%%%">
+
+			<input type="hidden" name="soap_screen_running_flag" value="not a soap request">
+
+			<table align="center" width="100%" border="0" cellpadding="5" cellspacing="0">
+				<tr><td width="100%" class="heading">Soap Screen</td></tr>
+			</table>
+
+			<br clear="all">
+				
+			%%%debug_hidden_field%%%
+
+			<input type="hidden" name="wsdl_url" value="%%%wsdl_url_hidden_field%%%">
+			
+			%%%wsdl_input_field%%%
+
+			%%%main_data_body%%%
+
+			<br clear="all">
+
+			%%%debug_info_html%%%
+
+		</form>
+
+	</body>
+</html>

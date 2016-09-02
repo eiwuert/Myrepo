@@ -1,0 +1,11 @@
+.StringEditor-icon{
+	background-image: url('cms-plugins/StringEditor/admin/images/style.png');
+}
+
+.cs-adminmenu_body a.StringEditor-edit-icon{
+	background-image: url('cms-plugins/StringEditor/admin/images/style_edit.png');
+}
+
+.cs-adminmenu_body a.StringEditor-add-icon{
+	background-image: url('cms-plugins/StringEditor/admin/images/style_add.png');
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<dataset>
+	<table name="personal_encrypted">
+		<column>application_id</column>
+		<column>social_security_number</column>
+		<column>modified_date</column>
+		<row>
+			<value>1</value>
+			<value>800552222</value>
+			<value>2008-02-14 12:00:00</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>800552222</value>
+			<value>2008-02-15 12:00:00</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>800553333</value>
+			<value>2008-02-16 12:00:00</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>800553333</value>
+			<value>2008-02-17 12:00:00</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>800553333</value>
+			<value>2008-02-18 12:00:00</value>
+		</row>
+	</table>
+	<table name="income">
+		<column>application_id</column>
+		<column>pay_date_1</column>
+		<row>
+			<value>1</value>
+			<value>2008-02-26 00:00:00</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2008-02-27 00:00:00</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>2008-02-25 00:00:00</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>2008-02-26 00:00:00</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>2008-02-27 00:00:00</value>
+		</row>
+	</table>
+	<table name="application">
+		<column>application_id</column>
+		<column>target_id</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>2</value>
+		</row>
+	</table>
+</dataset>

@@ -1,0 +1,22 @@
+#!/bin/bash
+CONFIGURATION="config.xml";
+
+while getopts "ht:" OPTION; do
+	case "$OPTION" in
+		t) TEST="$OPTARG" ;;
+		h)
+		echo "This script will run phpunit with some default command parameters."
+		echo "By default, the script will run all tests."
+		echo
+		echo "-h		: Show this page"
+		echo "-t <test>	: Runs the test specified"
+		exit 0
+		;;
+	esac
+done
+
+if [[ -n "$TEST" ]]; then
+	phpunit --bootstrap bootstrap.php $TEST
+else
+	phpunit --configuration $CONFIGURATION
+fi

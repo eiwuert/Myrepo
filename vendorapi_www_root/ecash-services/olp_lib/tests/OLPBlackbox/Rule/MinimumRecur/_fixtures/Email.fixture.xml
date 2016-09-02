@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<dataset>
+	<table name="application">
+		<column>application_id</column>
+		<column>application_type</column>
+		<column>target_id</column>
+		<row>
+			<value>1</value>
+			<value>COMPLETED</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>DISAGREED</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>CONFIRMED_DISAGREED</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>VISITOR</value>
+			<value>null</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>AGREED</value>
+			<value>3</value>
+		</row>
+	</table>
+	<table name="personal_encrypted">
+		<column>application_id</column>
+		<column>modified_date</column>
+		<column>email</column>
+		<row>
+			<value>1</value>
+			<value>2008-02-01 08:00:00</value>
+			<value>test1@test.com</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2008-02-01 08:00:00</value>
+			<value>test2@test.com</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>2008-02-01 08:00:00</value>
+			<value>test3@test.com</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>2008-02-01 08:00:00</value>
+			<value>test4@test.com</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>2008-02-01 08:00:00</value>
+			<value>test5@test.com</value>
+		</row>
+	</table>
+	<table name="blackbox_post">
+		<column>application_id</column>
+		<column>winner</column>
+		<column>date_created</column>
+		<row>
+			<value>4</value>
+			<value>FWC</value>
+			<value>2008-02-01 08:00:00</value>
+		</row>
+	</table>
+	<table name="target">
+		<column>target_id</column>
+		<column>property_short</column>
+		<column>active</column>
+		<row>
+			<value>1</value>
+			<value>CAC</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>UFC</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>NSC</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>NSC_ST1</value>
+			<value>1</value>
+		</row>
+	</table>
+</dataset>

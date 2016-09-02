@@ -1,0 +1,19 @@
+Options -Indexes
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+#RewriteBase /aalm/English/web2/
+
+RewriteRule .* - [env=LUM_DISPLAY_TARGET:DISPLAY_PC]
+
+# otherwise defer to the main handling script
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . cms_index.php [L]
+
+</IfModule>
+
+#RewriteEngine on
+#RewriteCond %{HTTP_HOST} ^domain.com
+#RewriteRule ^(.*)$ http://www.domain.com/$1 [R=301]
+

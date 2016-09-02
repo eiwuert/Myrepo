@@ -1,0 +1,1738 @@
+AutoGen Definitions dummy;
+class = {
+  cp-id     = 'classPrpc__Base';
+  cp-name   = 'Prpc_Base';
+  cp-ref     = {
+    ref-type = derived;
+    ref-id   = 'classPrpc__Client';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-ref     = {
+    ref-type = derived;
+    ref-id   = 'classPrpc__Server';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Base_1a0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '_Prpc_Pack';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'data';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      sec-mem-desc-line = '47';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Base_1a1';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '_Prpc_Unpack';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'pack';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      sec-mem-desc-line = '63';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Base_1a2';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '_Prpc_Get_Host';
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      sec-mem-desc-line = '80';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Base_1a3';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '_Debug';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'msg';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'type';
+        sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
+NULL
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      sec-mem-desc-line = '92';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Base_1a4';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '_Trace';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'frame';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'type';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'opt';
+        sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
+NULL
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      sec-mem-desc-line = '104';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'classPrpc__Base_1o0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '$_prpc_use_pack';
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      sec-mem-desc-line = '40';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'classPrpc__Base_1o1';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '$_prpc_use_debug';
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      sec-mem-desc-line = '41';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'classPrpc__Base_1o2';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '$_prpc_use_trace';
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      sec-mem-desc-line = '42';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'classPrpc__Base_1o3';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '$_prpc_debug';
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      sec-mem-desc-line = '44';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/virtualhosts/prpc/www/prpc/base.php';
+  cp-fileline  = '39';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+Base class for Prpc Server/Client.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	Implements functionality common to the server and client.
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+
+	<p><p>\xrefitem todo 1
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 36;
+        node-label = 'Prpc_Server';
+        node-link = {
+          node-link-id = 'classPrpc__Server';
+        };
+        node-child = {
+          child-id = '34';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 35;
+        node-label = 'Prpc_Client';
+        node-link = {
+          node-link-id = 'classPrpc__Client';
+        };
+        node-child = {
+          child-id = '34';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 34;
+        node-label = 'Prpc_Base';
+        node-link = {
+          node-link-id = 'classPrpc__Base';
+        };
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classPrpc__Call';
+  cp-name   = 'Prpc_Call';
+  cp-ref     = {
+    ref-type = base;
+    ref-id   = 'classPrpc__Request';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Call_1a0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Prpc_Call';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'method';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'arg';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/message.php';
+      sec-mem-desc-line = '65';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/virtualhosts/prpc/www/prpc/message.php';
+  cp-fileline  = '63';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+Message used to pass a function call request.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	Message used to pass a function call request.
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 39;
+        node-label = 'Prpc_Request';
+        node-link = {
+          node-link-id = 'classPrpc__Request';
+        };
+        node-child = {
+          child-id = '40';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 40;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 38;
+        node-label = 'Prpc_Call';
+        node-link = {
+          node-link-id = 'classPrpc__Call';
+        };
+        node-child = {
+          child-id = '39';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 42;
+        node-label = 'Prpc_Request';
+        node-link = {
+          node-link-id = 'classPrpc__Request';
+        };
+        node-child = {
+          child-id = '43';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 43;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 41;
+        node-label = 'Prpc_Call';
+        node-link = {
+          node-link-id = 'classPrpc__Call';
+        };
+        node-child = {
+          child-id = '42';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classPrpc__Client';
+  cp-name   = 'Prpc_Client';
+  cp-ref     = {
+    ref-type = base;
+    ref-id   = 'classPrpc__Base';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Client_1a0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Prpc_Client';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'url';
+        sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
+NULL
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'use_debug';
+        sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
+FALSE
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'use_trace';
+        sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
+PRPC_TRACE_NONE
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/client.php';
+      sec-mem-desc-line = '22';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Client_1a1';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '_Prpc_Set_Url';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'url';
+        sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
+NULL
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/client.php';
+      sec-mem-desc-line = '43';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Client_1a2';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '_Prpc_Call';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'call';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/client.php';
+      sec-mem-desc-line = '64';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Client_1a3';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '__call';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'method';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'arg';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+&$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'result';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/client.php';
+      sec-mem-desc-line = '149';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-section = {
+    sec-kind = 'public-attrib';
+    sec-member = {
+      sec-mem-kind = 'variable';
+      sec-mem-id   = 'classPrpc__Client_1o0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '$_prpc_url';
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/client.php';
+      sec-mem-desc-line = '19';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/virtualhosts/prpc/www/prpc/client.php';
+  cp-fileline  = '18';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+Prpc client class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	Overloaded class that marshalls method calls to a remote object.
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+
+	<p><p>\xrefitem todo 2
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 44;
+        node-label = 'Prpc_Client';
+        node-link = {
+          node-link-id = 'classPrpc__Client';
+        };
+        node-child = {
+          child-id = '45';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 45;
+        node-label = 'Prpc_Base';
+        node-link = {
+          node-link-id = 'classPrpc__Base';
+        };
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 46;
+        node-label = 'Prpc_Client';
+        node-link = {
+          node-link-id = 'classPrpc__Client';
+        };
+        node-child = {
+          child-id = '47';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 47;
+        node-label = 'Prpc_Base';
+        node-link = {
+          node-link-id = 'classPrpc__Base';
+        };
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classPrpc__Fault';
+  cp-name   = 'Prpc_Fault';
+  cp-ref     = {
+    ref-type = base;
+    ref-id   = 'classPrpc__Response';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Fault_1a0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Prpc_Fault';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'code';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'text';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'file';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'line';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'debug';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/message.php';
+      sec-mem-desc-line = '132';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/virtualhosts/prpc/www/prpc/message.php';
+  cp-fileline  = '130';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+Message used to pass a fault.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	Message used to pass a fault
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 48;
+        node-label = 'Prpc_Fault';
+        node-link = {
+          node-link-id = 'classPrpc__Fault';
+        };
+        node-child = {
+          child-id = '49';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 50;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 49;
+        node-label = 'Prpc_Response';
+        node-link = {
+          node-link-id = 'classPrpc__Response';
+        };
+        node-child = {
+          child-id = '50';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 51;
+        node-label = 'Prpc_Fault';
+        node-link = {
+          node-link-id = 'classPrpc__Fault';
+        };
+        node-child = {
+          child-id = '52';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 53;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 52;
+        node-label = 'Prpc_Response';
+        node-link = {
+          node-link-id = 'classPrpc__Response';
+        };
+        node-child = {
+          child-id = '53';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classPrpc__Message';
+  cp-name   = 'Prpc_Message';
+  cp-ref     = {
+    ref-type = derived;
+    ref-id   = 'classPrpc__Request';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-ref     = {
+    ref-type = derived;
+    ref-id   = 'classPrpc__Response';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-filename  = '/virtualhosts/prpc/www/prpc/message.php';
+  cp-fileline  = '15';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+A pure virtual class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	This class exists only to derive other message types.
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 55;
+        node-label = 'Prpc_Request';
+        node-link = {
+          node-link-id = 'classPrpc__Request';
+        };
+        node-child = {
+          child-id = '54';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 59;
+        node-label = 'Prpc_Fault';
+        node-link = {
+          node-link-id = 'classPrpc__Fault';
+        };
+        node-child = {
+          child-id = '58';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 57;
+        node-label = 'Prpc_Notice';
+        node-link = {
+          node-link-id = 'classPrpc__Notice';
+        };
+        node-child = {
+          child-id = '55';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 54;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 56;
+        node-label = 'Prpc_Call';
+        node-link = {
+          node-link-id = 'classPrpc__Call';
+        };
+        node-child = {
+          child-id = '55';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 60;
+        node-label = 'Prpc_Result';
+        node-link = {
+          node-link-id = 'classPrpc__Result';
+        };
+        node-child = {
+          child-id = '58';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 58;
+        node-label = 'Prpc_Response';
+        node-link = {
+          node-link-id = 'classPrpc__Response';
+        };
+        node-child = {
+          child-id = '54';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classPrpc__Notice';
+  cp-name   = 'Prpc_Notice';
+  cp-ref     = {
+    ref-type = base;
+    ref-id   = 'classPrpc__Request';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Notice_1a0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Prpc_Notice';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'url';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'method';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'arg';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/message.php';
+      sec-mem-desc-line = '110';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/virtualhosts/prpc/www/prpc/message.php';
+  cp-fileline  = '108';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+Message used to pass a one-way notification.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	Message used to pass a one-way notification.
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+
+	<p><p>\xrefitem todo 3
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 63;
+        node-label = 'Prpc_Request';
+        node-link = {
+          node-link-id = 'classPrpc__Request';
+        };
+        node-child = {
+          child-id = '64';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 62;
+        node-label = 'Prpc_Notice';
+        node-link = {
+          node-link-id = 'classPrpc__Notice';
+        };
+        node-child = {
+          child-id = '63';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 64;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 66;
+        node-label = 'Prpc_Request';
+        node-link = {
+          node-link-id = 'classPrpc__Request';
+        };
+        node-child = {
+          child-id = '67';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 65;
+        node-label = 'Prpc_Notice';
+        node-link = {
+          node-link-id = 'classPrpc__Notice';
+        };
+        node-child = {
+          child-id = '66';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 67;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classPrpc__Request';
+  cp-name   = 'Prpc_Request';
+  cp-ref     = {
+    ref-type = base;
+    ref-id   = 'classPrpc__Message';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-ref     = {
+    ref-type = derived;
+    ref-id   = 'classPrpc__Call';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-ref     = {
+    ref-type = derived;
+    ref-id   = 'classPrpc__Notice';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-filename  = '/virtualhosts/prpc/www/prpc/message.php';
+  cp-fileline  = '31';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+A pure virtual class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	This class exists only to derive other message types.
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 68;
+        node-label = 'Prpc_Request';
+        node-link = {
+          node-link-id = 'classPrpc__Request';
+        };
+        node-child = {
+          child-id = '69';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 71;
+        node-label = 'Prpc_Notice';
+        node-link = {
+          node-link-id = 'classPrpc__Notice';
+        };
+        node-child = {
+          child-id = '68';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 69;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 70;
+        node-label = 'Prpc_Call';
+        node-link = {
+          node-link-id = 'classPrpc__Call';
+        };
+        node-child = {
+          child-id = '68';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 72;
+        node-label = 'Prpc_Request';
+        node-link = {
+          node-link-id = 'classPrpc__Request';
+        };
+        node-child = {
+          child-id = '73';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 73;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classPrpc__Response';
+  cp-name   = 'Prpc_Response';
+  cp-ref     = {
+    ref-type = base;
+    ref-id   = 'classPrpc__Message';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-ref     = {
+    ref-type = derived;
+    ref-id   = 'classPrpc__Fault';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-ref     = {
+    ref-type = derived;
+    ref-id   = 'classPrpc__Result';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-filename  = '/virtualhosts/prpc/www/prpc/message.php';
+  cp-fileline  = '47';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+A pure virtual class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	This class exists only to derive other message types.
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 76;
+        node-label = 'Prpc_Fault';
+        node-link = {
+          node-link-id = 'classPrpc__Fault';
+        };
+        node-child = {
+          child-id = '74';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 75;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 77;
+        node-label = 'Prpc_Result';
+        node-link = {
+          node-link-id = 'classPrpc__Result';
+        };
+        node-child = {
+          child-id = '74';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 74;
+        node-label = 'Prpc_Response';
+        node-link = {
+          node-link-id = 'classPrpc__Response';
+        };
+        node-child = {
+          child-id = '75';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 79;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 78;
+        node-label = 'Prpc_Response';
+        node-link = {
+          node-link-id = 'classPrpc__Response';
+        };
+        node-child = {
+          child-id = '79';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classPrpc__Result';
+  cp-name   = 'Prpc_Result';
+  cp-ref     = {
+    ref-type = base;
+    ref-id   = 'classPrpc__Response';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Result_1a0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Prpc_Result';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'result';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'debug';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/message.php';
+      sec-mem-desc-line = '86';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/virtualhosts/prpc/www/prpc/message.php';
+  cp-fileline  = '84';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+Message used to pass a function call result.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	Message used to pass a function call result.
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 82;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 80;
+        node-label = 'Prpc_Result';
+        node-link = {
+          node-link-id = 'classPrpc__Result';
+        };
+        node-child = {
+          child-id = '81';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 81;
+        node-label = 'Prpc_Response';
+        node-link = {
+          node-link-id = 'classPrpc__Response';
+        };
+        node-child = {
+          child-id = '82';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 85;
+        node-label = 'Prpc_Message';
+        node-link = {
+          node-link-id = 'classPrpc__Message';
+        };
+      }; /* node */
+      node = {
+        node-id    = 83;
+        node-label = 'Prpc_Result';
+        node-link = {
+          node-link-id = 'classPrpc__Result';
+        };
+        node-child = {
+          child-id = '84';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 84;
+        node-label = 'Prpc_Response';
+        node-link = {
+          node-link-id = 'classPrpc__Response';
+        };
+        node-child = {
+          child-id = '85';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classPrpc__Server';
+  cp-name   = 'Prpc_Server';
+  cp-ref     = {
+    ref-type = base;
+    ref-id   = 'classPrpc__Base';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Server_1a0';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Prpc_Server';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'process';
+        sec-mem-param-defval = <<_EnD_oF_dEf_TeXt_
+TRUE
+_EnD_oF_dEf_TeXt_;
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/server.php';
+      sec-mem-desc-line = '20';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Server_1a1';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Prpc_Process';
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/server.php';
+      sec-mem-desc-line = '33';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Server_1a2';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+&
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Prpc_Proxy';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'url';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/server.php';
+      sec-mem-desc-line = '71';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Obtains a Prpc_Client for a subserver and sets its debug/trace options.
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+		
+		
+		Obtains a Prpc_Client for a subserver and sets its debug/trace options.
+
+		@version
+			1.0.0
+
+		@param url string \n Url of the server.
+
+		@return & Prpc_Client
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classPrpc__Server_1a3';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = '_Error_Handler';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'errno';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'errstr';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'errfile';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+$
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'errline';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/virtualhosts/prpc/www/prpc/server.php';
+      sec-mem-desc-line = '76';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/virtualhosts/prpc/www/prpc/server.php';
+  cp-fileline  = '18';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+Prpc server class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+	
+	
+	Responds to messages from a Prpc client.
+
+	@version
+		1.0.0 2003-07-25 - Rodric Glaser
+			- Initial revision
+
+	<p><p>\xrefitem todo 4
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 86;
+        node-label = 'Prpc_Server';
+        node-link = {
+          node-link-id = 'classPrpc__Server';
+        };
+        node-child = {
+          child-id = '87';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 87;
+        node-label = 'Prpc_Base';
+        node-link = {
+          node-link-id = 'classPrpc__Base';
+        };
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 88;
+        node-label = 'Prpc_Server';
+        node-link = {
+          node-link-id = 'classPrpc__Server';
+        };
+        node-child = {
+          child-id = '89';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 89;
+        node-label = 'Prpc_Base';
+        node-link = {
+          node-link-id = 'classPrpc__Base';
+        };
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+file = {
+  file-id   = 'base_8php';
+  file-name = 'base.php';
+    enum = {
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a0';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_PROT_VER';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '8';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a1';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_PACK_NO';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '10';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a2';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_PACK_GZ';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '11';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a3';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_PACK_BZ';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '12';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a4';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_TRACE_NONE';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '14';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a5';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_TRACE_CALL';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '15';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a6';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_TRACE_ARGS';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '16';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a7';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_TRACE_FILE_CLIENT';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '17';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a8';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_TRACE_FILE_SERVER';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '18';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a9';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_TRACE_RESULT';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '19';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    enum-member = {
+      enum-mem-kind = 'enum';
+      enum-mem-id   = 'base_8php_1a10';
+      enum-mem-virt = normal;
+      enum-mem-prot = public;
+      enum-mem-name = 'PRPC_TRACE_FILE';
+      enum-mem-desc-file = '/virtualhosts/prpc/www/prpc/base.php';
+      enum-mem-desc-line = '21';
+      enum-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      enum-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* enum-member */
+    };
+  file-full-name  = '/virtualhosts/prpc/www/prpc/base.php';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */
+file = {
+  file-id   = 'client_8php';
+  file-name = 'client.php';
+  file-full-name  = '/virtualhosts/prpc/www/prpc/client.php';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */
+file = {
+  file-id   = 'message_8php';
+  file-name = 'message.php';
+  file-full-name  = '/virtualhosts/prpc/www/prpc/message.php';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */
+file = {
+  file-id   = 'server_8php';
+  file-name = 'server.php';
+  file-full-name  = '/virtualhosts/prpc/www/prpc/server.php';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* file */

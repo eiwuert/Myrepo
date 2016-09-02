@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<phpunit
+	bootstrap="bootstrap.php">
+	<testsuite name="ECash Vendor API Test Suite">
+		<directory>VendorAPI</directory>
+	</testsuite>
+	<groups>
+		<exclude>
+			<group>rpc-functional</group>
+		</exclude>
+	</groups>
+	<filter>
+		<whitelist>
+			<directory suffix=".php">../code</directory>
+			<directory suffix=".php">../www</directory>
+		</whitelist>
+	</filter>
+</phpunit>

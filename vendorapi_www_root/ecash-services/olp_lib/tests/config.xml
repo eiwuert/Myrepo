@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="bootstrap.php">
+	<testsuite name="OLP Library Test Suite">
+		<directory>.</directory>
+	</testsuite>
+	<groups>
+		<exclude>
+			<group>stats</group>
+			<group>blackbox_models</group>
+			<group>Cache</group>
+			<group>olpbbx_factory_test</group>
+		</exclude>
+	</groups>
+	<filter>
+		<blacklist>
+			<directory>/virtualhosts/lib</directory>
+			<directory>/virtualhosts/lib5</directory>
+			<directory>/virtualhosts/libolution</directory>
+		</blacklist>
+	</filter>
+</phpunit>

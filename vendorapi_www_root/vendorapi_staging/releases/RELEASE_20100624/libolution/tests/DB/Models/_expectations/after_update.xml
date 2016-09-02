@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<dataset>
+  <table name="test">
+    <column>test_id</column>
+    <column>name</column>
+    <row>
+      <value>1</value>
+      <value>zing</value>
+    </row>
+  </table>
+</dataset>

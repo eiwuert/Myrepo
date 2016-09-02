@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<dataset>
+	<document_hash 
+		date_created="[[NOW]]" 
+		document_hash_id="1"
+		application_id="1"
+		company_id="1"
+		document_list_id="1"
+		hash="thisisnotahash"
+	/>
+	<document_hash 
+		date_created="[[NOW]]" 
+		document_hash_id="2"
+		application_id="2"
+		company_id="1"
+		document_list_id="1"
+		hash="thisisnotahash"
+	/>
+	<document_hash 
+		date_created="[[60DAYS]]" 
+		document_hash_id="3"
+		application_id="3"
+		company_id="1"
+		document_list_id="1"
+		hash="thisisnotahash"
+	/>
+	<document_hash 
+		date_created="[[60DAYS]]" 
+		document_hash_id="4"
+		application_id="4"
+		company_id="2"
+		document_list_id="1"
+		hash="thisisnotahash"
+	/>
+</dataset>

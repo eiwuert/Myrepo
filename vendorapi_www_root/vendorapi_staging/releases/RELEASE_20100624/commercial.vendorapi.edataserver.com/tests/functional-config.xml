@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+	bootstrap="functional-bootstrap.php">
+	<testsuite name="ECash Vendor API Functional Test Suite">
+		<directory>Functional</directory>
+	</testsuite>
+	<filter>
+		<blacklist>
+			<directory>/virtualhosts/libolution</directory>
+			<directory>../tests</directory>
+			<directory>../lib</directory>
+		</blacklist>
+		<whitelist>
+			<directory suffix=".php">../code</directory>
+			<directory suffix=".php">../www</directory>
+		</whitelist>
+	</filter>
+</phpunit>

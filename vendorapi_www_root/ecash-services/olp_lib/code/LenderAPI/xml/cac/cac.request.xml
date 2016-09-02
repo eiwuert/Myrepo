@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<create_lead xmlns="leads.cashadvance.com/soap_cashadvance.php">
+	<user_name>SellingSource</user_name>
+	<password>password</password>
+	<lead_info>
+		<Email>RONADLLAWYER@ATT.NET</Email>
+		<First_Name>RONALD</First_Name>
+		<Last_Name>LEE</Last_Name>
+		<Address_1>835 RIDGE AVENUE, APT #201</Address_1>
+		<Address_2/>
+		<Apartment_Number/>
+		<City>Evanston</City>
+		<State>IL</State>
+		<ZIP_Code>60202</ZIP_Code>
+		<Home_Phone>8478660131</Home_Phone>
+		<Work_Phone>7736604630</Work_Phone>
+		<Cell_Phone>9514439489</Cell_Phone>
+		<Military>no</Military>
+		<Occupation>nananana</Occupation>
+		<Employer>HRDI</Employer>
+		<Monthly_Income>2500</Monthly_Income>
+		<Income_Source>Employment</Income_Source>
+		<Gender>na</Gender>
+		<SSN>318364419</SSN>
+		<DOB>12/04/1943</DOB>
+		<Payment_Method>directdeposit</Payment_Method>
+		<Payment_Frequency>semimonthly</Payment_Frequency>
+		<Account_Number>0921725133</Account_Number>
+		<Routing_Number>271070801</Routing_Number>
+		<Account_Type>CHECKING</Account_Type>
+		<Drivers_License_Number>L000-7374-3345</Drivers_License_Number>
+		<Drivers_License_State>IL</Drivers_License_State>
+		<Bank_Name>CITIBANK</Bank_Name>
+		<Bank_Phone>8886667777</Bank_Phone>
+		<Outstanding_Loans>0</Outstanding_Loans>
+		<Pay_Date_1>12/15/2008</Pay_Date_1>
+		<Pay_Date_2>12/30/2008</Pay_Date_2>
+		<Reference_1_Name>MARSHALL GILES</Reference_1_Name>
+		<Reference_1_Phone>8474753537</Reference_1_Phone>
+		<Reference_1_Relationship>FRIEND</Reference_1_Relationship>
+		<Reference_2_Name>BOBBY CARBAGE</Reference_2_Name>
+		<Reference_2_Phone>8472939197</Reference_2_Phone>
+		<Reference_2_Relationship>FRIEND</Reference_2_Relationship>
+		<IP_Address>75.33.236.247</IP_Address>
+		<Best_Time_To_Call/>
+		<Own_Rent>rent</Own_Rent>
+		<US_Citizen/>
+		<Years_At_Residence>1</Years_At_Residence>
+		<Months_At_Residence>0</Months_At_Residence>
+		<Years_Employed>0</Years_Employed>
+		<Months_Employed>1</Months_Employed>
+		<Supervisor_Name/>
+		<Supervisor_Phone>8886667777</Supervisor_Phone>
+		<Work_City/>
+		<Work_State>IL</Work_State>
+		<Work_Zip>60202</Work_Zip>
+		<Years_Bank_Account>0</Years_Bank_Account>
+		<SRC>SellingSource</SRC>
+	</lead_info>
+</create_lead>

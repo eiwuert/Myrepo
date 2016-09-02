@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+		<result>
+						<message>Application Accepted!</message>
+						<success>1</success>
+						<decision>consent</decision>
+						<redirect_url>http://sellingsource.com</redirect_url>
+						<thank_you_content>Thanks, buddy!</thank_you_content>
+		</result>

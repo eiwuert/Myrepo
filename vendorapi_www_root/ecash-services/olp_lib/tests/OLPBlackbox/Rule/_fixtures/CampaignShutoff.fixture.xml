@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<dataset>
+	<table name="campaign_shutoff">
+		<column>campaign_shutoff_id</column>
+		<column>property_short</column>
+		<column>shutoff_at</column>
+		<column>activated_at</column>
+		<row>
+			<value>1</value>
+			<value>aaa</value>
+			<value>2009-06-30 00:00:00</value>
+			<value>2009-06-30 10:00:00</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>bbb</value>
+			<value>2009-06-30 20:00:00</value>
+			<value>2009-07-01 04:00:00</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>ccc</value>
+			<value>2009-06-30 20:00:00</value>
+			<null/>
+		</row>
+	</table>
+</dataset>

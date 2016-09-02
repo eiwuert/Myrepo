@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DataxResponse>
+  <GenerationTime>20090114104956</GenerationTime>
+  <CodeVersion>4.6.4</CodeVersion>
+  <RequestVersion>3.0</RequestVersion>
+  <TransactionId>66074491</TransactionId>
+  <TrackHash>1630e9374201e79720ceb3fb3d548b75</TrackHash>
+  <TrackId>196919239</TrackId>
+  <Response>
+    <Detail>
+      <ConsumerIDVerificationSegment>
+        <Input>
+          <LastName>lassiter</LastName>
+          <FirstName>hedie</FirstName>
+          <MiddleName/>
+          <Address1>4704 leafcrest</Address1>
+          <Address2/>
+          <City>raleigh</City>
+          <State>nc</State>
+          <Zip>27609</Zip>
+        </Input>
+        <Standardized>
+          <LastName>LASSITER</LastName>
+          <FirstName>HEDIE</FirstName>
+          <MiddleName/>
+          <AddressVerification>5</AddressVerification>
+          <AddressVerificationMessage>No name match - residential</AddressVerificationMessage>
+          <AddressResult>S</AddressResult>
+          <DeliveryPointVerified>Y</DeliveryPointVerified>
+          <Address1>4704 LEAFCREST CT</Address1>
+          <City>RALEIGH</City>
+          <State>NC</State>
+          <Zip>27604</Zip>
+          <Zip4>1782</Zip4>
+          <CRRT>C038</CRRT>
+          <HighRiskAddress>N</HighRiskAddress>
+        </Standardized>
+        <PreviousAddresses>
+          <Address>
+            <Address1>1807 BICKETT BLVD</Address1>
+            <City>RALEIGH</City>
+            <State>NC</State>
+            <Zip>27608</Zip>
+            <Zip4>2427</Zip4>
+            <ReportDate>20071230</ReportDate>
+            <LastUpdate>20071230</LastUpdate>
+          </Address>
+          <Address>
+            <Address1>PO BOX 6542</Address1>
+            <City>RALEIGH</City>
+            <State>NC</State>
+            <Zip>27628</Zip>
+            <Zip4>6542</Zip4>
+            <ReportDate>20060518</ReportDate>
+            <LastUpdate>20070312</LastUpdate>
+          </Address>
+        </PreviousAddresses>
+        <SocialSecurityNumber>
+          <InputSSN>240150184</InputSSN>
+          <Return>13</Return>
+          <ReturnMessage>Matches surname</ReturnMessage>
+          <Deceased>2</Deceased>
+          <DeceasedMessage>Not Deceased</DeceasedMessage>
+          <Valid>1</Valid>
+          <ValidMessage>Valid</ValidMessage>
+          <Issue>3</Issue>
+          <IssueMessage>Issued</IssueMessage>
+          <IssueState>NC</IssueState>
+          <IssueStartRange>1973</IssueStartRange>
+          <IssueEndRange>1975</IssueEndRange>
+        </SocialSecurityNumber>
+        <Aggregates>
+          <AddressUnitMismatch/>
+          <AddressUnitMismatchMessage/>
+          <AddressType>10</AddressType>
+          <AddressTypeMessage>Single-family residential</AddressTypeMessage>
+          <AddressHighRisk>1</AddressHighRisk>
+          <AddressHighRiskMessage>No high risk information found</AddressHighRiskMessage>
+          <ChangeOfAddress>2</ChangeOfAddress>
+          <ChangeOfAddressMessage>No change of address information found</ChangeOfAddressMessage>
+          <PhoneHighRisk>1</PhoneHighRisk>
+          <PhoneHighRiskMessage>No high risk information found</PhoneHighRiskMessage>
+        </Aggregates>
+        <SSNAddresses>
+          <Address>
+            <LastName>LASSITER</LastName>
+            <FirstName>HEIDI</FirstName>
+            <MiddleInitial/>
+            <Address1>2311 HALES RD</Address1>
+            <City>RALEIGH</City>
+            <State>NC</State>
+            <Zip>27608</Zip>
+            <Zip4>1445</Zip4>
+            <ReportedDate>20070712</ReportedDate>
+            <LastTouchedDate>20081129</LastTouchedDate>
+            <AreaCode/>
+            <PhoneNumber/>
+            <DateOfBirthMatch>2</DateOfBirthMatch>
+          </Address>
+        </SSNAddresses>
+        <ResidentialAddresses>
+          <Address>
+            <LastName>DAVIS</LastName>
+            <FirstName>SHAKIMAH</FirstName>
+            <MiddleInitial>C</MiddleInitial>
+            <Address1>4704 LEAFCREST CT</Address1>
+            <City>RALEIGH</City>
+            <State>NC</State>
+            <Zip>27604</Zip>
+            <Zip4>1782</Zip4>
+            <AreaCode>919</AreaCode>
+            <PhoneNumber>7130897</PhoneNumber>
+            <SpouseName/>
+            <HouseMember1/>
+            <HouseMember2/>
+            <HouseMember3/>
+            <LastTouchedDate>20081209</LastTouchedDate>
+            <ResidenceLength>0004</ResidenceLength>
+          </Address>
+        </ResidentialAddresses>
+        <HighRiskAddresses>
+          <Address>
+            <BusinessName/>
+            <Address1/>
+            <City/>
+            <State/>
+            <Zip/>
+            <Zip4/>
+            <AreaCode/>
+            <PhoneNumber/>
+            <Description>No high risk business at address/phone</Description>
+          </Address>
+        </HighRiskAddresses>
+        <ResidentialPhones>
+				</ResidentialPhones>
+        <ChangesOfAddress>
+          <ResultCode>N</ResultCode>
+          <Description/>
+        </ChangesOfAddress>
+        <DateOfBirth>
+          <InputMonth>04</InputMonth>
+          <InputDay>15</InputDay>
+          <InputYear>1960</InputYear>
+          <Result>2</Result>
+          <ResultMessage>Year of birth match</ResultMessage>
+          <Age>48</Age>
+        </DateOfBirth>
+        <DriversLicense>
+          <InputState>nc</InputState>
+          <InputNumber>240150184</InputNumber>
+          <LastName/>
+          <FirstName/>
+          <MiddleInitial/>
+          <Address1/>
+          <City/>
+          <State/>
+          <Zip/>
+          <Zip4/>
+          <Format>V</Format>
+          <Result>5</Result>
+          <ResultMessage>Data unavailable</ResultMessage>
+        </DriversLicense>
+        <HomePhone>
+          <InputNumber>9192649649</InputNumber>
+          <Result>4</Result>
+          <ResultMessage>Mobile number</ResultMessage>
+          <Type>Cell</Type>
+          <AreaCodeZipMatch>Y</AreaCodeZipMatch>
+          <AreaCodePrefixMatch>Y</AreaCodePrefixMatch>
+          <HighRiskPhone>N</HighRiskPhone>
+          <ListingType>Residential</ListingType>
+        </HomePhone>
+        <CellPhone>
+          <InputNumber>9192649649</InputNumber>
+          <Type>Cell</Type>
+        </CellPhone>
+        <InputEmployerInformation>
+          <Name>boj cleaning pick up and delivery</Name>
+          <Address1/>
+          <Address2/>
+          <City/>
+          <State/>
+          <Zip/>
+        </InputEmployerInformation>
+        <WorkPhone>
+          <InputEmployerName>boj cleaning pick up and delivery</InputEmployerName>
+          <InputNumber>8885306756</InputNumber>
+          <InputExtension/>
+          <Type/>
+          <EmployerMatch>N</EmployerMatch>
+          <Name>B O J Cleaners</Name>
+          <Address1/>
+          <City>Raleigh</City>
+          <State>NC</State>
+          <Zip/>
+          <ListingType>Business / Government</ListingType>
+        </WorkPhone>
+        <OFAC>1</OFAC>
+        <OFACMessage>No match</OFACMessage>
+        <IPAddress>
+          <InputAddress>69.134.192.201</InputAddress>
+          <MatchCountry>1</MatchCountry>
+          <MatchCountryMessage>Match for US</MatchCountryMessage>
+          <Country>USA</Country>
+          <MatchState>1</MatchState>
+          <MatchStateMessage>Match for input</MatchStateMessage>
+          <State>NC</State>
+          <MatchCity>1</MatchCity>
+          <MatchCityMessage>Match for input</MatchCityMessage>
+          <City>RALEIGH</City>
+          <MatchZip>2</MatchZip>
+          <MatchZipMessage>No match for input</MatchZipMessage>
+          <Zip>27601</Zip>
+          <MSA>560</MSA>
+          <Latitude>35.775</Latitude>
+          <Longitude>-78.634</Longitude>
+        </IPAddress>
+        <BankInformation>
+          <InputBankName>bank of america</InputBankName>
+          <InputABANumber>053000196</InputABANumber>
+          <InputAccountNumber>237012078372</InputAccountNumber>
+          <Valid>Y</Valid>
+          <BankNameMatch>Y</BankNameMatch>
+          <BankName>Bank of America, National Association</BankName>
+        </BankInformation>
+        <NumberRecords>
+          <AddressVerResidentialMatch>1</AddressVerResidentialMatch>
+          <AddressVerBusinessMatch>0</AddressVerBusinessMatch>
+          <PhoneVerResidentialMatch>0</PhoneVerResidentialMatch>
+          <PhoneVerBusinessMatch>0</PhoneVerBusinessMatch>
+          <ResidentialAddressDetRec>1</ResidentialAddressDetRec>
+          <BusinessAddressDetRec>0</BusinessAddressDetRec>
+          <AddressHighRiskDetRec>0</AddressHighRiskDetRec>
+          <AddressHighRiskDescRec>1</AddressHighRiskDescRec>
+          <ResidentialPhoneDetRec>0</ResidentialPhoneDetRec>
+          <BusinessPhoneDetRec>0</BusinessPhoneDetRec>
+          <PhoneHighRiskDetRec>0</PhoneHighRiskDetRec>
+          <PhoneHighRiskDescRet>0</PhoneHighRiskDescRet>
+          <SSNDetailRecords>1</SSNDetailRecords>
+          <COARecords>0</COARecords>
+        </NumberRecords>
+        <AuthenticationScore>39</AuthenticationScore>
+        <CustomDecision>
+          <Result>Y</Result>
+          <Bucket>A1</Bucket>
+        </CustomDecision>
+        <LooseDecision>
+          <Result>N</Result>
+          <Bucket>D2</Bucket>
+        </LooseDecision>
+        <ModerateDecision>
+          <Result>N</Result>
+          <Bucket>D3</Bucket>
+        </ModerateDecision>
+        <ConservativeDecision>
+          <Result>N</Result>
+          <Bucket>D4</Bucket>
+        </ConservativeDecision>
+      </ConsumerIDVerificationSegment>
+      <CRASegment>
+        <Decision>
+          <Result>Y</Result>
+          <Bucket>A1</Bucket>
+        </Decision>
+      </CRASegment>
+      <TLTSegment>
+        <Decision>
+          <Result>Y</Result>
+          <Bucket>A1</Bucket>
+        </Decision>
+      </TLTSegment>
+      <GlobalDecision>
+        <Result>Y</Result>
+        <IDVBucket>A1</IDVBucket>
+        <CRABucket>A1</CRABucket>
+        <TLTBucket>A1</TLTBucket>
+      </GlobalDecision>
+    </Detail>
+  </Response>
+</DataxResponse>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<dataset>
+	<company name_short="jiffy"/>
+
+	<application_status active_status="active" name_short="*root" application_status_parent_id=""/>
+	<application_status active_status="active" name_short="external_collections" application_status_parent_id="1"/>
+	<application_status active_status="active" name_short="recovered" application_status_parent_id="2"/>
+
+	<!-- one recovered application -->
+	<application
+		application_id="100" company_id="1" customer_id="0" application_status_id="3" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+		
+</dataset>

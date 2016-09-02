@@ -1,0 +1,21 @@
+<email>
+	<template>eca_b&amp;m_store_ver6</template>
+	<recipients>
+		<to>eric.johney@sellingsource.com</to>
+	</recipients>
+	<tokens>
+		<name_first>joe</name_first>
+		<name_last/>
+		<address_street/>
+		<address_unit/>
+		<address_city/>
+		<address_state/>
+		<address_zip/>
+		<phone_home/>
+		<phone_work/>
+		<phone_cell/>
+		<branch_id/>
+		<customer_email/>
+		<application_id/>
+	</tokens>
+</email>

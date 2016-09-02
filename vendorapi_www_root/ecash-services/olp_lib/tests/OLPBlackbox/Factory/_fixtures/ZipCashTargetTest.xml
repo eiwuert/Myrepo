@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <table name="target">
+    <column>target_id</column>
+    <column>target_collection_class_id</column>
+    <column>weight_class_id</column>
+    <column>property_short</column>
+    <column>name</column>
+    <column>active</column>
+    <column>date_modified</column>
+    <column>date_created</column>
+    <column>date_effective</column>
+    <column>company_id</column>
+    <column>blackbox_type_id</column>
+    <column>rule_id</column>
+    <row>
+      <value column="target_id">1</value>
+      <value column="target_collection_class_id">0</value>
+      <value column="weight_class_id">0</value>
+      <value column="property_short">zip_t1</value>
+      <value column="name">Zip Cash</value>
+      <value column="active">1</value>
+      <value column="date_modified">2008-09-29 20:07:12</value>
+      <value column="date_created">2008-09-29 20:07:12</value>
+      <value column="date_effective">0000-00-00 00:00:00</value>
+      <value column="company_id">23</value>
+      <value column="blackbox_type_id">1</value>
+      <value column="rule_id">1</value>
+    </row>
+    <row>
+      <value column="target_id">2</value>
+      <value column="target_collection_class_id">0</value>
+      <value column="weight_class_id">0</value>
+      <value column="property_short">zip_t1</value>
+      <value column="name">Zip Cash</value>
+      <value column="active">1</value>
+      <value column="date_modified">2008-09-29 20:07:12</value>
+      <value column="date_created">2008-09-29 20:07:12</value>
+      <value column="date_effective">0000-00-00 00:00:00</value>
+      <value column="company_id">23</value>
+      <value column="blackbox_type_id">3</value>
+      <value column="rule_id">2</value>
+    </row>
+    <row>
+      <value column="target_id">3</value>
+      <value column="target_collection_class_id">2</value>
+      <value column="weight_class_id">2</value>
+      <value column="property_short">top</value>
+      <value column="name">Top Collection</value>
+      <value column="active">1</value>
+      <value column="date_modified">2008-09-29 20:14:06</value>
+      <value column="date_created">2008-09-29 20:14:06</value>
+      <value column="date_effective">0000-00-00 00:00:00</value>
+      <value column="company_id">0</value>
+      <value column="blackbox_type_id">2</value>
+      <value column="rule_id">0</value>
+    </row>
+  </table>
+  <table name="target_relation">
+    <column>target_id</column>
+    <column>child_id</column>
+    <column>weight</column>
+    <row>
+      <value column="target_id">2</value>
+      <value column="child_id">1</value>
+      <value column="weight">0</value>
+    </row>
+    <row>
+      <value column="target_id">3</value>
+      <value column="child_id">2</value>
+      <value column="weight">0</value>
+    </row>
+  </table>
+  <table name="rule">
+    <column>rule_id</column>
+    <column>rule_collection_class_id</column>
+    <column>blackbox_type_id</column>
+    <column>rule_definition_id</column>
+    <column>name</column>
+    <column>rule_value</column>
+    <column>date_created</column>
+    <row>
+      <value column="rule_id">1</value>
+      <value column="rule_collection_class_id">1</value>
+      <value column="blackbox_type_id">2</value>
+      <value column="rule_definition_id"></value>
+      <value column="name"></value>
+      <value column="rule_value"></value>
+      <value column="date_created">2008-09-29 20:07:12</value>
+    </row>
+    <row>
+      <value column="rule_id">2</value>
+      <value column="rule_collection_class_id">1</value>
+      <value column="blackbox_type_id">2</value>
+      <value column="rule_definition_id"></value>
+      <value column="name"></value>
+      <value column="rule_value"></value>
+      <value column="date_created">2008-09-29 20:07:12</value>
+    </row>
+  </table>
+  <table name="rule_revision">
+    <column>rule_id</column>
+    <column>rule_revision_id</column>
+    <column>date_modified</column>
+    <column>date_created</column>
+    <column>active</column>
+    <row>
+      <value column="rule_id">1</value>
+      <value column="rule_revision_id">1</value>
+      <value column="date_modified">2008-09-29 20:07:12</value>
+      <value column="date_created">2008-09-29 20:07:12</value>
+      <value column="active">1</value>
+    </row>
+    <row>
+      <value column="rule_id">2</value>
+      <value column="rule_revision_id">2</value>
+      <value column="date_modified">2008-09-29 20:07:12</value>
+      <value column="date_created">2008-09-29 20:07:12</value>
+      <value column="active">1</value>
+    </row>
+  </table>
+  <table name="rule_relation">
+    <column>rule_id</column>
+    <column>rule_revision_id</column>
+    <column>child_id</column>
+  </table>
+  <table name="rule_mode">
+    <column>rule_mode_id</column>
+    <column>rule_id</column>
+    <column>rule_mode_type_id</column>
+  </table>
+</dataset>

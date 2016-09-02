@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="data">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="campaign">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="campaign_name" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="application">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="application_id" type="xs:int"/>
+							<xs:element name="name_first" type="xs:string"/>
+							<xs:element name="name_middle" type="xs:string"/>
+							<xs:element name="name_last" type="xs:string"/>
+							<xs:element name="home_street" type="xs:string"/>
+							<xs:element name="home_unit" type="xs:short"/>
+							<xs:element name="home_city" type="xs:string"/>
+							<xs:element name="home_state" type="xs:string"/>
+							<xs:element name="home_zip" type="xs:int"/>
+							<xs:element name="phone_home" type="xs:long"/>
+							<xs:element name="phone_cell" type="xs:long"/>
+							<xs:element name="phone_work" type="xs:long"/>
+							<xs:element name="ext_work" type="xs:short"/>
+							<xs:element name="email_primary" type="xs:string"/>
+							<xs:element name="date_of_birth" type="xs:string"/>
+							<xs:element name="date_dob_y" type="xs:short"/>
+							<xs:element name="date_dob_m" type="xs:byte"/>
+							<xs:element name="date_dob_d" type="xs:byte"/>
+							<xs:element name="ssn_part_1" type="xs:short"/>
+							<xs:element name="ssn_part_2" type="xs:byte"/>
+							<xs:element name="ssn_part_3" type="xs:short"/>
+							<xs:element name="social_security_number" type="xs:int"/>
+							<xs:element name="bank_name" type="xs:string"/>
+							<xs:element name="bank_aba" type="xs:int"/>
+							<xs:element name="bank_account" type="xs:int"/>
+							<xs:element name="bank_account_type" type="xs:string"/>
+							<xs:element name="employer_name" type="xs:string"/>
+							<xs:element name="income_monthly_net" type="xs:short"/>
+							<xs:element name="income_direct_deposit" type="xs:string"/>
+							<xs:element name="hire_day" type="xs:byte"/>
+							<xs:element name="hire_month" type="xs:byte"/>
+							<xs:element name="hire_year" type="xs:short"/>
+							<xs:element name="loan_amount_desired" type="xs:short"/>
+							<xs:element name="residence_start_day" type="xs:byte"/>
+							<xs:element name="residence_start_month" type="xs:byte"/>
+							<xs:element name="residence_start_year" type="xs:short"/>
+							<xs:element name="residence_type" type="xs:string"/>
+							<xs:element name="client_ip_address" type="xs:string"/>
+							<xs:element name="income_type" type="xs:string"/>
+							<xs:element name="income_frequency" type="xs:string"/>
+							<xs:element name="paydate1" type="xs:date"/>
+							<xs:element name="paydate2" type="xs:date"/>
+							<xs:element name="paydate3" type="xs:date"/>
+							<xs:element name="paydate4" type="xs:date"/>
+							<xs:element name="paydate5" type="xs:date"/>
+							<xs:element name="next_pay_date" type="xs:date"/>
+							<xs:element name="last_pay_date" type="xs:date"/>
+							<xs:element name="today_day_string" type="xs:string"/>
+							<xs:element name="today_day_of_week" type="xs:byte"/>
+							<xs:element name="military" type="xs:string"/>
+							<xs:element name="vehicle_vin" type="xs:string"/>
+							<xs:element name="vehicle_make" type="xs:string"/>
+							<xs:element name="vehicle_year" type="xs:short"/>
+							<xs:element name="vehicle_model" type="xs:string"/>
+							<xs:element name="vehicle_style" type="xs:string"/>
+							<xs:element name="vehicle_series" type="xs:string"/>
+							<xs:element name="vehicle_mileage" type="xs:int"/>
+							<xs:element name="ref_01_name_full" type="xs:string"/>
+							<xs:element name="ref_01_phone_home" type="xs:long"/>
+							<xs:element name="ref_01_relationship" type="xs:string"/>
+							<xs:element name="ref_02_name_full" type="xs:string"/>
+							<xs:element name="ref_02_phone_home" type="xs:long"/>
+							<xs:element name="ref_02_relationship" type="xs:string"/>
+							<xs:element name="nin" type="xs:string"/>
+							<xs:element name="best_call_time" type="xs:string"/>
+							<xs:element name="promo_id" type="xs:short"/>
+							<xs:element name="site_name" type="xs:string"/>
+							<xs:element name="test_app" type="xs:short"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

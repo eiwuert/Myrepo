@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="StatProSoapApi"
+    targetNamespace="http://schemas.sellingsource.com/soap/statpro"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://schemas.sellingsource.com/soap/statpro"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+    <types>
+        <xsd:schema targetNamespace="http://schemas.sellingsource.com/soap/statpro" xmlns:tns="http://schemas.sellingsource.com/soap/statpro">
+            <xsd:complexType name="spaceDefinition">
+                <xsd:sequence>
+                    <xsd:element name="page_id" type="xsd:int"></xsd:element>
+                    <xsd:element name="promo_id" type="xsd:int"></xsd:element>
+                    <xsd:element name="promo_sub_code" type="xsd:string"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+
+    <message name="testConnectionRequest">
+        <part name="access_key" type="xsd:string"/>
+    </message>
+    <message name="testConnectionResponse">
+         <part name="response" type="xsd:boolean"/>
+    </message>
+    
+     <message name="getSpaceKeyRequest">
+        <part name="access_key" type="xsd:string"/>
+        <part name="space_definition" type="tns:spaceDefinition"/>
+    </message>
+    <message name="getSpaceKeyResponse">
+         <part name="space_key" type="xsd:string"/>
+    </message>
+    
+    <message name="createTrackKeyRequest">
+        <part name="access_key" type="xsd:string"/>
+    </message>
+    <message name="createTrackKeyResponse">
+        <part name="track_key" type="xsd:string"/>
+    </message>
+    
+    <message name="recordEventRequest">
+        <part name="access_key" type="xsd:string"/>
+        <part name="track_key" type="xsd:string"/>
+        <part name="space_key" type="xsd:string"/>
+        <part name="event_type_key" type="xsd:string"/>
+        <part name="date_occurred" type="xsd:int"/>
+    </message>
+    <message name="recordEventResponse">
+        <part name="recordEventResponse" type="xsd:boolean"/>
+    </message>
+    
+    <portType name="StatProSoapApiPortType">
+        <operation name="testConnection">
+            <input message="tns:testConnectionRequest"/>
+            <output message="tns:testConnectionResponse"/>
+        </operation>
+        <operation name="getSpaceKey">
+            <input message="tns:getSpaceKeyRequest"/>
+            <output message="tns:getSpaceKeyResponse"/>
+        </operation>
+        <operation name="createTrackKey">
+            <input message="tns:createTrackKeyRequest"/>
+            <output message="tns:createTrackKeyResponse"/>
+        </operation>
+        <operation name="recordEvent">
+            <input message="tns:recordEventRequest"/>
+            <output message="tns:recordEventResponse"/>
+        </operation>
+    </portType>
+    <binding name="StatProSoapApiBinding" type="tns:StatProSoapApiPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        
+        <operation name="testConnection">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/statpro"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/statpro"/>
+            </output>
+        </operation>
+        
+        <operation name="getSpaceKey">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/statpro"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/statpro"/>
+            </output>
+        </operation>
+        <operation name="createTrackKey">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/statpro"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/statpro"/>
+            </output>
+        </operation>
+        <operation name="recordEvent">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/statpro"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/statpro"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="StatProSoapApiService">
+        <port name="StatProSoapApiPort" binding="tns:StatProSoapApiBinding">
+            <soap:address location="%%%soap_url%%%" />
+        </port>
+    </service>
+</definitions>

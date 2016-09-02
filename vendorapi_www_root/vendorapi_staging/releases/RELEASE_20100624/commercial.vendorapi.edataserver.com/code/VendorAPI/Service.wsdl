@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="VendorAPI"
+    targetNamespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://schemas.sellingsource.com/soap/ecash/vendorapi"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:apache="http://xml.apache.org/xml-soap">
+    <types>
+    	<xsd:schema version="1.0" targetNamespace="http://xml.apache.org/xml-soap" xmlns:tns="http://xml.apache.org/xml-soap">
+                <xsd:complexType name="Map">
+                        <xsd:sequence>
+                                <xsd:element name="item" type="tns:item" minOccurs="0" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                </xsd:complexType>
+                <xsd:complexType name="item">
+                        <xsd:sequence>
+                                <xsd:element name="key" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                        </xsd:sequence>
+                </xsd:complexType>
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://schemas.sellingsource.com/soap/ecash/vendorapi" xmlns:tns="http://schemas.sellingsource.com/soap/ecash/vendorapi">
+        	<xsd:import namespace="http://xml.apache.org/xml-soap"/>
+            <xsd:complexType name="VendorAPIResponse">
+                <xsd:sequence>
+                    <xsd:element name="state_object" type="xsd:string"></xsd:element>
+                    <xsd:element name="outcome" type="xsd:int"></xsd:element>
+                    <xsd:element name="result" type="xsd:anyType"></xsd:element>
+                    <xsd:element name="error" type="xsd:string" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            
+			<xsd:complexType name="Document">
+				<xsd:sequence>
+					<xsd:element name="template" type="xsd:string"/>
+					<xsd:element name="tokens" type="apache:Map"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="QualifyInfo">
+				<xsd:sequence>
+					<xsd:element name="max_loan_amount" type="xsd:double"/>
+					<xsd:element name="loan_amount" type="xsd:double"/>
+					<xsd:element name="apr" type="xsd:double"/>
+					<xsd:element name="finance_charge" type="xsd:double"/>
+					<xsd:element name="total_payment" type="xsd:double"/>
+					<xsd:element name="fund_date" type="xsd:date"/>
+					<xsd:element name="first_payment" type="xsd:date"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:simpleType name="OlpProcess">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="ONLINE_CONFIRMATION"/>
+					<xsd:enumeration value="CS_REACT"/>
+					<xsd:enumeration value="EMAIL_REACT"/>
+					<xsd:enumeration value="ECASHAPP_REACT"/>
+					<xsd:enumeration value="EMAIL_CONFIRMATION"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			
+			<xsd:complexType name="Debug">
+				<xsd:sequence>
+					<xsd:element name="DATAX" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="DATAX_FRAUD" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="PREV_CUSTOMER" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="USED_INFO" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="SUPPRESSION_LIST" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="NO_CHECKS" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="Applicant">
+				<xsd:sequence>
+					<xsd:element name="name_first" type="xsd:string"/>
+					<xsd:element name="name_middle" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="name_last" type="xsd:string"/>
+					<xsd:element name="dob" type="xsd:date"/>
+					<xsd:element name="ssn" type="xsd:string"/>
+					<xsd:element name="legal_id" type="tns:LegalId"/>
+					<xsd:element name="contact_info" type="tns:ContactInfo"/>
+					<xsd:element name="military" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="employment" type="tns:Employment"/>
+					<xsd:element name="bank_account" type="tns:BankAccount"/>
+					<xsd:element name="personal_references" type="tns:PersonalReference" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="LegalId">
+				<xsd:sequence>
+					<xsd:element name="legal_id_type" type="xsd:string"/>
+					<xsd:element name="legal_id_state" type="xsd:string"/>
+					<xsd:element name="legal_id_number" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="BankAccount">
+				<xsd:sequence>
+					<xsd:element name="bank_account_type" type="tns:BankAccountType"/>
+					<xsd:element name="bank_name" type="xsd:string"/>
+					<xsd:element name="bank_aba" type="xsd:string"/>
+					<xsd:element name="bank_account" type="xsd:string"/>
+					<xsd:element name="banking_start_date" type="xsd:date" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:simpleType name="BankAccountType">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="CHECKING"/>
+					<xsd:enumeration value="SAVINGS"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			
+			<xsd:complexType name="ContactInfo">
+				<xsd:sequence>
+					<xsd:element name="address" type="tns:Address"/>
+					<xsd:element name="email" type="xsd:string"/>
+					<xsd:element name="phone_home" type="xsd:string"/>
+					<xsd:element name="phone_cell" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="phone_work" type="xsd:string"/>
+					<xsd:element name="phone_work_ext" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="phone_fax" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="best_call_time" type="tns:CallTimePref" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:simpleType name="CallTimePref">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="MORNING"/>
+					<xsd:enumeration value="AFTERNOON"/>
+					<xsd:enumeration value="EVENING"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			
+			<xsd:complexType name="Address">
+				<xsd:sequence>
+					<xsd:element name="residence_type" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="street" type="xsd:string"/>
+					<xsd:element name="unit" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="city" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="state" type="xsd:string"/>
+					<xsd:element name="zip_code" type="xsd:string"/>
+					<xsd:element name="residence_start_date" type="xsd:date" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="Employment">
+				<xsd:sequence>
+					<xsd:element name="employer_name" type="xsd:string"/>
+					<xsd:element name="supervisor_phone" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="job_title" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="paydate_info" type="tns:PayDate"/>
+					<xsd:element name="date_hire" type="xsd:date" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="PayDate">
+				<xsd:sequence>
+					<xsd:element name="paydate_model" type="tns:PayDateModel" minOccurs="0"/>
+					<xsd:element name="last_paydate" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="day_of_week" type="tns:DayOfWeek" minOccurs="0"/>
+					<xsd:element name="day_of_month_1" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="day_of_month_2" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="week_1" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="week_2" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="income_direct_deposit" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="income_source" type="tns:IncomeSource" minOccurs="0"/>
+					<xsd:element name="income_frequency" type="tns:IncomeFrequency" minOccurs="0"/>
+					<xsd:element name="income_monthly" type="xsd:double" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:simpleType name="PayDateModel">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="dw"/>
+					<xsd:enumeration value="dwdm"/>
+					<xsd:enumeration value="wdw"/>
+					<xsd:enumeration value="dm"/>
+					<xsd:enumeration value="dwpd"/>
+					<xsd:enumeration value="dwpd_fw"/>
+					<xsd:enumeration value="wwdw"/>
+					<xsd:enumeration value="dmdm"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			
+			<xsd:simpleType name="DayOfWeek">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="mon"/>
+					<xsd:enumeration value="tue"/>
+					<xsd:enumeration value="wed"/>
+					<xsd:enumeration value="thu"/>
+					<xsd:enumeration value="fri"/>
+					<xsd:enumeration value="sat"/>
+					<xsd:enumeration value="sun"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			
+			<xsd:simpleType name="IncomeFrequency">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="FOURWEEKLY"/>
+					<xsd:enumeration value="WEEKLY"/>
+					<xsd:enumeration value="BIWEEKLY"/>
+					<xsd:enumeration value="SEMIMONTHLY"/>
+					<xsd:enumeration value="MONTHLY"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			
+			<xsd:simpleType name="IncomeSource">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="BENEFITS"/>
+					<xsd:enumeration value="EMPLOYMENT"/>
+					<xsd:enumeration value="SELF_EMPLOYMENT"/>
+					<xsd:enumeration value="MILITARY"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			
+			<xsd:complexType name="Vehicle">
+				<xsd:sequence>
+					<xsd:element name="vin" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="year" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="make" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="model" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="series" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="style" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="color" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="title_state" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="license_plate" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="value" type="xsd:double" minOccurs="0"/>
+					<xsd:element name="mileage" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="CampaignInfo">
+				<xsd:sequence>
+					<xsd:element name="license_key" type="xsd:string"/>
+					<xsd:element name="promo_id" type="xsd:int"/>
+					<xsd:element name="promo_sub_code" type="xsd:string"/>
+					<xsd:element name="page_id" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="reservation_id" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="campaign_name" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="PersonalReference">
+				<xsd:sequence>
+					<xsd:element name="name_full" type="xsd:string"/>
+					<xsd:element name="phone_home" type="xsd:string"/>
+					<xsd:element name="relationship" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="PostRequest">
+				<xsd:sequence>
+					<xsd:element name="application_id" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="ecash_application_id" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="react_application_id" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="applicant" type="tns:Applicant"/>
+					<xsd:element name="vendor_customer_id" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="track_id" type="xsd:string"/>
+					<xsd:element name="pwadvid" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="is_enterprise" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="ip_address" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="target" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="campaign" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="loan_amount_desired" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="loan_type" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="is_title_loan" type="xsd:boolean" minOccurs="0" />
+					<xsd:element name="rework" type="xsd:boolean" minOccurs="0" />
+					<xsd:element name="price_point" type="xsd:double" minOccurs="0"/>
+					<xsd:element name="olp_process" type="tns:OlpProcess" minOccurs="0"/>
+					<xsd:element name="campaigns" type="tns:CampaignInfo" maxOccurs="unbounded"/>
+					<xsd:element name="vehicle" type="tns:Vehicle" minOccurs="0"/>
+					<xsd:element name="debug" type="tns:Debug" minOccurs="0"/>					
+				</xsd:sequence>
+			</xsd:complexType>
+            
+			<xsd:complexType name="GetPageResult">
+				<xsd:sequence>
+					<xsd:element name="documents" type="tns:Document" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="fund_amounts" type="xsd:double" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="qualify_info" type="tns:QualifyInfo"/>
+					<xsd:element name="required_data" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="page_name" type="xsd:string"/>
+					<xsd:element name="tokens" type="apache:Map"/>
+					<xsd:element name="status" type="xsd:string"/>
+					<xsd:element name="paydate" type="tns:PayDate"/>
+					<xsd:element name="exit_strategy_flags" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+			<xsd:complexType name="GetPageResponse">
+				<xsd:complexContent>
+					<xsd:extension base="tns:StandardResponse">
+						<xsd:sequence>
+							<xsd:element name="result" type="tns:GetPageResult"/>
+						</xsd:sequence>
+					</xsd:extension>
+				</xsd:complexContent>
+			</xsd:complexType>
+			
+			<xsd:complexType name="StandardResponse">
+				<xsd:sequence>
+					<xsd:element name="state_object" type="xsd:string"/>
+					<xsd:element name="outcome" type="xsd:int"/>
+					<xsd:element name="error" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+        </xsd:schema>
+    </types>
+    <message name="emailRequest">
+        <part name="ssn" type="xsd:string"/>
+        <part name="dob" type="xsd:string"/>
+    </message>
+    <message name="emailResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="amountRequest">
+        <part name="application_id" type="xsd:string"/>
+    </message>
+    <message name="amountResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="failRequest">
+        <part name="data" type="xsd:anyType"/>
+    </message>
+    <message name="failResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="findDocumentRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="template" type="xsd:string"/>
+    </message>
+    <message name="findDocumentResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="getApplicationDataRequest">
+        <part name="application_id" type="xsd:string"/>
+    </message>
+    <message name="getApplicationDataResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="getTransactionsRequest">
+        <part name="application_id" type="xsd:string"/>
+    </message>
+    <message name="getTransactionsResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="getLoanDocumentRequest">
+        <part name="application_id" type="xsd:string"/>
+    </message>
+    <message name="getLoanDocumentResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="getLoanDocumentPreviewRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="data" type="apache:Map"/>
+    </message>
+    <message name="getLoanDocumentPreviewResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>    
+    <message name="getPageRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="ecash_sign_docs" type="xsd:boolean"/>
+        <part name="campaign_info" type="tns:CampaignInfo"/>
+    </message>
+    <message name="getPageResponse">
+        <part name="get_page_response" type="tns:GetPageResponse"/>
+    </message>
+    <message name="getStatusRequest">
+        <part name="application_id" type="xsd:string"/>
+    </message>
+    <message name="getStatusResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>   
+    <message name="getTokensRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="is_preview" type="xsd:boolean"/>
+        <part name="data" type="xsd:anyType"/>
+    </message>
+    <message name="getTokensResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="resetPasswordRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+    <message name="resetPasswordResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="getContactFieldsRequest">
+        <part name="application_id" type="xsd:string"/>
+    </message>
+    <message name="loginLockResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="loginLockRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="action" type="xsd:string"/>
+    </message>
+    <message name="getContactFieldsResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="setContactFieldsRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="fields" type="xsd:anyType"/>
+    </message>
+    <message name="setContactFieldsResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="handleTriggersRequest">
+        <part name="application_id" type="xsd:string"/>
+    </message>
+    <message name="handleTriggersResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="loginRequest">
+        <part name="username" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+    <message name="loginResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="noopRequest">
+        <part name="input" type="xsd:string"/>
+    </message>
+    <message name="noopResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="postRequest">
+		<part name="request" type="tns:PostRequest"/>
+	</message>
+    <message name="postResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="preConfirmRequest">
+        <part name="application_id" type="xsd:string"/>
+    </message>
+    <message name="preConfirmResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="previewDocumentRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="template" type="xsd:string"/>
+        <part name="data" type="xsd:anyType"/>
+    </message>
+    <message name="previewDocumentResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="previousCustomerRequest">
+        <part name="data" type="xsd:anyType"/>
+    </message>
+    <message name="previousCustomerResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="signDocumentRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="template" type="xsd:string"/>
+        <part name="update_now" type="xsd:boolean"/>
+    </message>
+    <message name="signDocumentResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="submitPageRequest">
+        <part name="data" type="apache:Map"/>
+    </message>
+    <message name="submitPageResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="viewDocumentRequest">
+        <part name="application_id" type="xsd:string"/>
+        <part name="archive_id" type="xsd:string"/>
+    </message>
+    <message name="viewDocumentResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <message name="withdrawRequest">
+        <part name="application_id" type="xsd:string"/>
+    </message>
+    <message name="withdrawResponse">
+        <part name="vendor_api_response" type="tns:VendorAPIResponse"/>
+    </message>
+    <portType name="VendorAPIPortType">
+        <operation name="emailUsername">
+            <input message="tns:emailRequest"/>
+            <output message="tns:emailResponse"/>
+        </operation>
+        <operation name="emailPasswordLink">
+            <input message="tns:emailRequest"/>
+            <output message="tns:emailResponse"/>
+        </operation>
+        <operation name="MaxReactAmount">
+            <input message="tns:amountRequest"/>
+            <output message="tns:amountResponse"/>
+        </operation>
+        <operation name="fail">
+            <input message="tns:failRequest"/>
+            <output message="tns:failResponse"/>
+        </operation>
+        <operation name="findDocument">
+            <input message="tns:findDocumentRequest"/>
+            <output message="tns:findDocumentResponse"/>
+        </operation>
+        <operation name="getApplicationData">
+            <input message="tns:getApplicationDataRequest"/>
+            <output message="tns:getApplicationDataResponse"/>
+        </operation>
+        <operation name="getTransactions">
+            <input message="tns:getTransactionsRequest"/>
+            <output message="tns:getTransactionsResponse"/>
+        </operation>
+        <operation name="getLoanDocument">
+            <input message="tns:getLoanDocumentRequest"/>
+            <output message="tns:getLoanDocumentResponse"/>
+        </operation>
+        <operation name="getLoanDocumentPreview">
+            <input message="tns:getLoanDocumentPreviewRequest"/>
+            <output message="tns:getLoanDocumentPreviewResponse"/>
+        </operation>
+        <operation name="getPage">
+            <input message="tns:getPageRequest"/>
+            <output message="tns:getPageResponse"/>
+        </operation>
+        <operation name="getStatus">
+            <input message="tns:getStatusRequest"/>
+            <output message="tns:getStatusResponse"/>
+        </operation>
+        <operation name="getTokens">
+            <input message="tns:getTokensRequest"/>
+            <output message="tns:getTokensResponse"/>
+        </operation>
+        <operation name="resetPassword">
+            <input message="tns:resetPasswordRequest"/>
+            <output message="tns:resetPasswordResponse"/>
+        </operation>
+        <operation name="loginLock">
+            <input message="tns:loginLockRequest"/>
+            <output message="tns:loginLockResponse"/>
+        </operation>
+        <operation name="getContactFields">
+            <input message="tns:getContactFieldsRequest"/>
+            <output message="tns:getContactFieldsResponse"/>
+        </operation>
+        <operation name="setContactFields">
+            <input message="tns:setContactFieldsRequest"/>
+            <output message="tns:setContactFieldsResponse"/>
+        </operation>
+        <operation name="handleTriggers">
+            <input message="tns:handleTriggersRequest"/>
+            <output message="tns:handleTriggersResponse"/>
+        </operation>
+        <operation name="login">
+            <input message="tns:loginRequest"/>
+            <output message="tns:loginResponse"/>
+        </operation>
+        <operation name="noop">
+            <input message="tns:noopRequest"/>
+            <output message="tns:noopResponse"/>
+        </operation>
+        <operation name="post">
+            <input message="tns:postRequest"/>
+            <output message="tns:postResponse"/>
+        </operation>
+        <operation name="preConfirm">
+            <input message="tns:preConfirmRequest"/>
+            <output message="tns:preConfirmResponse"/>
+        </operation>
+        <operation name="previewDocument">
+            <input message="tns:previewDocumentRequest"/>
+            <output message="tns:previewDocumentResponse"/>
+        </operation>
+        <operation name="previousCustomer">
+            <input message="tns:previousCustomerRequest"/>
+            <output message="tns:previousCustomerResponse"/>
+        </operation>
+        <operation name="signDocument">
+            <input message="tns:signDocumentRequest"/>
+            <output message="tns:signDocumentResponse"/>
+        </operation>
+        <operation name="submitPage">
+            <input message="tns:submitPageRequest"/>
+            <output message="tns:submitPageResponse"/>
+        </operation>
+        <operation name="viewDocument">
+            <input message="tns:viewDocumentRequest"/>
+            <output message="tns:viewDocumentResponse"/>
+        </operation>
+        <operation name="withdraw">
+            <input message="tns:withdrawRequest"/>
+            <output message="tns:withdrawResponse"/>
+        </operation>
+        <operation name="disagree">
+            <input message="tns:withdrawRequest"/>
+            <output message="tns:withdrawResponse"/>
+        </operation>
+        <operation name="decline">
+            <input message="tns:withdrawRequest"/>
+            <output message="tns:withdrawResponse"/>
+        </operation>
+    </portType>
+    <binding name="VendorAPIBinding" type="tns:VendorAPIPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="emailUsername">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="emailPasswordLink">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="fail">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="findDocument">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="getApplicationData">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="getTransactions">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="getLoanDocument">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="getLoanDocumentPreview">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="getPage">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="getStatus">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="getTokens">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="resetPassword">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="loginLock">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="setContactFields">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="handleTriggers">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="login">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="noop">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="post">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="preConfirm">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="previewDocument">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="previousCustomer">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="signDocument">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="submitPage">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="viewDocument">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="withdraw">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="decline">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+        <operation name="disagree">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/vendorapi"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="VendorAPIService">
+        <port name="VendorAPIPort" binding="tns:VendorAPIBinding">
+            <soap:address location="%%%soap_url%%%"/>
+        </port>
+    </service>
+</definitions>

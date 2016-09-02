@@ -1,0 +1,89 @@
+<style type="text/css">
+	DIV {
+		border:		0px solid Red;
+		color: #2C3E50;
+	}
+	.center {
+		text-align:	center;
+	}
+	.vc { /* vertically centered */
+		vertical-align:	middle;
+	}
+	.b {
+		font-weight:	bold;
+	}
+	.col {
+		width:		50%;
+	}
+	.suboption {
+		/*border:		1px solid #CCCCCC;*/
+		margin:		5px;
+		padding:	5px 0px;
+	}
+	.r {
+		text-align:	right;
+	}
+	.example {
+		font-style:	italic;
+	}
+	.bgl {
+		background-color:	#DDDDDD;
+	}
+	.bgd {
+		background-color:	#CCCCCC;
+	}
+	.bl {
+		display:	list-item;
+	}
+	.hide {
+		display:	none;
+	}
+	.or {
+		font-style:	italic;
+		margin:		0px 10px;
+		padding:	5px 20px;
+	}
+	.paydate_div {
+		display:	none;
+		position: relative;
+		width:		100%;
+		padding:	0px;
+		margin:		0px;
+		border:		0px;
+		color: #2C3E50;
+		font-size: 13px;
+		float: left;
+	}
+	.paydate_widget {
+		width:		100%;
+		font-size: 13px;
+		float: left;
+	}
+	.paydate_widget_react {
+		text-align: center;
+	}
+	.empty_space {
+		width: 1px;
+		font-size: 1px;
+	}
+	
+	.pw_pretty_span {
+		background: url("../images/pw_pretty_select_arrow.png") no-repeat scroll right center #FFFFFF;
+		border: 1px solid black;
+		border-radius: 5px;
+		padding: 0px;
+		color: black;
+		margin: 0px 5px 0px 0px;
+	}
+	
+	.pw_pretty_select {
+		border: none;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+		background: transparent;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+</style>

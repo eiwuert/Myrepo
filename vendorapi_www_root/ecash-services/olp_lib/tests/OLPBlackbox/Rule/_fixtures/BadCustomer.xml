@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+	<table name="bad_customer">
+		<column>vendor</column>
+		<column>data</column>
+		<row>
+			<value>1</value>
+			<value>john.doe|1234</value>
+		</row>
+	</table>
+</dataset>

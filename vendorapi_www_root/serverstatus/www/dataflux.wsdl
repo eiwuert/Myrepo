@@ -1,0 +1,767 @@
+<?xml version="1.0"?>
+<definitions name="DQISService"
+	targetNamespace="archserver.wsdl.dataflux.com"
+	xmlns:tns="archserver.wsdl.dataflux.com"
+	xmlns:archxsd="archserver.xsd.dataflux.com"	
+	
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+ xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+ xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+ <schema
+	targetNamespace="archserver.xsd.dataflux.com"
+	xmlns:tns="archserver.xsd.dataflux.com"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified"
+	attributeFormDefault="unqualified">
+
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+<!-- *************************************************** -->
+  <!-- Type of DataFlux Object -->
+  <simpleType name="ObjectType">
+   <restriction base="xsd:string">
+
+    <enumeration value="ARCHSERVICE"/>   
+    <enumeration value="ARCHITECT"/>
+    <enumeration value="PROFILE"/>
+   </restriction>
+  </simpleType>
+  
+  <!-- *************************************************** -->
+  <!-- Field Type -->
+  <simpleType name="FieldType">
+   <restriction base="xsd:string">
+
+    <enumeration value="UNKNOWN"/>
+    <enumeration value="BOOLEAN"/>
+    <enumeration value="INTEGER"/>
+    <enumeration value="REAL"/>
+    <enumeration value="STRING"/>
+    <enumeration value="DATE"/>
+   </restriction>
+  </simpleType>
+  
+     
+  <!-- *************************************************** -->
+
+  <!-- Describes a data field for an architect service -->
+  <complexType name="FieldDefinition"> 
+   <sequence>
+    <element name="fieldName" type="xsd:string"/>
+    <!-- @AS changed to this type -->
+    <element name="fieldType" type="tns:FieldType"/>
+    <element name="fieldLength" type="xsd:int"/>
+   </sequence>
+  </complexType>
+
+  
+  
+  <!-- ******************************************** -->
+  <!-- Describes a row of data for an architect service -->
+  <complexType name="DataRow">
+   <sequence>    
+    <element name="value" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+	<element name="reserved" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+  
+  <!-- *************************************************** -->
+
+  <!-- This is used to specify object information to the server     -->     
+  <complexType name="ObjectDefinition">
+   <sequence>
+    <element name="objectName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    <element name="objectType" type="tns:ObjectType" minOccurs="1" maxOccurs="1"/>
+   </sequence>    
+  </complexType>
+
+  <!-- *************************************************** -->
+  <!-- Job Status Information -->
+
+  <complexType name="JobStatusDefinition">
+   <sequence>
+    <element name="job" type="tns:ObjectDefinition" minOccurs="1" maxOccurs="1"/>
+	<element name="jobid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    <element name="status" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   </sequence>    
+  </complexType>
+  
+  <!-- *************************************************** -->
+  <!-- used to specify variables that are added to an architect job -->                     
+  <complexType name="ArchitectVarValueType">
+
+   <sequence>
+    <element name="varName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    <element name="varValue" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+   </sequence>
+  </complexType>
+
+
+  <!-- REQUEST/RESPONSE -->
+  
+  
+  <!-- ****************************************************** -->
+  <!-- Get server version                                     -->  
+  <element name="GetServerVersionRequest" type="xsd:string"/>
+
+  <complexType name="GetServerVersionResponseType">
+    <sequence>
+     <!-- Full server version string ["DataFlux Integration Server version 7.1.2 (build 3)"] -->
+     <element name="fullVersionStr" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+     
+     <!-- Major server version integer [7] -->
+     <element name="majorVersionInt" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+     
+     <!-- Minor server version integer [1] -->
+     <element name="minorVersionInt" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+
+     
+     <!-- Revision server version integer [2] -->
+     <element name="revisionVersionInt" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <element name="GetServerVersionResponse" type="tns:GetServerVersionResponseType"/>
+  
+  
+  
+  
+  <!-- ****************************************************** -->
+  <!-- Architect Run service request/response transaction packets -->     
+  <!-- Run service given its name and data -->
+  <complexType name="SendArchitectServiceRequestType">
+
+    <sequence>    
+     
+     <!-- Name of the service for architect to load -->
+     <element name="serviceName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+     
+     <!-- Field definitions describing individual fields in a data row -->
+     <element name="fieldDefinitions" type="tns:FieldDefinition" minOccurs="0" maxOccurs="unbounded"/>
+     
+     <!-- Data rows for architect service to process -->
+     <element name="dataRows" type="tns:DataRow" minOccurs="0" maxOccurs="unbounded"/>
+     
+     <!-- Reserved field 1 -->
+     <element name="reserved1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+
+     
+    </sequence>
+  </complexType>
+  <element name="SendArchitectServiceRequest" type="tns:SendArchitectServiceRequestType"/>
+  
+  
+  <complexType name="GetArchitectServiceResponseType">
+    <sequence>
+     <!-- Status of the service -->
+     <element name="status" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+     
+     <!-- Field definitions describing individual fields in a data row -->
+     <element name="fieldDefinitions" type="tns:FieldDefinition" minOccurs="0" maxOccurs="unbounded"/>
+
+     <!-- Output data rows -->
+     <element name="dataRows" type="tns:DataRow" minOccurs="0" maxOccurs="unbounded"/>
+     
+    </sequence>
+  </complexType>
+  
+  <element name="GetArchitectServiceResponse" type="tns:GetArchitectServiceResponseType"/>
+  
+  
+  
+  
+  <!-- ****************************************************************** -->
+  <!-- Request a list of available objects of a specific type                -->
+  <!-- Respond with a list of available jobs -->
+
+  <element name="SendObjectListRequest" type="tns:ObjectType" />
+	
+  <complexType name="GetObjectListResponseType">
+    <sequence>
+     <element name="objectName" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <element name="GetObjectListResponse" type ="tns:GetObjectListResponseType"/>
+
+
+  <!-- *********************************************************** -->
+
+  <!-- Architect Service Metadata request/response transaction packets -->     
+  <!-- Request service's input and output fields given service's name -->
+  
+  <complexType name="SendArchitectServiceParamRequestType">
+    <sequence>    
+     <!-- Name of the service for which to get parameters -->
+     <element name="serviceName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+     
+     <!-- Reserved field 1 -->
+     <element name="reserved1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     
+    </sequence>
+  </complexType>
+
+  <element name="SendArchitectServiceParamRequest" type="tns:SendArchitectServiceParamRequestType"/>
+  
+  <complexType name="GetArchitectServiceParamResponseType">
+    <sequence>
+     
+     <!-- Input Field Definitions (fields the service requires on input) -->
+     <element name="inFldDefs" type="tns:FieldDefinition" minOccurs="0" maxOccurs="unbounded"/>
+
+     <!-- Output Field Definitions (fields the service produces on output) -->
+     <element name="outFldDefs" type="tns:FieldDefinition" minOccurs="0" maxOccurs="unbounded"/>
+     
+    </sequence>
+
+  </complexType>
+  <element name="GetArchitectServiceParamResponse" type="tns:GetArchitectServiceParamResponseType"/>
+
+
+  <!-- *********************************************************** -->
+  <!-- Get the status of a job or jobs 
+       If jobId is not specified, the status of all known jobs is queried
+  -->  
+  
+  <complexType name="SendJobStatusRequestType">
+    <sequence>
+     <element name="jobId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </sequence>    
+  </complexType>
+
+  <element name="SendJobStatusRequest" type="tns:SendJobStatusRequestType"/>
+
+  
+  <complexType name="GetJobStatusResponseType">
+    <sequence>
+     <element name="status" type="tns:JobStatusDefinition" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <element name="GetJobStatusResponse" type="tns:GetJobStatusResponseType"/>
+
+  <!-- *********************************************************** -->
+
+  <!-- Get a list of repositories                                  -->  
+  <element name="SendRepositoryListRequest" type="xsd:string"/>
+
+  
+  <complexType name="GetRepositoryListResponseType">
+    <sequence>
+     <element name="repositoryName" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <element name="GetRepositoryListResponse" type="tns:GetRepositoryListResponseType"/>
+
+  <!-- *********************************************************** -->
+  <!-- Get a job log file (large log files are sent in chunks)  -->
+  <!-- Start by setting 'chunkIdx' to 0, and update it with response's 'nextchunkIdx' -->
+  <!-- When response's 'nextchunkIdx' is '-1' the entire log file has been retrieved -->
+  
+  <complexType name="SendJobLogRequestType">
+    <sequence>
+     <element name="jobId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+     <element name="chunkIdx" type="xsd:int"/>
+    </sequence>    
+  </complexType>
+
+  <element name="SendJobLogRequest" type="tns:SendJobLogRequestType"/>
+  
+  <!-- the log will be sent as a DIME attachment, this will be the filename -->  
+  
+  <complexType name="GetJobLogResponseType">
+    <sequence>
+     <element name="fileName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+	 <element name="data" type="xsd:hexBinary" minOccurs="1" maxOccurs="1"/>
+	 <element name="nextchunkIdx" type="xsd:int"/>
+    </sequence>    
+  </complexType>
+  <element name="GetJobLogResponse" type="tns:GetJobLogResponseType"/>
+
+  
+  
+  <!-- *********************************************************** -->
+  <!-- Post an object to the server -->
+  
+  <complexType name="SendPostObjectRequestType">
+    <sequence>
+     <element name="object" type="tns:ObjectDefinition" minOccurs="1" maxOccurs="1" />
+     <element name="data" type="xsd:hexBinary" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <element name="SendPostObjectRequest" type="tns:SendPostObjectRequestType"/>
+
+  
+  
+  <complexType name="GetPostObjectResponseType">
+    <sequence>
+     <element name="status" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="GetPostObjectResponse" type="tns:GetPostObjectResponseType"/>
+  
+  <!-- *********************************************************** -->
+  <!-- Delete an object from the server -->
+  
+  <complexType name="SendDeleteObjectRequestType">
+
+    <sequence>
+     <element name="job" type="tns:ObjectDefinition" minOccurs="1" maxOccurs="1" />
+    </sequence>
+  </complexType>
+  <element name="SendDeleteObjectRequest" type="tns:SendDeleteObjectRequestType"/>
+  
+  
+  <complexType name="GetDeleteObjectResponseType">
+    <sequence>
+     <element name="status" type="xsd:string"/>
+    </sequence>
+
+  </complexType>
+  <element name="GetDeleteObjectResponse" type="tns:GetDeleteObjectResponseType"/>
+  
+  <!-- *********************************************************** -->
+  <!-- Run a profile job on the server -->
+  
+  <complexType name="SendRunProfileJobRequestType">
+    <sequence>
+     <element name="jobName" type="xsd:string" minOccurs="1" maxOccurs="1" />
+     
+	 <!-- of the following two elements, one or the other should be specified.
+	      not both. -->
+     <!-- output file to create or update -->
+
+     <element name="fileName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <!-- repository name to write report to -->
+     <element name="repositoryName" type="xsd:string" minOccurs="0" maxOccurs="1"/>     
+     
+	 <!-- name of report -->     
+     <element name="reportName" type="xsd:string" minOccurs="0" maxOccurs="1"/>     
+     <!-- job run description -->
+     <element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <!-- append to existing report: true or false -->
+     <element name="append" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+	 <!-- var/values which are passed in -->
+
+	 <element name="varValue" type="tns:ArchitectVarValueType" minOccurs="0" maxOccurs="unbounded"/>
+	 
+     <!-- Reserved field 1 -->
+     <element name="reserved1" type="xsd:string" minOccurs="0" maxOccurs="1"/>	 
+     
+    </sequence>
+  </complexType>
+  <element name="SendRunProfileJobRequest" type="tns:SendRunProfileJobRequestType"/>
+
+  
+  <complexType name="GetRunProfileJobResponseType">
+    <sequence>
+     <element name="jobId" type="xsd:string"/>
+
+    </sequence>
+  </complexType>
+  <element name="GetRunProfileJobResponse" type="tns:GetRunProfileJobResponseType"/>
+
+  <!-- *********************************************************** -->
+  <!-- Run architect job  -->
+  
+  <complexType name="SendRunArchitectJobRequestType">
+    <sequence>
+     <element name="job" type="xsd:string" minOccurs="1" maxOccurs="1" />
+
+     <element name="varValue" type="tns:ArchitectVarValueType" minOccurs="0" maxOccurs="unbounded"/>
+     
+     <!-- Reserved field 1 -->
+     <element name="reserved1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <element name="SendRunArchitectJobRequest" type="tns:SendRunArchitectJobRequestType"/>
+
+  
+  <complexType name="GetRunArchitectJobResponseType">
+    <sequence>
+
+     <element name="jobId" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="GetRunArchitectJobResponse" type="tns:GetRunArchitectJobResponseType"/>
+
+  <!-- *********************************************************** -->
+  <!-- Terminate a running job. Does not apply to realtime jobs -->
+  
+   <complexType name="SendTerminateJobRequestType">
+    <sequence>
+
+     <element name="jobId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </sequence>    
+   </complexType>
+  <element name="SendTerminateJobRequest" type="tns:SendTerminateJobRequestType"/>
+
+  
+  <complexType name="GetTerminateJobResponseType">
+    <sequence>
+     <element name="status" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+
+  <element name="GetTerminateJobResponse" type="tns:GetTerminateJobResponseType"/>
+
+  <!-- *********************************************************** -->
+  <!-- Delete a job's log and status -->
+  
+  <complexType name="SendDeleteJobLogRequestType">
+    <sequence>
+     <element name="jobId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </sequence>    
+  </complexType>
+  <element name="SendDeleteJobLogRequest" type="tns:SendDeleteJobLogRequestType"/>
+
+  
+  <complexType name="GetDeleteJobLogResponseType">
+    <sequence>
+     <element name="status" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <element name="GetDeleteJobLogResponse" type="tns:GetDeleteJobLogResponseType"/>
+
+ </schema>
+</types>
+
+
+<message name="PutServerVersionInput">
+ <part name="body" element="archxsd:GetServerVersionRequest"/>
+</message>
+<message name="GetServerVersionOutput">
+ <part name="body" element="archxsd:GetServerVersionResponse"/>
+</message>
+<message name="PutArchitectServiceInput">
+ <part name="body" element="archxsd:SendArchitectServiceRequest"/>
+</message>
+<message name="GetArchitectServiceOutput">
+ <part name="body" element="archxsd:GetArchitectServiceResponse"/>
+
+</message>
+<message name="PutObjectListInput">
+ <part name="body" element="archxsd:SendObjectListRequest"/>
+</message>
+<message name="GetObjectListOutput">
+ <part name="body" element="archxsd:GetObjectListResponse"/>
+</message>
+<message name="PutArchitectServiceParamInput">
+ <part name="body" element="archxsd:SendArchitectServiceParamRequest"/>
+</message>
+<message name="GetArchitectServiceParamOutput">
+ <part name="body" element="archxsd:GetArchitectServiceParamResponse"/>
+</message>
+
+<message name="PutJobStatusInput">
+ <part name="body" element="archxsd:SendJobStatusRequest"/>
+</message>
+<message name="GetJobStatusOutput">
+ <part name="body" element="archxsd:GetJobStatusResponse"/>
+</message>
+<message name="PutJobLogInput">
+ <part name="body" element="archxsd:SendJobLogRequest"/>
+</message>
+<message name="GetJobLogOutput">
+ <part name="body" element="archxsd:GetJobLogResponse"/>
+</message>
+<message name="PutPostObjectInput">
+
+ <part name="body" element="archxsd:SendPostObjectRequest"/>
+</message>
+<message name="GetPostObjectOutput">
+ <part name="body" element="archxsd:GetPostObjectResponse"/>
+</message>
+<message name="PutDeleteObjectInput">
+ <part name="body" element="archxsd:SendDeleteObjectRequest"/>
+</message>
+<message name="GetDeleteObjectOutput">
+ <part name="body" element="archxsd:GetDeleteObjectResponse"/>
+</message>
+<message name="PutRunProfileJobInput">
+ <part name="body" element="archxsd:SendRunProfileJobRequest"/>
+
+</message>
+<message name="GetRunProfileJobOutput">
+ <part name="body" element="archxsd:GetRunProfileJobResponse"/>
+</message>
+<message name="PutRunArchitectJobInput">
+ <part name="body" element="archxsd:SendRunArchitectJobRequest"/>
+</message>
+<message name="GetRunArchitectJobOutput">
+ <part name="body" element="archxsd:GetRunArchitectJobResponse"/>
+</message>
+<message name="PutTerminateJobInput">
+ <part name="body" element="archxsd:SendTerminateJobRequest"/>
+</message>
+
+<message name="GetTerminateJobOutput">
+ <part name="body" element="archxsd:GetTerminateJobResponse"/>
+</message>
+<message name="PutDeleteJobLogInput">
+ <part name="body" element="archxsd:SendDeleteJobLogRequest"/>
+</message>
+<message name="GetDeleteJobLogOutput">
+ <part name="body" element="archxsd:GetDeleteJobLogResponse"/>
+</message>
+<message name="PutRepositoryListInput">
+ <part name="body" element="archxsd:SendRepositoryListRequest"/>
+</message>
+<message name="GetRepositoryListOutput">
+
+ <part name="body" element="archxsd:GetRepositoryListResponse"/>
+</message>
+
+
+<portType name="ArchitectServicePortType">
+ 
+ <operation name="ServerVersion">
+  <documentation>Get server version</documentation>
+  <input message="tns:PutServerVersionInput"/>
+  <output message="tns:GetServerVersionOutput"/>
+ </operation>
+
+ 
+ <operation name="ExecuteArchitectService">
+  <documentation>Give rows of data to an architect job, wait for job status and output rows.</documentation>
+  <input message="tns:PutArchitectServiceInput"/>
+  <output message="tns:GetArchitectServiceOutput"/>
+ </operation>
+ 
+ <operation name="GetObjectList">
+  <documentation>Request a list of available Architect jobs, wait to receive that list.</documentation>
+  <input message="tns:PutObjectListInput"/>
+
+  <output message="tns:GetObjectListOutput"/>
+ </operation>
+
+ <operation name="GetArchitectServiceParams">
+  <documentation>Request input/output parameters for an Architect job, wait to receive response.</documentation>
+  <input message="tns:PutArchitectServiceParamInput"/>
+  <output message="tns:GetArchitectServiceParamOutput"/>
+ </operation>
+
+ <operation name="GetJobStatus">
+  <documentation>Get status of an executing job on the server</documentation>
+  <input message="tns:PutJobStatusInput"/>
+  <output message="tns:GetJobStatusOutput"/>
+ </operation>
+
+ <operation name="GetJobLog">
+  <documentation>Get a job execution log</documentation>
+
+  <input message="tns:PutJobLogInput"/>
+  <output message="tns:GetJobLogOutput"/>
+ </operation>
+
+ <operation name="PostObject">
+  <documentation>Post a job to the server.</documentation>
+  <input message="tns:PutPostObjectInput"/>
+  <output message="tns:GetPostObjectOutput"/>
+ </operation>
+
+ <operation name="DeleteObject">
+  <documentation>Delete a job from the server</documentation>
+  <input message="tns:PutDeleteObjectInput"/>
+  <output message="tns:GetDeleteObjectOutput"/>
+ </operation>
+
+ <operation name="RunProfileJob">
+  <documentation>Run a Profile job on the server</documentation>
+
+  <input message="tns:PutRunProfileJobInput"/>
+  <output message="tns:GetRunProfileJobOutput"/>
+ </operation>
+ 
+ <operation name="RunArchitectJob">
+  <documentation>Run an Architect job on the server</documentation>
+  <input message="tns:PutRunArchitectJobInput"/>
+  <output message="tns:GetRunArchitectJobOutput"/>
+ </operation>
+
+ 
+ <operation name="TerminateJob">
+  <documentation>Terminate a running job</documentation>
+  <input message="tns:PutTerminateJobInput"/>
+  <output message="tns:GetTerminateJobOutput"/>
+ </operation>
+
+ <operation name="DeleteJobLog">
+  <documentation>Delete an execution log</documentation>
+
+  <input message="tns:PutDeleteJobLogInput"/>
+  <output message="tns:GetDeleteJobLogOutput"/>
+ </operation>
+
+ <operation name="RepositoryList">
+  <documentation>Get a list of Profile repositories</documentation>
+  <input message="tns:PutRepositoryListInput"/>
+  <output message="tns:GetRepositoryListOutput"/>
+ </operation>
+
+</portType>
+
+<binding name="ArchitectService" type="tns:ArchitectServicePortType">
+ <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+ 
+ <operation name="ServerVersion">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+  </input>
+  <output>
+
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+ <operation name="ExecuteArchitectService">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+  </input>
+  <output>
+
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+ <operation name="GetObjectList">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+  </input>
+  <output>
+
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+
+ <operation name="GetArchitectServiceParams">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+  </input>
+
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+
+ <operation name="PostObject">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+ <operation name="DeleteObject">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+ <operation name="RunProfileJob">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+ <operation name="RunArchitectJob">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+ <operation name="GetJobStatus">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+ <operation name="GetJobLog">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+ <operation name="TerminateJob">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+ <operation name="DeleteJobLog">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+ </operation>
+ 
+<operation name="RepositoryList">
+  <SOAP:operation soapAction=""/>
+  <input>
+   <SOAP:body use="literal"/>
+
+  </input>
+  <output>
+   <SOAP:body use="literal"/>
+  </output>
+</operation>
+
+</binding>
+
+<service name="DQISService">
+ <documentation>Data Quality Integration Server</documentation>
+ <port name="DQISService" binding="tns:ArchitectService">
+
+<!--  <SOAP:address location="http://dataflux1.dx.tss:21036"/>-->
+<SOAP:address location="http://localhost:21036"/>
+ </port>
+</service>
+
+</definitions>
+

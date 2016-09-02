@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="target">
+		<column>target_id</column>
+		<column>property_short</column>
+		<column>blackbox_type_id</column>
+		<column>active</column>
+		<column>company_id</column>
+		<column>rule_id</column>
+		<row>
+			<value>1</value>
+			<value>cav</value>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>cav</value>
+			<value>2</value>
+			<value>1</value>
+			<value>1</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>doa</value>
+			<value>1</value>
+			<value>0</value>
+			<value>3</value>
+			<value>3</value>
+		</row>
+	</table>
+	<table name="target_data">
+		<column>target_id</column>
+		<column>target_data_type_id</column>
+		<column>data_value</column>
+		
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>tequila!</value>
+		</row>
+		
+		
+		<row>
+			<value>2</value>
+			<value>1</value>
+			<value>free at last!</value>
+		</row>
+		
+		
+		<row>
+			<value>2</value>
+			<value>2</value>
+			<value>attack!</value>
+		</row>
+		
+		
+		<row>
+			<value>3</value>
+			<value>2</value>
+			<value>unused</value>
+		</row>
+		
+		
+	</table>
+</dataset>

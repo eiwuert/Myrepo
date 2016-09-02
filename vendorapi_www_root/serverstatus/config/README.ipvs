@@ -1,0 +1,29 @@
+- On the load balancer -
+
+emerge heartbeat with the "ldirectord" use flag on:
+
+USE="ldirectord" emerge -av heartbeat
+
+This can alternately be done by adding the ldirectord use to make.conf
+or in /etc/portage/packages.use
+
+copy the ldirectord example configuration file you'd like to use to
+/etc/ha.d/conf and configure it to contain the load balancer's IP as
+the virtual IP and the load balanced servers as the real IPs.  You may
+provide a fallback server incase all servers fail.  Change the request
+line to include the module that is requred by the business unit that
+is being configured.  The server configuration that should be
+configured can be partly gleamed from IPVS by issuing: "ipvsadm -l"
+from the command line.
+
+Set up and verify load balanced server configuration (see
+README.lbsrv)
+
+Once all the load balanced servers are verified as working you may now
+start ldirectord which will call the serverstatus script and manage
+IPVS.
+
+/etc/init.d/ldirectord start
+
+//add it to start on boot
+rc-update add ldirectord default
