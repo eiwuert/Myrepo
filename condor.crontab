@@ -1,0 +1,20 @@
+MAILTO=admin@someloancompany.com"
+### system util collect 5 min for cacti ###
+3,8,13,18,23,28,33,38,43,48,53,58 * * * *  /usr/local/tss/cacti/CRON/collect.sh
+
+# run system activity accounting tool every 10 minutes
+*/10 * * * *  /usr/lib/sa/sa1 -d 1 1
+# generate a daily summary of process accounting at 23:53
+53 23 * * *  /usr/lib/sa/sa2 -A
+
+# Commercial Companies' Incoming Email
+*/5 * * * * (cd /virtualhosts/condor.4.edataserver.com/scripts/; /usr/lib/php5/bin/php get_new_emails.php -l -v --user someloancompany --pass password --mode LIVE) >> /tmp/get_mail.`date +\%Y-\%m-\%d`.log
+
+# Outbound email and Queue Alerts
+*/2 * * * * (cd /virtualhosts/condor.4.edataserver.com/scripts/; sudo -u apache /usr/lib/php5/bin/php send_mails.2.php -l)
+
+# 0,15,30,45 * * * * php /virtualhosts/condor.4.edataserver.com/scripts/queue_alert.php
+0 1 * * * php /virtualhosts/condor.4.edataserver.com/scripts/mail_queue_cleaner.php
+
+# Antivirus incoming mail update
+0 1 * * * /usr/bin/freshclam

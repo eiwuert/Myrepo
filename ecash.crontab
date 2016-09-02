@@ -1,0 +1,61 @@
+### system util collect 5 min for cacti ###
+3,8,13,18,23,28,33,38,43,48,53,58 * * * *  /usr/local/tss/cacti/CRON/collect.sh
+# run system activity accounting tool every 10 minutes
+*/10 * * * *  /usr/lib/sa/sa1 -d 1 1
+# generate a daily summary of process accounting at 23:53
+53 23 * * *  /usr/lib/sa/sa2 -A
+
+#StatPro II Scrubber
+MAILTO="admin@someloancompany.com"
+* * * * * /virtualhosts/util/cli/statpro_to_message.php -r > /dev/null
+0 3 1 * * find /opt/statpro-done/ -type f -mtime +14 -exec rm {} \;
+0 3 * * * find /opt/enterprisepro/ -type f -mtime +7 -exec rm {} \;
+
+## This is very cheesy, but I think it's the safest way to ensure log permissions don't get jacked
+* * * * * ( chown apache:apache /virtualhosts/log/applog/ -R ; chmod 775 /virtualhosts/log/applog/ -R )
+
+### eCash Commercial - Some Loan Company (SLC) LIVE Instance
+ECASH_CUSTOMER=AALM
+ECASH_CUSTOMER_DIR=/virtualhosts/aalm/ecash3.0/ecash_aalm/
+ECASH_EXEC_MODE=Live
+ECASH_COMMON_DIR=/virtualhosts/ecash_common.cfe/
+
+# Email Queue Import Script - Not Configured Yet
+*/5 * * * * php -f /virtualhosts/ecash_cfe/cronjobs/ecash_engine.php slc email populate_email_queue >>/tmp/email_queue.log
+
+# loan actions Script
+*/5 * * * * php -f /virtualhosts/ecash_cfe/cronjobs/ecash_engine.php slc ach loan_actions
+
+# Document Queue Sending Script
+*/10 * * * * php -f /virtualhosts/ecash_cfe/cronjobs/ecash_engine.php slc documents send_queued_documents &>/dev/null
+
+# Nightly tasks for all five companies
+45 20 * * * php -f /virtualhosts/ecash_cfe/cronjobs/ecash_engine.php slc offline nightly > /virtualhosts/log/applog/ecash3.0/mls_live/offline/nightly.`date --date="yesterday" +\%Y-\%m-\%d`.log
+
+# Run the Returns Processing every morning - AALM manually posts their returns now
+
+# ACH Rescheduling Daemon
+*/20 * * * * php /virtualhosts/ecash_cfe/cronjobs/ecash_engine.php slc ach reschedule >> /virtualhosts/log/applog/ecash3.0/mls_live/ach/returns.log
+*/15 * * * * php /virtualhosts/ecash_cfe/cronjobs/ecash_engine.php slc ach reschedule_failed >> /virtualhosts/log/applog/ecash3.0/mls_live/ach/returns.log
+
+# Send Account Summary Letters
+30 1 * * * php /virtualhosts/ecash_cfe/cronjobs/ecash_engine.php slc offline send_account_summary_letters >> /virtualhosts/log/applog/ecash3.0/mls_live/offline/summary.`date --date="yesterday" +\%Y-\%m-\%d`.log
+
+# Send Payment Receipt Letters
+45 2 * * * php /virtualhosts/ecash_cfe/cronjobs/ecash_engine.php slc offline send_payment_receipt_letters >> /virtualhosts/log/applog/ecash3.0/mls_live/offline/payment.`date --date="yesterday" +\%Y-\%m-\%d`.log
+
+# Run nirvana every 5 min
+*/5 * * * * php /virtualhosts/ecash_cfe/cronjobs/ecash_engine.php slc nirvana nirvana>> /virtualhosts/log/applog/ecash3.0/mls_live/nirvana/nirvana.log
+
+# ecash_cra (DataX/CRA) updates
+15 0 * * * cd /virtualhosts/ecash_cra/DataX/bin; php datax_clh.php `date --date="yesterday" +\%Y-\%m-\%d` Commercial_Driver slc > /tmp/DataX_datax_clh.`date --date="yesterday" +\%Y-\%m-\%d`.log
+
+# ecash_cra (FactorTrust/CRA) updates
+30 1 * * * cd /virtualhosts/ecash_cra/FactorTrust/bin; php factor_trust_cra_reporting.php `date --date="yesterday" +\%Y-\%m-\%d` Commercial_Driver slc > /tmp/FactorTrust_update.slc.`date --date="yesterday" +\%Y-\%m-\%d`.log
+
+# Clarity Reporting
+30 2 * * * cd /virtualhosts/ecash_cra/Clarity/bin; php clarity_cra_reporting.php `date --date="yesterday" +\%Y-\%m-\%d` Commercial_Driver slc > /tmp/Clarity_report.`date --date="yesterday" +\%Y-\%m-\%d`.log
+
+# scan for bureau_inquiry or bureau_inquiry_failed record that have not been imported to bureau_xml_fields records
+0 4 * * * php -f /virtualhosts/ecash_cfe/cronjobs/bureau_inquiry_scan_xml.php default 1000 &>/tmp/results_bureau_inquiry.txt
+15 4 * * * php -f /virtualhosts/ecash_cfe/cronjobs/bureau_inquiry_scan_xml.php failed 5000 &>/tmp/results_bureau_inquiry_failed.txt
