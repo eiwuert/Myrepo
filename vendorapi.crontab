@@ -1,0 +1,18 @@
+### system util collect 5 min for cacti ###
+3,8,13,18,23,28,33,38,43,48,53,58 * * * *  /usr/local/tss/cacti/CRON/collect.sh
+
+
+# run system activity accounting tool every 10 minutes
+*/10 * * * *  /usr/lib/sa/sa1 -d 1 1
+# generate a daily summary of process accounting at 23:53
+53 23 * * *  /usr/lib/sa/sa2 -A
+
+MAILTO=""
+* * * * * php /virtualhosts/util/cli/statpro_to_message.php -r  > /var/log/statpro_to_message
+0 3 * * * find /opt/statpro-done/ -type f -mtime +7 -exec rm {} \;
+
+MAILTO="admin@someloancompany.com"
+MAILTO=""
+* * * * * (cd /virtualhosts/commercial.vendorapi.edataserver.com/scripts;php Scrubber.php -v -m LIVE -c scrubber_config.com.ini) >> /virtualhosts/log/applog/vendor_api/scrubber/commercial/`date +\%Y\%m\%d`.log
+
+0 4 * * * /root/cleansqllite.sh
