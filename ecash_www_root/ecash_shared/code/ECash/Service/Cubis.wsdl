@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ECashCubisAPI"
+    targetNamespace="http://schemas.sellingsource.com/soap/ecash/cubis.api"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://schemas.sellingsource.com/soap/ecash/cubis.api"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+    <types>
+        <xsd:schema targetNamespace="http://schemas.sellingsource.com/soap/ecash/cubis.api" xmlns:tns="http://schemas.sellingsource.com/soap/ecash/cubis.api">
+            <xsd:complexType name="DefaultResponse">
+                <xsd:sequence>
+                    <xsd:element name="success" type="xsd:boolean"></xsd:element>
+                    <xsd:element name="error" type="xsd:string"></xsd:element>
+                    <xsd:element name="result" type="xsd:string" ></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+    <message name="loginCardHolderRequest">
+		<part name="ssn" type="xsd:string"/>
+		<part name="client_ip_address" type="xsd:string"/>
+		<part name="remote_fail_url" type="xsd:string"/>
+		<part name="add_funds_url" type="xsd:string"/>
+		<part name="page" type="xsd:string"/>
+    </message>
+    <message name="loginCardHolderResponse">
+        <part name="response" type="tns:DefaultResponse"/>
+    </message>
+    <portType name="ECashCubisAPIPortType">
+        <wsdl:operation name="loginCardHolder">
+        	<wsdl:input message="tns:loginCardHolderRequest"></wsdl:input>
+        	<wsdl:output message="tns:loginCardHolderResponse"></wsdl:output>
+        </wsdl:operation>
+    </portType>
+    <binding name="ECashCubisAPIBinding" type="tns:ECashCubisAPIPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="loginCardHolder">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/cubis.api"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/cubis.api"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="ECashCubisAPIService">
+        <port name="ECashCubisAPIPort" binding="tns:ECashCubisAPIBinding">
+            <soap:address location="%%%soap_url%%%"/>
+        </port>
+    </service>
+</definitions>

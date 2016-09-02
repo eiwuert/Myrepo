@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="bootstrap.php">
+	<testsuite name="Ecash Test Suite">
+		<directory>.</directory>
+	</testsuite>
+    <filter>
+        <blacklist>
+            <directory>/virtualhosts/libolution</directory>
+            <!--<directory>/virtualhosts/lib</directory>-->
+            <directory>/virtualhosts/projects/gforge_18905/ecash</directory>
+        </blacklist>
+    </filter>
+</phpunit>

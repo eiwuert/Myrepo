@@ -1,0 +1,1 @@
+<?php define('MASTER_SITE_ONLINE',true); ?>

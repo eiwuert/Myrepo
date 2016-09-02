@@ -1,0 +1,44 @@
+<wsdl:definitions name="LoanActionHistoryService" targetNamespace="http://loanaction.app.epm.sellingsource.com" xmlns:ns1="http://loanaction.app.epm.sellingsource.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://loanaction.app.epm.sellingsource.com" xmlns="http://loanaction.app.epm.sellingsource.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="loanActionHistoryRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="loan_action_history_id" type="xs:int" />
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element name="loan_action" type="xs:string" />
+      <xs:element name="loan_action_section" type="xs:string" />
+      <xs:element name="application_status" type="xs:string" />
+      <xs:element name="agent_id" type="xs:int" />
+      <xs:element minOccurs="0" name="comment_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationNotFoundException" type="ApplicationNotFoundException" />
+  <xs:complexType name="ApplicationNotFoundException">
+    <xs:sequence />
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="save">
+    <wsdl:part name="arg0" type="ns1:loanActionHistoryRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ApplicationNotFoundException">
+    <wsdl:part element="ns1:ApplicationNotFoundException" name="ApplicationNotFoundException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="LoanActionHistoryService">
+    <wsdl:operation name="save">
+      <wsdl:input message="ns1:save" name="save">
+    </wsdl:input>
+      <wsdl:output message="ns1:saveResponse" name="saveResponse">
+    </wsdl:output>
+      <wsdl:fault message="ns1:ApplicationNotFoundException" name="ApplicationNotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

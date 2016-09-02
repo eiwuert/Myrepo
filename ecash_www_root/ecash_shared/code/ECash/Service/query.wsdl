@@ -1,0 +1,343 @@
+<wsdl:definitions name="QueryServiceStandard" targetNamespace="http://query.app.epm.sellingsource.com/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://query.app.epm.sellingsource.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://query.app.epm.sellingsource.com/" xmlns:tns="http://query.app.epm.sellingsource.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="string2anyTypeMap">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="entry">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="key" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:anyType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="string2string2anyTypeMapMap">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="entry">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="key" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="tns:string2anyTypeMap" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ArrayOfString">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ArrayOfInt">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="int" nillable="true" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ArrayOfString2anyTypeMap">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="string2anyTypeMap" nillable="true" type="tns:string2anyTypeMap" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getLastDispositions" type="tns:getLastDispositions" />
+  <xsd:complexType name="getLastDispositions">
+    <xsd:sequence>
+      <xsd:element name="application_id" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getLastDispositionsResponse" type="tns:getLastDispositionsResponse" />
+  <xsd:complexType name="getLastDispositionsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="tns:string2string2anyTypeMapMap" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="bulkUpdateCustomerId" type="tns:bulkUpdateCustomerId" />
+  <xsd:complexType name="bulkUpdateCustomerId">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="customerId" nillable="true" type="xsd:int" />
+      <xsd:element name="whereAppIn" nillable="true" type="tns:ArrayOfInt" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="bulkUpdateCustomerIdResponse" type="tns:bulkUpdateCustomerIdResponse" />
+  <xsd:complexType name="bulkUpdateCustomerIdResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getLastLoanActionHistoryIdByCategory" type="tns:getLastLoanActionHistoryIdByCategory" />
+  <xsd:complexType name="getLastLoanActionHistoryIdByCategory">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="applicationId" nillable="true" type="xsd:int" />
+      <xsd:element minOccurs="0" name="category" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getLastLoanActionHistoryIdByCategoryResponse" type="tns:getLastLoanActionHistoryIdByCategoryResponse" />
+  <xsd:complexType name="getLastLoanActionHistoryIdByCategoryResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="hasDisposition" type="tns:hasDisposition" />
+  <xsd:complexType name="hasDisposition">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="application_id" nillable="true" type="xsd:int" />
+      <xsd:element minOccurs="0" name="section" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="hasDispositionResponse" type="tns:hasDispositionResponse" />
+  <xsd:complexType name="hasDispositionResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getLoanActions" type="tns:getLoanActions" />
+  <xsd:complexType name="getLoanActions">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="applicationId" nillable="true" type="xsd:int" />
+      <xsd:element minOccurs="0" name="actionName" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getLoanActionsResponse" type="tns:getLoanActionsResponse" />
+  <xsd:complexType name="getLoanActionsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="tns:ArrayOfString2anyTypeMap" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getNotOKApplications" type="tns:getNotOKApplications" />
+  <xsd:complexType name="getNotOKApplications">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ssn" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" name="application_id" nillable="true" type="xsd:int" />
+      <xsd:element name="statuses" nillable="true" type="tns:ArrayOfString" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getNotOKApplicationsResponse" type="tns:getNotOKApplicationsResponse" />
+  <xsd:complexType name="getNotOKApplicationsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="tns:ArrayOfString2anyTypeMap" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="populateWithdrawnGenQueue" type="tns:populateWithdrawnGenQueue" />
+  <xsd:complexType name="populateWithdrawnGenQueue">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="from" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" name="to" type="xsd:dateTime" />
+      <xsd:element name="companyId" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="populateWithdrawnGenQueueResponse" type="tns:populateWithdrawnGenQueueResponse" />
+  <xsd:complexType name="populateWithdrawnGenQueueResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="tns:ArrayOfString2anyTypeMap" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getApplicationStatus" type="tns:getApplicationStatus" />
+  <xsd:complexType name="getApplicationStatus">
+    <xsd:sequence>
+      <xsd:element name="applicationId" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="getApplicationStatusResponse" type="tns:getApplicationStatusResponse" />
+  <xsd:complexType name="getApplicationStatusResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" nillable="true" type="tns:string2anyTypeMap" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="hasDispositionResponse">
+    <wsdl:part element="tns:hasDispositionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="populateWithdrawnGenQueueResponse">
+    <wsdl:part element="tns:populateWithdrawnGenQueueResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bulkUpdateCustomerId">
+    <wsdl:part element="tns:bulkUpdateCustomerId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotOKApplicationsResponse">
+    <wsdl:part element="tns:getNotOKApplicationsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastDispositions">
+    <wsdl:part element="tns:getLastDispositions" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bulkUpdateCustomerIdResponse">
+    <wsdl:part element="tns:bulkUpdateCustomerIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationStatus">
+    <wsdl:part element="tns:getApplicationStatus" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotOKApplications">
+    <wsdl:part element="tns:getNotOKApplications" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoanActions">
+    <wsdl:part element="tns:getLoanActions" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastLoanActionHistoryIdByCategory">
+    <wsdl:part element="tns:getLastLoanActionHistoryIdByCategory" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoanActionsResponse">
+    <wsdl:part element="tns:getLoanActionsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastLoanActionHistoryIdByCategoryResponse">
+    <wsdl:part element="tns:getLastLoanActionHistoryIdByCategoryResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="populateWithdrawnGenQueue">
+    <wsdl:part element="tns:populateWithdrawnGenQueue" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hasDisposition">
+    <wsdl:part element="tns:hasDisposition" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationStatusResponse">
+    <wsdl:part element="tns:getApplicationStatusResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastDispositionsResponse">
+    <wsdl:part element="tns:getLastDispositionsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="QueryServiceStandardPortType">
+    <wsdl:operation name="getLastDispositions">
+      <wsdl:input message="tns:getLastDispositions" name="getLastDispositions">
+    </wsdl:input>
+      <wsdl:output message="tns:getLastDispositionsResponse" name="getLastDispositionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bulkUpdateCustomerId">
+      <wsdl:input message="tns:bulkUpdateCustomerId" name="bulkUpdateCustomerId">
+    </wsdl:input>
+      <wsdl:output message="tns:bulkUpdateCustomerIdResponse" name="bulkUpdateCustomerIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastLoanActionHistoryIdByCategory">
+      <wsdl:input message="tns:getLastLoanActionHistoryIdByCategory" name="getLastLoanActionHistoryIdByCategory">
+    </wsdl:input>
+      <wsdl:output message="tns:getLastLoanActionHistoryIdByCategoryResponse" name="getLastLoanActionHistoryIdByCategoryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hasDisposition">
+      <wsdl:input message="tns:hasDisposition" name="hasDisposition">
+    </wsdl:input>
+      <wsdl:output message="tns:hasDispositionResponse" name="hasDispositionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLoanActions">
+      <wsdl:input message="tns:getLoanActions" name="getLoanActions">
+    </wsdl:input>
+      <wsdl:output message="tns:getLoanActionsResponse" name="getLoanActionsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotOKApplications">
+      <wsdl:input message="tns:getNotOKApplications" name="getNotOKApplications">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotOKApplicationsResponse" name="getNotOKApplicationsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="populateWithdrawnGenQueue">
+      <wsdl:input message="tns:populateWithdrawnGenQueue" name="populateWithdrawnGenQueue">
+    </wsdl:input>
+      <wsdl:output message="tns:populateWithdrawnGenQueueResponse" name="populateWithdrawnGenQueueResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationStatus">
+      <wsdl:input message="tns:getApplicationStatus" name="getApplicationStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationStatusResponse" name="getApplicationStatusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QueryServiceStandardSoapBinding" type="tns:QueryServiceStandardPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getLastDispositions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getLastDispositions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getLastDispositionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bulkUpdateCustomerId">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="bulkUpdateCustomerId">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="bulkUpdateCustomerIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastLoanActionHistoryIdByCategory">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getLastLoanActionHistoryIdByCategory">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getLastLoanActionHistoryIdByCategoryResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLoanActions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getLoanActions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getLoanActionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hasDisposition">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="hasDisposition">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="hasDispositionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotOKApplications">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getNotOKApplications">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getNotOKApplicationsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getApplicationStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="populateWithdrawnGenQueue">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="populateWithdrawnGenQueue">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="populateWithdrawnGenQueueResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QueryServiceStandard">
+    <wsdl:port binding="tns:QueryServiceStandardSoapBinding" name="QueryServiceStandardPort">
+      <soap:address location="https://live.ecash.atlas-lms.com/api/query" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

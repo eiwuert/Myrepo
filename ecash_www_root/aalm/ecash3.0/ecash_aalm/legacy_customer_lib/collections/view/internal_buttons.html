@@ -1,0 +1,35 @@
+<!--<div id="collections_buttons" style="display: none;" -->
+<div id="internal_buttons" style="display: none;">
+	<div id="app_attributes">
+		%%%app_attribute_buttons%%%
+	</div>
+	
+	<div id="app_actions">
+		<div class="app_attribute_title">
+			App Actions
+		</div>
+		<div style="float: left;">
+			<div class="app_button">
+				<input id="AppActionFollowUp" type="button" class="button2%%%follow_up_disabled%%%" name="submit_button" value="Follow Up" onClick="OpenDialogSized('/?action=get_followup&type=Internal&application_id=%%%application_id%%%', '400', '300');"%%%follow_up_disabled%%%>
+			</div>
+			<div class="app_button">
+   				<input id="AppActionBankruptcyNotification" type="button" %%%bankruptcy_notification_disabled%%% name="submit_button" value="Bankruptcy Notification" class="button2%%%bankruptcy_notification_disabled%%%" onClick="Update_Status_Direct('Bankruptcy_Notification', 'Bankruptcy Notified');">
+  			</div>
+            <div class="app_button">
+                <input id="AppActionSendToSecondTier" type="button" %%%send_to_second_tier_disabled%%% name="submit_button" value="Send To Second Tier" class="button2%%%send_to_second_tier_disabled%%%" onClick="Update_Status_Direct('Second_Tier', 'Second Tier (Pending)');"%%%send_to_second_tier_disabled%%%>
+            </div>
+            <div class="app_button">
+                <input id="AppActionSendToCCCS" type="button" %%%send_to_cccs_disabled%%% name="submit_button" value="Send To CCCS" class="button2%%%send_to_cccs_disabled%%%" onClick="Update_Status_Direct('CCCS', 'CCCS');"%%%send_to_cccs_disabled%%%>
+            </div>
+            <div class="app_button">
+                <input id="AppActionOutgoingCallDispositions" type="button" %%%outgoing_call_dispositions_disabled%%% name="submit_button" value="Call" class="button2%%%outgoing_call_dispositions_disabled%%%" onClick="OpenDialogSized('/?action=outgoing_call_dispositions&application_id=%%%application_id%%%', '600', '300');"%%%outgoing_call_dispositions_disabled%%%>
+            </div>
+
+		</div>
+	</div>
+</div>
+
+<div style="clear: both;">
+	<span style="text-align: left; float: left;">%%%back_button_link%%%</span>
+	<span style="text-align: center; float: right; width: 755px;">Controlling Agent: &nbsp; <b>%%%controlling_agent_name%%% </b></span>
+</div>

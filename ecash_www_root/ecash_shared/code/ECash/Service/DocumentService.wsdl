@@ -1,0 +1,209 @@
+<wsdl:definitions name="DocumentService" targetNamespace="http://app.epm.sellingsource.com" xmlns:ns1="http://app.epm.sellingsource.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema targetNamespace="http://app.epm.sellingsource.com" version="1.0" xmlns:tns="http://app.epm.sellingsource.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:complexType name="documentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="document_id" type="xs:int" />
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element name="company_id" type="xs:int" />
+      <xs:element name="document_list_name" type="xs:string" />
+      <xs:element name="document_method" type="xs:string" />
+      <xs:element minOccurs="0" name="document_method_legacy" type="xs:string" />
+      <xs:element name="document_event_type" type="xs:string" />
+      <xs:element minOccurs="0" name="name_other" type="xs:string" />
+      <xs:element minOccurs="0" name="document_id_ext" type="xs:string" />
+      <xs:element name="agent_id" type="xs:int" />
+      <xs:element minOccurs="0" name="signature_status" type="xs:string" />
+      <xs:element minOccurs="0" name="sent_to" type="xs:string" />
+      <xs:element minOccurs="0" name="transport_method" type="xs:string" />
+      <xs:element minOccurs="0" name="archive_id" type="xs:int" />
+      <xs:element minOccurs="0" name="sent_from" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="documentHashDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="document_hash_id" type="xs:int" />
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element name="company_id" type="xs:int" />
+      <xs:element name="document_list_id" type="xs:int" />
+      <xs:element name="hash" type="xs:string" />
+      <xs:element name="active_status" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="documentHashDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:documentHashDTO" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="documentDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:documentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findDocumentByIdResponse">
+    <wsdl:part name="return" type="ns1:documentDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllDocumentHashesByApplicationIdResponse">
+    <wsdl:part name="return" type="ns1:documentHashDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDocument">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveDocumentsResponse">
+    <wsdl:part name="return" type="ns1:documentDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDocumentHashResponse">
+    <wsdl:part name="return" type="ns1:documentHashDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDocumentHashResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllDocumentsByApplicationIdResponse">
+    <wsdl:part name="return" type="ns1:documentDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDocumentById">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDocumentResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveDocuments">
+    <wsdl:part name="arg0" type="ns1:documentDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDocumentByArchiveIdResponse">
+    <wsdl:part name="return" type="ns1:documentDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDocumentHash">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+    <wsdl:part name="arg1" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllDocumentHashesByApplicationId">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveDocumentHashResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDocumentHash">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDocumentByNameResponse">
+    <wsdl:part name="return" type="ns1:documentDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDocumentByName">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+    <wsdl:part name="arg1" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDocumentByArchiveId">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveDocumentHash">
+    <wsdl:part name="arg0" type="ns1:documentHashDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDocumentHashById">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findDocumentHashByIdResponse">
+    <wsdl:part name="return" type="ns1:documentHashDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllDocumentsByApplicationId">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DocumentService">
+    <wsdl:operation name="findDocumentById">
+      <wsdl:input message="ns1:findDocumentById" name="findDocumentById">
+    </wsdl:input>
+      <wsdl:output message="ns1:findDocumentByIdResponse" name="findDocumentByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findDocumentByName">
+      <wsdl:input message="ns1:findDocumentByName" name="findDocumentByName">
+    </wsdl:input>
+      <wsdl:output message="ns1:findDocumentByNameResponse" name="findDocumentByNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findDocumentHashById">
+      <wsdl:input message="ns1:findDocumentHashById" name="findDocumentHashById">
+    </wsdl:input>
+      <wsdl:output message="ns1:findDocumentHashByIdResponse" name="findDocumentHashByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findDocumentHash">
+      <wsdl:input message="ns1:findDocumentHash" name="findDocumentHash">
+    </wsdl:input>
+      <wsdl:output message="ns1:findDocumentHashResponse" name="findDocumentHashResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDocumentHash">
+      <wsdl:input message="ns1:deleteDocumentHash" name="deleteDocumentHash">
+    </wsdl:input>
+      <wsdl:output message="ns1:deleteDocumentHashResponse" name="deleteDocumentHashResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllDocumentHashesByApplicationId">
+      <wsdl:input message="ns1:findAllDocumentHashesByApplicationId" name="findAllDocumentHashesByApplicationId">
+    </wsdl:input>
+      <wsdl:output message="ns1:findAllDocumentHashesByApplicationIdResponse" name="findAllDocumentHashesByApplicationIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findDocumentByArchiveId">
+      <wsdl:input message="ns1:findDocumentByArchiveId" name="findDocumentByArchiveId">
+    </wsdl:input>
+      <wsdl:output message="ns1:findDocumentByArchiveIdResponse" name="findDocumentByArchiveIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveDocumentHash">
+      <wsdl:input message="ns1:saveDocumentHash" name="saveDocumentHash">
+    </wsdl:input>
+      <wsdl:output message="ns1:saveDocumentHashResponse" name="saveDocumentHashResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveDocuments">
+      <wsdl:input message="ns1:saveDocuments" name="saveDocuments">
+    </wsdl:input>
+      <wsdl:output message="ns1:saveDocumentsResponse" name="saveDocumentsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDocument">
+      <wsdl:input message="ns1:deleteDocument" name="deleteDocument">
+    </wsdl:input>
+      <wsdl:output message="ns1:deleteDocumentResponse" name="deleteDocumentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllDocumentsByApplicationId">
+      <wsdl:input message="ns1:findAllDocumentsByApplicationId" name="findAllDocumentsByApplicationId">
+    </wsdl:input>
+      <wsdl:output message="ns1:findAllDocumentsByApplicationIdResponse" name="findAllDocumentsByApplicationIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

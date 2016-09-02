@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DataxResponse>
+  <GenerationTime>20090114025751</GenerationTime>
+  <CodeVersion>4.6.4</CodeVersion>
+  <RequestVersion>3.0</RequestVersion>
+  <TransactionId>66093653</TransactionId>
+  <TrackHash>99e67528e1b51caf9a28c9a6b3a6cc00</TrackHash>
+  <TrackId>196991303</TrackId>
+  <Response>
+    <Detail>
+      <ConsumerIDVerificationSegment>
+        <Input>
+          <LastName>mitchell</LastName>
+          <FirstName>matari</FirstName>
+          <MiddleName/>
+          <Address1>4908 n 126th ave</Address1>
+          <Address2/>
+          <City>omaha</City>
+          <State>ne</State>
+          <Zip>68164</Zip>
+        </Input>
+        <Standardized>
+          <LastName>MITCHELL</LastName>
+          <FirstName>MATARI</FirstName>
+          <MiddleName/>
+          <AddressVerification>16</AddressVerification>
+          <AddressVerificationMessage>Full name match - residential</AddressVerificationMessage>
+          <AddressResult>S</AddressResult>
+          <DeliveryPointVerified>Y</DeliveryPointVerified>
+          <Address1>4908 N 126TH AVE</Address1>
+          <City>OMAHA</City>
+          <State>NE</State>
+          <Zip>68164</Zip>
+          <Zip4>1917</Zip4>
+          <CRRT>R038</CRRT>
+          <HighRiskAddress>N</HighRiskAddress>
+        </Standardized>
+        <PreviousAddresses>
+          <Address>
+            <Address1>5008 N 138TH ST</Address1>
+            <City>OMAHA</City>
+            <State>NE</State>
+            <Zip>68164</Zip>
+            <Zip4>6052</Zip4>
+            <ReportDate>20071005</ReportDate>
+            <LastUpdate>20071017</LastUpdate>
+          </Address>
+          <Address>
+            <Address1>15555 WALNUT CIR</Address1>
+            <City>OMAHA</City>
+            <State>NE</State>
+            <Zip>68144</Zip>
+            <Zip4>1966</Zip4>
+            <ReportDate>20070425</ReportDate>
+            <LastUpdate>20070928</LastUpdate>
+          </Address>
+        </PreviousAddresses>
+        <SocialSecurityNumber>
+          <InputSSN>548278421</InputSSN>
+          <Return>9</Return>
+          <ReturnMessage>No match</ReturnMessage>
+          <Deceased>2</Deceased>
+          <DeceasedMessage>Not Deceased</DeceasedMessage>
+          <Valid>1</Valid>
+          <ValidMessage>Valid</ValidMessage>
+          <Issue>3</Issue>
+          <IssueMessage>Issued</IssueMessage>
+          <IssueState>CA</IssueState>
+          <IssueStartRange>1972</IssueStartRange>
+          <IssueEndRange>1974</IssueEndRange>
+        </SocialSecurityNumber>
+        <Aggregates>
+          <AddressUnitMismatch/>
+          <AddressUnitMismatchMessage/>
+          <AddressType>10</AddressType>
+          <AddressTypeMessage>Single-family residential</AddressTypeMessage>
+          <AddressHighRisk>1</AddressHighRisk>
+          <AddressHighRiskMessage>No high risk information found</AddressHighRiskMessage>
+          <ChangeOfAddress>2</ChangeOfAddress>
+          <ChangeOfAddressMessage>No change of address information found</ChangeOfAddressMessage>
+          <PhoneHighRisk>1</PhoneHighRisk>
+          <PhoneHighRiskMessage>No high risk information found</PhoneHighRiskMessage>
+        </Aggregates>
+        <SSNAddresses>
+          <Address>
+            <LastName>DONOVAN</LastName>
+            <FirstName>MATARI</FirstName>
+            <MiddleInitial>A</MiddleInitial>
+            <Address1>5108 N 126TH AVE</Address1>
+            <City>OMAHA</City>
+            <State>NE</State>
+            <Zip>68164</Zip>
+            <Zip4>1983</Zip4>
+            <ReportedDate>20080103</ReportedDate>
+            <LastTouchedDate>20081204</LastTouchedDate>
+            <AreaCode/>
+            <PhoneNumber/>
+            <DateOfBirthMatch>1</DateOfBirthMatch>
+          </Address>
+        </SSNAddresses>
+        <ResidentialAddresses>
+          <Address>
+            <LastName>MITCHELL</LastName>
+            <FirstName>MATARI</FirstName>
+            <MiddleInitial/>
+            <Address1>4908 N 126TH AVE</Address1>
+            <City>OMAHA</City>
+            <State>NE</State>
+            <Zip>68164</Zip>
+            <Zip4>1917</Zip4>
+            <AreaCode>402</AreaCode>
+            <PhoneNumber>4966346</PhoneNumber>
+            <SpouseName/>
+            <HouseMember1/>
+            <HouseMember2/>
+            <HouseMember3/>
+            <LastTouchedDate>20081213</LastTouchedDate>
+            <ResidenceLength>0003</ResidenceLength>
+          </Address>
+        </ResidentialAddresses>
+        <HighRiskAddresses>
+          <Address>
+            <BusinessName/>
+            <Address1/>
+            <City/>
+            <State/>
+            <Zip/>
+            <Zip4/>
+            <AreaCode/>
+            <PhoneNumber/>
+            <Description>No high risk business at address/phone</Description>
+          </Address>
+        </HighRiskAddresses>
+        <ResidentialPhones>
+          <Phone>
+            <LastName>MITCHELL</LastName>
+            <FirstName>MATARI</FirstName>
+            <MiddleInitial/>
+            <Address1/>
+            <City>OMAHA</City>
+            <State>NE</State>
+            <Zip/>
+            <Zip4>1917</Zip4>
+            <AreaCode>402</AreaCode>
+            <PhoneNumber>4966346</PhoneNumber>
+            <SpouseName/>
+            <HouseMember1/>
+            <HouseMember2/>
+            <HouseMember3/>
+          </Phone>
+        </ResidentialPhones>
+        <ChangesOfAddress>
+          <ResultCode>N</ResultCode>
+          <Description/>
+        </ChangesOfAddress>
+        <DateOfBirth>
+          <InputMonth>10</InputMonth>
+          <InputDay>19</InputDay>
+          <InputYear>1971</InputYear>
+          <Result>1</Result>
+          <ResultMessage>Full date of birth match</ResultMessage>
+          <Age>37</Age>
+        </DateOfBirth>
+        <DriversLicense>
+          <InputState>ne</InputState>
+          <InputNumber>g01215079</InputNumber>
+          <LastName/>
+          <FirstName/>
+          <MiddleInitial/>
+          <Address1/>
+          <City/>
+          <State/>
+          <Zip/>
+          <Zip4/>
+          <Format>V</Format>
+          <Result>1</Result>
+          <ResultMessage>Match to address</ResultMessage>
+        </DriversLicense>
+        <HomePhone>
+          <InputNumber>4024966346</InputNumber>
+          <Result>23</Result>
+          <ResultMessage>Match to full name/address - residential</ResultMessage>
+          <Type>Standard</Type>
+          <AreaCodeZipMatch>Y</AreaCodeZipMatch>
+          <AreaCodePrefixMatch>Y</AreaCodePrefixMatch>
+          <HighRiskPhone>N</HighRiskPhone>
+          <ListingType>Residential</ListingType>
+        </HomePhone>
+        <CellPhone>
+          <InputNumber>4027145230</InputNumber>
+          <Type>Cell</Type>
+        </CellPhone>
+        <InputEmployerInformation>
+          <Name>lincoln financial</Name>
+          <Address1/>
+          <Address2/>
+          <City/>
+          <State/>
+          <Zip/>
+        </InputEmployerInformation>
+        <WorkPhone>
+          <InputEmployerName>lincoln financial</InputEmployerName>
+          <InputNumber>4023617789</InputNumber>
+          <InputExtension/>
+          <Type>Standard</Type>
+          <EmployerMatch>N</EmployerMatch>
+          <Name/>
+          <Address1/>
+          <City/>
+          <State/>
+          <Zip/>
+          <ListingType>Unidentified</ListingType>
+        </WorkPhone>
+        <OFAC>1</OFAC>
+        <OFACMessage>No match</OFACMessage>
+        <IPAddress>
+          <InputAddress>148.159.160.51</InputAddress>
+          <MatchCountry>1</MatchCountry>
+          <MatchCountryMessage>Match for US</MatchCountryMessage>
+          <Country>USA</Country>
+          <MatchState>2</MatchState>
+          <MatchStateMessage>No match for input</MatchStateMessage>
+          <State>PA</State>
+          <MatchCity>2</MatchCity>
+          <MatchCityMessage>No match for input</MatchCityMessage>
+          <City>PHILADELPHIA</City>
+          <MatchZip>2</MatchZip>
+          <MatchZipMessage>No match for input</MatchZipMessage>
+          <Zip>19102</Zip>
+          <MSA>504</MSA>
+          <Latitude>39.952</Latitude>
+          <Longitude>-75.164</Longitude>
+        </IPAddress>
+        <BankInformation>
+          <InputBankName>ge money bank</InputBankName>
+          <InputABANumber>124085024</InputABANumber>
+          <InputAccountNumber>9165110000</InputAccountNumber>
+          <Valid>Y</Valid>
+          <BankNameMatch>Y</BankNameMatch>
+          <BankName>GE Money Bank</BankName>
+        </BankInformation>
+        <NumberRecords>
+          <AddressVerResidentialMatch>1</AddressVerResidentialMatch>
+          <AddressVerBusinessMatch>0</AddressVerBusinessMatch>
+          <PhoneVerResidentialMatch>1</PhoneVerResidentialMatch>
+          <PhoneVerBusinessMatch>0</PhoneVerBusinessMatch>
+          <ResidentialAddressDetRec>1</ResidentialAddressDetRec>
+          <BusinessAddressDetRec>0</BusinessAddressDetRec>
+          <AddressHighRiskDetRec>0</AddressHighRiskDetRec>
+          <AddressHighRiskDescRec>1</AddressHighRiskDescRec>
+          <ResidentialPhoneDetRec>0</ResidentialPhoneDetRec>
+          <BusinessPhoneDetRec>0</BusinessPhoneDetRec>
+          <PhoneHighRiskDetRec>0</PhoneHighRiskDetRec>
+          <PhoneHighRiskDescRet>0</PhoneHighRiskDescRet>
+          <SSNDetailRecords>1</SSNDetailRecords>
+          <COARecords>0</COARecords>
+        </NumberRecords>
+        <AuthenticationScore>441</AuthenticationScore>
+        <CustomDecision>
+          <Result>N</Result>
+          <Bucket>D1</Bucket>
+        </CustomDecision>
+        <LooseDecision>
+          <Result>Y</Result>
+          <Bucket>A2</Bucket>
+        </LooseDecision>
+        <ModerateDecision>
+          <Result>Y</Result>
+          <Bucket>A4</Bucket>
+        </ModerateDecision>
+        <ConservativeDecision>
+          <Result>Y</Result>
+          <Bucket>A5</Bucket>
+        </ConservativeDecision>
+      </ConsumerIDVerificationSegment>
+      <GlobalDecision>
+        <Result>N</Result>
+        <IDVBucket>D1</IDVBucket>
+        <CRABucket/>
+        <TLTBucket/>
+      </GlobalDecision>
+    </Detail>
+  </Response>
+</DataxResponse>

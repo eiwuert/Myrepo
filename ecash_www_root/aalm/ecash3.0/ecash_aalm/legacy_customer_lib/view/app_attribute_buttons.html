@@ -1,0 +1,36 @@
+<div class="app_attribute_title">
+	App Attributes
+</div>
+<div style="float: left;">
+<div class="app_attribute">
+	<input class="button2%%%bad_info_disabled%%%" type=button style="background-image: url('/image/standard/i_bad_info.gif');" %%%bad_info_link%%% value="Bad Info">
+</div>
+<div class="app_attribute">
+	<input class="button2%%%do_not_contact_disabled%%%" type=button style="background-image: url('/image/standard/i_do_not_contact.gif');" %%%do_not_contact_link%%% value="Do Not Contact">
+</div>
+<div class="app_attribute">
+	<input class="button2%%%best_contact_disabled%%%" type=button style="background-image: url('/image/standard/i_best_contact.gif');" %%%best_contact_link%%% value="Best Contact">
+</div>
+<div class="app_attribute">
+	<input class="button2%%%do_not_market_disabled%%%" type=button style="background-image: url('/image/standard/i_do_not_market.gif');" %%%do_not_market_link%%% value="Do Not Market">
+</div>
+</div>
+<div style="float: left;">
+<div class="app_attribute">
+	<input class="button2%%%do_not_loan_disabled%%%" type=button style="background-image: url('/image/standard/i_do_not_loan.gif');" %%%do_not_loan_link%%% value="Do Not Loan">
+</div>
+<div class="app_attribute">
+<form style="display: inline; margin: 0; padding: 0;" id="remove_fatal_ach_form" name="remove_fatal_ach_form" method="post" action="/" >
+<input onClick="javascript:return confirm('Clear Fatal ACH for Application ID: %%%application_id%%%?');" class="button2%%%clear_fatal_ach_disabled%%%" type="submit" value="Clear Fatal ACH" %%%clear_fatal_ach_disabled%%%>
+<input type="hidden" name="action" value="remove_fatal_ach">
+<input type="hidden" name="application_id" value="%%%application_id%%%">
+</div>
+<div class="app_attribute">
+</form>
+<form style="display: inline; margin: 0; padding: 0;" id="remove_fatal_card_form" name="remove_fatal_card_form" method="post" action="/" >
+<input onClick="javascript:return confirm('Clear Fatal Card for Application ID: %%%application_id%%%?');" class="button2%%%clear_fatal_card_disabled%%%" type="submit" value="Clear Fatal Card" %%%clear_fatal_card_disabled%%%>
+<input type="hidden" name="action" value="remove_fatal_card">
+<input type="hidden" name="application_id" value="%%%application_id%%%">
+</form>
+</div>
+</div>

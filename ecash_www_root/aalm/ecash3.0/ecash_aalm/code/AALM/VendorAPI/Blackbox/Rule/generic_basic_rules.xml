@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<configuration company="generic">
+  <rules>
+    <rule event_name="INCOME_FREQ" blackbox_type="CAMPAIGN" campaign_name="generic" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_In">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <field>income_frequency</field>
+        <value>a:4:{i:0;s:6:"WEEKLY";i:1;s:9:"BI_WEEKLY";i:2;s:13:"TWICE_MONTHLY";i:3;s:7:"MONTHLY";}</value>
+      </setup_params>
+    </rule>
+    <rule event_name="ALLOW_IDENTICAL_PHONE_NUMBERS" blackbox_type="CAMPAIGN" campaign_name="generic" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_CompareWorkAndHomePhone">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <field>a:2:{i:0;s:10:"phone_home";i:1;s:10:"phone_work";}</field>
+        <value>INCOME</value>
+      </setup_params>
+    </rule>
+     <rule event_name="ALLOW_MILITARY" blackbox_type="TARGET" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_AllowMilitary">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <value>DENY</value>
+      </setup_params>
+    </rule>
+    <rule event_name="EXCL_STATES" blackbox_type="CAMPAIGN" campaign_name="generic" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_ExcludedStates">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <field>state</field>
+        <value>a:4:{i:0;s:2:"GA";i:1;s:2:"SC";i:2;s:2:"VA";i:3;s:2:"WV";}</value>
+      </setup_params>
+    </rule>
+    <rule event_name="MINIMUM_AGE" blackbox_type="CAMPAIGN" campaign_name="generic" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_MinimumAge">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <field>dob</field>
+        <value>18</value>
+      </setup_params>
+    </rule>
+    <rule event_name="STATE_ID" blackbox_type="CAMPAIGN" campaign_name="generic" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_Required">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <field>legal_id_number</field>
+        <value>1</value>
+      </setup_params>
+    </rule>
+    <rule event_name="MIN_INCOME" blackbox_type="CAMPAIGN" campaign_name="generic" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_MinimumIncome">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <field>income_monthly</field>
+        <value>1500</value>
+      </setup_params>
+    </rule>
+    <rule event_name="INCOME_SOURCE" blackbox_type="CAMPAIGN" campaign_name="generic" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_In">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <field>income_source</field>
+        <value>a:2:{i:0;s:10:"EMPLOYMENT";i:1;s:8:"BENEFITS";}</value>
+      </setup_params>
+    </rule>
+    <rule event_name="DIRECT_DEPOSIT" blackbox_type="TARGET" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_Identical">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <field>income_direct_deposit</field>
+        <value>yes</value>
+      </setup_params>
+    </rule>
+    <rule event_name="ACCOUNT_TYPE" blackbox_type="TARGET" action="EXCLUDE" class_name="VendorAPI_Blackbox_Rule_EqualsNoCase">
+      <modes>
+        <mode>BROKER</mode>
+      </modes>
+      <setup_params>
+        <field>bank_account_type</field>
+        <value>CHECKING</value>
+      </setup_params>
+    </rule>
+  </rules>
+</configuration>

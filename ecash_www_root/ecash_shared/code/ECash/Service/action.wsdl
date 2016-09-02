@@ -1,0 +1,24 @@
+<wsdl:definitions name="LoanActionHistoryServiceStandardService" targetNamespace="http://loanaction.epm.sellingsource.com/" xmlns:ns1="http://loanaction.app.epm.sellingsource.com" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://loanaction.epm.sellingsource.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="https://live.ecash.atlas-lms.com/api/loanaction/index.php?wsdl=LoanActionHistoryService.wsdl" namespace="http://loanaction.app.epm.sellingsource.com">
+    </wsdl:import>
+  <wsdl:binding name="LoanActionHistoryServiceStandardServiceSoapBinding" type="ns1:LoanActionHistoryService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="save">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="save">
+        <soap:body namespace="http://loanaction.app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveResponse">
+        <soap:body namespace="http://loanaction.app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationNotFoundException">
+        <soap:fault name="ApplicationNotFoundException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoanActionHistoryServiceStandardService">
+    <wsdl:port binding="tns:LoanActionHistoryServiceStandardServiceSoapBinding" name="LoanActionHistoryServiceStandardPort">
+      <soap:address location="https://live.ecash.atlas-lms.com/api/loanaction/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

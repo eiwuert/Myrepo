@@ -1,0 +1,2287 @@
+<wsdl:definitions name="app" targetNamespace="http://app.epm.sellingsource.com" xmlns:ns1="http://jaxb.dev.java.net/array" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://app.epm.sellingsource.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema targetNamespace="http://jaxb.dev.java.net/array" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:complexType final="#all" name="intArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://app.epm.sellingsource.com" xmlns:tns="http://app.epm.sellingsource.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType abstract="true" name="baseDTO">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="applicationDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="application_source" type="xs:string" />
+          <xs:element minOccurs="0" name="user_id" type="xs:string" />
+          <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="application_id" type="xs:int" />
+          <xs:element minOccurs="0" name="company_id" type="xs:int" />
+          <xs:element minOccurs="0" name="external_id" type="xs:int" />
+          <xs:element minOccurs="0" name="customer_id" type="xs:int" />
+          <xs:element minOccurs="0" name="archive_db2_id" type="xs:int" />
+          <xs:element minOccurs="0" name="archive_mysql_id" type="xs:int" />
+          <xs:element minOccurs="0" name="archive_cashline_id" type="xs:int" />
+          <xs:element minOccurs="0" name="login_id" type="xs:int" />
+          <xs:element minOccurs="0" name="is_react" type="xs:boolean" />
+          <xs:element minOccurs="0" name="loan_type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="rule_set_id" type="xs:int" />
+          <xs:element minOccurs="0" name="enterprise_site_id" type="xs:int" />
+          <xs:element minOccurs="0" name="application_status" type="xs:string" />
+          <xs:element minOccurs="0" name="date_application_status_set" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_next_contact" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ip_address" type="xs:string" />
+          <xs:element minOccurs="0" name="application_type" type="xs:string" />
+          <xs:element minOccurs="0" name="bank_name" type="xs:string" />
+          <xs:element minOccurs="0" name="bank_aba" type="xs:string" />
+          <xs:element minOccurs="0" name="bank_account" type="xs:string" />
+          <xs:element minOccurs="0" name="bank_account_type" type="xs:string" />
+          <xs:element minOccurs="0" name="date_fund_estimated" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_fund_actual" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_first_payment" type="xs:dateTime" />
+          <xs:element default="0.0" minOccurs="0" name="fund_requested" type="xs:decimal" />
+          <xs:element minOccurs="0" name="fund_qualified" type="xs:decimal" />
+          <xs:element minOccurs="0" name="fund_actual" type="xs:decimal" />
+          <xs:element minOccurs="0" name="finance_charge" type="xs:decimal" />
+          <xs:element minOccurs="0" name="payment_total" type="xs:decimal" />
+          <xs:element minOccurs="0" name="apr" type="xs:decimal" />
+          <xs:element minOccurs="0" name="income_monthly" type="xs:decimal" />
+          <xs:element minOccurs="0" name="income_source" type="xs:string" />
+          <xs:element minOccurs="0" name="income_direct_deposit" type="xs:int" />
+          <xs:element minOccurs="0" name="income_frequency" type="xs:string" />
+          <xs:element minOccurs="0" name="income_date_soap_1" type="xs:int" />
+          <xs:element minOccurs="0" name="income_date_soap_2" type="xs:int" />
+          <xs:element minOccurs="0" name="paydate_model" type="xs:string" />
+          <xs:element minOccurs="0" name="day_of_week" type="xs:string" />
+          <xs:element minOccurs="0" name="last_paydate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="day_of_month_1" type="xs:int" />
+          <xs:element minOccurs="0" name="day_of_month_2" type="xs:int" />
+          <xs:element minOccurs="0" name="week_1" type="xs:int" />
+          <xs:element minOccurs="0" name="week_2" type="xs:int" />
+          <xs:element minOccurs="0" name="track_key" type="xs:string" />
+          <xs:element minOccurs="0" name="agent_id" type="xs:int" />
+          <xs:element minOccurs="0" name="agent_id_callcenter" type="xs:int" />
+          <xs:element minOccurs="0" name="dob" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ssn" type="xs:string" />
+          <xs:element minOccurs="0" name="legal_id_number" type="xs:string" />
+          <xs:element minOccurs="0" name="legal_id_state" type="xs:string" />
+          <xs:element minOccurs="0" name="legal_id_type" type="xs:string" />
+          <xs:element minOccurs="0" name="identity_verified" type="xs:string" />
+          <xs:element minOccurs="0" name="email" type="xs:string" />
+          <xs:element minOccurs="0" name="email_verified" type="xs:string" />
+          <xs:element minOccurs="0" name="name_last" type="xs:string" />
+          <xs:element minOccurs="0" name="name_first" type="xs:string" />
+          <xs:element minOccurs="0" name="name_middle" type="xs:string" />
+          <xs:element minOccurs="0" name="name_suffix" type="xs:string" />
+          <xs:element minOccurs="0" name="street" type="xs:string" />
+          <xs:element minOccurs="0" name="unit" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="zip_code" type="xs:string" />
+          <xs:element minOccurs="0" name="tenancy_type" type="xs:string" />
+          <xs:element minOccurs="0" name="phone_home" type="xs:string" />
+          <xs:element minOccurs="0" name="phone_cell" type="xs:string" />
+          <xs:element minOccurs="0" name="phone_fax" type="xs:string" />
+          <xs:element minOccurs="0" name="call_time_pref" type="xs:string" />
+          <xs:element minOccurs="0" name="contact_method_pref" type="xs:string" />
+          <xs:element minOccurs="0" name="marketing_contact_pref" type="xs:string" />
+          <xs:element minOccurs="0" name="employer_name" type="xs:string" />
+          <xs:element minOccurs="0" name="job_title" type="xs:string" />
+          <xs:element minOccurs="0" name="supervisor" type="xs:string" />
+          <xs:element minOccurs="0" name="shift" type="xs:string" />
+          <xs:element minOccurs="0" name="date_hire" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="job_tenure" type="xs:float" />
+          <xs:element minOccurs="0" name="phone_work" type="xs:string" />
+          <xs:element minOccurs="0" name="phone_work_ext" type="xs:string" />
+          <xs:element minOccurs="0" name="work_address_1" type="xs:string" />
+          <xs:element minOccurs="0" name="work_address_2" type="xs:string" />
+          <xs:element minOccurs="0" name="work_city" type="xs:string" />
+          <xs:element minOccurs="0" name="work_state" type="xs:string" />
+          <xs:element minOccurs="0" name="work_zip_code" type="xs:string" />
+          <xs:element minOccurs="0" name="employment_verified" type="xs:string" />
+          <xs:element minOccurs="0" name="pwadvid" type="xs:string" />
+          <xs:element minOccurs="0" name="olp_process" type="xs:string" />
+          <xs:element minOccurs="0" name="is_watched" type="xs:boolean" />
+          <xs:element minOccurs="0" name="schedule_model_id" type="xs:int" />
+          <xs:element minOccurs="0" name="modifying_agent_id" type="xs:int" />
+          <xs:element minOccurs="0" name="county" type="xs:string" />
+          <xs:element minOccurs="0" name="cfe_rule_set_id" type="xs:int" />
+          <xs:element minOccurs="0" name="version" type="xs:int" />
+          <xs:element minOccurs="0" name="price_point" type="xs:decimal" />
+          <xs:element minOccurs="0" name="encryption_key_id" type="xs:int" />
+          <xs:element minOccurs="0" name="dob_oldkey" type="xs:string" />
+          <xs:element minOccurs="0" name="ssn_oldkey" type="xs:string" />
+          <xs:element minOccurs="0" name="bank_account_oldkey" type="xs:string" />
+          <xs:element minOccurs="0" name="legal_id_number_oldkey" type="xs:string" />
+          <xs:element minOccurs="0" name="banking_start_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="residence_start_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ssn_last_four" type="xs:string" />
+          <xs:element minOccurs="0" name="name_title" type="xs:string" />
+          <xs:element minOccurs="0" name="name_nick" type="xs:string" />
+          <xs:element minOccurs="0" name="department" type="xs:string" />
+          <xs:element minOccurs="0" name="age" type="xs:int" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="application_version" type="xs:int" />
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="personal_references" nillable="true" type="tns:personalReferenceDTO" />
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="campaign_info" nillable="true" type="tns:campaignInfoDTO" />
+          <xs:element minOccurs="0" name="react_affiliation" type="tns:reactAffiliationDTO" />
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="eventlog" nillable="true" type="tns:eventlogDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="personalReferenceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="personal_reference_id" type="xs:int" />
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element name="company_id" type="xs:int" />
+      <xs:element name="name_full" type="xs:string" />
+      <xs:element name="phone_home" type="xs:string" />
+      <xs:element name="relationship" type="xs:string" />
+      <xs:element name="ok_to_contact" type="xs:string" />
+      <xs:element name="verified" type="xs:string" />
+      <xs:element name="modifying_agent_id" type="xs:int" />
+      <xs:element minOccurs="0" name="application_version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="campaignInfoDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="campaign_info_id" type="xs:int" />
+          <xs:element name="application_id" type="xs:int" />
+          <xs:element minOccurs="0" name="application_version" type="xs:int" />
+          <xs:element name="campaign_name" type="xs:string" />
+          <xs:element minOccurs="0" name="friendly_name" type="xs:string" />
+          <xs:element name="promo_id" type="xs:int" />
+          <xs:element minOccurs="0" name="promo_sub_code" type="xs:string" />
+          <xs:element minOccurs="0" name="reservation_id" type="xs:long" />
+          <xs:element name="site" type="xs:string" />
+          <xs:element minOccurs="0" name="license_key" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="reactAffiliationDTO">
+    <xs:sequence>
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element name="company_id" type="xs:int" />
+      <xs:element name="react_application_id" type="xs:int" />
+      <xs:element name="agent_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eventlogDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="external_id" type="xs:int" />
+      <xs:element minOccurs="0" name="source" type="xs:string" />
+      <xs:element minOccurs="0" name="event" type="xs:string" />
+      <xs:element minOccurs="0" name="response" type="xs:string" />
+      <xs:element minOccurs="0" name="target" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationInsertResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="customerId" type="xs:int" />
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element name="isNewCustomer" type="xs:boolean" />
+      <xs:element name="contactInfoIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string" />
+                  <xs:element minOccurs="0" name="value" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicantAccountDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="applicant_account_id" type="xs:int" />
+          <xs:element minOccurs="0" name="customer_id" type="xs:int" />
+          <xs:element name="application_id" type="xs:int" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="base_login" type="xs:string" />
+          <xs:element minOccurs="0" name="login" type="xs:string" />
+          <xs:element name="modifying_agent_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="previousCustomerRequestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="label" type="xs:string" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" type="tns:applicationSearchRequestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationSearchRequestDTO">
+    <xs:sequence>
+      <xs:element name="searchCriteria" type="xs:string" />
+      <xs:element name="field" type="xs:string" />
+      <xs:element name="strategy" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="previousCustomerResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="label" type="xs:string" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="results" type="tns:previousCustomerEntryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="previousCustomerEntryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="application_id" type="xs:int" />
+      <xs:element minOccurs="0" name="date_application_status_set" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="company" type="xs:string" />
+      <xs:element minOccurs="0" name="application_status" type="xs:string" />
+      <xs:element minOccurs="0" name="olp_process" type="xs:string" />
+      <xs:element minOccurs="0" name="bank_account" type="xs:string" />
+      <xs:element minOccurs="0" name="bank_aba" type="xs:string" />
+      <xs:element minOccurs="0" name="name_first" type="xs:string" />
+      <xs:element minOccurs="0" name="name_last" type="xs:string" />
+      <xs:element minOccurs="0" name="ssn" type="xs:string" />
+      <xs:element minOccurs="0" name="date_first_payment" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="do_not_loan_in_company" type="xs:boolean" />
+      <xs:element minOccurs="0" name="do_not_loan_other_company" type="xs:boolean" />
+      <xs:element minOccurs="0" name="do_not_loan_override" type="xs:boolean" />
+      <xs:element minOccurs="0" name="regulatory_flag" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicantMergeRequestDTO">
+    <xs:sequence>
+      <xs:element name="modifying_agent_id" type="xs:int" />
+      <xs:element name="applicant_account_id" type="xs:int" />
+      <xs:element maxOccurs="unbounded" name="application_ids" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paydateDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element name="application_id" type="xs:int" />
+          <xs:element minOccurs="0" name="external_id" type="xs:int" />
+          <xs:element minOccurs="0" name="paydate_model" type="xs:string" />
+          <xs:element minOccurs="0" name="income_source" type="xs:string" />
+          <xs:element minOccurs="0" name="income_frequency" type="xs:string" />
+          <xs:element minOccurs="0" name="day_of_week" type="xs:string" />
+          <xs:element minOccurs="0" name="income_monthly" type="xs:decimal" />
+          <xs:element minOccurs="0" name="income_direct_deposit" type="xs:int" />
+          <xs:element minOccurs="0" name="income_date_soap_1" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="income_date_soap_2" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="last_paydate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="day_of_month_1" type="xs:int" />
+          <xs:element minOccurs="0" name="day_of_month_2" type="xs:int" />
+          <xs:element minOccurs="0" name="week_1" type="xs:int" />
+          <xs:element minOccurs="0" name="week_2" type="xs:int" />
+          <xs:element name="modifying_agent_id" type="xs:int" />
+          <xs:element minOccurs="0" name="application_version" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="applicationStatusUpdateResponseDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="applicationId" type="xs:int" />
+          <xs:element minOccurs="0" name="applicationStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="agentId" type="xs:int" />
+          <xs:element minOccurs="0" name="dateCreated" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="employmentInfoDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element name="application_id" type="xs:int" />
+          <xs:element minOccurs="0" name="external_id" type="xs:int" />
+          <xs:element minOccurs="0" name="shift" type="xs:string" />
+          <xs:element minOccurs="0" name="employer_name" type="xs:string" />
+          <xs:element minOccurs="0" name="department" type="xs:string" />
+          <xs:element minOccurs="0" name="job_title" type="xs:string" />
+          <xs:element minOccurs="0" name="supervisor" type="xs:string" />
+          <xs:element minOccurs="0" name="date_hire" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="job_tenure" type="xs:decimal" />
+          <xs:element minOccurs="0" name="phone_work" type="xs:string" />
+          <xs:element minOccurs="0" name="phone_work_ext" type="xs:string" />
+          <xs:element minOccurs="0" name="paydate_model" type="xs:string" />
+          <xs:element minOccurs="0" name="income_source" type="xs:string" />
+          <xs:element minOccurs="0" name="income_frequency" type="xs:string" />
+          <xs:element minOccurs="0" name="day_of_week" type="xs:string" />
+          <xs:element minOccurs="0" name="income_monthly" type="xs:decimal" />
+          <xs:element minOccurs="0" name="income_direct_deposit" type="xs:int" />
+          <xs:element minOccurs="0" name="income_date_soap_1" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="income_date_soap_2" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="last_paydate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="day_of_month_1" type="xs:int" />
+          <xs:element minOccurs="0" name="day_of_month_2" type="xs:int" />
+          <xs:element minOccurs="0" name="week_1" type="xs:int" />
+          <xs:element minOccurs="0" name="week_2" type="xs:int" />
+          <xs:element name="modifying_agent_id" type="xs:int" />
+          <xs:element minOccurs="0" name="application_version" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="auditInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="application_id" type="xs:int" />
+      <xs:element minOccurs="0" name="table_name" type="xs:string" />
+      <xs:element minOccurs="0" name="primary_key_name" type="xs:string" />
+      <xs:element minOccurs="0" name="primary_key_value" type="xs:int" />
+      <xs:element minOccurs="0" name="column_name" type="xs:string" />
+      <xs:element minOccurs="0" name="old_value" type="xs:string" />
+      <xs:element minOccurs="0" name="new_value" type="xs:string" />
+      <xs:element minOccurs="0" name="date_updated" type="xs:dateTime" />
+      <xs:element name="modifying_agent_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="regulatoryFlagDTO">
+    <xs:sequence>
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element minOccurs="0" name="active_status" type="xs:boolean" />
+      <xs:element minOccurs="0" name="loan_action_name" type="xs:string" />
+      <xs:element minOccurs="0" name="loan_action_section" type="xs:string" />
+      <xs:element name="modifying_agent_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contactInfoDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element name="application_id" type="xs:int" />
+          <xs:element minOccurs="0" name="contact_info_id" type="xs:int" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+          <xs:element name="modifying_agent_id" type="xs:int" />
+          <xs:element minOccurs="0" name="is_primary" type="xs:boolean" />
+          <xs:element minOccurs="0" name="application_version" type="xs:int" />
+          <xs:element minOccurs="0" name="notes" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="applicantSplitRequestDTO">
+    <xs:sequence>
+      <xs:element name="modifying_agent_id" type="xs:int" />
+      <xs:element name="ssn" type="xs:string" />
+      <xs:element name="base_login" type="xs:string" />
+      <xs:element maxOccurs="unbounded" name="application_ids" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationUpdateDTO">
+    <xs:sequence>
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element name="modifying_agent_id" type="xs:int" />
+      <xs:element minOccurs="0" name="customer_id" type="xs:int" />
+      <xs:element minOccurs="0" name="apr" type="xs:decimal" />
+      <xs:element minOccurs="0" name="cfe_ruleset_id" type="xs:int" />
+      <xs:element minOccurs="0" name="date_first_payment" type="xs:long" />
+      <xs:element minOccurs="0" name="date_fund_actual" type="xs:long" />
+      <xs:element minOccurs="0" name="date_fund_estimated" type="xs:long" />
+      <xs:element minOccurs="0" name="date_next_contact" type="xs:long" />
+      <xs:element minOccurs="0" name="finance_charge" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fund_actual" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fund_qualified" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fund_requested" type="xs:decimal" />
+      <xs:element minOccurs="0" name="is_watched" type="xs:boolean" />
+      <xs:element minOccurs="0" name="payment_total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="price_point" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pwadvid" type="xs:string" />
+      <xs:element minOccurs="0" name="rule_set_id" type="xs:int" />
+      <xs:element minOccurs="0" name="call_time_pref" type="xs:string" />
+      <xs:element minOccurs="0" name="contact_method_pref" type="xs:string" />
+      <xs:element minOccurs="0" name="marketing_contact_pref" type="xs:string" />
+      <xs:element minOccurs="0" name="application_version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flagSearchResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="do_not_loan" nillable="true" type="tns:doNotLoanFlagDTO" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="do_not_loan_override" nillable="true" type="tns:doNotLoanFlagOverrideSearchEntity" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="regulatory" nillable="true" type="tns:regulatoryFlagSearchEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doNotLoanFlagDTO">
+    <xs:sequence>
+      <xs:element name="ssn" type="xs:string" />
+      <xs:element name="category" type="xs:string" />
+      <xs:element name="company_id" type="xs:int" />
+      <xs:element minOccurs="0" name="other_reason" type="xs:string" />
+      <xs:element minOccurs="0" name="explanation" type="xs:string" />
+      <xs:element name="modifying_agent_id" type="xs:int" />
+      <xs:element minOccurs="0" name="active_status" type="xs:boolean" />
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doNotLoanFlagOverrideSearchEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="companyId" type="xs:int" />
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="doNotLoanFlagOverrideId" type="xs:int" />
+      <xs:element minOccurs="0" name="modifyingAgentId" type="xs:int" />
+      <xs:element minOccurs="0" name="ssn" type="tns:ssn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ssn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="ssn" type="xs:string" />
+      <xs:element minOccurs="0" name="ssnLastFour" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="regulatoryFlagSearchEntity">
+    <xs:sequence>
+      <xs:element name="activeStatus" type="xs:byte" />
+      <xs:element name="applicantId" type="xs:int" />
+      <xs:element name="companyId" type="xs:int" />
+      <xs:element name="loanActionHistoryId" type="xs:int" />
+      <xs:element name="modifyingAgentId" type="xs:int" />
+      <xs:element name="regulatoryFlagId" type="xs:int" />
+      <xs:element minOccurs="0" name="ssn" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationStatusHistoryResponseDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="applicationStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="modifyingAgentId" type="xs:int" />
+          <xs:element minOccurs="0" name="nameFirst" type="xs:string" />
+          <xs:element minOccurs="0" name="nameLast" type="xs:string" />
+          <xs:element minOccurs="0" name="statusHistoryId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="doNotLoanAuditDTO">
+    <xs:sequence>
+      <xs:element name="ssn" type="xs:string" />
+      <xs:element name="company_id" type="xs:int" />
+      <xs:element minOccurs="0" name="new_value" type="xs:string" />
+      <xs:element minOccurs="0" name="old_value" type="xs:string" />
+      <xs:element minOccurs="0" name="table_name" type="xs:string" />
+      <xs:element name="modifying_agent_id" type="xs:int" />
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bankInfoDTO">
+    <xs:sequence>
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element minOccurs="0" name="bank_account_type" type="xs:string" />
+      <xs:element minOccurs="0" name="bank_name" type="xs:string" />
+      <xs:element minOccurs="0" name="bank_aba" type="xs:string" />
+      <xs:element minOccurs="0" name="bank_account" type="xs:string" />
+      <xs:element minOccurs="0" name="banking_start_date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="is_direct_deposit" type="xs:boolean" />
+      <xs:element name="modifying_agent_id" type="xs:int" />
+      <xs:element minOccurs="0" name="application_version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicant_account" type="tns:applicantAccountDTO" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="personal_references" type="tns:personalReferenceDTO" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="audit_info" type="tns:auditInfoDTO" />
+      <xs:element minOccurs="0" name="bank_info" type="tns:bankInfoDTO" />
+      <xs:element minOccurs="0" name="employment_info" type="tns:employmentInfoDTO" />
+      <xs:element minOccurs="0" name="applicant_info" type="tns:applicantDTO" />
+      <xs:element minOccurs="0" name="do_not_loan" type="tns:doNotLoanFlagDTO" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="do_not_loan_audit" type="tns:doNotLoanAuditDTO" />
+      <xs:element minOccurs="0" name="regulatory_flag" type="tns:regulatoryFlagDTO" />
+      <xs:element minOccurs="0" name="has_regulatory_flag" type="xs:boolean" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="do_not_loan_all" type="tns:doNotLoanFlagDTO" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="do_not_loan_override_all" type="tns:overrideDoNotLoanFlagDTO" />
+      <xs:element minOccurs="0" name="application" type="tns:application" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="contact_info" type="tns:contactInfoDTO" />
+      <xs:element minOccurs="0" name="react_affiliation" type="tns:reactAffiliationDTO" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="campaign_info" type="tns:campaignInfoDTO" />
+      <xs:element minOccurs="0" name="primary_contact_info" type="tns:primaryContactInfoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicantDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+          <xs:element name="application_id" type="xs:int" />
+          <xs:element minOccurs="0" name="external_id" type="xs:int" />
+          <xs:element minOccurs="0" name="legal_id_type" type="xs:string" />
+          <xs:element minOccurs="0" name="tenancy_type" type="xs:string" />
+          <xs:element minOccurs="0" name="dob" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="legal_id_number" type="xs:string" />
+          <xs:element minOccurs="0" name="legal_id_state" type="xs:string" />
+          <xs:element minOccurs="0" name="ssn" type="xs:string" />
+          <xs:element minOccurs="0" name="name_title" type="xs:string" />
+          <xs:element minOccurs="0" name="name_last" type="xs:string" />
+          <xs:element minOccurs="0" name="name_first" type="xs:string" />
+          <xs:element minOccurs="0" name="name_nick" type="xs:string" />
+          <xs:element minOccurs="0" name="name_middle" type="xs:string" />
+          <xs:element minOccurs="0" name="name_suffix" type="xs:string" />
+          <xs:element minOccurs="0" name="street" type="xs:string" />
+          <xs:element minOccurs="0" name="unit" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="zip_code" type="xs:string" />
+          <xs:element minOccurs="0" name="age" type="xs:short" />
+          <xs:element minOccurs="0" name="county" type="xs:string" />
+          <xs:element minOccurs="0" name="residence_start_date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ssn_last_four" type="xs:string" />
+          <xs:element minOccurs="0" name="modifying_agent_id" type="xs:int" />
+          <xs:element minOccurs="0" name="application_version" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="overrideDoNotLoanFlagDTO">
+    <xs:sequence>
+      <xs:element name="ssn" type="xs:string" />
+      <xs:element name="company_id" type="xs:int" />
+      <xs:element minOccurs="0" name="modifying_agent_id" type="xs:int" />
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="application">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="applicationSource" type="tns:applicationSource" />
+      <xs:element minOccurs="0" name="applicationStatus" type="tns:applicationStatus" />
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="applicationStatusHistory" nillable="true" type="tns:applicationStatusHistory" />
+      <xs:element minOccurs="0" name="applicationStatusName" type="xs:string" />
+      <xs:element minOccurs="0" name="applicationType" type="tns:applicationType" />
+      <xs:element minOccurs="0" name="applicationVersion" type="tns:applicationVersion" />
+      <xs:element minOccurs="0" name="apr" type="xs:decimal" />
+      <xs:element minOccurs="0" name="authoritative" type="tns:authoritative" />
+      <xs:element minOccurs="0" name="callTimePref" type="tns:callTimePref" />
+      <xs:element minOccurs="0" name="cfeRuleSetId" type="xs:int" />
+      <xs:element name="companyId" type="xs:int" />
+      <xs:element minOccurs="0" name="contactMethodPref" type="tns:contactMethodPref" />
+      <xs:element name="customerId" type="xs:int" />
+      <xs:element minOccurs="0" name="dateApplicationStatusSet" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateFirstPayment" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateFundActual" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateFundEstimated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateNextContact" type="xs:dateTime" />
+      <xs:element name="enterpriseSiteId" type="xs:int" />
+      <xs:element minOccurs="0" name="externalId" type="xs:int" />
+      <xs:element minOccurs="0" name="financeCharge" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fundActual" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fundQualified" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fundRequested" type="xs:decimal" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="ipAddress" type="xs:string" />
+      <xs:element minOccurs="0" name="eSigIpAddress" type="xs:string" />
+      <xs:element minOccurs="0" name="isReact" type="xs:boolean" />
+      <xs:element minOccurs="0" name="isWatched" type="xs:boolean" />
+      <xs:element name="loanTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="marketingContactPref" type="tns:marketingContactPref" />
+      <xs:element minOccurs="0" name="modifyingAgentId" type="xs:int" />
+      <xs:element minOccurs="0" name="olpProcess" type="tns:olpProcess" />
+      <xs:element minOccurs="0" name="paymentTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pricePoint" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pwadvid" type="xs:string" />
+      <xs:element minOccurs="0" name="ruleSetId" type="xs:int" />
+      <xs:element minOccurs="0" name="trackKey" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationSource">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationStatusHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicationStatus" type="tns:applicationStatus" />
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="modifyingAgentId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authoritative">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="authoritativeId" type="xs:int" />
+      <xs:element minOccurs="0" name="companyId" type="xs:int" />
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="callTimePref">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="callTimePrefId" type="xs:int" />
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contactMethodPref">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="marketingContactPref">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="marketingContactPrefId" type="xs:int" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="olpProcess">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="olpProcessId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="primaryContactInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="phone_home" type="xs:string" />
+      <xs:element minOccurs="0" name="phone_work" type="xs:string" />
+      <xs:element minOccurs="0" name="phone_fax" type="xs:string" />
+      <xs:element minOccurs="0" name="phone_cell" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationSearchResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="application_id" type="xs:int" />
+      <xs:element minOccurs="0" name="company_id" type="xs:int" />
+      <xs:element minOccurs="0" name="loan_type_id" type="xs:int" />
+      <xs:element minOccurs="0" name="customer_id" type="xs:int" />
+      <xs:element minOccurs="0" name="external_id" type="xs:int" />
+      <xs:element minOccurs="0" name="name_first" type="xs:string" />
+      <xs:element minOccurs="0" name="name_last" type="xs:string" />
+      <xs:element minOccurs="0" name="city" type="xs:string" />
+      <xs:element minOccurs="0" name="state" type="xs:string" />
+      <xs:element minOccurs="0" name="street" type="xs:string" />
+      <xs:element minOccurs="0" name="unit" type="xs:string" />
+      <xs:element minOccurs="0" name="ssn" type="xs:string" />
+      <xs:element minOccurs="0" name="dnl" type="xs:boolean" />
+      <xs:element minOccurs="0" name="application_status_name" type="xs:string" />
+      <xs:element minOccurs="0" name="date_fund_actual" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bankInfoUpdateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="bankAccount" type="xs:string" />
+      <xs:element minOccurs="0" name="bankAba" type="xs:string" />
+      <xs:element minOccurs="0" name="bankName" type="xs:string" />
+      <xs:element minOccurs="0" name="bankAccountType" type="xs:string" />
+      <xs:element minOccurs="0" name="isDirectDeposit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicationPricePointResponseDTO">
+    <xs:complexContent>
+      <xs:extension base="tns:baseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date_created" type="xs:string" />
+          <xs:element name="application_id" type="xs:int" />
+          <xs:element minOccurs="0" name="price_point" type="xs:decimal" />
+          <xs:element minOccurs="0" name="success" type="xs:boolean" />
+          <xs:element minOccurs="0" name="modifying_agent_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType final="#all" name="personalReferenceDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:personalReferenceDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="previousCustomerRequestDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:previousCustomerRequestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="previousCustomerResponseDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:previousCustomerResponseDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="eventlogDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:eventlogDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="applicationDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:applicationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="applicationStatusUpdateResponseDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:applicationStatusUpdateResponseDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="campaignInfoDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:campaignInfoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="auditInfoDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:auditInfoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="contactInfoDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:contactInfoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="reactAffiliationDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:reactAffiliationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="applicationStatusHistoryResponseDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:applicationStatusHistoryResponseDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="doNotLoanAuditDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:doNotLoanAuditDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="applicationSearchRequestDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:applicationSearchRequestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="applicationSearchResponseDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:applicationSearchResponseDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="bankInfoDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:bankInfoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="bankInfoUpdateResponseArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:bankInfoUpdateResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="applicationPricePointResponseDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:applicationPricePointResponseDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="overrideDoNotLoanFlagDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:overrideDoNotLoanFlagDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType final="#all" name="doNotLoanFlagDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:doNotLoanFlagDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchException" type="tns:SearchException" />
+  <xs:complexType name="SearchException">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ApplicationVersionException" type="tns:ApplicationVersionException" />
+  <xs:complexType name="ApplicationVersionException">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ApplicationNotFoundException" type="tns:ApplicationNotFoundException" />
+  <xs:complexType name="ApplicationNotFoundException">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="NonexistentEntityException" type="tns:NonexistentEntityException" />
+  <xs:complexType name="NonexistentEntityException">
+    <xs:sequence />
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="bulkUpdateApplicationPricePointResponse">
+    <wsdl:part name="return" type="tns:applicationPricePointResponseDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicationStatus">
+    <wsdl:part name="arg0" type="tns:applicationDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationInfo">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertApplicantAccountResponse">
+    <wsdl:part name="return" type="tns:applicantAccountDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hasRegulatoryFlag">
+    <wsdl:part name="application_id" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bulkUpdateApplicationBankInfo">
+    <wsdl:part name="arg0" type="tns:bankInfoDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEmploymentInfoResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchAll">
+    <wsdl:part name="application_id" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCampaignInfoResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDoNotLoanAuditResponse">
+    <wsdl:part name="return" type="tns:doNotLoanAuditDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="overrideDoNotLoanFlagResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertEventlogRecords">
+    <wsdl:part name="arg0" type="tns:eventlogDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bulkUpdateApplicationStatusResponse">
+    <wsdl:part name="return" type="tns:applicationStatusUpdateResponseDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationStatusHistory">
+    <wsdl:part name="arg0" type="tns:applicationDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hasRegulatoryFlagResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDoNotLoanFlagOverride">
+    <wsdl:part name="ssn" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="modifying_agent_id" type="xsd:int">
+    </wsdl:part>
+    <wsdl:part name="company_id" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPreviousCustomerApps">
+    <wsdl:part name="request" type="tns:previousCustomerRequestDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicationResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationVersion">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDoNotLoanFlagAll">
+    <wsdl:part name="ssn" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDoNotLoanFlagOverrideAllResponse">
+    <wsdl:part name="return" type="tns:overrideDoNotLoanFlagDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPersonalReferenceResponse">
+    <wsdl:part name="return" type="tns:personalReferenceDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPersonalReference">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationAuditInfoResponse">
+    <wsdl:part name="return" type="tns:auditInfoDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePersonalReferenceResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicationStatusResponse">
+    <wsdl:part name="return" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationPersonalReferences">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SearchException">
+    <wsdl:part element="tns:SearchException" name="SearchException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPreviousCustomerAppsResponse">
+    <wsdl:part name="return" type="tns:previousCustomerResponseDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationVersionResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationContactInfo">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NonexistentEntityException">
+    <wsdl:part element="tns:NonexistentEntityException" name="NonexistentEntityException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicantAccountResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDoNotLoanFlag">
+    <wsdl:part name="ssn" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="company_id" type="xsd:int">
+    </wsdl:part>
+    <wsdl:part name="modifying_agent_id" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertApplicantAccount">
+    <wsdl:part name="arg0" type="tns:applicantAccountDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removePersonalReferenceResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mergeApplicants">
+    <wsdl:part name="arg0" type="tns:applicantMergeRequestDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplication">
+    <wsdl:part name="arg0" type="tns:applicationUpdateDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicationBankInfoResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertResponse">
+    <wsdl:part name="return" type="tns:applicationInsertResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertEventlogRecordsResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateRegulatoryFlagResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCampaignInfoResponse">
+    <wsdl:part name="return" type="tns:campaignInfoDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDoNotLoanFlagOverrideAll">
+    <wsdl:part name="ssn" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertDoNotLoanFlagResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBankInfoResponse">
+    <wsdl:part name="return" type="tns:bankInfoDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationContactInfoResponse">
+    <wsdl:part name="return" type="tns:contactInfoDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPersonalReferencesResponse">
+    <wsdl:part name="return" type="ns1:intArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationIdsForCustomer">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="splitApplicantsResponse">
+    <wsdl:part name="return" type="tns:applicantAccountDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmploymentInfo">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="associateApplicantAccount">
+    <wsdl:part name="arg0" type="tns:applicantAccountDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="applicationSearch">
+    <wsdl:part name="criteria" type="tns:applicationSearchRequestDTOArray">
+    </wsdl:part>
+    <wsdl:part name="limit" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="splitApplicants">
+    <wsdl:part name="arg0" type="tns:applicantSplitRequestDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ApplicationNotFoundException">
+    <wsdl:part element="tns:ApplicationNotFoundException" name="ApplicationNotFoundException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removePersonalReference">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="flagSearchBySsn">
+    <wsdl:part name="ssn" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCampaignInfo">
+    <wsdl:part name="applicationId" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertContactInfoResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicantInfo">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReactAffiliationResponse">
+    <wsdl:part name="return" type="tns:reactAffiliationDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicantResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDoNotLoanFlagOverrideResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="applicationSearchResponse">
+    <wsdl:part name="return" type="tns:applicationSearchResponseDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationContactInfoByIdResponse">
+    <wsdl:part name="return" type="tns:contactInfoDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicant">
+    <wsdl:part name="arg0" type="tns:applicantDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationIdsForCustomerResponse">
+    <wsdl:part name="return" type="ns1:intArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReactAffiliationChildren">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="overrideDoNotLoanFlag">
+    <wsdl:part name="overrideDoNotLoanFlagDto" type="tns:overrideDoNotLoanFlagDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDoNotLoanFlagAllResponse">
+    <wsdl:part name="return" type="tns:doNotLoanFlagDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertUnpurchasedAppResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertContactInfo">
+    <wsdl:part name="arg0" type="tns:contactInfoDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationStatusResponse">
+    <wsdl:part name="return" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationStatusHistoryResponse">
+    <wsdl:part name="return" type="tns:applicationStatusHistoryResponseDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationInfoResponse">
+    <wsdl:part name="return" type="tns:application">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicantAccount">
+    <wsdl:part name="arg0" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="arg1" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="arg2" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDoNotLoanFlag">
+    <wsdl:part name="ssn" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="company_id" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateRegulatoryFlag">
+    <wsdl:part name="arg0" type="tns:regulatoryFlagDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDoNotLoanAudit">
+    <wsdl:part name="ssn" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmploymentInfoResponse">
+    <wsdl:part name="return" type="tns:employmentInfoDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateContactInfoResponse">
+    <wsdl:part name="return" type="tns:contactInfoDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicationCompleteResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationAuditInfo">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationIdsForCustomerByApplicationId">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicationComplete">
+    <wsdl:part name="arg0" type="tns:applicationDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDoNotLoanFlagResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePaydateInfoResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReactAffiliationChildrenResponse">
+    <wsdl:part name="return" type="tns:reactAffiliationDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicantAccountInfoResponse">
+    <wsdl:part name="return" type="tns:applicantAccountDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ApplicationVersionException">
+    <wsdl:part element="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bulkUpdateApplicationBankInfoResponse">
+    <wsdl:part name="return" type="tns:bankInfoUpdateResponseArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDoNotLoanFlagResponse">
+    <wsdl:part name="return" type="tns:doNotLoanFlagDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEmploymentInfo">
+    <wsdl:part name="arg0" type="tns:employmentInfoDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insert">
+    <wsdl:part name="arg0" type="tns:applicationDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mergeApplicantsResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPersonalReferences">
+    <wsdl:part name="arg0" type="tns:personalReferenceDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="associateApplicantAccountResponse">
+    <wsdl:part name="return" type="xsd:boolean">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicantAccountInfo">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertUnpurchasedApp">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRegulatoryFlagResponse">
+    <wsdl:part name="return" type="tns:regulatoryFlagDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateContactInfo">
+    <wsdl:part name="arg0" type="tns:contactInfoDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBankInfo">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insertDoNotLoanFlag">
+    <wsdl:part name="doNotLoanFlagDto" type="tns:doNotLoanFlagDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationStatus">
+    <wsdl:part name="arg0" type="tns:applicationDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="flagSearchBySsnResponse">
+    <wsdl:part name="return" type="tns:flagSearchResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bulkUpdateApplicationStatus">
+    <wsdl:part name="arg0" type="tns:applicationDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePersonalReference">
+    <wsdl:part name="arg0" type="tns:personalReferenceDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicantInfoResponse">
+    <wsdl:part name="return" type="tns:applicantDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationPersonalReferencesResponse">
+    <wsdl:part name="return" type="tns:personalReferenceDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateApplicationBankInfo">
+    <wsdl:part name="arg0" type="tns:bankInfoDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="bulkUpdateApplicationPricePoint">
+    <wsdl:part name="arg0" type="tns:applicationPricePointResponseDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getReactAffiliation">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationIdsForCustomerByApplicationIdResponse">
+    <wsdl:part name="return" type="ns1:intArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePaydateInfo">
+    <wsdl:part name="arg0" type="tns:paydateDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRegulatoryFlag">
+    <wsdl:part name="application_id" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCampaignInfo">
+    <wsdl:part name="arg0" type="tns:campaignInfoDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getApplicationContactInfoById">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchAllResponse">
+    <wsdl:part name="return" type="tns:applicationResponseDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ApplicationService">
+    <wsdl:operation name="insert">
+      <wsdl:input message="tns:insert" name="insert">
+    </wsdl:input>
+      <wsdl:output message="tns:insertResponse" name="insertResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPersonalReferences">
+      <wsdl:input message="tns:addPersonalReferences" name="addPersonalReferences">
+    </wsdl:input>
+      <wsdl:output message="tns:addPersonalReferencesResponse" name="addPersonalReferencesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removePersonalReference">
+      <wsdl:input message="tns:removePersonalReference" name="removePersonalReference">
+    </wsdl:input>
+      <wsdl:output message="tns:removePersonalReferenceResponse" name="removePersonalReferenceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicantAccountInfo">
+      <wsdl:input message="tns:getApplicantAccountInfo" name="getApplicantAccountInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicantAccountInfoResponse" name="getApplicantAccountInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertApplicantAccount">
+      <wsdl:input message="tns:insertApplicantAccount" name="insertApplicantAccount">
+    </wsdl:input>
+      <wsdl:output message="tns:insertApplicantAccountResponse" name="insertApplicantAccountResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPreviousCustomerApps">
+      <wsdl:input message="tns:getPreviousCustomerApps" name="getPreviousCustomerApps">
+    </wsdl:input>
+      <wsdl:output message="tns:getPreviousCustomerAppsResponse" name="getPreviousCustomerAppsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:SearchException" name="SearchException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicationStatus">
+      <wsdl:input message="tns:updateApplicationStatus" name="updateApplicationStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:updateApplicationStatusResponse" name="updateApplicationStatusResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="insertEventlogRecords">
+      <wsdl:input message="tns:insertEventlogRecords" name="insertEventlogRecords">
+    </wsdl:input>
+      <wsdl:output message="tns:insertEventlogRecordsResponse" name="insertEventlogRecordsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationPersonalReferences">
+      <wsdl:input message="tns:getApplicationPersonalReferences" name="getApplicationPersonalReferences">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationPersonalReferencesResponse" name="getApplicationPersonalReferencesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDoNotLoanFlag">
+      <wsdl:input message="tns:deleteDoNotLoanFlag" name="deleteDoNotLoanFlag">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteDoNotLoanFlagResponse" name="deleteDoNotLoanFlagResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mergeApplicants">
+      <wsdl:input message="tns:mergeApplicants" name="mergeApplicants">
+    </wsdl:input>
+      <wsdl:output message="tns:mergeApplicantsResponse" name="mergeApplicantsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePaydateInfo">
+      <wsdl:input message="tns:updatePaydateInfo" name="updatePaydateInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:updatePaydateInfoResponse" name="updatePaydateInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="bulkUpdateApplicationStatus">
+      <wsdl:input message="tns:bulkUpdateApplicationStatus" name="bulkUpdateApplicationStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:bulkUpdateApplicationStatusResponse" name="bulkUpdateApplicationStatusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCampaignInfo">
+      <wsdl:input message="tns:getCampaignInfo" name="getCampaignInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getCampaignInfoResponse" name="getCampaignInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationNotFoundException" name="ApplicationNotFoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicationComplete">
+      <wsdl:input message="tns:updateApplicationComplete" name="updateApplicationComplete">
+    </wsdl:input>
+      <wsdl:output message="tns:updateApplicationCompleteResponse" name="updateApplicationCompleteResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmploymentInfo">
+      <wsdl:input message="tns:getEmploymentInfo" name="getEmploymentInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getEmploymentInfoResponse" name="getEmploymentInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:NonexistentEntityException" name="NonexistentEntityException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationAuditInfo">
+      <wsdl:input message="tns:getApplicationAuditInfo" name="getApplicationAuditInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationAuditInfoResponse" name="getApplicationAuditInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegulatoryFlag">
+      <wsdl:input message="tns:updateRegulatoryFlag" name="updateRegulatoryFlag">
+    </wsdl:input>
+      <wsdl:output message="tns:updateRegulatoryFlagResponse" name="updateRegulatoryFlagResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationContactInfoById">
+      <wsdl:input message="tns:getApplicationContactInfoById" name="getApplicationContactInfoById">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationContactInfoByIdResponse" name="getApplicationContactInfoByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationContactInfo">
+      <wsdl:input message="tns:getApplicationContactInfo" name="getApplicationContactInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationContactInfoResponse" name="getApplicationContactInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="splitApplicants">
+      <wsdl:input message="tns:splitApplicants" name="splitApplicants">
+    </wsdl:input>
+      <wsdl:output message="tns:splitApplicantsResponse" name="splitApplicantsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReactAffiliationChildren">
+      <wsdl:input message="tns:getReactAffiliationChildren" name="getReactAffiliationChildren">
+    </wsdl:input>
+      <wsdl:output message="tns:getReactAffiliationChildrenResponse" name="getReactAffiliationChildrenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertContactInfo">
+      <wsdl:input message="tns:insertContactInfo" name="insertContactInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:insertContactInfoResponse" name="insertContactInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplication">
+      <wsdl:input message="tns:updateApplication" name="updateApplication">
+    </wsdl:input>
+      <wsdl:output message="tns:updateApplicationResponse" name="updateApplicationResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePersonalReference">
+      <wsdl:input message="tns:updatePersonalReference" name="updatePersonalReference">
+    </wsdl:input>
+      <wsdl:output message="tns:updatePersonalReferenceResponse" name="updatePersonalReferenceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="hasRegulatoryFlag">
+      <wsdl:input message="tns:hasRegulatoryFlag" name="hasRegulatoryFlag">
+    </wsdl:input>
+      <wsdl:output message="tns:hasRegulatoryFlagResponse" name="hasRegulatoryFlagResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReactAffiliation">
+      <wsdl:input message="tns:getReactAffiliation" name="getReactAffiliation">
+    </wsdl:input>
+      <wsdl:output message="tns:getReactAffiliationResponse" name="getReactAffiliationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationVersion">
+      <wsdl:input message="tns:getApplicationVersion" name="getApplicationVersion">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationVersionResponse" name="getApplicationVersionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associateApplicantAccount">
+      <wsdl:input message="tns:associateApplicantAccount" name="associateApplicantAccount">
+    </wsdl:input>
+      <wsdl:output message="tns:associateApplicantAccountResponse" name="associateApplicantAccountResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateContactInfo">
+      <wsdl:input message="tns:updateContactInfo" name="updateContactInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:updateContactInfoResponse" name="updateContactInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="flagSearchBySsn">
+      <wsdl:input message="tns:flagSearchBySsn" name="flagSearchBySsn">
+    </wsdl:input>
+      <wsdl:output message="tns:flagSearchBySsnResponse" name="flagSearchBySsnResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationStatusHistory">
+      <wsdl:input message="tns:getApplicationStatusHistory" name="getApplicationStatusHistory">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationStatusHistoryResponse" name="getApplicationStatusHistoryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoNotLoanAudit">
+      <wsdl:input message="tns:getDoNotLoanAudit" name="getDoNotLoanAudit">
+    </wsdl:input>
+      <wsdl:output message="tns:getDoNotLoanAuditResponse" name="getDoNotLoanAuditResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBankInfo">
+      <wsdl:input message="tns:getBankInfo" name="getBankInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getBankInfoResponse" name="getBankInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fetchAll">
+      <wsdl:input message="tns:fetchAll" name="fetchAll">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchAllResponse" name="fetchAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="applicationSearch">
+      <wsdl:input message="tns:applicationSearch" name="applicationSearch">
+    </wsdl:input>
+      <wsdl:output message="tns:applicationSearchResponse" name="applicationSearchResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:SearchException" name="SearchException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationInfo">
+      <wsdl:input message="tns:getApplicationInfo" name="getApplicationInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationInfoResponse" name="getApplicationInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPersonalReference">
+      <wsdl:input message="tns:getPersonalReference" name="getPersonalReference">
+    </wsdl:input>
+      <wsdl:output message="tns:getPersonalReferenceResponse" name="getPersonalReferenceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bulkUpdateApplicationBankInfo">
+      <wsdl:input message="tns:bulkUpdateApplicationBankInfo" name="bulkUpdateApplicationBankInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:bulkUpdateApplicationBankInfoResponse" name="bulkUpdateApplicationBankInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDoNotLoanFlagOverride">
+      <wsdl:input message="tns:deleteDoNotLoanFlagOverride" name="deleteDoNotLoanFlagOverride">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteDoNotLoanFlagOverrideResponse" name="deleteDoNotLoanFlagOverrideResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoNotLoanFlag">
+      <wsdl:input message="tns:getDoNotLoanFlag" name="getDoNotLoanFlag">
+    </wsdl:input>
+      <wsdl:output message="tns:getDoNotLoanFlagResponse" name="getDoNotLoanFlagResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRegulatoryFlag">
+      <wsdl:input message="tns:getRegulatoryFlag" name="getRegulatoryFlag">
+    </wsdl:input>
+      <wsdl:output message="tns:getRegulatoryFlagResponse" name="getRegulatoryFlagResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmploymentInfo">
+      <wsdl:input message="tns:updateEmploymentInfo" name="updateEmploymentInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:updateEmploymentInfoResponse" name="updateEmploymentInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="bulkUpdateApplicationPricePoint">
+      <wsdl:input message="tns:bulkUpdateApplicationPricePoint" name="bulkUpdateApplicationPricePoint">
+    </wsdl:input>
+      <wsdl:output message="tns:bulkUpdateApplicationPricePointResponse" name="bulkUpdateApplicationPricePointResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicantInfo">
+      <wsdl:input message="tns:getApplicantInfo" name="getApplicantInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicantInfoResponse" name="getApplicantInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:NonexistentEntityException" name="NonexistentEntityException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationIdsForCustomer">
+      <wsdl:input message="tns:getApplicationIdsForCustomer" name="getApplicationIdsForCustomer">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationIdsForCustomerResponse" name="getApplicationIdsForCustomerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoNotLoanFlagOverrideAll">
+      <wsdl:input message="tns:getDoNotLoanFlagOverrideAll" name="getDoNotLoanFlagOverrideAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getDoNotLoanFlagOverrideAllResponse" name="getDoNotLoanFlagOverrideAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoNotLoanFlagAll">
+      <wsdl:input message="tns:getDoNotLoanFlagAll" name="getDoNotLoanFlagAll">
+    </wsdl:input>
+      <wsdl:output message="tns:getDoNotLoanFlagAllResponse" name="getDoNotLoanFlagAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationStatus">
+      <wsdl:input message="tns:getApplicationStatus" name="getApplicationStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationStatusResponse" name="getApplicationStatusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCampaignInfo">
+      <wsdl:input message="tns:addCampaignInfo" name="addCampaignInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:addCampaignInfoResponse" name="addCampaignInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="overrideDoNotLoanFlag">
+      <wsdl:input message="tns:overrideDoNotLoanFlag" name="overrideDoNotLoanFlag">
+    </wsdl:input>
+      <wsdl:output message="tns:overrideDoNotLoanFlagResponse" name="overrideDoNotLoanFlagResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicantAccount">
+      <wsdl:input message="tns:updateApplicantAccount" name="updateApplicantAccount">
+    </wsdl:input>
+      <wsdl:output message="tns:updateApplicantAccountResponse" name="updateApplicantAccountResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicationBankInfo">
+      <wsdl:input message="tns:updateApplicationBankInfo" name="updateApplicationBankInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:updateApplicationBankInfoResponse" name="updateApplicationBankInfoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:NonexistentEntityException" name="NonexistentEntityException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="insertUnpurchasedApp">
+      <wsdl:input message="tns:insertUnpurchasedApp" name="insertUnpurchasedApp">
+    </wsdl:input>
+      <wsdl:output message="tns:insertUnpurchasedAppResponse" name="insertUnpurchasedAppResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertDoNotLoanFlag">
+      <wsdl:input message="tns:insertDoNotLoanFlag" name="insertDoNotLoanFlag">
+    </wsdl:input>
+      <wsdl:output message="tns:insertDoNotLoanFlagResponse" name="insertDoNotLoanFlagResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationIdsForCustomerByApplicationId">
+      <wsdl:input message="tns:getApplicationIdsForCustomerByApplicationId" name="getApplicationIdsForCustomerByApplicationId">
+    </wsdl:input>
+      <wsdl:output message="tns:getApplicationIdsForCustomerByApplicationIdResponse" name="getApplicationIdsForCustomerByApplicationIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicant">
+      <wsdl:input message="tns:updateApplicant" name="updateApplicant">
+    </wsdl:input>
+      <wsdl:output message="tns:updateApplicantResponse" name="updateApplicantResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationVersionException" name="ApplicationVersionException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="appSoapBinding" type="tns:ApplicationService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addPersonalReferences">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="addPersonalReferences">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addPersonalReferencesResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insert">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="insert">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="insertResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicantAccountInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicantAccountInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicantAccountInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removePersonalReference">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="removePersonalReference">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="removePersonalReferenceResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPreviousCustomerApps">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getPreviousCustomerApps">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPreviousCustomerAppsResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SearchException">
+        <soap:fault name="SearchException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="insertApplicantAccount">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="insertApplicantAccount">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="insertApplicantAccountResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertEventlogRecords">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="insertEventlogRecords">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="insertEventlogRecordsResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicationStatus">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updateApplicationStatus">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateApplicationStatusResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationVersionException">
+        <soap:fault name="ApplicationVersionException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDoNotLoanFlag">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="deleteDoNotLoanFlag">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteDoNotLoanFlagResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationPersonalReferences">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationPersonalReferences">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationPersonalReferencesResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mergeApplicants">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="mergeApplicants">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="mergeApplicantsResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePaydateInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updatePaydateInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updatePaydateInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationVersionException">
+        <soap:fault name="ApplicationVersionException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="bulkUpdateApplicationStatus">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="bulkUpdateApplicationStatus">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="bulkUpdateApplicationStatusResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCampaignInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getCampaignInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCampaignInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationNotFoundException">
+        <soap:fault name="ApplicationNotFoundException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationAuditInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationAuditInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationAuditInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmploymentInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getEmploymentInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getEmploymentInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NonexistentEntityException">
+        <soap:fault name="NonexistentEntityException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicationComplete">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updateApplicationComplete">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateApplicationCompleteResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRegulatoryFlag">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updateRegulatoryFlag">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateRegulatoryFlagResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationContactInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationContactInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationContactInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationContactInfoById">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationContactInfoById">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationContactInfoByIdResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="splitApplicants">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="splitApplicants">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="splitApplicantsResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReactAffiliationChildren">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getReactAffiliationChildren">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getReactAffiliationChildrenResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertContactInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="insertContactInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="insertContactInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationVersionException">
+        <soap:fault name="ApplicationVersionException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplication">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updateApplication">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateApplicationResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationVersionException">
+        <soap:fault name="ApplicationVersionException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="hasRegulatoryFlag">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="hasRegulatoryFlag">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="hasRegulatoryFlagResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePersonalReference">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updatePersonalReference">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updatePersonalReferenceResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationVersionException">
+        <soap:fault name="ApplicationVersionException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getReactAffiliation">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getReactAffiliation">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getReactAffiliationResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="associateApplicantAccount">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="associateApplicantAccount">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="associateApplicantAccountResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationVersion">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationVersion">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationVersionResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="flagSearchBySsn">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="flagSearchBySsn">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="flagSearchBySsnResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateContactInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updateContactInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateContactInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationVersionException">
+        <soap:fault name="ApplicationVersionException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationStatusHistory">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationStatusHistory">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationStatusHistoryResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoNotLoanAudit">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getDoNotLoanAudit">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDoNotLoanAuditResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="applicationSearch">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="applicationSearch">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="applicationSearchResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SearchException">
+        <soap:fault name="SearchException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchAll">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="fetchAll">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="fetchAllResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBankInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getBankInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getBankInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bulkUpdateApplicationBankInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="bulkUpdateApplicationBankInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="bulkUpdateApplicationBankInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPersonalReference">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getPersonalReference">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPersonalReferenceResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDoNotLoanFlagOverride">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="deleteDoNotLoanFlagOverride">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteDoNotLoanFlagOverrideResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoNotLoanFlag">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getDoNotLoanFlag">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDoNotLoanFlagResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRegulatoryFlag">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getRegulatoryFlag">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getRegulatoryFlagResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmploymentInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updateEmploymentInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateEmploymentInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationVersionException">
+        <soap:fault name="ApplicationVersionException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="bulkUpdateApplicationPricePoint">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="bulkUpdateApplicationPricePoint">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="bulkUpdateApplicationPricePointResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicantInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicantInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicantInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NonexistentEntityException">
+        <soap:fault name="NonexistentEntityException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationIdsForCustomer">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationIdsForCustomer">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationIdsForCustomerResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoNotLoanFlagOverrideAll">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getDoNotLoanFlagOverrideAll">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDoNotLoanFlagOverrideAllResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationStatus">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationStatus">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationStatusResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoNotLoanFlagAll">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getDoNotLoanFlagAll">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDoNotLoanFlagAllResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCampaignInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="addCampaignInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addCampaignInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="overrideDoNotLoanFlag">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="overrideDoNotLoanFlag">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="overrideDoNotLoanFlagResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicantAccount">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updateApplicantAccount">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateApplicantAccountResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicationBankInfo">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updateApplicationBankInfo">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateApplicationBankInfoResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationVersionException">
+        <soap:fault name="ApplicationVersionException" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="NonexistentEntityException">
+        <soap:fault name="NonexistentEntityException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicationIdsForCustomerByApplicationId">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getApplicationIdsForCustomerByApplicationId">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getApplicationIdsForCustomerByApplicationIdResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertDoNotLoanFlag">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="insertDoNotLoanFlag">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="insertDoNotLoanFlagResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUnpurchasedApp">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="insertUnpurchasedApp">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="insertUnpurchasedAppResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateApplicant">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="updateApplicant">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateApplicantResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationVersionException">
+        <soap:fault name="ApplicationVersionException" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="app">
+    <wsdl:port binding="tns:appSoapBinding" name="ApplicationServiceStandardPort">
+      <soap:address location="https://live.ecash.atlas-lms.com/api/app/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset>
+	<node id="getPage">
+		<expression type="VendorAPI_CFE_Actions_AddPageToken">
+			<param name="name_first" type="ECash_CFE_Expression_Variable"><param>name_first</param></param>
+			<param name="name_last" type="ECash_CFE_Expression_Variable"><param>name_last</param></param>
+			<param name="client_ip_address" type="ECash_CFE_Expression_Variable"><param>ip_address</param></param>
+		</expression>
+		<expression name="process" type="ECash_CFE_Expression_Variable"><param>olp_process</param></expression>
+		<!-- If this applciation was previously agrees to and is now pending or disagreed, it is eCash sign docs -->
+		<expression name="signDocs" type="ECash_CFE_Condition_And">
+			<param type="ECash_CFE_Condition_Or">
+				<param type="ECash_CFE_Condition_Equals">
+					<param type="ECash_CFE_Expression_Variable"><param>application_status</param></param>
+					<param>pending::prospect::*root</param>
+				</param>
+				<param type="ECash_CFE_Condition_Equals">
+					<param type="ECash_CFE_Expression_Variable"><param>application_status</param></param>
+					<param>disagree::prospect::*root</param>
+				</param>
+			</param>
+			<param type="VendorAPI_CFE_Conditions_StatusHistoryIncludes">agree::prospect::*root</param>
+		</expression>
+		<transition when="process.cs_react" to="pendingGetPage"/>
+		<transition when="process.email_react" to="pendingGetPage"/>
+		<transition when="signDocs.true" to="pendingGetPage"/>
+		<transition to="getPage2"/>
+	</node>
+	
+	<node id="pendingGetPage">
+		<expression type="ECash_CFE_Expression_Variable"><param>application_status</param></expression>
+		<transition when="pending::prospect::*root" to="getAgreePage"/>
+		<transition when="disagree::prospect::*root" to="getAgreePage"/>
+		<transition when="denied::applicant::*root" to="deniedPage"/>
+		<transition to="thankyouPage" />
+	</node>
+	
+	<node id="getPage2">
+		<expression type="ECash_CFE_Expression_Variable"><param>application_status</param></expression>
+		<transition when="pending::prospect::*root" to="getConfirmPage"/>
+		<transition when="confirm_declined::prospect::*root" to="getConfirmPage"/>
+		<transition when="confirmed::prospect::*root" to="getAgreePage"/>
+		<transition when="disagree::prospect::*root" to="getAgreePage"/>
+		<transition when="denied::applicant::*root" to="deniedPage"/>
+		<transition to="thankyouPage" />
+	</node>
+	
+	<node id="getConfirmPage">
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">popconfirm</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Expressions_IfEqual">
+			<param type="ECash_CFE_Expression_Variable">
+				<param>is_react</param>
+			</param>
+			<param>yes</param>
+			<param type="VendorAPI_CFE_Actions_RecordEvent">
+				<param name="event">react_popconfirm</param>
+				<param name="unique">TRUE</param>
+			</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Expressions_If">
+			<param type="VendorAPI_CFE_Conditions_ValidPaydates"><param type="ECash_CFE_Expression_Variable">paydates</param></param>
+			<param/>
+			<param type="VendorAPI_CFE_Actions_DoAll">
+				<param type="VendorAPI_CFE_Actions_AddRequiredData"><param name="name">paydate_widget</param></param>
+				<param type="VendorAPI_CFE_Actions_AddPayDate">
+					<param name="paydate_model" type="ECash_CFE_Expression_Variable"><param>paydate_model</param></param>
+					<param name="last_paydate" type="ECash_CFE_Expression_Variable"><param>last_paydate</param></param>
+					<param name="day_of_week" type="ECash_CFE_Expression_Variable"><param>day_of_week</param></param>
+					<param name="day_of_month_1" type="ECash_CFE_Expression_Variable"><param>day_of_month_1</param></param>
+					<param name="day_of_month_2" type="ECash_CFE_Expression_Variable"><param>day_of_month_2</param></param>
+					<param name="week_1" type="ECash_CFE_Expression_Variable"><param>week_1</param></param>
+					<param name="week_2" type="ECash_CFE_Expression_Variable"><param>week_2</param></param>
+				</param>
+			</param>
+		</expression>
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">page_name</param>
+			<param name="value">ent_online_confirm</param>
+		</expression>		
+		<expression type="VendorAPI_CFE_Actions_AddPageToken">
+			<param name="return">&lt;a href=&quot;/?page=ent_online_confirm&quot;&gt;Back to the Confirmation page&lt;/a&gt;</param>
+		</expression>
+	</node>
+	
+	<node id="getAgreePage">
+		<expression type="VendorAPI_CFE_Actions_AddUnsignedDocument">
+			<param name="text">I have read and accept the terms of the @@application@@.</param>
+			<param type="VendorAPI_CFE_DocumentLink" name="application">
+				<param name="title">Application</param>
+				<param name="template">Loan Document</param>
+				<param name="anchor">application</param>
+			</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_AddUnsignedDocument">
+			<param name="text">I have read and accept the terms of the @@privacy@@ &amp; @@electronic@@.</param>
+			<param type="VendorAPI_CFE_DocumentLink" name="privacy">
+				<param name="title">Privacy Policy</param>
+				<param name="template">Loan Document</param>
+				<param name="anchor">privacy_policy</param>
+			</param>
+			<param type="VendorAPI_CFE_PageLink" name="electronic">
+				<param name="title">Electronic Disclosure and Consent Agreement</param>
+				<param name="page">info_edisclosure</param>
+			</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_AddUnsignedDocument">
+			<param name="text">I have read and accept the terms of the @@auth@@.</param>
+			<param type="VendorAPI_CFE_DocumentLink" name="auth">
+				<param name="title">Authorization Agreement</param>
+				<param name="template">Loan Document</param>
+				<param name="anchor">auth_agreement</param>
+			</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_AddUnsignedDocument">
+			<param name="text">I have read and accept the terms of the @@loannote@@.</param>
+			<param type="VendorAPI_CFE_DocumentLink" name="loannote">
+				<param name="title">Loan Note and Disclosure</param>
+				<param name="template">Loan Document</param>
+				<param name="anchor">loan_note_and_disclosure</param>
+			</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">legal</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">page_name</param>
+			<param name="value">ent_online_confirm_legal</param>
+		</expression>		
+		<expression type="VendorAPI_CFE_Actions_AddPageToken">
+			<param name="return">&lt;a href=&quot;/?page=ent_online_confirm_legal&quot;&gt;Back to the Loan Acceptance &amp; eSignature page&lt;/a&gt;</param>
+		</expression>
+	</node>
+	
+	<node id="submitPage">
+		<expression name="process" type="ECash_CFE_Expression_Variable"><param>olp_process</param></expression>
+		<!-- If this applciation was previously agrees to and is now pending or disagreed, it is eCash sign docs -->
+		<expression name="signDocs" type="ECash_CFE_Condition_And">
+			<param type="ECash_CFE_Condition_Or">
+				<param type="ECash_CFE_Condition_Equals">
+					<param type="ECash_CFE_Expression_Variable"><param>application_status</param></param>
+					<param>pending::prospect::*root</param>
+				</param>
+				<param type="ECash_CFE_Condition_Equals">
+					<param type="ECash_CFE_Expression_Variable"><param>application_status</param></param>
+					<param>disagree::prospect::*root</param>
+				</param>
+			</param>
+			<param type="VendorAPI_CFE_Conditions_StatusHistoryIncludes">agree::prospect::*root</param>
+		</expression>
+		<transition when="process.cs_react" to="reactSubmitPage"/>
+		<transition when="process.email_react" to="reactSubmitPage"/>
+		<transition when="signDocs.true" to="esignSubmitPage"/>
+		<transition to="submitPage2"/>
+	</node>
+	
+	<node id="submitPage2">
+		<expression type="ECash_CFE_Expression_Variable"><param>application_status</param></expression>
+		<transition when="pending::prospect::*root" to="submitConfirm"/>
+		<transition when="confirm_declined::prospect::*root" to="submitConfirm"/>
+		<transition when="confirmed::prospect::*root" to="submitAgree"/>
+		<transition when="disagree::prospect::*root" to="submitAgree"/>
+	</node>
+	
+	<node id="submitConfirm">
+		<expression type="ECash_CFE_Expression_Variable"><param>customer_decline</param></expression>
+		<transition when="true" to="confirmDeclined"/>
+		<transition to="onConfirm"/>
+	</node>
+	
+	<node id="onConfirm">
+		<expression type="VendorAPI_CFE_Actions_Blackbox">
+			<param name="datax_recur">0</param>
+			<param name="run_datax">0</param>
+			<param name="used_info">0</param>
+			<param name="verify_rules">0</param>
+		</expression>
+		<transition when="false" to="denied"/>
+		<transition to="confirmed"/>
+	</node>
+	
+	<node id="confirmDeclined">
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>confirm_declined::prospect::*root</param></expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">cancel</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<transition to="declinedPage"/>
+	</node>
+	
+	<node id="denied">
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>denied::applicant::*root</param></expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">confirm_bb_fail</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">denied</param>
+			<param name="value">1</param>
+		</expression>		
+		<transition to="deniedPage"/>
+	</node>
+	
+	<node id="confirmed">
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>confirmed::prospect::*root</param></expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">confirmed</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event" type="VendorAPI_CFE_Expressions_Value">confirmed_${campaign}</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event" type="VendorAPI_CFE_Expressions_Value">${company}_confirm</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Expressions_IfEqual">
+			<param type="ECash_CFE_Expression_Variable">
+				<param>is_react</param>
+			</param>
+			<param>yes</param>
+			<param type="VendorAPI_CFE_Actions_RecordEvent">
+				<param name="event">react_confirmed</param>
+				<param name="unique">TRUE</param>
+			</param>
+			<param type="VendorAPI_CFE_Actions_RecordEvent">
+				<param name="event" type="VendorAPI_CFE_Expressions_Value">bb_${company}_new_app</param>
+				<param name="unique">TRUE</param>
+			</param>
+		</expression>
+		<transition to="agreePage"/>
+	</node>
+	
+	<node id="submitAgree">
+		<expression type="ECash_CFE_Expression_Variable"><param>customer_decline</param></expression>
+		<transition when="true" to="disagree"/>
+		<transition to="onAgree"/>
+	</node>
+	
+	<node id="disagree">
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>disagree::prospect::*root</param></expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">self_declined</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<transition to="declinedPage"/>
+	</node>
+	
+	<node id="onAgree">
+		<expression name="winner" type="VendorAPI_CFE_Actions_Blackbox">
+			<param name="datax_recur">0</param>
+			<param name="run_datax">0</param>
+			<param name="used_info">0</param>
+			<param name="verify_rules">0</param>
+		</expression>
+		<expression name="isReact" type="ECash_CFE_Expression_Variable"><param>is_react</param></expression>
+		<expression name="loanActions" type="ECash_CFE_Expression_Variable"><param>has_loan_actions</param></expression>
+		<transition when="winner.false" to="denied"/>
+		<transition when="isReact.true" to="verification"/>
+		<transition when="loanActions.false" to="verification"/>
+		<transition to="verification"/>
+	</node>
+	
+	<node id="verification">
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>agree::prospect::*root</param></expression>
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>queued::verification::applicant::*root</param></expression>
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">save_loan_actions</param>
+			<param name="value">1</param>
+		</expression>
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">application_expired</param>
+			<param name="value">1</param>
+		</expression>
+		<transition to="agreed"/>
+	</node>
+	
+	<node id="underwriting">
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>agree::prospect::*root</param></expression>
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>queued::underwriting::applicant::*root</param></expression>
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">application_expired</param>
+			<param name="value">1</param>
+		</expression>
+		<transition to="agreed"/>
+	</node>
+	
+	<node id="esignSubmitPage">
+		<expression type="ECash_CFE_Expression_Variable"><param>application_status</param></expression>
+		<transition when="pending::prospect::*root" to="esignSubmitAgree"/>
+		<transition when="disagree::prospect::*root" to="esignSubmitAgree"/>
+		<transition to="thankyouPage"/>
+	</node>
+	
+	<node id="esignSubmitAgree">
+		<expression type="ECash_CFE_Expression_Variable"><param>customer_decline</param></expression>
+		<transition when="true" to="disagree"/>
+		<transition to="verification"/>
+	</node>
+	
+	<node id="reactSubmitPage">
+		<expression type="ECash_CFE_Expression_Variable"><param>application_status</param></expression>
+		<transition when="pending::prospect::*root" to="reactSubmitAgree"/>
+		<transition when="disagree::prospect::*root" to="reactSubmitAgree"/>
+		<transition to="thankyouPage"/>
+	</node>
+	
+	<node id="reactSubmitAgree">
+		<expression type="ECash_CFE_Expression_Variable"><param>customer_decline</param></expression>
+		<transition when="true" to="disagree"/>
+		<transition to="onReactAgree"/>
+	</node>
+	
+	<node id="onReactAgree">
+		<expression type="VendorAPI_CFE_Actions_UpdateStatus"><param>confirmed::prospect::*root</param></expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">confirmed</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event" type="VendorAPI_CFE_Expressions_Value">confirmed_${campaign}</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event" type="VendorAPI_CFE_Expressions_Value">${company}_confirm</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">react_confirmed</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<transition to="verification"/>
+	</node>
+	
+	<node id="agreed">
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">accepted</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">popty</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event">new_document_react</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event" type="VendorAPI_CFE_Expressions_Value">agree_${campaign}</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Actions_RecordEvent">
+			<param name="event" type="VendorAPI_CFE_Expressions_Value">bb_${company}_agree</param>
+			<param name="unique">TRUE</param>
+		</expression>
+		<expression type="VendorAPI_CFE_Expressions_IfEqual">
+			<param type="ECash_CFE_Expression_Variable">
+				<param>is_react</param>
+			</param>
+			<param>yes</param>
+			<param type="VendorAPI_CFE_Actions_RecordEvent">
+				<param name="event">react_agree</param>
+				<param name="unique">TRUE</param>
+			</param>
+			<param type="VendorAPI_CFE_Actions_RecordEvent">
+				<param name="event" type="VendorAPI_CFE_Expressions_Value">bb_${company}_new_app</param>
+				<param name="unique">TRUE</param>
+			</param>
+		</expression>
+		<transition to="thankyouPage"/>
+	</node>
+	
+	<!--  These may potentially be used in the future, but
+		for now they're just for clarity -->
+	<node id="agreePage"/>
+	<node id="thankyouPage">
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">page_name</param>
+			<param name="value">ent_thankyou</param>
+		</expression>	
+	</node>
+	<node id="declinedPage"/>
+	<node id="deniedPage">
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">page_name</param>
+			<param name="value">app_declined</param>
+		</expression>	
+	</node>
+	<node id="statusPage">
+		<expression type="ECash_CFE_Action_AttributeSet">
+			<param name="name">page_name</param>
+			<param name="value">ent_status</param>
+		</expression>
+	</node>
+</ruleset>

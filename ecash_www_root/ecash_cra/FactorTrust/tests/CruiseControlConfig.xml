@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit>
+	<testsuite name="ECash CRA Integration">
+		<directory suffix="Test.php">.</directory>
+	</testsuite>
+	<filter>
+		<whitelist>
+			<directory>../code</directory>
+		</whitelist>
+		<blacklist>
+			<directory>/virtualhosts/libolution</directory>
+		</blacklist>
+	</filter>
+</phpunit>
+

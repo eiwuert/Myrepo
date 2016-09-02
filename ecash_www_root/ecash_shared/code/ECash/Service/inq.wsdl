@@ -1,0 +1,393 @@
+<wsdl:definitions name="InquiryServiceStandardService" targetNamespace="http://app.epm.sellingsource.com" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://app.epm.sellingsource.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema targetNamespace="http://app.epm.sellingsource.com" version="1.0" xmlns:tns="http://app.epm.sellingsource.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:complexType name="inquiry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="bureau_inquiry_id" type="xs:int" />
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element name="external_id" type="xs:int" />
+      <xs:element name="decision" type="xs:string" />
+      <xs:element name="error_condition" type="xs:string" />
+      <xs:element name="sent_package" type="xs:base64Binary" />
+      <xs:element name="receive_package" type="xs:base64Binary" />
+      <xs:element name="company_id" type="xs:int" />
+      <xs:element name="bureau" type="xs:string" />
+      <xs:element name="inquiry_type" type="xs:string" />
+      <xs:element name="outcome" type="xs:string" />
+      <xs:element name="trace_info" type="xs:string" />
+      <xs:element name="reason" type="xs:string" />
+      <xs:element name="timer" type="xs:double" />
+      <xs:element minOccurs="0" name="score" type="xs:string" />
+      <xs:element minOccurs="0" name="payrate" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="skipTraceDataDTO">
+    <xs:sequence>
+      <xs:element name="field_name" type="xs:string" />
+      <xs:element name="field_value" type="xs:string" />
+      <xs:element name="contact_name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inquiryFailureDTO">
+    <xs:sequence>
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element name="application_source" type="xs:string" />
+      <xs:element name="date" type="xs:dateTime" />
+      <xs:element name="call_type" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inquiryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="bureau_inquiry_id" type="xs:int" />
+      <xs:element name="application_id" type="xs:int" />
+      <xs:element name="external_id" type="xs:int" />
+      <xs:element name="decision" type="xs:string" />
+      <xs:element name="error_condition" type="xs:string" />
+      <xs:element name="sent_package" type="xs:string" />
+      <xs:element name="receive_package" type="xs:string" />
+      <xs:element name="company_id" type="xs:int" />
+      <xs:element name="bureau" type="xs:string" />
+      <xs:element name="inquiry_type" type="xs:string" />
+      <xs:element name="outcome" type="xs:string" />
+      <xs:element name="trace_info" type="xs:string" />
+      <xs:element name="reason" type="xs:string" />
+      <xs:element name="timer" type="xs:double" />
+      <xs:element minOccurs="0" name="score" type="xs:string" />
+      <xs:element minOccurs="0" name="payrate" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="receivePackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dateModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="package_" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="receivePackageId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inquiryQueryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="date_created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="date_modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="bureau_inquiry_id" type="xs:int" />
+      <xs:element minOccurs="0" name="application_id" type="xs:int" />
+      <xs:element minOccurs="0" name="external_id" type="xs:int" />
+      <xs:element minOccurs="0" name="decision" type="xs:string" />
+      <xs:element minOccurs="0" name="error_condition" type="xs:string" />
+      <xs:element minOccurs="0" name="sent_package" type="xs:string" />
+      <xs:element minOccurs="0" name="receive_package" type="xs:string" />
+      <xs:element minOccurs="0" name="company_id" type="xs:int" />
+      <xs:element minOccurs="0" name="bureau" type="xs:string" />
+      <xs:element minOccurs="0" name="inquiry_type" type="xs:string" />
+      <xs:element minOccurs="0" name="outcome" type="xs:string" />
+      <xs:element minOccurs="0" name="trace_info" type="xs:string" />
+      <xs:element minOccurs="0" name="reason" type="xs:string" />
+      <xs:element minOccurs="0" name="timer" type="xs:double" />
+      <xs:element minOccurs="0" name="score" type="xs:string" />
+      <xs:element minOccurs="0" name="payrate" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inquiryOrderDTO">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderList" nillable="true" type="tns:inquiryOrderBy" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="inquiryOrderBy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="col" type="xs:string" />
+      <xs:element minOccurs="0" name="isAscending" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="inquiryArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:inquiry" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="skipTraceDataDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:skipTraceDataDTO" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="inquiryFailureDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:inquiryFailureDTO" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="receivePackageArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:receivePackage" />
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType final="#all" name="inquiryDTOArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:inquiryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findInquiriesByApplicationIdResponse">
+    <wsdl:part name="return" type="tns:inquiryArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFailuresBySsnResponse">
+    <wsdl:part name="return" type="tns:inquiryFailureDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFailuresBySsn">
+    <wsdl:part name="arg0" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findLastNonReactInquiries">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSkipTraceData">
+    <wsdl:part name="ssn" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSkipTraceDataResponse">
+    <wsdl:part name="return" type="tns:skipTraceDataDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="recordInquiryResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="save">
+    <wsdl:part name="arg0" type="tns:inquiryDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveReceivedPackagesResponse">
+    <wsdl:part name="return" type="tns:receivePackageArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findInquiriesByApplicationId">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="recordInquiry">
+    <wsdl:part name="arg0" type="tns:inquiry">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findResponse">
+    <wsdl:part name="return" type="tns:inquiryDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="recordSkipTraceResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findInquiryByIdResponse">
+    <wsdl:part name="return" type="tns:inquiry">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findLastNonReactInquiriesResponse">
+    <wsdl:part name="return" type="tns:inquiryArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveReceivedPackages">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+    <wsdl:part name="arg1" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="arg2" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="arg3" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="find">
+    <wsdl:part name="keys" type="tns:inquiryQueryDTO">
+    </wsdl:part>
+    <wsdl:part name="limit" type="xsd:int">
+    </wsdl:part>
+    <wsdl:part name="order" type="tns:inquiryOrderDTO">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findInquiryById">
+    <wsdl:part name="arg0" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveResponse">
+    <wsdl:part name="return" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="recordSkipTrace">
+    <wsdl:part name="ssn" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="external_id" type="xsd:int">
+    </wsdl:part>
+    <wsdl:part name="source" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="call_type" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="reason" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="status" type="xsd:int">
+    </wsdl:part>
+    <wsdl:part name="contact_info" type="tns:skipTraceDataDTOArray">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="InquiryService">
+    <wsdl:operation name="findLastNonReactInquiries">
+      <wsdl:input message="tns:findLastNonReactInquiries" name="findLastNonReactInquiries">
+    </wsdl:input>
+      <wsdl:output message="tns:findLastNonReactInquiriesResponse" name="findLastNonReactInquiriesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSkipTraceData">
+      <wsdl:input message="tns:getSkipTraceData" name="getSkipTraceData">
+    </wsdl:input>
+      <wsdl:output message="tns:getSkipTraceDataResponse" name="getSkipTraceDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFailuresBySsn">
+      <wsdl:input message="tns:getFailuresBySsn" name="getFailuresBySsn">
+    </wsdl:input>
+      <wsdl:output message="tns:getFailuresBySsnResponse" name="getFailuresBySsnResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save">
+      <wsdl:input message="tns:save" name="save">
+    </wsdl:input>
+      <wsdl:output message="tns:saveResponse" name="saveResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recordSkipTrace">
+      <wsdl:input message="tns:recordSkipTrace" name="recordSkipTrace">
+    </wsdl:input>
+      <wsdl:output message="tns:recordSkipTraceResponse" name="recordSkipTraceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveReceivedPackages">
+      <wsdl:input message="tns:retrieveReceivedPackages" name="retrieveReceivedPackages">
+    </wsdl:input>
+      <wsdl:output message="tns:retrieveReceivedPackagesResponse" name="retrieveReceivedPackagesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recordInquiry">
+      <wsdl:input message="tns:recordInquiry" name="recordInquiry">
+    </wsdl:input>
+      <wsdl:output message="tns:recordInquiryResponse" name="recordInquiryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <wsdl:input message="tns:find" name="find">
+    </wsdl:input>
+      <wsdl:output message="tns:findResponse" name="findResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findInquiriesByApplicationId">
+      <wsdl:input message="tns:findInquiriesByApplicationId" name="findInquiriesByApplicationId">
+    </wsdl:input>
+      <wsdl:output message="tns:findInquiriesByApplicationIdResponse" name="findInquiriesByApplicationIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findInquiryById">
+      <wsdl:input message="tns:findInquiryById" name="findInquiryById">
+    </wsdl:input>
+      <wsdl:output message="tns:findInquiryByIdResponse" name="findInquiryByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InquiryServiceStandardServiceSoapBinding" type="tns:InquiryService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="findLastNonReactInquiries">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="findLastNonReactInquiries">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findLastNonReactInquiriesResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSkipTraceData">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getSkipTraceData">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getSkipTraceDataResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFailuresBySsn">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="getFailuresBySsn">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getFailuresBySsnResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="save">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recordSkipTrace">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="recordSkipTrace">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="recordSkipTraceResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveReceivedPackages">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="retrieveReceivedPackages">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="retrieveReceivedPackagesResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recordInquiry">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="recordInquiry">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="recordInquiryResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="find">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findInquiriesByApplicationId">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="findInquiriesByApplicationId">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findInquiriesByApplicationIdResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findInquiryById">
+      <soap:operation soapAction="" style="rpc" />
+      <wsdl:input name="findInquiryById">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findInquiryByIdResponse">
+        <soap:body namespace="http://app.epm.sellingsource.com" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InquiryServiceStandardService">
+    <wsdl:port binding="tns:InquiryServiceStandardServiceSoapBinding" name="InquiryServiceStandardPort">
+      <soap:address location="https://live.ecash.atlas-lms.com/api/inquiry" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

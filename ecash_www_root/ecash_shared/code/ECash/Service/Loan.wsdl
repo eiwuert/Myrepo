@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ECashLoanAPI"
+    targetNamespace="http://schemas.sellingsource.com/soap/ecash/loanapi"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://schemas.sellingsource.com/soap/ecash/loanapi"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+    <types>
+        <xsd:schema targetNamespace="http://schemas.sellingsource.com/soap/ecash/loanapi" xmlns:tns="http://schemas.sellingsource.com/soap/ecash/loanapi">
+            <xsd:complexType name="LoanData">
+                <xsd:all>
+                	<xsd:element name="date_received" type="xsd:date">
+						<xsd:annotation>
+							<xsd:documentation>Date the loan application was received.</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="date_confirmed" type="xsd:date">
+						<xsd:annotation>
+							<xsd:documentation>Date the loan application was confirmed.</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="date_approved" type="xsd:date">
+ 						<xsd:annotation>
+							<xsd:documentation>Date the loan application was approved.</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="date_funded" type="xsd:date" >
+  						<xsd:annotation>
+							<xsd:documentation>Date the loan was funded.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+                	<xsd:element name="date_withdrawn" type="xsd:date">
+  						<xsd:annotation>
+							<xsd:documentation>Date application was withdrawn.</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="apr" type="xsd:decimal">
+						<xsd:annotation>
+							<xsd:documentation>Loan APR.</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+               		<xsd:element name="date_fund_estimated" type="xsd:date">
+  						<xsd:annotation>
+							<xsd:documentation>Estimated date on which the loan will be funded.</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="has_active_paid_out_date" type="xsd:boolean">
+  						<xsd:annotation>
+							<xsd:documentation>Does the loan have an active paid out date?</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="paid_out_date" type="xsd:date">
+  						<xsd:annotation>
+							<xsd:documentation>Date on which the loan was paid out.</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="payoff_amount" type="xsd:double">
+  						<xsd:annotation>
+							<xsd:documentation>Amount required to pay off the loan.</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="has_pending_transactions" type="xsd:boolean">
+  						<xsd:annotation>
+							<xsd:documentation>Does the loan have pending transactions?</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="is_regulatory_flag" type="xsd:boolean">
+  						<xsd:annotation>
+							<xsd:documentation>Is the regulatory flag set for this application?</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="has_paydown" type="xsd:boolean">
+  						<xsd:annotation>
+							<xsd:documentation>Does the loan have a pay down?</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="date_allowed_to_paydown" type="xsd:date">
+  						<xsd:annotation>
+							<xsd:documentation>When is the next paydown allowed?</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="bus_day_after_fund_estimated" type="xsd:date">
+  						<xsd:annotation>
+							<xsd:documentation>The next business day after the estimated fund date</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="tier_2_collections_phone" type="xsd:string">
+  						<xsd:annotation>
+							<xsd:documentation>Tier 2 collection phone number</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="react_date" type="xsd:date">
+  						<xsd:annotation>
+							<xsd:documentation>Date the customer can react this application</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                	<xsd:element name="fund_amount" type="xsd:double">
+  						<xsd:annotation>
+							<xsd:documentation>Original amount the loan was funded for</xsd:documentation>
+						</xsd:annotation>
+                	</xsd:element>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="PaymentInfo">
+                <xsd:all>
+                    <xsd:element name="date" type="xsd:date">
+                    	<xsd:annotation>
+							<xsd:documentation>The date of the last payment.</xsd:documentation>
+						</xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="amount" type="xsd:double">
+						<xsd:annotation>
+							<xsd:documentation>The amount of the last payment.</xsd:documentation>
+						</xsd:annotation>
+                    </xsd:element>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="Balance">
+            	<xsd:sequence>
+                    <xsd:element name="current_due_date" type="xsd:date">
+            		</xsd:element>
+                    <xsd:element name="current_amount_due" type="xsd:double"></xsd:element>
+                    <xsd:element name="next_due_date" type="xsd:date">
+            			<xsd:annotation>
+            				<xsd:documentation>
+            					Date next payment is due.
+            				</xsd:documentation>
+            			</xsd:annotation>
+            		</xsd:element>
+            		<xsd:element name="amount_due" type="xsd:double">
+            			<xsd:annotation>
+            				<xsd:documentation>
+            					Total amount due for next payment.
+            				</xsd:documentation>
+            			</xsd:annotation>
+            		</xsd:element>
+            		<xsd:element name="principle_amount_due"
+            			type="xsd:double">
+            			<xsd:annotation>
+            				<xsd:documentation>
+            					Principal portion of total amount due.
+            				</xsd:documentation>
+            			</xsd:annotation>
+            		</xsd:element>
+            		<xsd:element name="service_charge_amount_due"
+            			type="xsd:double">
+            			<xsd:annotation>
+            				<xsd:documentation>
+            					Service charge portion of total amount
+            					due.
+            				</xsd:documentation>
+            			</xsd:annotation>
+            		</xsd:element>
+            		<xsd:element name="payoff_amount"
+            			type="xsd:double">
+            			<xsd:annotation>
+            				<xsd:documentation>
+            					Payoff amount.
+            				</xsd:documentation>
+            			</xsd:annotation>
+            		</xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="CustomerLoginInfoResponse">
+                <xsd:sequence>
+                	<xsd:element name="application_id" type="xsd:int" ></xsd:element>
+                	<xsd:element name="login" type="xsd:string" ></xsd:element>
+                	<xsd:element name="password" type="xsd:string" ></xsd:element>
+                    <xsd:element name="result" type="xsd:boolean"></xsd:element>
+                    <xsd:element name="error" type="tns:CustomerLoginInfoError"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="CustomerLoginInfoError">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="invalid_application_id">
+						<xsd:annotation>
+							<xsd:documentation>Application ID provided was not associated with an application</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="unable_to_find_customer">
+						<xsd:annotation>
+							<xsd:documentation>Unable to find customer information with the provided application id</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="service_error">
+						<xsd:annotation>
+							<xsd:documentation>An error occured within this service.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+            <xsd:complexType name="CustomerLoan">
+            	<xsd:sequence>
+            		<xsd:element name="application_id" type="xsd:int"/>
+            		<xsd:element name="date_created" type="xsd:date"/>
+            		<xsd:element name="status" type="xsd:string"/>
+            		<xsd:element name="balance" type="xsd:double"/>
+            	</xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="CustomerLoans">
+            	<xsd:sequence>
+            		<xsd:element name="loan" type="tns:CustomerLoan" minOccurs="0" maxOccurs="unbounded"/>
+            	</xsd:sequence>
+            </xsd:complexType>
+			<xsd:simpleType name="PasswordChangeResponse">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="unable_to_save">
+						<xsd:annotation>
+							<xsd:documentation>An error occurred attempting to perform the password change</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="data_inconsistency">
+						<xsd:annotation>
+							<xsd:documentation>An error occurred attempting to perform the password change</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="success">
+						<xsd:annotation>
+							<xsd:documentation>The passowrd change was successful</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="invalid_old_password">
+						<xsd:annotation>
+							<xsd:documentation>The old password provided is not the current password of record</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="no_account">
+						<xsd:annotation>
+							<xsd:documentation>There is no account of record for that user name in this company</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="PayoutResponse">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="success">
+						<xsd:annotation>
+							<xsd:documentation>The payout was successful</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="invalid_application_id">
+						<xsd:annotation>
+							<xsd:documentation>The application id is invalid</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="invalid_status">
+						<xsd:annotation>
+							<xsd:documentation>The status is invalid to request a payout</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="already_exists">
+						<xsd:annotation>
+							<xsd:documentation>A payout already exists</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="within_two_days">
+						<xsd:annotation>
+							<xsd:documentation>Payout is within 2 days of next due date</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="esign_failed">
+						<xsd:annotation>
+							<xsd:documentation>Payout esign failed</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="operation_not_permitted">
+						<xsd:annotation>
+							<xsd:documentation>Operation is not permitted for this enterprise or company.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="PaydownResponse">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="success">
+						<xsd:annotation>
+							<xsd:documentation>The paydown was successful</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="invalid_application_id">
+						<xsd:annotation>
+							<xsd:documentation>The application id is invalid</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="invalid_amount">
+						<xsd:annotation>
+							<xsd:documentation>The paydown amount requested is invalid</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="invalid_status">
+						<xsd:annotation>
+							<xsd:documentation>The status is invalid to request a payout</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="already_exists">
+						<xsd:annotation>
+							<xsd:documentation>A paydown already exists</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="within_two_days">
+						<xsd:annotation>
+							<xsd:documentation>Paydown is within 2 days of next due date</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="esign_failed">
+						<xsd:annotation>
+							<xsd:documentation>Paydown esign failed</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="operation_not_permitted">
+						<xsd:annotation>
+							<xsd:documentation>Operation is not permitted for this enterprise or company.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+        </xsd:schema>
+    </types>
+    <message name="testConnectionRequest">
+    </message>
+    <message name="testConnectionResponse">
+        <part name="result" type="xsd:boolean"/>
+    </message>
+    <message name="requestPayoutRequest">
+		<part name="application_id" type="xsd:int"/>
+    </message>
+    <message name="requestPayoutResponse">
+        <part name="response" type="tns:PayoutResponse"/>
+    </message>
+    <message name="getCustomerLoginInfoRequest">
+		<part name="application_id" type="xsd:int"/>
+    </message>
+    <message name="getCustomerLoginInfoResponse">
+        <part name="response" type="tns:CustomerLoginInfoResponse"/>
+    </message>
+    <message name="requestPaydownRequest">
+		<part name="application_id" type="xsd:int"/>
+		<part name="amount" type="xsd:int"/>
+    </message>
+    <message name="requestPaydownResponse">
+        <part name="response" type="tns:PaydownResponse"/>
+    </message>
+	<message name="changeCustomerPasswordRequest">
+		<part name="application_id" type="xsd:int"/>
+		<part name="login" type="xsd:string"/>
+		<part name="old_password" type="xsd:string"/>
+		<part name="new_password" type="xsd:string"/>
+    </message>
+    <message name="changeCustomerPasswordResponse">
+        <part name="response" type="tns:PasswordChangeResponse"/>
+    </message>
+    <message name="getLoanDataRequest">
+    	<part name="application_id" type="xsd:int"/>
+    </message>
+    <message name="getLoanDataResponse">
+        <part name="loan_data" type="tns:LoanData"/>
+    </message>
+    <message name="getLastPaymentRequest">
+    	<part name="application_id" type="xsd:int">
+ 			<xsd:annotation>
+				<xsd:documentation>Application ID for which to get the last payment.</xsd:documentation>
+			</xsd:annotation>
+		</part>
+    </message>
+    <message name="getLastPaymentResponse">
+        <part name="last_payment_data" type="tns:PaymentInfo"/>
+    </message>
+     <message name="getBalanceRequest">
+    	<part name="application_id" type="xsd:int">
+ 			<xsd:annotation>
+				<xsd:documentation>Application ID for which to get the balance info.</xsd:documentation>
+			</xsd:annotation>
+    	</part>
+    </message>
+    <message name="getBalanceResponse">
+    	<part name="get_balance_response" type="tns:Balance">
+    	</part>
+    </message>
+    <message name="getCustomerLoansRequest">
+    	<part name="username" type="xsd:string"/>
+    	<part name="password" type="xsd:string"/>
+    </message>
+    <message name="getCustomerLoansResponse">
+        <part name="loans" type="tns:CustomerLoans"/>
+    </message>
+    <portType name="ECashLoanAPIPortType">
+        <operation name="testConnection">
+            <input message="tns:testConnectionRequest"/>
+            <output message="tns:testConnectionResponse"/>
+        </operation>
+        <operation name="getLastPayment">
+			<xsd:annotation>
+				<xsd:documentation>Application ID for which to get the last payment.</xsd:documentation>
+			</xsd:annotation>
+            <input message="tns:getLastPaymentRequest"/>
+            <output message="tns:getLastPaymentResponse"/>
+        </operation>
+        <wsdl:operation name="getBalance">
+        	<wsdl:input message="tns:getBalanceRequest"></wsdl:input>
+        	<wsdl:output message="tns:getBalanceResponse"></wsdl:output>
+        </wsdl:operation>
+		<wsdl:operation name="changeCustomerPassword">
+        	<wsdl:input message="tns:changeCustomerPasswordRequest"></wsdl:input>
+        	<wsdl:output message="tns:changeCustomerPasswordResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLoanData">
+        	<wsdl:input message="tns:getLoanDataRequest"></wsdl:input>
+        	<wsdl:output message="tns:getLoanDataResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCustomerLoans">
+        	<wsdl:input message="tns:getCustomerLoansRequest"></wsdl:input>
+        	<wsdl:output message="tns:getCustomerLoansResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="requestPayout">
+        	<wsdl:input message="tns:requestPayoutRequest"></wsdl:input>
+        	<wsdl:output message="tns:requestPayoutResponse"></wsdl:output>
+        </wsdl:operation>     
+        <wsdl:operation name="requestPaydown">
+        	<wsdl:input message="tns:requestPaydownRequest"></wsdl:input>
+        	<wsdl:output message="tns:requestPaydownResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCustomerLoginInfo">
+        	<wsdl:input message="tns:getCustomerLoginInfoRequest"></wsdl:input>
+        	<wsdl:output message="tns:getCustomerLoginInfoResponse"></wsdl:output>
+        </wsdl:operation>
+    </portType>
+    <binding name="ECashLoanAPIBinding" type="tns:ECashLoanAPIPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="changeCustomerPassword">
+			<soap:operation/>
+			<input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+			</input>
+			<output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+			</output>
+		</operation>
+        <operation name="testConnection">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </output>
+        </operation>
+        <operation name="getLoanData">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </output>
+        </operation>
+        <operation name="getLastPayment">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </output>
+        </operation>
+        <operation name="getBalance">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </output>
+        </operation>
+        <operation name="getCustomerLoans">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </output>
+        </operation>
+        <operation name="requestPayout">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </output>
+        </operation>
+        <operation name="requestPaydown">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </output>
+        </operation>
+        <operation name="getCustomerLoginInfo">
+            <soap:operation/>
+            <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </input>
+            <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.sellingsource.com/soap/ecash/loanapi"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="ECashLoanAPIService">
+        <port name="ECashLoanAPIPort" binding="tns:ECashLoanAPIBinding">
+            <soap:address location="%%%soap_url%%%"/>
+        </port>
+    </service>
+</definitions>

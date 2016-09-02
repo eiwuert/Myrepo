@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DataxResponse>
+  <GenerationTime>20090114025551</GenerationTime>
+  <CodeVersion>4.6.4</CodeVersion>
+  <RequestVersion>3.0</RequestVersion>
+  <TransactionId>66093541</TransactionId>
+  <TrackHash>36e83bf43d00230b107f81d9013b200f</TrackHash>
+  <TrackId>196989671</TrackId>
+  <Response>
+    <Detail>
+      <ConsumerIDVerificationSegment>
+        <Input>
+          <LastName>lapp</LastName>
+          <FirstName>chris</FirstName>
+          <MiddleName/>
+          <Address1>2060 n. trekell rd 601</Address1>
+          <Address2/>
+          <City>casa grande</City>
+          <State>az</State>
+          <Zip>85222</Zip>
+        </Input>
+        <Standardized>
+          <LastName>LAPP</LastName>
+          <FirstName>CHRIS</FirstName>
+          <MiddleName/>
+          <AddressVerification>8</AddressVerification>
+          <AddressVerificationMessage>No name match - mixed use</AddressVerificationMessage>
+          <AddressResult>H</AddressResult>
+          <DeliveryPointVerified>Y</DeliveryPointVerified>
+          <Address1>2060 N TREKELL RD APT 601</Address1>
+          <City>CASA GRANDE</City>
+          <State>AZ</State>
+          <Zip>85222</Zip>
+          <Zip4>1358</Zip4>
+          <CRRT>C016</CRRT>
+          <HighRiskAddress>YA</HighRiskAddress>
+        </Standardized>
+        <PreviousAddresses>
+          <Address>
+            <Address1>224 PALMER ST APT 903</Address1>
+            <City>WATERTOWN</City>
+            <State>NY</State>
+            <Zip>13601</Zip>
+            <Zip4>1876</Zip4>
+            <ReportDate>20070911</ReportDate>
+            <LastUpdate>20080306</LastUpdate>
+          </Address>
+          <Address>
+            <Address1>5101 E SLIGH AVE APT A</Address1>
+            <City>TAMPA</City>
+            <State>FL</State>
+            <Zip>33617</Zip>
+            <Zip4>8459</Zip4>
+            <ReportDate>20061221</ReportDate>
+            <LastUpdate>20070809</LastUpdate>
+          </Address>
+        </PreviousAddresses>
+        <SocialSecurityNumber>
+          <InputSSN>500749097</InputSSN>
+          <Return>1</Return>
+          <ReturnMessage>Match to address</ReturnMessage>
+          <Deceased>2</Deceased>
+          <DeceasedMessage>Not Deceased</DeceasedMessage>
+          <Valid>1</Valid>
+          <ValidMessage>Valid</ValidMessage>
+          <Issue>3</Issue>
+          <IssueMessage>Issued</IssueMessage>
+          <IssueState>MO</IssueState>
+          <IssueStartRange>1976</IssueStartRange>
+          <IssueEndRange>1979</IssueEndRange>
+        </SocialSecurityNumber>
+        <Aggregates>
+          <AddressUnitMismatch/>
+          <AddressUnitMismatchMessage/>
+          <AddressType>5</AddressType>
+          <AddressTypeMessage>Multi-family residential</AddressTypeMessage>
+          <AddressHighRisk>2</AddressHighRisk>
+          <AddressHighRiskMessage>High risk business found</AddressHighRiskMessage>
+          <ChangeOfAddress>2</ChangeOfAddress>
+          <ChangeOfAddressMessage>No change of address information found</ChangeOfAddressMessage>
+          <PhoneHighRisk>1</PhoneHighRisk>
+          <PhoneHighRiskMessage>No high risk information found</PhoneHighRiskMessage>
+        </Aggregates>
+        <SSNAddresses>
+          <Address>
+            <LastName>WILLIAMS</LastName>
+            <FirstName>CHRIS</FirstName>
+            <MiddleInitial>R</MiddleInitial>
+            <Address1>2060 N TREKELL RD APT 601</Address1>
+            <City>CASA GRANDE</City>
+            <State>AZ</State>
+            <Zip>85222</Zip>
+            <Zip4>1358</Zip4>
+            <ReportedDate>20080524</ReportedDate>
+            <LastTouchedDate>20080806</LastTouchedDate>
+            <AreaCode/>
+            <PhoneNumber/>
+            <DateOfBirthMatch>1</DateOfBirthMatch>
+          </Address>
+        </SSNAddresses>
+        <ResidentialAddresses>
+          <Address>
+            <LastName>EDWARDS</LastName>
+            <FirstName>MICHELLE</FirstName>
+            <MiddleInitial/>
+            <Address1>2060 N TREKELL RD APT 91</Address1>
+            <City>CASA GRANDE</City>
+            <State>AZ</State>
+            <Zip>85222</Zip>
+            <Zip4>1352</Zip4>
+            <AreaCode>520</AreaCode>
+            <PhoneNumber/>
+            <SpouseName/>
+            <HouseMember1/>
+            <HouseMember2/>
+            <HouseMember3/>
+            <LastTouchedDate>20081124</LastTouchedDate>
+            <ResidenceLength>0057</ResidenceLength>
+          </Address>
+          <Address>
+            <LastName>BURR</LastName>
+            <FirstName>AMY</FirstName>
+            <MiddleInitial/>
+            <Address1>2060 N TREKELL RD APT 91</Address1>
+            <City>CASA GRANDE</City>
+            <State>AZ</State>
+            <Zip>85222</Zip>
+            <Zip4>1352</Zip4>
+            <AreaCode>520</AreaCode>
+            <PhoneNumber/>
+            <SpouseName/>
+            <HouseMember1/>
+            <HouseMember2/>
+            <HouseMember3/>
+            <LastTouchedDate>20081124</LastTouchedDate>
+            <ResidenceLength>0057</ResidenceLength>
+          </Address>
+        </ResidentialAddresses>
+        <HighRiskAddresses>
+          <Address>
+            <BusinessName>COURTYARD APARTMENTS</BusinessName>
+            <Address1/>
+            <City>CASA GRANDE</City>
+            <State>AZ</State>
+            <Zip/>
+            <Zip4>1352</Zip4>
+            <AreaCode>520</AreaCode>
+            <PhoneNumber>8364012</PhoneNumber>
+            <Description>Motels Franchised</Description>
+          </Address>
+        </HighRiskAddresses>
+        <ResidentialPhones>
+          <Phone>
+            <LastName>LAPP</LastName>
+            <FirstName>CHRIS</FirstName>
+            <MiddleInitial/>
+            <Address1/>
+            <City>CASA GRANDE</City>
+            <State>AZ</State>
+            <Zip/>
+            <Zip4/>
+            <AreaCode>520</AreaCode>
+            <PhoneNumber>3742432</PhoneNumber>
+            <SpouseName/>
+            <HouseMember1/>
+            <HouseMember2/>
+            <HouseMember3/>
+          </Phone>
+        </ResidentialPhones>
+        <ChangesOfAddress>
+          <ResultCode>N</ResultCode>
+          <Description/>
+        </ChangesOfAddress>
+        <DateOfBirth>
+          <InputMonth>12</InputMonth>
+          <InputDay>31</InputDay>
+          <InputYear>1973</InputYear>
+          <Result>1</Result>
+          <ResultMessage>Full date of birth match</ResultMessage>
+          <Age>35</Age>
+        </DateOfBirth>
+        <DriversLicense>
+          <InputState>az</InputState>
+          <InputNumber>d0622879</InputNumber>
+          <LastName/>
+          <FirstName/>
+          <MiddleInitial/>
+          <Address1/>
+          <City/>
+          <State/>
+          <Zip/>
+          <Zip4/>
+          <Format>I</Format>
+          <Result>2</Result>
+          <ResultMessage>Format invalid</ResultMessage>
+        </DriversLicense>
+        <HomePhone>
+          <InputNumber>5203742432</InputNumber>
+          <Result>5</Result>
+          <ResultMessage>Match to full name - residential</ResultMessage>
+          <Type>Standard</Type>
+          <AreaCodeZipMatch>Y</AreaCodeZipMatch>
+          <AreaCodePrefixMatch>Y</AreaCodePrefixMatch>
+          <HighRiskPhone>N</HighRiskPhone>
+          <ListingType>Residential</ListingType>
+        </HomePhone>
+        <CellPhone>
+          <InputNumber>5204245642</InputNumber>
+          <Type>Standard</Type>
+        </CellPhone>
+        <InputEmployerInformation>
+          <Name>arizona training center</Name>
+          <Address1/>
+          <Address2/>
+          <City/>
+          <State/>
+          <Zip/>
+        </InputEmployerInformation>
+        <WorkPhone>
+          <InputEmployerName>arizona training center</InputEmployerName>
+          <InputNumber>5207234151</InputNumber>
+          <InputExtension/>
+          <Type>Standard</Type>
+          <EmployerMatch>N</EmployerMatch>
+          <Name>Arizona State Government | Economic Security-Arizona Department Of | Developmental Disabilities | Arizona Training Center At Coolidge</Name>
+          <Address1>2800 N Highway 87</Address1>
+          <City>Coolidge</City>
+          <State>AZ</State>
+          <Zip>852289460</Zip>
+          <ListingType>Business / Government</ListingType>
+        </WorkPhone>
+        <OFAC>1</OFAC>
+        <OFACMessage>No match</OFACMessage>
+        <IPAddress>
+          <InputAddress>68.98.74.144</InputAddress>
+          <MatchCountry>1</MatchCountry>
+          <MatchCountryMessage>Match for US</MatchCountryMessage>
+          <Country>USA</Country>
+          <MatchState>1</MatchState>
+          <MatchStateMessage>Match for input</MatchStateMessage>
+          <State>AZ</State>
+          <MatchCity>2</MatchCity>
+          <MatchCityMessage>No match for input</MatchCityMessage>
+          <City>CHANDLER</City>
+          <MatchZip>2</MatchZip>
+          <MatchZipMessage>No match for input</MatchZipMessage>
+          <Zip>85224</Zip>
+          <MSA>753</MSA>
+          <Latitude>33.324</Latitude>
+          <Longitude>-111.867</Longitude>
+        </IPAddress>
+        <BankInformation>
+          <InputBankName>wells fargo</InputBankName>
+          <InputABANumber>122105278</InputABANumber>
+          <InputAccountNumber>6913750714</InputAccountNumber>
+          <Valid>Y</Valid>
+          <BankNameMatch>Y</BankNameMatch>
+          <BankName>Wells Fargo Bank, National Association</BankName>
+        </BankInformation>
+        <NumberRecords>
+          <AddressVerResidentialMatch>119</AddressVerResidentialMatch>
+          <AddressVerBusinessMatch>6</AddressVerBusinessMatch>
+          <PhoneVerResidentialMatch>1</PhoneVerResidentialMatch>
+          <PhoneVerBusinessMatch>0</PhoneVerBusinessMatch>
+          <ResidentialAddressDetRec>20</ResidentialAddressDetRec>
+          <BusinessAddressDetRec>0</BusinessAddressDetRec>
+          <AddressHighRiskDetRec>1</AddressHighRiskDetRec>
+          <AddressHighRiskDescRec>1</AddressHighRiskDescRec>
+          <ResidentialPhoneDetRec>0</ResidentialPhoneDetRec>
+          <BusinessPhoneDetRec>0</BusinessPhoneDetRec>
+          <PhoneHighRiskDetRec>0</PhoneHighRiskDetRec>
+          <PhoneHighRiskDescRet>0</PhoneHighRiskDescRet>
+          <SSNDetailRecords>1</SSNDetailRecords>
+          <COARecords>0</COARecords>
+        </NumberRecords>
+        <AuthenticationScore>817</AuthenticationScore>
+        <CustomDecision>
+          <Result>Y</Result>
+          <Bucket>A1</Bucket>
+        </CustomDecision>
+        <LooseDecision>
+          <Result>Y</Result>
+          <Bucket>A1</Bucket>
+        </LooseDecision>
+        <ModerateDecision>
+          <Result>R</Result>
+          <Bucket>R7</Bucket>
+        </ModerateDecision>
+        <ConservativeDecision>
+          <Result>R</Result>
+          <Bucket>R13</Bucket>
+        </ConservativeDecision>
+      </ConsumerIDVerificationSegment>
+      <CRASegment>
+        <Decision>
+          <Result>N</Result>
+          <Bucket>D1</Bucket>
+        </Decision>
+      </CRASegment>
+      <GlobalDecision>
+        <Result>N</Result>
+        <IDVBucket>A1</IDVBucket>
+        <CRABucket>D1</CRABucket>
+        <TLTBucket/>
+      </GlobalDecision>
+    </Detail>
+  </Response>
+</DataxResponse>
