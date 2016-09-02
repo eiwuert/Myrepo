@@ -1,0 +1,32 @@
+### eCash Commercial - generic LIVE Instance
+MAILTO=brian.ronald@sellingsource.com,josef.norgan@sellingsource.com
+
+# Checks the StatPro Scrubber to make sure it's still running
+*/10 * * * * /virtualhosts/lib/procCheck
+
+# Queue related crons
+*/5 * * * * sudo -u apache php -f /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic offline queue_population_from_olp &>/dev/null
+*/5 * * * * sudo -u apache php -f /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic offline queue_recycle &>/dev/null
+*/5 * * * * sudo -u apache php -f /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic offline queue_cleanup &>/dev/null
+
+# Email Queue Import Script - Not Configured Yet
+*/5 * * * * sudo -u apache php -f /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic email populate_email_queue &>/dev/null
+
+# Document Queue Sending Script
+*/5 * * * * sudo -u apache php -f /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic documents send_queued_documents &>/dev/null
+
+# Nightly tasks for all five companies
+0  21 * * *  sudo -u apache php -f /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic offline nightly >> /virtualhosts/log/applog/ecash3.0/mls_live/offline/errors.log
+
+# Run the Returns Processing every morning
+0 6-10 * * mon-fri sudo -u apache php -f /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic ach new_returns_and_corrections
+
+# Send Reminder Emails for Arrangements - These are not run  for generic
+#0 1 * * * sudo -u apache php -f /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic offline send_arrangement_reminder_letters
+
+# Send Account Summary Letters
+0 3 * * * sudo -u apache php /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic offline send_account_summary_letters >> /virtualhosts/log/applog/ecash3.0/mls_live/offline/errors.log
+
+# Retreive and process Teledraft Results file
+0 20 * * * sudo -u apache php -f /virtualhosts/generic/ecash3.0/live/cronjobs/ecash_engine.php generic ach teledraft_results.php
+

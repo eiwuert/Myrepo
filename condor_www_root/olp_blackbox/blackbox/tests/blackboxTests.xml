@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<phpunit>
+    <testsuite name="Blackbox Test Suite">
+        <directory>.</directory>
+    </testsuite>
+    <filter>
+        <blacklist>
+            <directory>/virtualhosts/lib</directory>
+            <directory>/virtualhosts/lib5</directory>
+            <directory>/virtualhosts/libolution</directory>
+            <directory>../tests</directory>
+        </blacklist>
+    </filter>
+</phpunit>

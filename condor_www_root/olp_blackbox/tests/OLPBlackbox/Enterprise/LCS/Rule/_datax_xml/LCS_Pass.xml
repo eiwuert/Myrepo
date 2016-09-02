@@ -1,0 +1,288 @@
+<DataxResponse>
+<GenerationTime>20080201080148</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>42259551</TransactionId>
+<TrackHash>7f576b8399979f4e2220b669355269b4</TrackHash>
+<Response>
+    <Detail>
+        <ConsumerIDVerificationSegment>
+            <Input>
+                <LastName>essadik</LastName>
+                <FirstName>margaret</FirstName>
+                <MiddleName />
+                <Address1>19 grandview avenue</Address1>
+                <Address2 />
+                <City>west orange</City>
+                <State>nj</State>
+                <Zip>07052</Zip>
+            </Input>
+            <Standardized>
+                <LastName>ESSADIK</LastName>
+                <FirstName>MARGARET</FirstName>
+                <MiddleName />
+                <AddressVerification>8</AddressVerification>
+                <AddressVerificationMessage>No name match - mixed use</AddressVerificationMessage>
+                <AddressResult>S</AddressResult>
+                <DeliveryPointVerified>Y</DeliveryPointVerified>
+                <Address1>19 GRAND VIEW AVE</Address1>
+                <City>WEST ORANGE</City>
+                <State>NJ</State>
+                <Zip>07052</Zip>
+                <Zip4>3934</Zip4>
+                <CRRT>C064</CRRT>
+                <HighRiskAddress>N</HighRiskAddress>
+            </Standardized>
+            <PreviousAddresses>
+                <Address>
+                    <Address1>2163 SHORE BLVD APT 1</Address1>
+                    <City>ASTORIA</City>
+                    <State>NY</State>
+                    <Zip>11105</Zip>
+                    <Zip4>3928</Zip4>
+                    <ReportDate>20070529</ReportDate>
+                    <LastUpdate>20070529</LastUpdate>
+                </Address>
+                <Address>
+                    <Address1>2613 23RD AVE APT 1R</Address1>
+                    <City>ASTORIA</City>
+                    <State>NY</State>
+                    <Zip>11105</Zip>
+                    <Zip4>3124</Zip4>
+                    <ReportDate>20071001</ReportDate>
+                    <LastUpdate>20071001</LastUpdate>
+                </Address>
+            </PreviousAddresses>
+            <SocialSecurityNumber>
+                <InputSSN>148388334</InputSSN>
+                <Return>1</Return>
+                <ReturnMessage>Match to address</ReturnMessage>
+                <Deceased>2</Deceased>
+                <DeceasedMessage>Not Deceased</DeceasedMessage>
+                <Valid>1</Valid>
+                <ValidMessage>Valid</ValidMessage>
+                <Issue>3</Issue>
+                <IssueMessage>Issued</IssueMessage>
+                <IsseuState>NJ</IsseuState>
+                <IssueStartRange>1962</IssueStartRange>
+                <IssueEndRange>1964</IssueEndRange>
+            </SocialSecurityNumber>
+            <Aggregates>
+                <AddressUnitMismatch />
+                <AddressUnitMismatchMessage />
+                <AddressType>17</AddressType>
+                <AddressTypeMessage>Mixed use</AddressTypeMessage>
+                <AddressHighRisk>1</AddressHighRisk>
+                <AddressHighRiskMessage>No high risk information found</AddressHighRiskMessage>
+                <ChangeOfAddress>2</ChangeOfAddress>
+                <ChangeOfAddressMessage>No change of address information found</ChangeOfAddressMessage>
+                <PhoneHighRisk>1</PhoneHighRisk>
+                <PhoneHighRiskMessage>No high risk information found</PhoneHighRiskMessage>
+            </Aggregates>
+            <SSNAddresses>
+                <Address>
+                    <LastName>GOULD</LastName>
+                    <FirstName>MARGARET</FirstName>
+                    <MiddleInitial>J</MiddleInitial>
+                    <Address1>19 GRAND VIEW AVE</Address1>
+                    <City>WEST ORANGE</City>
+                    <State>NJ</State>
+                    <Zip>07052</Zip>
+                    <Zip4>3934</Zip4>
+                    <ReportedDate>20041120</ReportedDate>
+                    <LastTouchedDate>20071216</LastTouchedDate>
+                    <AreaCode>973</AreaCode>
+                    <PhoneNumber>7319650</PhoneNumber>
+                    <DateOfBirthMatch>1</DateOfBirthMatch>
+                </Address>
+            </SSNAddresses>
+            <ResidentialAddresses>
+                <Address>
+                    <LastName>GOULD</LastName>
+                    <FirstName>NATHAN</FirstName>
+                    <MiddleInitial>E</MiddleInitial>
+                    <Address1>19 GRAND VIEW AVE</Address1>
+                    <City>WEST ORANGE</City>
+                    <State>NJ</State>
+                    <Zip>07052</Zip>
+                    <Zip4>3934</Zip4>
+                    <AreaCode>973</AreaCode>
+                    <PhoneNumber>7319650</PhoneNumber>
+                    <SpouseName />
+                    <HouseMember1>CAROL</HouseMember1>
+                    <HouseMember2 />
+                    <HouseMember3 />
+                    <LastTouchedDate>20080115</LastTouchedDate>
+                    <ResidenceLength>0337</ResidenceLength>
+                </Address>
+                <Address>
+                    <LastName>GOULD</LastName>
+                    <FirstName>NATHAN</FirstName>
+                    <MiddleInitial>E</MiddleInitial>
+                    <Address1>19 GRAND VIEW AVE</Address1>
+                    <City>WEST ORANGE</City>
+                    <State>NJ</State>
+                    <Zip>07052</Zip>
+                    <Zip4>3934</Zip4>
+                    <AreaCode>973</AreaCode>
+                    <PhoneNumber>3259033</PhoneNumber>
+                    <SpouseName />
+                    <HouseMember1>CAROL</HouseMember1>
+                    <HouseMember2 />
+                    <HouseMember3 />
+                    <LastTouchedDate>20080115</LastTouchedDate>
+                    <ResidenceLength>0337</ResidenceLength>
+                </Address>
+            </ResidentialAddresses>
+            <HighRiskAddresses>
+                <Address>
+                    <BusinessName />
+                    <Address1 />
+                    <City />
+                    <State />
+                    <Zip />
+                    <Zip4 />
+                    <AreaCode />
+                    <PhoneNumber />
+                    <Description>No high risk business at address/phone</Description>
+                </Address>
+            </HighRiskAddresses>
+            <ResidentialPhones />
+            <ChangesOfAddress>
+                <ResultCode>N</ResultCode>
+                <Description />
+            </ChangesOfAddress>
+            <DateOfBirth>
+                <InputMonth>05</InputMonth>
+                <InputDay>10</InputDay>
+                <InputYear>1954</InputYear>
+                <Result>1</Result>
+                <ResultMessage>Full date of birth match</ResultMessage>
+                <Age>53</Age>
+            </DateOfBirth>
+            <DriversLicense>
+                <InputState>nj</InputState>
+                <InputNumber>e80575187155545</InputNumber>
+                <LastName />
+                <FirstName />
+                <MiddleInitial />
+                <Address1 />
+                <City />
+                <State />
+                <Zip />
+                <Zip4 />
+                <Format>V</Format>
+                <Result>6</Result>
+                <ResultMessage>No match</ResultMessage>
+            </DriversLicense>
+            <HomePhone>
+                <InputNumber>6463427272</InputNumber>
+                <Result>4</Result>
+                <ResultMessage>Mobile number</ResultMessage>
+                <Type>Standard</Type>
+                <AreaCodeZipMatch>N</AreaCodeZipMatch>
+                <AreaCodePrefixMatch>Y</AreaCodePrefixMatch>
+                <HighRiskPhone>N</HighRiskPhone>
+                <ListingType>Unidentified</ListingType>
+            </HomePhone>
+            <CellPhone>
+                <InputNumber>6463427272</InputNumber>
+                <Type>Standard</Type>
+            </CellPhone>
+            <InputEmployerInformation>
+                <Name>headway corporate resources</Name>
+                <Address1 />
+                <Address2 />
+                <City />
+                <State />
+                <Zip />
+            </InputEmployerInformation>
+            <WorkPhone>
+                <InputEmployerName>headway corporate resources</InputEmployerName>
+                <InputNumber>2126726635</InputNumber>
+                <InputExtension />
+                <Type>Standard</Type>
+                <EmployerMatch>N</EmployerMatch>
+                <Name />
+                <Address1 />
+                <City />
+                <State />
+                <Zip />
+                <Type>Unidentified</Type>
+            </WorkPhone>
+            <OFAC>1</OFAC>
+            <OFACMessage>No match</OFACMessage>
+            <IPAddress>
+                <InputAddress>74.213.144.126</InputAddress>
+                <MatchCountry>1</MatchCountry>
+                <MatchCountryMessage>Match for US</MatchCountryMessage>
+                <Country>USA</Country>
+                <MatchState>2</MatchState>
+                <MatchStateMessage>No match for input</MatchStateMessage>
+                <State>NC</State>
+                <MatchCity>2</MatchCity>
+                <MatchCityMessage>No match for input</MatchCityMessage>
+                <City>HILLSBOROUGH</City>
+                <MatchZip>2</MatchZip>
+                <MatchZipMessage>No match for input</MatchZipMessage>
+                <Zip>27278</Zip>
+                <MSA>560</MSA>
+                <Latitude>36.082</Latitude>
+                <Longitude>-79.082</Longitude>
+            </IPAddress>
+            <BankInformation>
+                <InputBankName>commerce bank, national association</InputBankName>
+                <InputABANumber>026013673</InputABANumber>
+                <InputAccountNumber>7925118593</InputAccountNumber>
+                <Valid>Y</Valid>
+                <BankNameMatch>Y</BankNameMatch>
+                <BankName>Commerce Bank, National Association</BankName>
+            </BankInformation>
+            <NumberRecords>
+                <AddressVerResidentialMatch>2</AddressVerResidentialMatch>
+                <AddressVerBusinessMatch>1</AddressVerBusinessMatch>
+                <PhoneVerResidentialMatch>0</PhoneVerResidentialMatch>
+                <PhoneVerBusinessMatch>0</PhoneVerBusinessMatch>
+                <ResidentialAddressDetRec>2</ResidentialAddressDetRec>
+                <BusinessAddressDetRec>0</BusinessAddressDetRec>
+                <AddressHighRiskDetRec>0</AddressHighRiskDetRec>
+                <AddressHighRiskDescRec>1</AddressHighRiskDescRec>
+                <ResidentialPhoneDetRec>0</ResidentialPhoneDetRec>
+                <BusinessPhoneDetRec>0</BusinessPhoneDetRec>
+                <PhoneHighRiskDetRec>0</PhoneHighRiskDetRec>
+                <PhoneHighRiskDescRet>0</PhoneHighRiskDescRet>
+                <SSNDetailRecords>1</SSNDetailRecords>
+                <COARecords>0</COARecords>
+            </NumberRecords>
+            <AuthenticationScore>211</AuthenticationScore>
+            <CustomDecision>
+                <Result>Y</Result>
+                <Bucket>A1</Bucket>
+            </CustomDecision>
+            <LooseDecision>
+                <Result>N</Result>
+                <Bucket>D2</Bucket>
+            </LooseDecision>
+            <ModerateDecision>
+                <Result>N</Result>
+                <Bucket>D3</Bucket>
+            </ModerateDecision>
+            <ConservativeDecision>
+                <Result>N</Result>
+                <Bucket>D4</Bucket>
+            </ConservativeDecision>
+        </ConsumerIDVerificationSegment>
+        <CRASegment>
+            <Decision>
+                <Result>Y</Result>
+                <Bucket>A1</Bucket>
+            </Decision>
+        </CRASegment>
+        <GlobalDecision>
+            <Result>Y</Result>
+            <IDVBucket>A1</IDVBucket>
+            <CRABucket>A1</CRABucket>
+        </GlobalDecision>
+    </Detail>
+</Response>
+</DataxResponse>

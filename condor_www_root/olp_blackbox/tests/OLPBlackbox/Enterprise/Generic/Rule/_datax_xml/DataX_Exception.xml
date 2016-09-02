@@ -1,0 +1,10 @@
+<DataxResponse>
+<GenerationTime>20080228062812</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>42773069</TransactionId>
+<Response>
+	<ErrorCode>G-022</ErrorCode>
+	<ErrorMsg>Invalid Current Address</ErrorMsg>
+</Response>
+</DataxResponse>

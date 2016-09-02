@@ -1,0 +1,28 @@
+#!/bin/bash
+
+CONFIG="OLPBlackboxTests.xml"
+STOPONFAIL=""
+COVERAGE=""
+
+INDEX=0
+
+for ARG in $*
+do
+	if test $ARG="-c"
+	then
+	    if test -n $"$INDEX+1"
+	    then
+	        COVERAGE="--coverage-html $ARG"
+	    fi
+	fi
+	if test $ARG="-s"
+	then
+	    STOPONFAIL="--stop-on-failure"
+	fi
+	
+	let "INDEX+=1"
+done
+
+
+
+phpunit $STOPONFAIL $COVERAGE --configuration $CONFIG

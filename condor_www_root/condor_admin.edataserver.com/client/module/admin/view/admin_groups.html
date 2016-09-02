@@ -1,0 +1,101 @@
+<table width="100%" class="privs" height="500">
+<form name="group_info" action='/' method="post"><input name="action" type="hidden" value="save">
+<!-- Start Radio Buttons -->
+	<tr>
+		<td class="tiny_space">&nbsp;</td>
+	</tr>
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td><input id="add_groups_radio_btn" name="agent_action" type="radio" onClick="javascript:radio_btn_actions('add_groups');"><nobr><b>Add Group</b></nobr></td>
+					<td><input id="mod_groups_radio_btn" name="agent_action" type="radio" onClick="javascript:radio_btn_actions('modify_groups');"><nobr><b>Modify Group</b></nobr></td>
+					<td><input id="remove_groups_radio_btn" name="agent_action" type="radio" onClick="javascript:radio_btn_actions('remove_groups');"><nobr><b>Remove Group</b></nobr></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+<!-- Stop Radio Buttons -->
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td>
+						<table height="380px" width="180px">
+							<tr>
+								<td class="align_left">&nbsp;<b>Existing Groups</b></td>
+							</tr>
+							<tr>
+								<td class="border_one">
+									<table>
+										<tr>
+											<td>
+												<select name="groups" size="28" style="width:165px" disabled="false" onChange="javascript:display_group();" >
+													%%%group_select_list%%%
+												</select>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table width="582px" height="400px">
+							<tr>
+								<td class="align_left">&nbsp;<b>Group Details</b></td>
+							</tr>
+							<tr>
+								<td class="border_one">
+									<table width="100%">
+										<tr><td class="tiny_space">&nbsp;</td></tr>
+										<tr>
+											<td><nobr>Group Name:</nobr></td>
+											<td class="align_left"> <input type='text' name="group_name"> </td>
+											<td><nobr>Company Name:</nobr></td>
+											<td class="align_left"> <select name="company"> %%%all_companies_list%%% </select></td>
+										</tr>
+										<tr><td class="tiny_space">&nbsp;</td></tr>
+									</table>
+									<table width="100%">
+										<tr><td class="tiny_space">&nbsp;</td></tr>
+										<tr>
+											<td class="tiny_space">&nbsp;</td>
+											<td class="align_left">&nbsp;<b>Group Structure</b></td>
+											<td class="tiny_space">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="tiny_space">&nbsp;</td>
+											<td class="border_one">
+												<div style="width:555px; height:300px; overflow:auto;"> 
+													<table size="12" width="430px" height="260px" border="0" >
+														<tr>
+															<td class="align_left">%%%master_tree%%%</td>
+														</tr>
+													</table>
+												</div> 
+											</td>
+											<td class="tiny_space">&nbsp;</td>
+										</tr>
+										<tr><td class="tiny_space">&nbsp;</td></tr>
+										<tr>
+											<td class="tiny_space">&nbsp;</td>
+											<td class="align_right">
+												<input name="deselect_all" type="button" value="Deselect All" onclick="javascript:deselect_all_sections();">
+												<input name="select_all" type="button" value="Select All" onclick="javascript:select_all_sections();">
+												<input name="commit" type="button" onclick="javascript:save();">
+											</td>
+											<td class="tiny_space">&nbsp;</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>						
+				</tr>						
+			</table>
+		</td>
+	</tr>
+	</form>
+</table>
+%%%error_block%%%

@@ -1,0 +1,73 @@
+%%%error_block%%%
+<div id="templates_tokens_new">
+	<form id="create_new_token" method="post" action="?module=templates_tokens_new&action=submit">
+		<table cellpadding="2" cellspacing="0" border="0">
+			<tr>
+				<td>&nbsp;</td>
+				<td>Help: <a href="" onclick="showHiddenPopup('help_avail_tokens',120,103,1); return false">View Tokens</a></td>
+			</tr>
+			<tr>
+				<td class="%%%css_token_name%%%">Token Name:</td>
+				<td>
+					<input type="text" name="token_name" value="%%%token_name%%%" size="50" maxlength="255" />
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td style="font-style:italic;">(i.e. %%%<strong>MyToken</strong>%%%)</td>
+			</tr>
+			<tr>
+				<td class="%%%css_token_description%%%" id="token_description_label">Description:</td>
+				<td>
+					<input type="text" id="token_description" name="token_description" value="%%%token_description%%%" maxlength="255" size="50" />
+				</td>
+			</tr>
+			<tr>
+				<td class="%%%css_token_description%%%">Test Data:</td>
+				<td>
+					<input type="text" name="test_data" value="%%%test_data%%%" maxlength="255" size="50" />
+				</td>
+			</tr>
+			<tr>
+				<td class="%%%css_token_description%%%">Test Data Type:</td>
+				<td>
+					<select id="test_data_type" name="test_data_type">
+						%%%test_data_type_list%%%
+					</select>
+				</td>
+			</tr>
+			<tr><td colspan="2">&nbsp;</td>
+			<tr>
+				<td align="center" colspan="2">
+					<input type="submit" name="submit" value="Save" />
+					<input type="button" name="cancel" value="Cancel" onclick="window.location = '?module=templates_tokens_list'" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+
+<!-- Available Tokens Popup -->
+<div id="help_avail_tokens" style="overflow: auto; position: absolute; display: none; background-color: #dee1e2; border: 1px solid black; padding: 5px; width: 500px; height: 250px">
+
+	<div style="float: right; text-align: right">
+		<a href="" onclick="hideHiddenPopup('help_avail_tokens'); return false;">Close</a>
+	</div>
+
+	<h2 style="text-align: left; margin: 2px">Available Tokens</h2>
+
+	<table width="99%" cellpadding="2" cellspacing="0" style="margin-right: auto; margin-left: auto; border: 1px solid black">
+		<tr style="background-color: silver">
+			<td class="bold">Token</td>
+			<td class="bold">Description</td>
+			<td class="bold">Test Data</td>
+			<td class="bold">Data Type</td>
+		</tr>
+	%%%token_rows%%%
+	</table>
+
+	<div style="text-align: right">
+		<a href="" onclick="hideHiddenPopup('help_avail_tokens'); return false">Close</a>
+	</div>
+
+</div>

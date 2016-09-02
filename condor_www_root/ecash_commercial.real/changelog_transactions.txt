@@ -1,0 +1,925 @@
+eCash 3.5 Transactional Model Change Log
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!                                                                          !!!
+!!!   NOTE: The changelog format is being changed.  Please follow this       !!!
+!!!   pattern.  Each line containing a file name should no longer begin      !!!
+!!!   with "(#)", and instead should be a simple copy from the CVS Update    !!!
+!!!   command. Before editing the file, simply run "cvs update -A" and       !!!
+!!!   copy all lines which begin with one of these characters: AMR  This     !!!
+!!!   should save all of us some time.  Please attempt to use LITERAL tabs   !!!
+!!!   instead of spaces.  Please do NOT tab multiple lines of description.   !!!
+!!!   These changes will allow the changelog to be more standard-compliant   !!!
+!!!   and will also let us more easily (and automatically) parse the file    !!!
+!!!   if needed.                                                             !!!
+!!!                                                                          !!!
+!!!   Release #.#.# - XXXX/XX/XX...                                          !!!
+!!!                                                                          !!!
+!!!   #. Comments... [Tag][Tag]...                                           !!!
+!!!   <tab>R file                                                            !!!
+!!!   <tab>M file                                                            !!!
+!!!   <tab>A file                                                            !!!
+!!!                                                                          !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Release 3.?.?  - XXXX/XX/XX (XX:XX PST) - Tag Name: NEW_TRANSACTION_MODEL
+		sql/setup/fraud_business_rules.sql need to be rerun
+
+1. Made configuration changes necessary to run from new branch. [mlively]
+	M config/local-shd.php
+
+2. Made changes to database schema files. The following files must be added to 
+all databases that will support the newer transaction model. [mlively]
+	M sql/setup/event_amount.sql
+	A sql/setup/event_amount__after_insert.sql
+	M sql/setup/event_amount__before_delete.sql
+	A sql/setup/event_amount__before_update.sql
+	M sql/setup/event_amount_type.sql
+	A sql/setup/event_schedule__after_delete.sql
+
+3. Added a single account conversion script. This allows someone to pull one 
+account at a time into the new event_amount schema. This will also form the 
+basis for the conversion once the time is right.
+	A utils/convert_to_event_amount.php
+
+4. Applied SQL fixes for triggers (AFTER triggers not well supported in mysql)
+[mlively]
+	R sql/setup/event_amount__after_insert.sql
+	M sql/setup/event_amount__before_insert.sql
+	R sql/setup/event_schedule__after_delete.sql
+	A sql/setup/event_schedule__before_delete.sql
+
+5. Updated all schedule inserts to be done from the scheduling library. 
+[mlively]
+	M server/module/admin/dda_schedule.class.php
+	M server/module/collections/quick_checks.class.php
+
+6. Added Event Amount Functions, and balance function to scheduling lib.
+[mlively]
+
+7. Small fix to account conversion utility. [mlively]
+	M utils/convert_to_event_amount.php
+
+8. Modify Quickchecks to utilize event amount to retrieve balance information, 
+and also appropropiatly add event amounts for the quickcheck transaction. 
+(Including reattempts as well.) [mlively]
+	M cronjobs/qc_batch.php
+	M lib/common_functions.php
+	M server/module/collections/quick_checks.class.php
+	M sql/lib/scheduling.func.php
+	M utils/convert_to_event_amount.php
+
+9. Modified all calls creating events to use event amount table to edit 
+amounts. [mlively]
+	M cronjobs/generate_schedules.php
+	M customer_lib/clk/ach_returns_dfa.php
+	M customer_lib/clk/complete_schedule_dfa.php
+	M customer_lib/clk/create_schedule_dfa.php
+	M customer_lib/ic/ach_returns_dfa.php
+	M customer_lib/ic/complete_schedule_dfa.php
+	M customer_lib/ic/create_schedule_dfa.php
+	M lib/batch_maintenance.class.php
+	A server/code/event_amount.class.php
+	M server/code/loan_data.class.php
+	M server/code/schedule_event.class.php
+	M server/module/admin/dda_schedule.class.php
+	M sql/lib/scheduling.func.php
+	M utils/convert_to_event_amount.php
+
+10. Merged in new code from head. Wheeeeeeee! [mlively] 
+[HEAD_TAG:NEW_TRANSACTION_MODEL-merged-1]
+	M changelog.txt
+	M client/code/display_overview.class.php
+	M client/code/display_popup.class.php
+	M client/module/admin/code/admin_parent.abst.php
+	M client/module/admin/code/display_dda.class.php
+	R client/module/admin/view/dda_raw.html
+	M client/module/collections/code/collections_client.class.php
+	M client/module/funding/code/funding_client.class.php
+	M client/module/loan_servicing/view/customer_service_react_buttons.html
+	A client/module/reporting/code/display_nsf_report.class.php
+	M client/module/reporting/code/display_queue_report.class.php
+	M client/module/reporting/code/display_report_parent.class.php
+	M client/module/reporting/code/display_score_report.class.php
+	M client/module/reporting/view/display_report.html
+	M client/module/watch/code/watch_client.class.php
+	M client/view/chargeback_popup.html
+	M client/view/chargeback_reversal_popup.html
+	M client/view/documents.html
+	M client/view/exception_local.html
+	M client/view/reactivation.html
+	A client/view/received_document_modify_popup.html
+	M client/view/refund_payment_popup.html
+	M client/view/template.html
+	M config/live.php
+	M config/rc.php
+	M cronjobs/ecash_engine.php
+	M cronjobs/mailer.php
+	M cronjobs/nightly.php
+	M cronjobs/send_account_summary_letters.php
+	M customer_lib/clk/ach_returns_dfa.php
+	M customer_lib/clk/failure_dfa.php
+	M customer_lib/clk/list_available_admin_menu.php
+	M customer_lib/clk/list_available_reports.php
+	M customer_lib/clk/quickcheck_returns_dfa.php
+	M customer_lib/ic/ach_returns_dfa.php
+	M customer_lib/ic/failure_dfa.php
+	M customer_lib/ic/quickcheck_returns_dfa.php
+	M lib/ach.2.php
+	M lib/achtransport_https.class.php
+	M lib/batch_maintenance.class.php
+	M lib/common_functions.php
+	M lib/cronscheduler.class.php
+	M lib/dfa.php
+	M server/code/edit.class.php
+	M server/code/inactive_paid_status_report_query.class.php
+	M server/code/loan_data.class.php
+	M server/code/master_module.class.php
+	A server/code/nsf_report_query.class.php
+	M server/code/payments_due_report_query.class.php
+	M server/code/queue_report_query.class.php
+	M server/code/rouge_signed_docs_report_query.class.php
+	M server/code/validate.class.php
+	M server/module/admin/dda.class.php
+	M server/module/admin/dda_adjustments.class.php
+	M server/module/admin/dda_application.class.php
+	M server/module/admin/dda_controlling_agent.class.php
+	M server/module/admin/dda_dummy.class.php
+	M server/module/admin/dda_queues.class.php
+	M server/module/admin/dda_reaffiliate.class.php
+	M server/module/admin/dda_schedule.class.php
+	M server/module/collections/quick_checks.class.php
+	A server/module/conversion/cashline_conversion.class.php
+	M server/module/conversion/conversion.class.php
+	M server/module/conversion/module.class.php
+	A server/module/conversion/other_conversion.class.php
+	M server/module/documents/ApplicationData.class.php
+	M server/module/documents/AutoEmail.class.php
+	M server/module/documents/Document.class.php
+	M server/module/documents/Type.class.php
+	M server/module/documents/DeliveryAPI/Condor.class.php
+	M server/module/documents/DeliveryAPI/Copia.class.php
+	M server/module/documents/Type/Packaged.class.php
+	M server/module/funding/funding.class.php
+	M server/module/funding/module.class.php
+	M server/module/loan_servicing/loan_servicing.class.php
+	A server/module/reporting/nsf_report.class.php
+	M server/module/watch/watch.class.php
+	M sql/lib/application.func.php
+	M sql/lib/customer_contact.func.php
+	A sql/lib/emulate_date_add.func.php
+	M sql/lib/get_mysqli.func.php
+	M sql/lib/ownercode_company_id_map.func.php
+	M sql/lib/util.func.php
+	M sql/updates/queues.sql
+	A utils/compare_schemas.php
+	A utils/nightly_processing_rules.phpM changelog.txt
+	M www/show_tiff.php
+	M www/soap_react.php
+	M www/wizard.php
+	M www/js/rules.js
+	M www/js/transactions.js
+
+11. Merged in code from head. Specifically needed code that didn't send out 
+hundreds of emails while I try testing event amount functionality. [mlively] 
+[HEAD_TAG:NEW_TRANSACTION_MODEL-merged-2]
+	M client/view/refund_payment_popup.html
+	M cronjobs/nightly.php
+	M cronjobs/rba_csv_generation.php
+	M cronjobs/send_account_summary_letters.php
+	M customer_lib/clk/ach_returns_dfa.php
+	M customer_lib/ic/ach_returns_dfa.php
+	M customer_lib/ic/list_available_reports.php
+	M server/code/loan_data.class.php
+	M server/code/open_advances_report_query.class.php
+	M server/module/conversion/conversion.class.php
+	M server/module/documents/Type.class.php
+	M server/module/documents/DeliveryAPI/Condor.class.php
+	M server/module/funding/funding.class.php
+	M sql/lib/scheduling.func.php
+
+12. Merged in more code from head. Needed still more code that didn't get 
+committed the first time to prevent hundreds of emails from being sent out 
+while I test event amount functionality. [mlively] 
+[HEAD_TAG:NEW_TRANSACTION_MODEL-merged-3]
+	M changelog.txt
+	A config/impact_rc.php
+	M cronjobs/send_account_summary_letters.php
+	M lib/ach.2.php
+	M server/module/documents/DeliveryAPI/Condor.class.php
+	M server/module/documents/DeliveryAPI/Copia.class.php
+	M server/module/funding/funding.class.php
+	M server/module/loan_servicing/loan_servicing.class.php
+	M sql/lib/scheduling.func.php
+
+13. Add some debugging information and minor functionality tweaks. [mlively]
+	M server/code/loan_data.class.php
+	M sql/lib/scheduling.func.php
+
+14. Created a script to safely clear out the event amount table without losing 
+event schedule balances. [mlively]
+	A clear_event_amounts.php
+
+15. All the changes to get loan_snapshot up to par.  Beware the leper.
+[Changelog:3.?.?.14][i345][Mantis:2462][SvChangeGear:686][20061023175030UTC][Jason_Schmidt]
+	M client/module/reporting/code/display_queue_report.class.php
+	M server/code/external_collections_query.class.php
+	M server/code/payments_due_report_query.class.php
+	M server/code/queue_report_query.class.php
+	M server/code/return_item_summary_report_query.class.php
+	A sql/lib/find-good-sample-records.sql
+	M sql/lib/scheduling.func.php
+	A sql/setup/apply_event_amount_components.sql
+	M sql/setup/event_amount__before_delete.sql
+	M sql/setup/event_amount__before_insert.sql
+	M sql/setup/event_amount__before_update.sql
+	A sql/setup/event_amount_update_loan_snapshot.sql
+	M sql/setup/loan_snapshot.sql
+	A sql/setup/transaction_register__before_delete.sql
+	A sql/setup/transaction_register__before_insert.sql
+	A sql/setup/transaction_register__before_update.sql
+	A sql/setup/update_loan_snapshot.sql
+	A sql/updates/20061019205040UTC_midway_transactional_model_on_top_of_mlively_changes.sql
+	M sql/updates/queues.sql
+
+16. Also removes all loan_snapshot entries now.
+[Changelog:3.?.?.16][i345][Mantis:2462][SvChangeGear:686][20061023184112UTC][Jason_Schmidt]
+	M utils/clear_event_amounts.php
+
+17. Made changes to allow DDA Admin to work swith event amount table. [mlively]
+	M server/module/admin/dda_adjustments.class.php
+	M server/module/admin/dda_schedule.class.php
+	M sql/lib/scheduling.func.php
+
+18. Changed analyze schedule function and the transaction overview screen to 
+use event amount table fields to retrieve balance totals. [mlively]
+	M sql/lib/scheduling.func.php
+	M client/code/display_overview.class.php
+
+19. Modified reattempt logic, added context for reattempts to the code, and 
+added additional check to ensure 0 amounts don't make it into the event amount 
+table. 
+	M sql/lib/scheduling.func.php
+
+20. Added 'irrecoverable' logic to the conversion script and fixed a 
+bug that was causing the date_created column to not be populated. [mlively]
+	M utils/convert_to_event_amount.php
+
+21. Merged in more code from head. One more merge should be done prior to qa 
+going into testing on this branch.[mlively] 
+[HEAD_TAG:NEW_TRANSACTION_MODEL-merged-4]
+	M changelog.txt
+	M client/code/display_overview.class.php
+	M client/module/reporting/code/display_rouge_signed_docs_report.class.php
+	M config/impact_rc.php
+	M cronjobs/nightly.php
+	M customer_lib/clk/list_available_reports.php
+	M customer_lib/ic/ach_returns_dfa.php
+	M customer_lib/ic/list_available_reports.php
+	M customer_lib/ic/other_returns_dfa.php
+	M customer_lib/ic/quickcheck_returns_dfa.php
+	M lib/ach.2.php
+	M lib/achtransport.class.php
+	M lib/achtransport_sftp.class.php
+	M lib/batch_maintenance.class.php
+	M lib/common_functions.php
+	M server/code/base_module.class.php
+	M server/code/loan_data.class.php
+	M server/code/master_module.class.php
+	M server/code/rouge_signed_docs_report_query.class.php
+	M server/module/conversion/conversion.class.php
+	M server/module/conversion/module.class.php
+	M server/module/documents/DeliveryAPI/Condor.class.php
+	M server/module/documents/DeliveryAPI/Copia.class.php
+	M server/module/loan_servicing/loan_servicing.class.php
+	M sql/lib/application.func.php
+	M www/soap_react.php
+	M www/js/layout.js
+
+22. Now, if available (which it should be), the search results screen
+will show the actual balance instead of the initial loan amount.  If
+unavailable, it will show an empty string, so as to not confuse the
+two numbers.
+[Changelog:3.?.?.22][i365][Mantis:1779][20061025184126UTC][Jason_Schmidt]
+	M server/code/search_query.class.php
+
+23. The payments due report has been rewritten to use event_amount
+instead of event_schedule.  It should be somewhat faster and more
+accurate now.
+[Changelog:3.?.?.22][i345][20061030165152UTC][Jason_Schmidt]
+	M server/code/payments_due_report_query.class.php
+
+24. Merged in new code from IMPACT and CLK release. [mlively] 
+[HEAD_TAG:NEW_TRANSACTION_MODEL-merged-5]
+	M changelog.txt
+	M client/code/display_overview.class.php
+	M client/code/display_popup.class.php
+	M client/module/admin/code/display_tags.class.php
+	M client/module/funding/code/funding_client.class.php
+	M client/module/reporting/code/display_collections_performance_report.class.php
+	M client/module/reporting/code/display_report_parent.class.php
+	M client/view/chargeback_popup.html
+	M client/view/documents.html
+	M client/view/receive_documents.html
+	M client/view/received_document_modify_popup.html
+	M config/demo.php
+	A config/impact_live.php
+	M config/impact_rc.php
+	M config/live.php
+	M config/local-ind.php
+	M config/local-shd.php
+	M config/parallel.php
+	M config/rc.php
+	M config/training.php
+	M cronjobs/ach_exception_report.php
+	A cronjobs/create_fake_qc_return_file.php
+	M cronjobs/mailer.php
+	M cronjobs/nightly.php
+	M cronjobs/returns_and_corrections.php
+	M customer_lib/clk/ach_returns_dfa.php
+	M customer_lib/clk/complete_schedule_dfa.php
+	M customer_lib/clk/create_schedule_dfa.php
+	A customer_lib/clk/queues.lib.php
+	M customer_lib/clk/quickcheck_returns_dfa.php
+	M customer_lib/clk/schedule_sort.php
+	M customer_lib/ic/ach_returns_dfa.php
+	M customer_lib/ic/complete_schedule_dfa.php
+	M customer_lib/ic/create_schedule_dfa.php
+	M customer_lib/ic/other_returns_dfa.php
+	A customer_lib/ic/queues.lib.php
+	M customer_lib/ic/quickcheck_returns_dfa.php
+	M customer_lib/ic/schedule_sort.php
+	A customer_lib/ic/collections/view/internal_buttons.html
+	A customer_lib/ic/conversion/view/account_editor.html
+	A customer_lib/ic/funding/view/underwriting_buttons.html
+	M docs/rtfm.txt
+	M lib/ach.2.php
+	M lib/achtransport_sftp.class.php
+	M lib/batch_maintenance.class.php
+	M server/code/base_report_query.class.php
+	M server/code/batch_review_report_query.class.php
+	M server/code/collections_performance_report_query.class.php
+	M server/code/edit.class.php
+	M server/code/loan_data.class.php
+	M server/code/master_module.class.php
+	M server/code/open_advances_report_query.class.php
+	M server/code/payments_due_report_query.class.php
+	M server/code/rouge_signed_docs_report_query.class.php
+	M server/code/stat.class.php
+	M server/code/status_history_report_query.class.php
+	M server/module/admin/dda_adjustments.class.php
+	M server/module/admin/dda_queues.class.php
+	M server/module/admin/dda_schedule.class.php
+	M server/module/collections/module.class.php
+	M server/module/documents/ApplicationData.class.php
+	M server/module/documents/AutoEmail.class.php
+	M server/module/documents/Document.class.php
+	M server/module/documents/Type.class.php
+	M server/module/documents/DeliveryAPI/Condor.class.php
+	M server/module/documents/DeliveryAPI/Copia.class.php
+	M server/module/documents/Type/Esig.class.php
+	M server/module/documents/Type/Packaged.class.php
+	M server/module/documents/Type/Receive.class.php
+	M server/module/documents/Type/Send.class.php
+	M server/module/funding/funding.class.php
+	M server/module/loan_servicing/loan_servicing.class.php
+	M server/module/reporting/report_builder_report.class.php
+	M server/module/watch/watch.class.php
+	M sql/lib/application.func.php
+	M sql/lib/ownercode_company_id_map.func.php
+	M sql/lib/queues.lib.php
+	M sql/lib/scheduling.func.php
+	A sql/lib/track_agent_action.lib.php
+	M sql/updates/queues.sql
+	R sql/updates/queues_test_suite.sql
+	A utils/compare_payments_due_to_debit_batch.sql
+	R www/ameri_app_555374781.php
+	R www/app_ufc_119522251.php
+	R www/bobby_smith_full_app.php
+	M www/config.php
+	R www/david_kendall_full_app.php
+	R www/grace_herrell_full_app.php
+	R www/jana_marciano_full_app.php
+	R www/mark_hermanson_full_app.php
+	R www/oscar_grimes_full_app.php
+	R www/pcl_app_527968405.php
+	R www/pcl_app_540822241.php
+	A www/show_pdf.php
+	M www/soap_react.php
+	R www/suzanne_maxey_full_app.php
+	R www/ucl_app_344687560.php
+	R www/ucl_app_466350506.php
+	R www/ucl_app_491884072.php
+	R www/ufc_11121692_loan_doc.php
+	R www/ufc_app_491948806.php
+	R www/ufc_app_555374781.php
+	M www/js/layout.js
+	M www/js/tags.js
+
+25. Flattened all trigers out with a rolling pin.
+[For:CLK,IMPACT][Changelog:3.?.?.25][i378][20061102225056UTC][Jason_Schmidt]
+	R sql/setup/apply_event_amount_components.sql
+	M sql/setup/event_amount.sql
+	M sql/setup/event_amount__before_delete.sql
+	M sql/setup/event_amount__before_insert.sql
+	M sql/setup/event_amount__before_update.sql
+	R sql/setup/event_amount_update_loan_snapshot.sql
+	M sql/setup/transaction_register__before_delete.sql
+	M sql/setup/transaction_register__before_insert.sql
+	M sql/setup/transaction_register__before_update.sql
+	R sql/setup/update_loan_snapshot.sql
+	R sql/updates/20061019205040UTC_midway_transactional_model_on_top_of_mlively_changes.sql
+	A sql/updates/20061102223754UTC_midway_transactional_model.sql
+
+26. Reports changed to handle event_amount table.  This is bundled
+with the payments_due report improvements, but didn't get finished
+until now.
+[For:CLK,IMPACT][Changelog:3.?.?.26][i345][Mantis:2462][SvChangeGear:686][20061103191226UTC][Jason_Schmidt]
+	M server/code/open_advances_detail_report_query.class.php
+	M server/code/open_advances_report_query.class.php
+	A sql/updates/20061030231439UTC_reporting_indexes.sql
+
+27. Merged in new code from CLK edits. [mlively] 
+[HEAD_TAG:NEW_TRANSACTION_MODEL-merged-5]
+	M .cvsignore
+	M changelog.txt
+	A alerts/check_action_dates.php
+	A alerts/check_processes.php
+	A alerts/check_quickchecks.php
+	M alerts/check_returns.php
+	M alerts/check_scheduled_actions.php
+	A alerts/check_weekly_schedules.php
+	M client/code/display_login.class.php
+	M client/code/display_overview.class.php
+	M client/code/display_search.class.php
+	M client/module/admin/view/admin_groups.html
+	M client/module/collections/code/collections_client.class.php
+	M client/module/collections/view/menu.html
+	M client/module/funding/code/funding_client.class.php
+	M client/module/funding/view/funding_menu.html
+	M client/module/loan_servicing/code/loan_servicing_client.class.php
+	M client/module/loan_servicing/view/batch_history.html
+	M client/module/loan_servicing/view/loan_servicing_menu.html
+	A client/module/reporting/code/display_agent_tracking_report.class.php
+	A client/module/reporting/code/display_chargeback_report.class.php
+	A client/module/reporting/code/display_controlling_agent_report.class.php
+	A client/module/reporting/code/display_delayed_pulled_report.class.php
+	M client/module/reporting/code/display_monitor_report.class.php
+	M client/module/reporting/code/display_payment_arrangements_report.class.php
+	M client/module/reporting/code/display_payments_due_report.class.php
+	M client/module/reporting/code/display_performance_report.class.php
+	A client/module/reporting/code/display_reattempts_report.class.php
+	M client/module/reporting/code/display_report_parent.class.php
+	A client/module/reporting/code/display_report_wizard_report.class.php
+	A client/module/reporting/code/display_returned_quickchecks_report.class.php
+	A client/module/reporting/code/display_status_group_overview_report.class.php
+	M client/module/reporting/code/display_status_overview_report.class.php
+	M client/module/reporting/code/display_withdrawn_deny_loan_actions_report.class.php
+	A client/module/reporting/view/display_report_wizard.html
+	M client/module/reporting/view/ecash_monitor.html
+	M client/view/adjustment.html
+	M client/view/application_info.html
+	M client/view/chargeback_popup.html
+	M client/view/chargeback_reversal_popup.html
+	M client/view/debt_consolidation_buttons.html
+	M client/view/documents.html
+	M client/view/loan_actions.html
+	M client/view/payment_template.html
+	M client/view/search.html
+	M client/view/template.html
+	M client/view/transaction_summary.html
+	M config/demo.php
+	M config/impact_live.php
+	M config/impact_rc.php
+	M config/live.php
+	M config/local-ind.php
+	M config/local-shd.php
+	M config/parallel.php
+	M config/rc.php
+	M config/training.php
+	A cronjobs/check_batch.php
+	M cronjobs/ecash_engine.php
+	A cronjobs/import_corrections_files.php
+	A cronjobs/import_returns_files.php
+	M cronjobs/mailer.php
+	M cronjobs/nightly.php
+	M cronjobs/populate_analysis_db.php
+	M cronjobs/qc_batch.php
+	M cronjobs/queue_cleanup.php
+	M cronjobs/queue_population_from_olp.php
+	M cronjobs/quickcheck_returns.php
+	M cronjobs/resolve_flash_report.php
+	A cronjobs/restore_condor_archive.php
+	M cronjobs/returns_and_corrections.php
+	M cronjobs/send_account_summary_letters.php
+	A cronjobs/send_arrangement_reminder_letters.php
+	M customer_lib/clk/ach_returns_dfa.php
+	A customer_lib/clk/arrangements_dfa.php
+	A customer_lib/clk/autoemail_list.php
+	M customer_lib/clk/bankruptcy_to_collections_dfa.php
+	A customer_lib/clk/client_code_displayoverview_setbuttonhtml.func.php
+	M customer_lib/clk/complete_schedule_dfa.php
+	M customer_lib/clk/create_schedule_dfa.php
+	M customer_lib/clk/failure_dfa.php
+	M customer_lib/clk/list_available_criteria_types.php
+	M customer_lib/clk/list_available_reports.php
+	A customer_lib/clk/notification_config.php
+	M customer_lib/clk/other_returns_dfa.php
+	M customer_lib/clk/queues.lib.php
+	M customer_lib/clk/quickcheck_returns_dfa.php
+	M customer_lib/clk/schedule_sort.php
+	M customer_lib/ic/ach_returns_dfa.php
+	A customer_lib/ic/autoemail_list.php
+	M customer_lib/ic/bankruptcy_to_collections_dfa.php
+	A customer_lib/ic/client_code_displayoverview_setbuttonhtml.func.php
+	M customer_lib/ic/complete_schedule_dfa.php
+	M customer_lib/ic/create_schedule_dfa.php
+	A customer_lib/ic/notification_config.php
+	M customer_lib/ic/other_returns_dfa.php
+	M customer_lib/ic/queues.lib.php
+	M customer_lib/ic/quickcheck_returns_dfa.php
+	M customer_lib/ic/schedule_sort.php
+	M customer_lib/ic/conversion/view/account_editor.html
+	R docs/chuck.norris
+	R docs/report_builder_fields.txt
+	R docs/rtfm.txt
+	M lib/ach.2.php
+	M lib/batch_maintenance.class.php
+	M lib/common_functions.php
+	M lib/cronscheduler.class.php
+	M lib/non_ach_actions.php
+	A lib/number_format_exception.class.php
+	M lib/pay_date_calc.3.php
+	M lib/performance_monitor.class.php
+	A lib/request_log.class.php
+	A lib/request_timer.class.php
+	A server/code/agent_tracking_report_query.class.php
+	M server/code/base_report_query.class.php
+	M server/code/bureau_handler.class.php
+	A server/code/chargeback_report_query.class.php
+	A server/code/delayed_pulled_report_query.class.php
+	M server/code/document_query.class.php
+	M server/code/edit.class.php
+	M server/code/flash_report_query.class.php
+	M server/code/follow_up_report_query.class.php
+	M server/code/loan_actions_report_query.class.php
+	M server/code/loan_data.class.php
+	M server/code/loan_posting_report_query.class.php
+	M server/code/master_module.class.php
+	M server/code/open_advances_detail_report_query.class.php
+	M server/code/open_advances_report_query.class.php
+	M server/code/paydate_handler.1.class.php
+	M server/code/paydate_handler.class.php
+	M server/code/payment_arrangements_report_query.class.php
+	M server/code/payments_due_report_query.class.php
+	M server/code/performance_report_query.class.php
+	A server/code/reattempts_report_query.class.php
+	M server/code/return_item_summary_report_query.class.php
+	A server/code/returned_quickchecks_report_query.class.php
+	M server/code/search.class.php
+	M server/code/search_query.class.php
+	M server/code/server.class.php
+	M server/code/stat.class.php
+	A server/code/status_group_overview_report_query.class.php
+	M server/code/status_overview_report_query.class.php
+	M server/module/admin/dda_adjustments.class.php
+	R server/module/admin/dda_dummy.class.php
+	M server/module/admin/dda_queues.class.php
+	M server/module/admin/dda_schedule.class.php
+	M server/module/collections/collections.class.php
+	M server/module/collections/module.class.php
+	M server/module/collections/quick_checks.class.php
+	M server/module/documents/ApplicationData.class.php
+	M server/module/documents/AutoEmail.class.php
+	M server/module/documents/Document.class.php
+	M server/module/documents/Type.class.php
+	M server/module/documents/DeliveryAPI/Condor.class.php
+	M server/module/documents/DeliveryAPI/Copia.class.php
+	M server/module/funding/funding.class.php
+	M server/module/funding/module.class.php
+	M server/module/loan_servicing/loan_servicing.class.php
+	M server/module/loan_servicing/module.class.php
+	A server/module/reporting/agent_tracking_report.class.php
+	A server/module/reporting/chargeback_report.class.php
+	A server/module/reporting/controlling_agent_report.class.php
+	M server/module/reporting/conversion_report.class.php
+	A server/module/reporting/delayed_pulled_report.class.php
+	M server/module/reporting/monitor_report.class.php
+	M server/module/reporting/payment_arrangements_report.class.php
+	A server/module/reporting/reattempts_report.class.php
+	M server/module/reporting/reminder_queue_report.class.php
+	M server/module/reporting/report_builder_report.class.php
+	A server/module/reporting/report_wizard_report.class.php
+	A server/module/reporting/returned_quickchecks_report.class.php
+	A server/module/reporting/status_group_overview_report.class.php
+	M server/module/watch/watch.class.php
+	A sql/site_config_values.sql
+	R sql/todo-query-files.txt
+	R sql/todo.txt
+	M sql/lib/agent_affiliation.func.php
+	M sql/lib/app_mod_checks.func.php
+	M sql/lib/application.func.php
+	M sql/lib/comment.func.php
+	A sql/lib/cover_mysql_deficiency_and_set_current_agent_table.func.php
+	R sql/lib/current_agent_kludge.func.php
+	M sql/lib/loan_actions.func.php
+	M sql/lib/queues.lib.php
+	M sql/lib/scheduling.func.php
+	M sql/lib/track_agent_action.lib.php
+	M sql/lib/transaction.func.lib.php
+	M sql/lib/util.func.php
+	M sql/setup/ach_report.sql
+	M sql/setup/agent_affiliation.sql
+	M sql/setup/application.sql
+	R sql/setup/application_queue.sql
+	M sql/setup/status_history.sql
+	A sql/updates/20061130165805UTC_update_ach_report_table.sql
+	M utils/compare_schemas.php
+	M utils/dump.sh
+	A utils/ecash_fund_fix_2006_04_03.php
+	A utils/fraud_reports.php
+	A utils/get_application_login.php
+	A utils/mini-server.class.php
+	M utils/nightly_processing_rules.php
+	A utils/post_transaction.php
+	A utils/register_event.php
+	M utils/run_sql.sh
+	A utils/schedule_fullpulls.php
+	A utils/stat_audit.php
+	A utils/view_schedule.php
+	M www/comm_class.php
+	M www/config.php
+	M www/index.php
+	M www/soap_react.php
+	M www/css/style.css
+	M www/js/layout.js
+	M www/js/tags.js
+	M www/js/transactions.js
+	M www/js/calendar/calendar.js
+	M www/loopback/process.php
+
+
+27. Merge from head. Now is when I begin testing reports. [mlively]
+	M changelog.txt
+	M client/code/display_search.class.php
+	M client/module/admin/view/rules.html
+	M client/module/reporting/code/display_agent_tracking_report.class.php
+	M client/module/reporting/code/display_collections_performance_report.class.php
+	A client/module/reporting/code/display_my_apps_report.class.php
+	A client/module/reporting/code/display_payment_type_success_report.class.php
+	A client/module/reporting/code/display_process_status_report.class.php
+	A client/module/reporting/code/display_queue_overview_report.class.php
+	M client/module/reporting/code/display_queue_report.class.php
+	M client/module/reporting/code/display_report_parent.class.php
+	A client/module/reporting/view/display_process_status_report.html
+	A client/module/reporting/view/display_queue_overview_report.html
+	M config/live.php
+	M config/local-shd.php
+	M cronjobs/ch_application_status.php
+	M cronjobs/ch_transaction_type.php
+	M cronjobs/check_batch.php
+	M cronjobs/ecash_engine.php
+	M cronjobs/nightly.php
+	M customer_lib/clk/list_available_reports.php
+	M lib/ach.2.php
+	M lib/common_functions.php
+	A lib/mysqli.1e.php
+	M lib/non_ach_actions.php
+	M lib/temporary_ach_actions.php
+	M server/code/agent_tracking_report_query.class.php
+	M server/code/collections_performance_report_query.class.php
+	M server/code/edit.class.php
+	M server/code/external_collections_query.class.php
+	M server/code/loan_data.class.php
+	M server/code/loan_posting_report_query.class.php
+	A server/code/payment_type_success_report_query.class.php
+	M server/code/payments_due_report_query.class.php
+	M server/code/reattempts_report_query.class.php
+	M server/code/search.class.php
+	M server/code/server.class.php
+	M server/code/stat_cli_wrapper.php
+	M server/code/status_overview_report_query.class.php
+	M server/module/admin/dda.class.php
+	M server/module/admin/dda_adjustments.class.php
+	M server/module/admin/dda_application.class.php
+	M server/module/admin/dda_schedule.class.php
+	M server/module/collections/quick_checks.class.php
+	M server/module/documents/Document.class.php
+	A server/module/reporting/my_apps_report.class.php
+	A server/module/reporting/payment_type_success_report.class.php
+	A server/module/reporting/process_status_report.class.php
+	A server/module/reporting/queue_overview_report.class.php
+	M server/module/reporting/report_generic.class.php
+	M sql/lib/get_mysqli.func.php
+	M sql/lib/scheduling.func.php
+	M sql/lib/util.func.php
+	M utils/convert_to_event_amount.php
+	A utils/create_ec_delta.php
+	M www/js/layout.js
+	M www/js/transactions.js
+
+28. Changed event_amount to use a transction_register_id field to link to the 
+transaction table when possible. [mlively]
+	M server/code/open_advances_report_query.class.php
+	M server/code/status_overview_report_query.class.php
+	M server/module/collections/quick_checks.class.php
+	M sql/lib/scheduling.func.php
+	M utils/convert_to_event_amount.php
+
+29. Merged in 3.5.8 branch. [mlively]
+	M changelog.txt
+	M client/code/display_overview.class.php
+	M client/module/collections/view/internal_buttons.html
+	M client/module/loan_servicing/code/loan_servicing_client.class.php
+	M client/module/loan_servicing/view/account_mgmt_buttons.html
+	M client/module/loan_servicing/view/customer_service_buttons.html
+	M client/module/loan_servicing/view/loan_servicing_menu.html
+	A client/module/reporting/code/display_agent_internal_recovery_report.class.php
+	M client/module/reporting/code/display_batch_review_report.class.php
+	M client/module/reporting/code/display_flash_report.class.php
+	A client/module/reporting/code/display_fraud_report.class.php
+	M client/module/reporting/code/display_loan_posting_report.class.php
+	M client/module/reporting/code/display_open_advances_detail_report.class.php
+	M client/module/reporting/code/display_payment_type_success_report.class.php
+	M client/module/reporting/code/display_payments_due_report.class.php
+	M client/module/reporting/code/display_report_parent.class.php
+	M cronjobs/ecash_engine.php
+	M customer_lib/clk/arrangements_dfa.php
+	M customer_lib/clk/client_code_displayoverview_setbuttonhtml.func.php
+	M customer_lib/clk/complete_schedule_dfa.php
+	M customer_lib/clk/list_available_reports.php
+	M customer_lib/clk/queues.lib.php
+	M customer_lib/ic/complete_schedule_dfa.php
+	M customer_lib/ic/queues.lib.php
+	M lib/common_functions.php
+	A server/code/agent_internal_recovery_report_query.class.php
+	M server/code/edit.class.php
+	M server/code/external_collections_query.class.php
+	M server/code/loan_data.class.php
+	M server/code/master_module.class.php
+	M server/code/server.class.php
+	M server/module/collections/module.class.php
+	M server/module/funding/module.class.php
+	M server/module/loan_servicing/loan_servicing.class.php
+	M server/module/loan_servicing/module.class.php
+	A server/module/reporting/agent_internal_recovery_report.class.php
+	A server/module/reporting/fraud_report.class.php
+	M server/module/reporting/report_generic.class.php
+	M sql/lib/get_mysqli.func.php
+	M sql/lib/queues.lib.php
+	M sql/lib/scheduling.func.php
+	M utils/convert_to_event_amount.php
+	M utils/fraud_reports.php
+	M www/config.php
+	A www/kiosk.xpi
+
+30. Added event amount to new generated transactions. [mlively]
+	M customer_lib/clk/create_schedule_dfa.php
+	M utils/convert_to_event_amount.php
+
+31. Merged to RELEASE_3_5_8_2 [mlively]
+	M client/code/display_overview.class.php
+	M server/code/edit.class.php
+	M server/module/documents/DeliveryAPI/Condor.class.php
+	M sql/lib/scheduling.func.php
+	M www/js/transactions.js
+
+32. Added removal of event_amount in Remove_One_Unregistered_Event_From_Schedule() [BrianR]
+	M sql/lib/scheduling.func.php
+	
+33. Added the event_amount values to the Transaction Pop-Up screen. [BrianR]
+	M client/code/display_popup.class.php
+	M server/code/edit.class.php
+	M www/js/transactions.js? test
+
+34. Fixed failing both pending transactions in an event_schedule. [mantis:4438]
+[mlively]
+	M sql/lib/scheduling.func.php
+
+35. Fixed 3rd party refunds to show in the balance properly. [mantis:4436] 
+[mlively]
+	M client/code/display_overview.class.php
+
+36. Merged over updated ReAttempts Report [BrianR][Mantis:4442]
+	M server/code/reattempts_report_query.class.php
+
+37. Fixed Shift Schedule to properly re-include the event amounts via 
+Fetch_Schedule [mantis:4434] [mlively]
+	M server/code/event_amount.class.php
+	M sql/lib/scheduling.func.php
+
+38. I'd commented out the outstanding SC payment part before because it caused some problems
+	but determined that was because it was doing a foreach() through what Analyze_Schedule()
+	returned and it should have simple created one payment which it now does.  [BrianR]
+	M customer_lib/clk/complete_schedule_dfa.php
+	M customer_lib/ic/complete_schedule_dfa.php
+
+39. In Complete_Schedule() added a check for posted_and_pending_total to see if we need to 
+	actually regenerate the schedule after a manual payment. [mlively & brianr]
+	M sql/lib/scheduling.func.php
+
+40. Added code to prevent manual payments from forcing the payment to the total
+ balance. [mantis:4445] [mlively]
+	M sql/lib/scheduling.func.php
+
+41. Change loan disbursement failures to only adjust service charges created 
+after the disbursement. [mantis:4435] [mlively]
+	M customer_lib/clk/ach_returns_dfa.php
+
+42. Fixed an issue where followups for Collections Queues without an agent affiliation were
+	re-inserted into the Collections General Queue.  [Mantis:4430][BrianR][For:Both]
+	M customer_lib/clk/queues.lib.php
+
+43. Fixed payment arrangements to not force the payments to the total balance. 
+[mantis:4455] [mlively]
+	M sql/lib/scheduling.func.php
+
+44. Fixed the process of posting transactions to appropriately assign a 
+transaction id to the event amounts. [mantis:4456] [mlively]
+	M sql/lib/scheduling.func.php
+
+45. Code has been added to replace the Current Agent temp table. The 
+modifying_agent_id column will now be used to track who is making changes to 
+the transaction status. [mlively]
+	M cronjobs/nightly.php
+	M lib/ach.2.php
+	M lib/non_ach_actions.php
+	M server/module/collections/quick_checks.class.php
+	M sql/lib/scheduling.func.php
+
+46. More code has been added to replace the Current Agent temp table. The 
+modifying_agent_id column will now be used to track who is making changes to 
+the application status. [BrianR & mlively]
+	M lib/common_functions.php
+	M cronjobs/nightly.php
+	M lib/ach.2.php
+	M sql/lib/application.func.php
+	M www/config.php
+	M server/code/server.class.php
+
+47. Complete_Schedule() has been changed to no long forward accounts with 
+Service Charge Balance Forwards and no Loan Disbursements or Principal Balance
+Forwards to the C\reate Schedule DFA. These accounts now continue through the 
+Complete Schedule DFA. [mantis:4457] [mlively]
+	M customer_lib/clk/create_schedule_dfa.php
+	M sql/lib/scheduling.func.php
+
+48. Reattempts have been modified to accurately calculated the reattempt 
+balance. The function was originally not deducting existing reattempts so it 
+would cause the transaction to double the amount. [mantis:4470] [mlively]
+	M sql/lib/scheduling.func.php
+
+49. Update Status has been changed to fetch the current agent's id if the 
+function is passed 'false' for the agent id. [mantis:4471] [mlively]
+	M lib/common_functions.php
+
+50. Added a check in the ACH returns processor for the customer's balance. If 
+the customer has a balance <= 0, then we do not need to take corrective 
+measures for a return. [Mantis:4370][BrianR][For:CLK]
+        M customer_lib/clk/ach_returns_dfa.php
+
+51. Complete Schedule has been changed to always add reattempts first so the new 
+service charges don't over charge. [mlively]
+	M customer_lib/clk/complete_schedule_dfa.php
+
+52. Complete Schedule will now build schedules based on the most recent date a 
+service charge was assessed if there have been no successful payments on the 
+account. This change will allow for the paydate wizard to create better 
+schedules that honor weekly skip dates. [mlively]
+	M lib/common_functions.php
+	M sql/lib/scheduling.func.php
+
+53. Modified the alerts to all include Mike and Myself and to run on the Slave
+	database if appropriate.  These still need some work.. [BrianR]
+	M alerts/check_action_dates.php
+	M alerts/check_events.php
+	M alerts/check_holidays.php
+	M alerts/check_inactive_schedule.php
+	M alerts/check_negative_balances.php
+	M alerts/check_quickchecks.php
+	M alerts/check_react_ratio.php
+	M alerts/check_scheduled_actions.php
+
+54. Modified Save_Payments() to work more efficiently for manual payments.
+	Removed a few unnecessary calls.  When Complete_Schedule() runs, it will
+	look to see if the customer has arrangements and has a balance before returning.
+	If they have a balance <= 0, then it will remove unregistered events and
+	return. Did some cleanup too, which is why Nightly was affected.
+	[Mantis:4500][BrianR][For:CLK]
+	M cronjobs/nightly.php
+	M server/code/loan_data.class.php
+	M sql/lib/scheduling.func.php
+
+55. Modified Add_Paydown to use Complete_Schedule instead of Repaint_Schedule. [Mantis:4551][BrianR]
+	M server/code/loan_data.class.php
+
+56. Integrated fraud_reminder.php into nightly.php cron [jrfoell][mantis:6407][For:CLK]
+        M cronjobs/ecash_engine.php
+        M utils/mini-server.class.php
+        M sql/setup/fraud_business_rules.sql
+        M cronjobs/fraud_reminder.php
+        M cronjobs/nightly.php

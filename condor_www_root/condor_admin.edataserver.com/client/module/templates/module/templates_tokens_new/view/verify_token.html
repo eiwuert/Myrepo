@@ -1,0 +1,30 @@
+<div id="verify_new_token" style="text-align: center">
+	<table cellpadding="2" cellspacing="0" border="0" width="50%" style="margin-left: auto; margin-right: auto">
+		<tr class="odd">
+			<td class="bold" align="center">Name</td>
+			<td class="bold" align="center">Description</td>
+			<td class="bold" align="center">Test Data</td>
+			<td class="bold" align="center">Data Type</td>
+		</tr>
+		<tr style="text-decoration:underline;">
+			<td align="center">%%%token_name%%%</td>
+			<td align="center">%%%description%%%</td>
+			<td align="center">%%%test_data%%%</td>
+			<td align="center">%%%test_data_type%%%</td>
+		</tr>
+	</table>
+		<p>Are you sure you want to add this token?<br />
+		<i>Check spelling above of the token name and description before submitting.</i></p>
+	<form action="" method="post">
+		<div id="form_inputs">
+			<input type="hidden" name="token_name" value="%%%token_name%%%" />
+			<input type="hidden" name="token_description" value="%%%description%%%" />
+			<input type="hidden" name="test_data" value="%%%test_data%%%" />
+			<input type="hidden" name="test_data_type" value="%%%test_data_type%%%" />
+			<input type="hidden" name="confirm" value="1" />
+			<input type="hidden" name="action" value="submit" />
+			<input type="submit" name="submit" value="Yes, add this token." /><br /><br />
+			<input type="button" value="No, do not add this token." onclick="window.location='?module=templates_tokens_list'" />
+		</div>
+	</form>
+</div>

@@ -1,0 +1,251 @@
+<DataxResponse>
+<GenerationTime>20080201080128</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>42259536</TransactionId>
+<TrackHash>efe6a3c4c27a0750d201724805826522</TrackHash>
+<Response>
+    <Detail>
+        <ConsumerIDVerificationSegment>
+            <Input>
+                <LastName>easterling</LastName>
+                <FirstName>patsy</FirstName>
+                <MiddleName />
+                <Address1>1001 spring st.</Address1>
+                <Address2 />
+                <City>waynesboro</City>
+                <State>ms</State>
+                <Zip>39367</Zip>
+            </Input>
+            <Standardized>
+                <LastName>EASTERLING</LastName>
+                <FirstName>PATSY</FirstName>
+                <MiddleName />
+                <AddressVerification>15</AddressVerification>
+                <AddressVerificationMessage>Name match unavailable</AddressVerificationMessage>
+                <AddressResult>S</AddressResult>
+                <DeliveryPointVerified>Y</DeliveryPointVerified>
+                <Address1>1001 SPRING ST</Address1>
+                <City>WAYNESBORO</City>
+                <State>MS</State>
+                <Zip>39367</Zip>
+                <Zip4>2313</Zip4>
+                <CRRT>C001</CRRT>
+                <HighRiskAddress>N</HighRiskAddress>
+            </Standardized>
+            <PreviousAddresses>
+                <Address>
+                    <Address1>941 SCR 62</Address1>
+                    <City>MAGEE</City>
+                    <State>MS</State>
+                    <Zip>39111</Zip>
+                    <Zip4>9650</Zip4>
+                    <ReportDate>20020420</ReportDate>
+                    <LastUpdate>20020523</LastUpdate>
+                </Address>
+                <Address>
+                    <Address1>RR 1 BOX 261</Address1>
+                    <City>MAGEE</City>
+                    <State>MS</State>
+                    <Zip>39111</Zip>
+                    <Zip4>9602</Zip4>
+                    <ReportDate>19990625</ReportDate>
+                    <LastUpdate>20020123</LastUpdate>
+                </Address>
+            </PreviousAddresses>
+            <SocialSecurityNumber>
+                <InputSSN>427924772</InputSSN>
+                <Return>17</Return>
+                <ReturnMessage>Matches full name/address</ReturnMessage>
+                <Deceased>2</Deceased>
+                <DeceasedMessage>Not Deceased</DeceasedMessage>
+                <Valid>1</Valid>
+                <ValidMessage>Valid</ValidMessage>
+                <Issue>3</Issue>
+                <IssueMessage>Issued</IssueMessage>
+                <IsseuState>MS</IsseuState>
+                <IssueStartRange>1961</IssueStartRange>
+                <IssueEndRange>1963</IssueEndRange>
+            </SocialSecurityNumber>
+            <Aggregates>
+                <AddressUnitMismatch />
+                <AddressUnitMismatchMessage />
+                <AddressType>10</AddressType>
+                <AddressTypeMessage>Single-family residential</AddressTypeMessage>
+                <AddressHighRisk>1</AddressHighRisk>
+                <AddressHighRiskMessage>No high risk information found</AddressHighRiskMessage>
+                <ChangeOfAddress>2</ChangeOfAddress>
+                <ChangeOfAddressMessage>No change of address information found</ChangeOfAddressMessage>
+                <PhoneHighRisk>1</PhoneHighRisk>
+                <PhoneHighRiskMessage>No high risk information found</PhoneHighRiskMessage>
+            </Aggregates>
+            <SSNAddresses>
+                <Address>
+                    <LastName>EASTERLING</LastName>
+                    <FirstName>PATSY</FirstName>
+                    <MiddleInitial>K</MiddleInitial>
+                    <Address1>1001 SPRING ST</Address1>
+                    <City>WAYNESBORO</City>
+                    <State>MS</State>
+                    <Zip>39367</Zip>
+                    <Zip4>2313</Zip4>
+                    <ReportedDate>20030401</ReportedDate>
+                    <LastTouchedDate>20070321</LastTouchedDate>
+                    <AreaCode />
+                    <PhoneNumber />
+                    <DateOfBirthMatch>2</DateOfBirthMatch>
+                </Address>
+            </SSNAddresses>
+            <ResidentialAddresses />
+            <HighRiskAddresses>
+                <Address>
+                    <BusinessName />
+                    <Address1 />
+                    <City />
+                    <State />
+                    <Zip />
+                    <Zip4 />
+                    <AreaCode />
+                    <PhoneNumber />
+                    <Description>No high risk business at address/phone</Description>
+                </Address>
+            </HighRiskAddresses>
+            <ResidentialPhones />
+            <ChangesOfAddress>
+                <ResultCode>N</ResultCode>
+                <Description />
+            </ChangesOfAddress>
+            <DateOfBirth>
+                <InputMonth>06</InputMonth>
+                <InputDay>18</InputDay>
+                <InputYear>1951</InputYear>
+                <Result>2</Result>
+                <ResultMessage>Year of birth match</ResultMessage>
+                <Age>56</Age>
+            </DateOfBirth>
+            <DriversLicense>
+                <InputState>ms</InputState>
+                <InputNumber>800585154</InputNumber>
+                <LastName />
+                <FirstName />
+                <MiddleInitial />
+                <Address1 />
+                <City />
+                <State />
+                <Zip />
+                <Zip4 />
+                <Format>V</Format>
+                <Result>6</Result>
+                <ResultMessage>No match</ResultMessage>
+            </DriversLicense>
+            <HomePhone>
+                <InputNumber>6016718525</InputNumber>
+                <Result>21</Result>
+                <ResultMessage>Data unavailable</ResultMessage>
+                <Type>Standard</Type>
+                <AreaCodeZipMatch>Y</AreaCodeZipMatch>
+                <AreaCodePrefixMatch>Y</AreaCodePrefixMatch>
+                <HighRiskPhone>N</HighRiskPhone>
+                <ListingType>Residential</ListingType>
+            </HomePhone>
+            <CellPhone>
+                <InputNumber>6013421433</InputNumber>
+                <Type>Cell</Type>
+            </CellPhone>
+            <InputEmployerInformation>
+                <Name>self</Name>
+                <Address1 />
+                <Address2 />
+                <City />
+                <State />
+                <Zip />
+            </InputEmployerInformation>
+            <WorkPhone>
+                <InputEmployerName>self</InputEmployerName>
+                <InputNumber>6016718525</InputNumber>
+                <InputExtension />
+                <Type>Standard</Type>
+                <EmployerMatch>N</EmployerMatch>
+                <Name />
+                <Address1 />
+                <City />
+                <State />
+                <Zip />
+                <Type>Unidentified</Type>
+            </WorkPhone>
+            <OFAC>1</OFAC>
+            <OFACMessage>No match</OFACMessage>
+            <IPAddress>
+                <InputAddress>74.167.63.241</InputAddress>
+                <MatchCountry>1</MatchCountry>
+                <MatchCountryMessage>Match for US</MatchCountryMessage>
+                <Country>USA</Country>
+                <MatchState>1</MatchState>
+                <MatchStateMessage>Match for input</MatchStateMessage>
+                <State>MS</State>
+                <MatchCity>2</MatchCity>
+                <MatchCityMessage>No match for input</MatchCityMessage>
+                <City>JACKSON</City>
+                <MatchZip>2</MatchZip>
+                <MatchZipMessage>No match for input</MatchZipMessage>
+                <Zip>39201</Zip>
+                <MSA>718</MSA>
+                <Latitude>32.29</Latitude>
+                <Longitude>-90.184</Longitude>
+            </IPAddress>
+            <BankInformation>
+                <InputBankName>bancorpsouth</InputBankName>
+                <InputABANumber>084201278</InputABANumber>
+                <InputAccountNumber>53871646</InputAccountNumber>
+                <Valid>Y</Valid>
+                <BankNameMatch>Y</BankNameMatch>
+                <BankName>BancorpSouth Bank</BankName>
+            </BankInformation>
+            <NumberRecords>
+                <AddressVerResidentialMatch>0</AddressVerResidentialMatch>
+                <AddressVerBusinessMatch>0</AddressVerBusinessMatch>
+                <PhoneVerResidentialMatch>0</PhoneVerResidentialMatch>
+                <PhoneVerBusinessMatch>0</PhoneVerBusinessMatch>
+                <ResidentialAddressDetRec>0</ResidentialAddressDetRec>
+                <BusinessAddressDetRec>0</BusinessAddressDetRec>
+                <AddressHighRiskDetRec>0</AddressHighRiskDetRec>
+                <AddressHighRiskDescRec>1</AddressHighRiskDescRec>
+                <ResidentialPhoneDetRec>0</ResidentialPhoneDetRec>
+                <BusinessPhoneDetRec>0</BusinessPhoneDetRec>
+                <PhoneHighRiskDetRec>0</PhoneHighRiskDetRec>
+                <PhoneHighRiskDescRet>0</PhoneHighRiskDescRet>
+                <SSNDetailRecords>1</SSNDetailRecords>
+                <COARecords>0</COARecords>
+            </NumberRecords>
+            <AuthenticationScore>527</AuthenticationScore>
+            <CustomDecision>
+                <Result>Y</Result>
+                <Bucket>A1</Bucket>
+            </CustomDecision>
+            <LooseDecision>
+                <Result>Y</Result>
+                <Bucket>A1</Bucket>
+            </LooseDecision>
+            <ModerateDecision>
+                <Result>Y</Result>
+                <Bucket>A3</Bucket>
+            </ModerateDecision>
+            <ConservativeDecision>
+                <Result>Y</Result>
+                <Bucket>A5</Bucket>
+            </ConservativeDecision>
+        </ConsumerIDVerificationSegment>
+        <CRASegment>
+            <Decision>
+                <Result>Y</Result>
+                <Bucket>A1</Bucket>
+            </Decision>
+        </CRASegment>
+        <GlobalDecision>
+            <Result>Y</Result>
+            <IDVBucket>A1</IDVBucket>
+            <CRABucket>A1</CRABucket>
+        </GlobalDecision>
+    </Detail>
+</Response>
+</DataxResponse>

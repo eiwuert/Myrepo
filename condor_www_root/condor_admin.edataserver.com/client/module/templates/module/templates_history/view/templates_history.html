@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	function confirmMakingCurrent(template_id)
+	{
+		var an = confirm("Are you sure you want to make this change?");
+
+		if (an)
+		{
+			document.location.href = "?module=templates_history&action=make_current&template_id=" + template_id;
+		}
+
+		return false;
+	}
+</script>
+
+<p><strong>Template Name:</strong> %%%template_name%%%</p>
+
+<table cellpadding="2" cellspacing="0" border="0" width="80%">
+	<tr>
+		<td>&nbsp;</td>
+		<td class="bold">Date Created</td>
+		<td class="bold">Created By</td>
+		<td class="bold">Last Modified</td>
+		<td class="bold">Modified By</td>
+		<td class="bold">Status</td>
+		<td class="bold">Version</td>
+		<td class="bold">&nbsp;</td>
+	</tr>
+%%%template_rows%%%
+</table>

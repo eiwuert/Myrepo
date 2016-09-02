@@ -1,0 +1,152 @@
+<table width="100%" class="privs" height="500">
+<form name="priv_info" action='/' method="post"><input name="action" type="hidden" value="save">
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td>
+<!-- Start Exiting Agents Table -->
+						<table height="460px" width="180px">
+							<tr>
+								<td class="align_left">&nbsp;<b>Existing Profiles</b></td>
+							</tr>
+							<tr>
+								<td class="border_one">
+									<table>
+										<tr>
+											<td>
+												<select name="agent_list" size="31" style="width:165px" onChange="javascript:display_agent();" >
+													%%%exisiting_agent_list%%%
+												</select>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+<!-- Stop Exiting Agents Table -->
+					</td>
+					<td>
+<!-- Start Agent Privileges -->
+						<table width="570px" height="460px">
+							<tr>
+								<td class="align_left">&nbsp;<b>Profile Privileges</b></td>
+							</tr>
+							<tr>
+								<td class="border_one">
+									<table width="100%">
+										<tr>
+											<td>
+												<table width="570px">
+													<tr>
+														<td class="align_left">&nbsp;<b>Profile Name</b></td>
+													</tr>
+													<tr>
+														<td class="border_one">
+															<table width="100%">
+																<tr><td class="tiny_space">&nbsp;</td></tr>
+																<tr>
+																	<td><nobr>First Name:</nobr></td>
+																	<td class="align_left"> <input name="name_first" disabled> </td>
+																	<td><nobr>Last Name:</nobr></td>
+																	<td class="align_left"> <input name="name_last" disabled> </td>
+																</tr>
+																<tr><td class="tiny_space">&nbsp;</td></tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+<!-- Stop Agent Privileges -->
+
+									<table width="570px">
+										<tr>
+											<td class="align_left">&nbsp;<b>Add Privileges</b></td>
+										</tr>
+										<tr>
+											<td class="border_one">
+												<table width="100%">
+													<tr>
+														<td>
+															<table width="100%">
+																<tr>
+																	<td class="align_center"> 
+																		<br/>Company:  
+																		<select name="all_companies_list" style="width:200px" onChange="javascript:get_company_groups();"> 
+																			%%%add_company_list%%%	
+																		</select>
+																	</td>
+																</tr>
+																<tr>
+																	<td class="tiny_space">&nbsp;</td>
+																</tr>
+																<tr>
+																	<td>Groups <br/>
+																		<select name="group_list" size="6" style="width:250px" onChange="javascript:get_privilege_tree();">
+																			%%%add_company_group_list%%%
+																		</select>
+																	</td>
+																</tr>
+															</table>
+														</td>
+														<td> Company-Section Privileges<br/>
+															<select name="add_privilege_list" size="9"style="width:250px;" DISABLED>
+															</select>
+														</td>
+													</tr>
+													<tr>
+														<td class="align_right" colspan="2">
+															<input name="add_agent_priv" type="button" onclick="javascript:add_group_to_agent();" value="Add Group To Profile" />&nbsp;
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+<!------------------------->
+<!------------------------->
+<!------------------------->
+										<tr>
+											<td>
+												<table width="570px">
+													<tr>
+														<td class="align_left">&nbsp;<b>Remove Privileges</b></td>
+													</tr>
+													<tr>
+														<td class="border_one">
+															<table width="100%">
+																<tr>
+																	<td> Profile Companies <br/>  
+																		<select name="agent_company_list" style="width:250px" size="5" onchange="javascript:load_agent_company_groups();"> 
+																			%%%add_companies_list%%%	
+																		</select>
+																	</td>
+																	<td> Profile Groups <br/>
+																		<select name="agent_group_list" size="5" style="width:250px">
+																			%%%agent_group_list%%%
+																		</select>
+																	</td>
+																</tr>
+																<tr>
+																	<td class="align_right" colspan="2">
+																		<input name="remove_agent_priv" type="button" onclick="javascript:remove_group_from_agent();" value="Remove Group From Profile">&nbsp;
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>						
+				</tr>						
+			</table>
+		</td>
+	</tr>
+	</form>
+</table>

@@ -1,0 +1,201 @@
+<DataxResponse>
+<GenerationTime>20080306014409</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>289870</TransactionId>
+<TrackHash>c6e98de70b1d5baefd4c0546cdb3b9c1</TrackHash>
+<Response>
+<Summary>
+  <Ofac>1</Ofac>
+  <Decision>N</Decision>
+  <DecisionBuckets>
+    <Bucket>c_asl_ssn_issue_result_fail_1</Bucket>
+    <Bucket>d_asl_ssn_result_dob_fail_1</Bucket>
+  </DecisionBuckets>
+</Summary>
+<Detail>
+  <ASL>
+    <VerificationResult>
+      <General>
+        <EmailAddress>
+          <ValidationResultCode>E700</ValidationResultCode>
+        </EmailAddress>
+        <ErrorCode>0</ErrorCode>
+        <Cust_Ref_Num>289870</Cust_Ref_Num>
+        <TransactionID>0524080050021204839848620</TransactionID>
+        <AuthenticationScoreSet>
+          <ScoreModelIndicator>3</ScoreModelIndicator>
+          <AuthenticationScore>128</AuthenticationScore>
+          <ASScoreFactor1>16</ASScoreFactor1>
+          <ASScoreFactor2/>
+          <ASScoreFactor3/>
+          <ASScoreFactor4/>
+        </AuthenticationScoreSet>
+        <IPAddress>
+          <IPAddressMatchCountry>5</IPAddressMatchCountry>
+          <IPAddressCountry>***</IPAddressCountry>
+          <IPAddressMatchState>3</IPAddressMatchState>
+          <IPAddressState>***</IPAddressState>
+          <IPAddressMatchCity>2</IPAddressMatchCity>
+          <IPAddressCity>PRIVATE</IPAddressCity>
+          <IPAddressMatchZipCode>3</IPAddressMatchZipCode>
+          <IPAddressZipCode>0</IPAddressZipCode>
+          <IPAddressMSA/>
+          <IPAddressLatitude/>
+          <IPAddressLongitude/>
+        </IPAddress>
+      </General>
+      <Response>
+        <Checkpoint>
+          <CheckpointScore>371</CheckpointScore>
+          <LevelOne>
+            <ModelScore>757</ModelScore>
+            <ModelCodes/>
+            <ModelIndicator>B</ModelIndicator>
+          </LevelOne>
+          <AuditNumber>CP-2GW-CMSG6BF61</AuditNumber>
+          <StandardizedAddress>
+            <STDA_LastName/>
+            <STDA_FirstName/>
+            <STDA_MiddleInitial/>
+            <STDA_Address/>
+            <STDA_City/>
+            <STDA_State/>
+            <STDA_ZipCode/>
+            <STDA_ZipPlus4/>
+          </StandardizedAddress>
+          <PrimaryResult>00</PrimaryResult>
+          <PrimaryResultMessage>Data found for search request</PrimaryResultMessage>
+          <AddressVerificationResult>R</AddressVerificationResult>
+          <AddressVerificationResultMessage>Road name - City/Zip mismatch</AddressVerificationResultMessage>
+          <AddressUnitMismatchResult/>
+          <AddressUnitMismatchResultMessage/>
+          <PhoneVerificationResult>IA</PhoneVerificationResult>
+          <PhoneVerificationResultMessage>Invalid area code</PhoneVerificationResultMessage>
+          <PhoneUnitMismatchResult/>
+          <PhoneUnitMismatchResultMessage/>
+          <AddressTypeResult>N</AddressTypeResult>
+          <AddressTypeResultMessage>No information available</AddressTypeResultMessage>
+          <AddressHighRiskResult>N</AddressHighRiskResult>
+          <AddressHighRiskResultMessage>No address high risk information found</AddressHighRiskResultMessage>
+          <PhoneHighRiskResult>N</PhoneHighRiskResult>
+          <PhoneHighRiskResultMessage>No phone high risk information found</PhoneHighRiskResultMessage>
+          <SocialSecurityNumberResult>NI</SocialSecurityNumberResult>
+          <SocialSecurityNumberResultMessage>SSN not issued</SocialSecurityNumberResultMessage>
+          <AddressVerificationResidentialMatches>0</AddressVerificationResidentialMatches>
+          <AddressVerificationBusinessMatches>0</AddressVerificationBusinessMatches>
+          <PhoneVerificationResidentialMatches>0</PhoneVerificationResidentialMatches>
+          <PhoneVerificationBusinessMatches>0</PhoneVerificationBusinessMatches>
+          <COAResultCode>N</COAResultCode>
+          <NumResidentialAddressDetailRecords>0</NumResidentialAddressDetailRecords>
+          <NumBusinessAddressDetailRecords>0</NumBusinessAddressDetailRecords>
+          <NumAddressHighRiskDetailRecords>0</NumAddressHighRiskDetailRecords>
+          <NumAddressHighRiskDescriptionRecords>1</NumAddressHighRiskDescriptionRecords>
+          <NumResidentialPhoneDetailRecords>0</NumResidentialPhoneDetailRecords>
+          <NumBusinessPhoneDetailRecords>0</NumBusinessPhoneDetailRecords>
+          <NumPhoneHighRiskDetailRecords>0</NumPhoneHighRiskDetailRecords>
+          <NumPhoneHighRiskDescriptionRecords>0</NumPhoneHighRiskDescriptionRecords>
+          <NumSSNDetailRecords>0</NumSSNDetailRecords>
+          <NumCOARecords>0</NumCOARecords>
+          <NumCOADescriptionRecords>0</NumCOADescriptionRecords>
+          <DLResultCode>I</DLResultCode>
+          <DLResultMessage>DL state and number format invalid</DLResultMessage>
+          <DateOfBirth>
+            <MonthOfBirth/>
+            <DayOfBirth/>
+            <YearOfBirth/>
+            <DateOfBirthMatch>5</DateOfBirthMatch>
+          </DateOfBirth>
+          <Checkpoint_Detail>
+            <SSN_Detail>
+
+         
+
+    </SSN_Detail>
+            <Residential_Detail>
+              <Residential_Address_Detail>
+
+             
+
+         </Residential_Address_Detail>
+              <Residential_Phone_Detail>
+
+	     
+
+	 </Residential_Phone_Detail>
+            </Residential_Detail>
+            <Business_Detail>
+              <Business_Address_Detail>
+
+	     
+
+	 </Business_Address_Detail>
+              <Business_Phone_Detail>
+
+	     
+
+	 </Business_Phone_Detail>
+            </Business_Detail>
+            <High_Risk_Address>
+              <High_Risk_Address_Set>
+                <HRA_Business_Name/>
+                <HRA_Address/>
+                <HRA_City/>
+                <HRA_State/>
+                <HRA_ZipCode/>
+                <HRA_ZipPlus4/>
+                <HRA_Area_Code/>
+                <HRA_Phone_Number/>
+                <HRA_Description>No high risk business at address/phone</HRA_Description>
+              </High_Risk_Address_Set>
+            </High_Risk_Address>
+            <High_Risk_Phone>
+
+	 
+
+    </High_Risk_Phone>
+            <Change_of_Address>
+
+	 
+
+    </Change_of_Address>
+            <COA_Description/>
+            <Previous_Address>
+	 
+    </Previous_Address>
+            <DriverLicenseDetail>
+              <DLSurname/>
+              <DLFirstName/>
+              <DLMiddleInitial/>
+              <DLAddress/>
+              <DLCity/>
+              <DLState/>
+              <DLZipCode/>
+              <DLZip4/>
+            </DriverLicenseDetail>
+            <ValidationResultsGroup>
+              <SSNValidation>
+                <SSNIssueState/>
+                <SSNDeceased>N</SSNDeceased>
+                <SSNFormat>V</SSNFormat>
+              </SSNValidation>
+              <SSNIssueDate>
+                <SSNIssueStartRange/>
+                <SSNIssueEndRange/>
+                <SSNIssueResultCode>N</SSNIssueResultCode>
+              </SSNIssueDate>
+              <DriverLicenseValidation>
+                <DLFormat>I</DLFormat>
+              </DriverLicenseValidation>
+              <OFACValidation>
+                <OFACValidationResult>1</OFACValidationResult>
+              </OFACValidation>
+            </ValidationResultsGroup>
+          </Checkpoint_Detail>
+        </Checkpoint>
+      </Response>
+    </VerificationResult>
+  </ASL>
+</Detail>
+</Response>
+</DataxResponse>

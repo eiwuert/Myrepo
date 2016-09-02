@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<collection name="main" class="OLPBlackbox_OrderedCollection">
+	<picker class="OLPBlackbox_Vetting_OrderedPicker" />
+
+	<collection name="reactCollection" class="OLPBlackbox_TargetCollection">
+		<picker class="OLPBlackbox_Vetting_PercentPicker" />
+		<!-- targets put in here should have an OLPBlackbox_Rule_SetState
+			rule with value 'vetting_react_sold' -->
+	</collection>
+
+	<!-- This campaign should have all the rules included here, plus common
+		ones from the vetting spec which are already in base blackbox -->
+	<campaign name="temp" weight="10">
+		<!-- "temp" campaign should be replaced with a campaign which has the
+			basic rules for the "super tier data quality prequal process." The
+			complex rules for this are listed below, the rest can come from the
+			database rules table. -->
+		<rules>
+			<rule class="OLPBlackbox_Vetting_Rule_SSNCheck" />
+			<rule class="OLPBlackbox_Vetting_Rule_DataX" debug_opt="DATAX_IDV" />
+			<rule class="OLPBlackbox_Rule_LegacyStateExclude">
+				<arg>KS</arg>
+			</rule>
+			<rule class="OLPBlackbox_Rule_LegacyStateExclude">
+				<arg>GA</arg>
+			</rule>
+			<rule class="OLPBlackbox_Rule_LegacyStateExclude">
+				<arg>WV</arg>
+			</rule>
+			<rule class="OLPBlackbox_Rule_LegacyStateExclude">
+				<arg>VA</arg>
+			</rule>
+		</rules>
+		
+		<!-- non react collection -->
+		<collection name="business" class="OLPBlackbox_Vetting_TargetCollection">
+			<picker class="OLPBlackbox_Vetting_PercentPicker" />
+			
+			<!-- here, insert peer campaigns of partner weekly. -->
+			
+			<campaign name="pw" weight="10">
+				<collection name="partnerWeeklyCollection" class="OLPBlackbox_TargetCollection">
+					<picker class="OLPBlackbox_Vetting_PercentPicker" />
+	
+					<campaign name="demo" weight="5" id="30">
+						<target name="demo" class="OLPBlackbox_Vetting_NoRuleTarget" id="30" />
+						<rules>
+							<rule class="OLPBlackbox_Rule_SetState">
+								<arg>partner_weekly_vetting_lead</arg>
+							</rule>
+						</rules>
+					</campaign>
+
+				</collection>
+			</campaign>
+		</collection>
+		<!-- end non-react collection -->
+	</campaign>
+
+</collection>

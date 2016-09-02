@@ -1,0 +1,32 @@
+%%%error_block%%%
+<script language='javascript'>
+	function Download()
+	{
+		window.open("/download.php?%%%download_url%%%");
+	}
+</script>
+<p>This template is not standard format. You will not beable to edit it
+online. To edit you can <a href='javascript: Download();'>Download</a> 
+the template and then fill out the form below to update the template accordingly.
+</p>
+<form action="?module=templates_edit&action=submit_rtf" method="post" enctype="multipart/form-data">
+<input type='hidden' name='template_id' value='%%%template_id%%%'>
+<table cellpadding="2" cellspacing="0" border="0" class="text">
+    <tr>
+      <td class="bold">Template Name</td><td>%%%template_name%%%</td>
+    </tr>
+    <tr>
+      <td>Template Subject</td>
+      <td><input type="text" size="30" name="template_subject" value="%%%template_subject%%%"></td>
+    </tr>
+    <tr>
+    	<td>Upload File</td>
+    	<td><input type='file' name='template_file'></td>
+    </tr>
+    <tr>
+    	<td colspan=2 align='center'>
+    		<input type='submit' value='Update Template'>
+    	</td>
+    </tr>
+</table>
+</form>

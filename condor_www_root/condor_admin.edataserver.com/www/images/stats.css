@@ -1,0 +1,99 @@
+/*#############################################################*/
+/* beg: Program Main */
+/*#############################################################*/
+
+/* beg: list table */
+
+TABLE.winStyleListTable TR.header TD {
+	padding-right: 3px;
+}
+TABLE.winStyleListTable TR.header TD.header_click {
+	padding-right: 2px;
+}
+TABLE.winStyleListTable TR.content_1 TD,
+TABLE.winStyleListTable TR.content_2 TD {
+	cursor: default;
+}
+
+.SearchTableID {
+	width: 50px;
+	text-align: left;
+	white-space: nowrap;
+	display: table-cell;
+	position: relative;
+
+
+
+
+}
+.SearchTableCC {
+	width: 100px;
+	white-space: nowrap;
+	text-align: right;
+	display: table-cell;
+	position: static;
+
+
+}
+.SearchTableDesc {
+	white-space: pre;
+	width: 200px;
+
+}
+.SearchTableAmount {
+	width: 65px;
+	white-space: nowrap;
+	text-align: right;
+	display: table-cell;
+
+
+}
+.SearchTableDate {
+	width: 70px;
+	white-space: nowrap;
+	text-align: right;
+	display: table-cell;
+	position: static;
+
+}
+.SearchTableFirst {
+	white-space: nowrap;
+	width: 100px;
+	text-align: left;
+	display: table-cell;
+	position: static;
+
+
+
+}
+.SearchTableLast {
+
+
+	width: 100px;
+	white-space: pre;
+}
+.SearchTableSSN {
+	width: 60px;
+	white-space: nowrap;
+	text-align: left;
+	display: table-cell;
+	position: static;
+
+}
+.SearchTableStatus {
+
+	width: 50px;
+	white-space: pre;
+}
+.SearchTableTotal {
+	font-weight: bold;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #999999;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+}

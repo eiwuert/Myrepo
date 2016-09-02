@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name='vetting_ssns'>
+		<column>ssn_encrypted</column>
+		<column>date_modified</column>
+		<column>date_created</column>
+		<column>application_id</column>
+		
+		<row>
+			<!-- "good" ssn, which hasn't been used in over 120 days -->
+			<value>123456789</value>
+			<value>2007-11-25</value>
+			<value>2007-09-07</value>
+			<value>2</value>
+		</row>
+		<row>
+			<!-- "overactive" ssn which has been used in the last 120 days -->
+			<value>111223333</value>
+			<value>2007-12-16</value>
+			<value>2007-08-19</value>
+			<value>3</value>
+		</row>
+	</table>
+</dataset>

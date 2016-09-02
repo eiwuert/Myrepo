@@ -1,0 +1,120 @@
+<?php
+# cache buster
+header("Expires: Mon, 01 Jan 1997 01:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-cache, must-revalidate");
+header("Pragma: no-cache");
+?>
+<html><head>
+
+<script type="text/javascript" src="js/menu.js"></script>
+<script type="text/javascript" src="js/mmlayer.js"></script>	
+<title>::: <?=$_SESSION['Server_state']['company_list'][$_SESSION['Server_state']['company_id']]['name']?> :::</title>
+<?php
+if (isset($header)) echo $header;
+?>
+<link type="text/css" rel="stylesheet" href="css/simple.css">
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/simple.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+<table id="container_table" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td colspan="2" class="top_title">
+<img src="images/m_grip_hz36.gif" align="middle" border="0" height="36" width="4"><img src="images/logo_condor.gif" align="middle" border="0" >
+</td>
+</tr>
+<tr>
+<td colspan="2" class="top_title_hz_line">
+<img src="images/spacer.gif" height="2"></td>
+</tr>
+<tr>
+      <td colspan="2" height="10">
+		<table width=100%  cellpadding="0" cellspacing="0">
+		<tr>
+		<td align=left class=top_title_hz nowrap>
+      <b>User:</b> <?=$_SESSION['Server_state']['agent_name']?>&nbsp;&nbsp; <b>Company:</b> <?=$_SESSION['Server_state']['company_list'][$_SESSION['Server_state']['company_id']]['name']?>
+      	</td>
+      	
+      	<td align=right class=top_title_hz nowrap>
+<?
+	if ($_SESSION['Server_state']['active_id']['application_id'])
+	{
+		echo "<b>App ID:</b>&nbsp;".$_SESSION['Server_state']['active_id']['application_id']."&nbsp;&nbsp;";
+	}
+	if ($_SESSION['Server_state']['active_id']['name_first'] && $_SESSION['Server_state']['active_id']['name_last'])
+	{
+		echo "<b>Name:</b>&nbsp;".ucfirst($_SESSION['Server_state']['active_id']['name_last']).", ".ucfirst($_SESSION['Server_state']['active_id']['name_first'])."&nbsp;&nbsp;";
+	}
+	if ($_SESSION['Server_state']['active_id']['card_number'])
+	{
+		echo "<b>Card#:</b>&nbsp;".$_SESSION['Server_state']['active_id']['card_number']."&nbsp;&nbsp;";
+	}
+	if ($_SESSION['Server_state']['active_id'])
+	{
+		echo "<a href='/?module=".$_SESSION['Server_state']['active_module']."&reset_state=1'>[reset]</a>";	
+	}
+?>
+      	</td>
+      </table>
+      </td>
+</tr>
+<tr>
+<td class="left_nav" nowrap>
+<?php
+
+	foreach ($transport->user_acl as $menu_item)
+	{
+		$menu_style = ($transport->user_acl_names[$menu_item] == $transport->section_manager->parent_module ) ? 'menu_title_selected' : '';
+		echo "<div  class='".$menu_style."' onmouseover=\"this.className='".(($menu_style) ? $menu_style : 'menu_title_over')."'\" onmouseout=\"this.className='".$menu_style."'\" onclick=\"getUrl('/?module={$transport->user_acl_names[$menu_item]}');\" >{$menu_item} </div>";
+	}
+?>
+	<div onmouseover="this.className='menu_title_over'" onmouseout="this.className=''" onclick="getUrl('/?logout=true');"><b>Logout</b></div>
+</td>
+	<td class="right_content"> 
+	
+<?php
+	if(isset($module_menu_html))
+	{
+		echo $module_menu_html;
+	}
+?>
+<table width = 98% align=center>
+<tr><td>
+<?
+	if(isset($error_block))
+	{
+		echo $error_block;
+	}
+	
+	if(isset($notice_block))
+	{
+		echo $notice_block;
+	}
+	
+	if(isset($success_block))
+	{
+		echo $success_block;
+	}
+?>
+</td></tr>
+</table>
+
+<table width="100%">
+<tr>
+<td style="padding: 8px;">
+
+<?
+	if(isset($module_html))
+	{
+		echo $module_html;
+	}
+?>
+</td>
+</tr>
+</table>
+	</td>
+</tr>
+</tbody></table>
+</body></html>

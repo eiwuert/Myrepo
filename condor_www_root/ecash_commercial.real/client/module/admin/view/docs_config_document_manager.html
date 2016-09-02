@@ -1,0 +1,542 @@
+<script language="javascript">
+
+// Yeah, this uses AJAX, however I think that's silly. So I'm going to introduce JSON into the mix
+var existingDocs = %%%existingDocs%%%;
+var gmode        = 'new';
+
+var docNameShort = '';
+var docName = '';
+
+function check_for_dupes()
+{
+	// See if the mode is "new"
+	if (gmode != 'new')
+		return true;
+
+	// Get the name we're going to be saving as
+	var docName      = document.getElementById('dm_doc_name').value;
+	var docNameShort = document.getElementById('dm_doc_name_short').value; 
+
+	// if so, check the existing list provided via JSON to see if it will be a duplicate
+	for (var i=0; i < existingDocs.length; i++)
+	{
+		if (docName.toLowerCase() == existingDocs[i]['name'].toLowerCase())
+		{
+			alert('There is already a document with this name: ' + existingDocs[i]['name']);
+			return false;
+		}
+
+		if (docNameShort.toLowerCase() == existingDocs[i]['name_short'].toLowerCase())
+		{
+			alert('There is already a document with this name short: ' + existingDocs[i]['name_short']);
+			return false;
+		}
+	}
+
+	return true;
+}
+
+function ajaxreq()
+{
+	    if(window.XMLHttpRequest) 
+		{
+	    	try 
+			{
+				req = new XMLHttpRequest();
+	        } 
+			catch(e) 
+			{
+				req = false;
+	        }
+	    // branch for IE/Windows ActiveX version
+	    } 
+		else if(window.ActiveXObject) 
+		{
+	       	try 
+			{
+	        	req = new ActiveXObject("Msxml2.XMLHTTP");
+	      	} 
+			catch(e) 
+			{
+	        	try 
+				{
+	          		req = new ActiveXObject("Microsoft.XMLHTTP");
+	        	} 
+				catch(e) 
+				{
+	          		req = false;
+	        	}
+			}
+	    }	
+	    return req;	
+}
+	
+	
+function GetDocumentData(id)
+{
+		var req = ajaxreq();
+	    	
+		if(req) 
+		{
+			//req.onreadystatechange = processEditXML;
+			var url = "/?mode=docs_config&view=xml_document_data&document_list_id=" + id;
+			req.open("GET", url, false);
+			req.send("");
+			processDocumentData(req);
+		} 		
+		
+}
+	
+function processDocumentData(req) 
+{	
+	    if (req.readyState == 4) 
+		{
+	    	if (req.status == 200) 
+			{
+	    		var xmldoc = req.responseXML;
+	    		var form = document.getElementById('dm_document_manager');
+	    		var doc = xmldoc.getElementsByTagName('document').item(0);
+	    		
+				uNSet(document.getElementById('dm_doc_sendmethod'));
+				uNSet(document.getElementById('dm_sp_altbody'));
+				uNSet(document.getElementById('dm_sp_esigbody'));
+				uNSet(document.getElementById('dm_sp_faxbody'));
+				uNSet(document.getElementById('dm_doc_documentapi'));
+								    					
+	    		for (var iNode = 0; iNode < doc.childNodes.length; iNode++) 
+				{
+	    			var node = doc.childNodes.item(iNode);
+	    			
+	    			var nodeValue;
+	    			if (node.firstChild && node.firstChild.nodeValue) 
+					{
+	    				nodeValue = node.firstChild.nodeValue;
+	    			} 
+					else 
+					{
+	    				nodeValue = "";
+	    			}
+
+	    			switch (node.nodeName) {
+	    				case 'document_list_id':
+	    					document.getElementById('dm_doc_document_list_id').value = nodeValue;
+	    					break;
+	    					
+	    				case 'name':
+	    					document.getElementById('dm_doc_name').value = nodeValue;
+	    					docName = nodeValue;
+	    					break;
+	    					
+	    				case 'name_short':
+	    					document.getElementById('dm_doc_name_short').value = nodeValue;
+	    					docNameShort = nodeValue;
+	    					break;
+	    					
+	    				case 'document_api':
+	    					searchNSet(document.getElementById('dm_doc_documentapi'), nodeValue);
+	    					break;
+	    					
+	    				case 'send_method':
+	    					var longstring = nodeValue.split(',');
+
+	    					for (var sNode = 0 ; sNode < longstring.length ; sNode++) 
+							{
+	    						searchNSet(document.getElementById('dm_doc_sendmethod'), longstring[sNode]);
+	    					}
+	    					break;
+	    					
+	    				case 'alt_body_id':
+	    					searchNSet(document.getElementById('dm_sp_altbody'), nodeValue);
+	    					break;
+	    					
+	    				case 'esig_body_id':
+	    					searchNSet(document.getElementById('dm_sp_esigbody'), nodeValue);
+	    					break;
+	    					
+	    				case 'fax_body_id':
+	    					searchNSet(document.getElementById('dm_sp_faxbody'), nodeValue);
+	    					break;
+	    					
+	    				case 'required':
+		    				if(nodeValue == 'yes') 
+							{
+		    					document.getElementById('dm_chk_receivable').checked = true;
+								document.getElementById('dm_flag_receivable').value = nodeValue;
+		    				} 
+							else 
+							{
+		    					document.getElementById('dm_chk_receivable').checked = false;
+								document.getElementById('dm_flag_receivable').value = 'no';
+		    				}
+							break;
+	    					
+	    				case 'only_receivable':
+						//	    					alert(nodeValue);
+		    				if(nodeValue == 'yes') 
+							{
+		    					document.getElementById('dm_chk_pseudodoc').checked = true;
+								document.getElementById('dm_flag_pseudodoc').value = nodeValue;
+		    				} 
+							else 
+							{
+		    					document.getElementById('dm_chk_pseudodoc').checked = false;
+								document.getElementById('dm_flag_pseudodoc').value = 'no';
+		    				}
+							break;
+	    					
+	    				case 'esig_capable':
+		    				if(nodeValue == 'yes') 
+							{
+		    					document.getElementById('dm_chk_esig').checked = true;
+								document.getElementById('dm_flag_esig').value = nodeValue;
+		    				} 
+							else 
+							{
+		    					document.getElementById('dm_chk_esig').checked = false;
+								document.getElementById('dm_flag_esig').value = 'no';
+		    				}
+							break;
+						
+						case 'active_status':
+		    				if(nodeValue == 'active') 
+							{
+		    					document.getElementById('dm_chk_active').checked = true;
+								document.getElementById('dm_flag_active').value = nodeValue;
+		    				}
+							else 
+							{
+		    					document.getElementById('dm_chk_active').checked = false;
+								document.getElementById('dm_flag_active').value = 'inactive';
+		    				}
+							break;
+		    				
+	    			}
+				}
+	    		
+			}
+		}
+}
+
+function uNSet(ele)
+{
+		for ( var i = 0 ; i < ele.options.length ; i++ ) 
+		{
+			ele.options[i].selected = false;
+		}	
+}
+
+function searchNSet(ele, value)
+{
+		var selectedArray = new Array();
+		var c = 0;
+		
+		for ( var i = 0 ; i < ele.options.length ; i++ ) 
+		{
+			if (ele.options[i].value == value) 
+			{
+				ele.options[i].selected = true;
+			}
+		}	
+		
+}
+
+function toggleSelect(ele, set)
+{
+		for (var i = 0 ; i < ele.options.length ; i++ ) 
+		{
+			ele.options[i].disabled = set;
+		}
+		ele.disabled = set;
+}
+
+function toggleMode(mode)
+{
+		switch(mode) {
+			case 'new':
+			gmode = 'new';
+				toggleSelect(document.getElementById('dm_document_list'), true);
+				toggleSelect(document.getElementById('dm_sp_faxbody'),false);				
+				toggleSelect(document.getElementById('dm_sp_esigbody'),false);				
+				toggleSelect(document.getElementById('dm_sp_altbody'),false);				
+				toggleSelect(document.getElementById('dm_doc_sendmethod'),false);				
+				toggleSelect(document.getElementById('dm_doc_documentapi'),false);				
+				document.getElementById('dm_chk_pseudodoc').disabled = false;
+				document.getElementById('dm_chk_esig').disabled = false;
+				document.getElementById('dm_chk_receivable').disabled = false;
+				document.getElementById('dm_chk_active').disabled = false;
+				document.getElementById('dm_doc_name_short').disabled = false;
+				document.getElementById('dm_doc_name').disabled = false;
+				document.getElementById('dm_ac_save').disabled = false;
+				document.getElementById('dm_ac_saveas').disabled = true;
+			//				document.getElementById('dm_ac_del').disabled = true;
+				document.getElementById('dm_doc_document_list_id').value = '';				
+				
+				break;
+				
+			case 'mod':
+			gmode = 'mod';
+				toggleSelect(document.getElementById('dm_document_list'), false);
+				toggleSelect(document.getElementById('dm_sp_faxbody'),false);				
+				toggleSelect(document.getElementById('dm_sp_esigbody'),false);				
+				toggleSelect(document.getElementById('dm_sp_altbody'),false);				
+				toggleSelect(document.getElementById('dm_doc_sendmethod'),false);				
+				toggleSelect(document.getElementById('dm_doc_documentapi'),false);				
+				document.getElementById('dm_chk_pseudodoc').disabled = false;
+				document.getElementById('dm_chk_esig').disabled = false;
+				document.getElementById('dm_chk_receivable').disabled = false;
+				document.getElementById('dm_chk_active').disabled = false;
+				document.getElementById('dm_doc_name_short').disabled = false;
+				document.getElementById('dm_doc_name').disabled = false;
+				document.getElementById('dm_ac_save').disabled = false;
+				document.getElementById('dm_ac_saveas').disabled = false;
+			//				document.getElementById('dm_ac_del').disabled = true;
+				
+				break;
+				
+			case 'del':
+			gmode = 'del';
+				toggleSelect(document.getElementById('dm_document_list'), false);
+				toggleSelect(document.getElementById('dm_sp_faxbody'),true);				
+				toggleSelect(document.getElementById('dm_sp_esigbody'),true);				
+				toggleSelect(document.getElementById('dm_sp_altbody'),true);				
+				toggleSelect(document.getElementById('dm_doc_sendmethod'),true);				
+				toggleSelect(document.getElementById('dm_doc_documentapi'),true);				
+				document.getElementById('dm_chk_pseudodoc').disabled = true;
+				document.getElementById('dm_chk_esig').disabled = true;
+				document.getElementById('dm_chk_receivable').disabled = true;
+				document.getElementById('dm_chk_active').disabled = true;
+				document.getElementById('dm_doc_name_short').disabled = true;
+				document.getElementById('dm_doc_name').disabled = true;
+				document.getElementById('dm_ac_save').disabled = true;
+				document.getElementById('dm_ac_saveas').disabled = true;
+				document.getElementById('dm_ac_del').disabled = false;
+				
+				break;
+		}
+}
+
+function formNameShort(field)
+{
+		var ns = document.getElementById('dm_doc_name_short');
+		
+		if (ns.value == "") 
+		{
+			var re = /\W+/gi;
+			ns.value = field.value.replace(re, "_").toLowerCase();
+		}
+		
+}
+	
+function saveAsNew()
+{
+		if (document.getElementById('dm_doc_name_short').value != docNameShort)
+		{
+			document.getElementById('dm_doc_document_list_id').value = '';
+			document.getElementById('dm_document_manager').submit();
+		}
+		else
+		{
+			alert("There is already a document with this Name Short\nPlease use a different Name Short");
+		}
+		
+}
+
+
+// function validate_fields
+// args
+// @validations_array : Object : a associative object with name of field and regular expression as the value to pass validation
+// @stdtext: string: class name of non error style
+// @errtext: string: class name of error style
+// @ext: string : optional post-fix for fields 
+function validate_fields(validation_array,stdtext,errtext,ext)
+{
+	ext = typeof(ext) != 'undefined' ? ext : '';
+	focusobj = null;
+	isvalid = true;
+	
+	for (field in validation_array)
+	{
+		if (document.getElementById(field + '_span' + ext))
+		{
+			document.getElementById(field + '_span' + ext).className = stdtext;
+		}
+	}
+	
+	for (field in validation_array)
+	{
+	
+		if (document.getElementById(field + ext))
+		{
+			value_expersion = validation_array[field];
+			regex = new RegExp(value_expersion);
+			
+			
+			if (!(document.getElementById(field + ext).value.match(regex)) && ((isArray(document.getElementById(field + ext)) && !(document.getElementById(field + ext).selectedIndex > 0)) || !isArray(document.getElementById(field + ext)) ))
+			{
+				document.getElementById(field + '_span' + ext).className = errtext;	
+				isvalid = false;
+				
+				if (focusobj)
+				{
+					
+				}
+				else
+				{
+					focusobj = document.getElementById(field + ext);
+				}	
+			}
+		}
+	}
+	
+	if(focusobj)
+	{
+		focusobj.focus();
+	}
+	return isvalid;
+	
+}
+var pkg_validate_array = {
+	'dm_doc_name' : /^[\s\S]+$/,
+	'dm_doc_name_short' : /^[\s\S]+$/,
+	'dm_doc_sendmethod' : /^[\s\S]+$/
+
+};
+function isArray() {
+	
+	if (typeof arguments[0] == 'object') {  
+
+		var criterion = arguments[0][0]; 
+ 		return (criterion != null); 
+	 }
+	 
+	 return false;
+}	
+</script>
+<table width="100%" class="queue_config" height="500">
+	<tr>
+		<th style="background: #ebaeae; height:19px;">Document Manager</th>
+	</tr>
+	<tr>
+		<td>
+		<form id="dm_document_manager" name="dm_document_manager" action='/' method="post">
+		<input type="hidden" name="mode" value="docs_config" />
+		<input type="hidden" name="action" value="update_document" />
+		<input type="hidden" id="dm_doc_document_list_id" name="document_list_id"/>
+	<table width="100%">
+		<tr>
+			<td>
+				<input id="dm_chooser_new" onclick="toggleMode('new');" type="radio" name="_">
+				<label for="dm_chooser_new">Add Document</label>
+			</td>
+			<td>
+				<input id="dm_chooser_mod" onclick="toggleMode('mod');" type="radio" name="_">
+				<label for="dm_chooser_mod">Modify Document</label>
+			</td>
+			<!-- 
+			<td>
+				<input id="dm_chooser_del" onclick="toggleMode('del');" type="radio" name="_">
+				<label for="dm_chooser_del">Delete Document</label>
+			</td>
+			-->
+		</tr>
+	</table>
+	
+	<table width="100%" border="0" cols="2">
+		<tr>
+			<td width="50%" align="left" valign="top">
+				<select size="30" id="dm_document_list" style="width: 100%;" onChange="GetDocumentData(this.options[this.selectedIndex].value);">
+				%%%document_list%%%
+				</select>
+			</td>
+			<td width="50%" align="left" valign="top">
+				<fieldset align="left">
+					<legend align="left">Document</legend>
+					<div class="fieldset_div" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+					<div style="padding-left: 15px; text-align: left">
+					<span id="dm_doc_name_span" class="title">Document Name</span>	
+					<input type="text" name="name" id="dm_doc_name" style="width: 95%;" onBlur="formNameShort(this);">
+						
+					</div>
+					<div style="padding-left: 15px; text-align: left">
+						<span id="dm_doc_name_short_span" class="title">Name Short</span>
+						<input type="text" name="name_short" id="dm_doc_name_short" style="width: 95%" >
+					</div>
+					<div style="padding-left: 15px; text-align: left">
+						<span class="title">Document Engine</span><br>
+						<select name="document_api" id="dm_doc_documentapi">
+							<option value="condor">Condor</option>
+							<!--<option value="copia">Legacy Copia</option> // Agean doesn't use Copia! -->
+						</select>
+						<br>
+					</div>
+					<div style="padding-left: 15px; text-align: left">
+						<span id="dm_doc_sendmethod_span" class="title">Allowed Delivery Methods</span><br>
+						<select multiple name="send_method[]" id="dm_doc_sendmethod" size="2">
+							<option value="email">Email</option>
+							<option value="fax">Fax</option>
+						</select>
+						<br>
+					</div>
+					</div>				
+				</fieldset>
+				<fieldset>
+					<legend align="left">Flags</legend>
+					<div class="fieldset_div" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+					<div style="padding-left: 15px; text-align: left;">
+						<input type="hidden" name="active_status" id="dm_flag_active" value="inactive"/>
+						<input type="checkbox" id="dm_chk_active" onChange="if (this.checked == true) { document.getElementById('dm_flag_active').value = 'active' } else { document.getElementById('dm_flag_active').value = 'inactive' } " />
+						<label for="dm_flag_active" style="width: 150px;">Is Active</label>
+							<br>
+						<input type="hidden" name="required" id="dm_flag_receivable" value="no"/>
+						<input type="checkbox" id="dm_chk_receivable" onChange="if (this.checked == true) { document.getElementById('dm_flag_receivable').value = 'yes' } else { document.getElementById('dm_flag_receivable').value = 'no' } " />
+						<label for="dm_flag_receivable" style="width: 150px;">Is Receivable</label>
+							<br>
+						<input type="hidden" name="esig_capable" id="dm_flag_esig"  value="no"/>
+						<input type="checkbox" id="dm_chk_esig" onChange="if (this.checked == true) { document.getElementById('dm_flag_esig').value = 'yes' } else { document.getElementById('dm_flag_esig').value = 'no' } " />
+						<label for="dm_flag_esig" style="width: 150px;">Is eSig Document</label>
+							<br>
+						<input type="hidden" name="only_receivable" id="dm_flag_pseudodoc"  value="no"/>				
+						<input type="checkbox" id="dm_chk_pseudodoc" onChange="if (this.checked == true) { document.getElementById('dm_flag_pseudodoc').value = 'yes' } else { document.getElementById('dm_flag_pseudodoc').value = 'no' } " />
+						<label for="dm_flag_pseudodoc" style="width: 150px;">Is Pseudo Document</label>				
+					</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend align="left">Special Document Settings</legend>
+					<div class="fieldset_div" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+					<div style="padding-left: 15px; text-align: left">
+						<span class="title">Alternate Email Body</span>
+						<select name="email_body" id="dm_sp_altbody" style="width: 100%">
+						<option value="">None</option>
+						%%%document_list%%%
+						</select>
+							<br>
+							<span class="title">eSig Body</span>
+						<select name="esig_body" id="dm_sp_esigbody" style="width: 100%">
+						<option value="company_default">Company Default</option>
+						%%%document_list%%%
+						</select><br>
+						<span class="title">Fax Cover Sheet</span>
+						<select name="fax_body" id="dm_sp_faxbody" style="width: 100%">
+						<option value="company_default">Company Default</option>
+						%%%document_list%%%
+						</select>
+					</div>
+					</div>
+				</fieldset>
+			</td>
+		</tr>
+	</table>
+	<div align="center">
+		<input type="button" id="dm_ac_save" value=" Save " onClick="if(validate_fields(pkg_validate_array,'data','error') && check_for_dupes()){this.form.submit();}" />
+		<input type="button" id="dm_ac_saveas" value=" Save as New" onClick="if(validate_fields(pkg_validate_array,'data','error')){saveAsNew();}" />			
+		<!--  <input type="button" id="dm_ac_del" value=" Delete " onClick="alert('Not Yet Implemented');" /> -->
+	</div>
+</form>
+<script language="javascript">
+	document.getElementById('dm_chooser_new').checked = true;
+	toggleMode('new');
+</script>
+		</td>
+	</tr>
+</table>

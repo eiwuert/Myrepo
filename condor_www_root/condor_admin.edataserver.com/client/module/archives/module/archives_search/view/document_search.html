@@ -1,0 +1,106 @@
+<div align="center">
+
+%%%error_block%%%
+
+<style type="text/css">@import url(js/jscalendar/skins/aqua/theme.css);</style>
+<script type="text/javascript" src="js/jscalendar/calendar_stripped.js"></script>
+<script type="text/javascript" src="js/jscalendar/lang/calendar-en.js"></script>
+<script type="text/javascript" src="js/jscalendar/calendar-setup_stripped.js"></script>
+<script type="text/javascript">
+function Reset_Fields()
+{
+	document.getElementById('search_id').value = '';
+	document.getElementById('date_start').value = '';
+	document.getElementById('date_end').value = '';
+}
+</script>
+
+<form action="/" method="get" id="Search_Form">
+<table cellpadding="2" cellspacing="0" border="0" class="text">
+	<tr>
+		<td class="bold">
+%%%id_select%%%
+		</td>
+		<td><input name="id" id="search_id" type="text" value="%%%s_id%%%"></td>
+	</tr>
+	<tr>
+		<td class="%%%date_start_css%%%">Start Date:</td>
+		<td>
+			<input name="date_start" id="date_start" type="text" value="%%%date_start%%%"  onChange="if(document.getElementById('date_end').value == ''){ document.getElementById('date_end').value = this.value;}"/>
+			<small><i>(mm/dd/yyyy)</i></small>
+		</td>
+	</tr>
+	<tr>
+		<td class="%%%date_end_css%%%">End Date:</td>
+		<td>
+			<input name="date_end" id="date_end" type="text" value="%%%date_end%%%" />
+			<small><i>(mm/dd/yyyy)</i></small>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>
+			<input type="hidden" name="offset" id="current_offset" value="%%%current_offset%%%" />
+			<input type="hidden" name="max" id="current_max" value="%%%docs_per_page%%%" />
+			<input type="hidden" name="action" value="submit" />
+			<input type="hidden" name="module" value="archives_search" />
+			<input type="submit" name="submit" value="Search" id='submit_button' />
+			<input type="reset" name="reset" value="Reset" onclick="Reset_Fields(); return false;" />
+		</td>
+	</tr>
+</table>
+</form>
+
+<script type="text/javascript">
+Calendar.setup(
+	{
+		inputField	: "date_start",	// ID of the input field
+		ifFormat	: "%m/%d/%Y",	// the date format
+		button		: "date_start"
+	}
+);
+Calendar.setup(
+	{
+		inputField	: "date_end",	// ID of the input field
+		ifFormat	: "%m/%d/%Y",	// the date format
+		button		: "date_end"
+	}
+);
+</script>
+<script type='text/javascript'>
+function ChangeOffset(offset)
+{
+	elem = document.getElementById('current_offset');
+	if(elem)
+	{
+		elem.value = offset;
+		document.getElementById('submit_button').click();
+	}
+		
+}
+</script>
+
+<hr style="height: 2px; background-color: lightgray; border: 0px; width: 75%" />
+
+<div style="text-align: right; width: 75%">
+%%%num_results%%% results on last search.<br />
+Viewing documents %%%view_range%%%.<br />
+Showing %%%docs_per_page%%% documents per page.<br />
+</div>
+
+<table width="70%" cellpadding="2" cellspacing="0">
+	<tr>
+		<td>&nbsp;</td>
+		<td class="bold">Archive ID</td>
+		<td class="bold">Type</td>
+		<td class="bold">Application ID</td>
+		<td class="bold">Received From</td>
+		<td class="bold">Date Created</td>
+		<td class="bold">Subject</td>
+	</tr>
+%%%result_block%%%
+</table>
+<div style="font-family: Courier New, monospace; font-size: 8pt;">
+%%%pages%%%
+</div>
+</div>

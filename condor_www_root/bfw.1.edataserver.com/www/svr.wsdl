@@ -1,0 +1,46 @@
+<?xml version ="1.0"?>
+
+<definitions 
+	name="svr"
+	targetNamespace="urn:svr"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"	
+	xmlns:tns="urn:svr"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types/>
+	
+	<message name="User_DataRequest">
+		<part name="input" type="xsd:string"/>
+	</message>
+	<message name="User_DataResponse">
+		<part name="output" type="xsd:string"/>
+	</message>
+
+	<portType name="svrPort">
+		<operation name="User_Data">
+			<input message="tns:User_DataRequest"/>
+			<output message="tns:User_DataResponse"/>
+		</operation>
+	</portType>
+	
+	<binding name="svrBinding" type="tns:svrPort">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="User_Data">
+			<soap:operation soapAction="urn:svr#User_Data"/>
+			<input>
+				<soap:body use="encoded" namespace="urn:svr" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="urn:svr" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+	</binding>
+	
+	<service name="svrService">
+		<documentation />
+		<port name="svrPort" binding="tns:svrBinding">
+			<soap:address location="http://bfw.1.edataserver.com/cm_svr.php"/>
+		</port>
+	</service>
+</definitions>

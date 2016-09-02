@@ -1,0 +1,182 @@
+<div id="layout1group1layer7view" style="position: absolute; top: 5px; left: 5px; width: 770px; height: 440px; %%%reprocess_view_layer%%% /*border: solid 1px black;*/">
+<form method="post" action="/" id="action">
+	<div id='personal_div' style='position: absolute; left: 0px; top: 0px;'>
+		<table cellpadding='0' cellspacing='0'>
+	<tr>
+		<td class='border' align='left'' valign='top'>
+	<table class='customer_service' width=385 cellpadding='0' cellspacing='0'>
+	<tr class='height'><th colspan=2 class='customer_service'>Personal Details</th></tr>
+
+	<tr class="height">
+		<td class="align_left_bold" width="25%"><span class="%%%name_color%%%">%%%name_overlink%%% &nbsp;First Name/MI%%%name_endlink%%%</span>:&nbsp;</td>
+		<td class="align_left" width="70%">
+			<input type="text" name="name_first" value="%%%name_first_edit%%%" class="text" size="12">
+			<input type="text" name="name_middle" value="%%%name_middle_edit%%%" size="1">
+		</td>
+	</tr>
+				
+						
+	<tr class="height">
+		<td class="align_left_alt_bold" width="30%"><span class="%%%name_color%%%">%%%name_overlink%%%&nbsp;Last Name/Suffix%%%name_endlink%%%</span>:&nbsp;</td>
+		<td class="align_left_alt" width="65%">
+			<input type="text" name="name_last" value="%%%name_last_edit%%%" size="12" class="input_text">
+			%%%suffix_drop%%%
+		</td>
+	</tr>
+	<tr class='height'><td class='align_left_bold'><span class="%%%ssn_color%%%">%%%ssn_overlink%%% SSN%%%ssn_endlink%%%:</span></td><td class='align_left'><input type='text' name='ssn' value='%%%ssn%%%' SIZE=11 maxlength="11"></td></tr>
+	<tr class='height'><td class='align_left_alt_bold'><span class="%%%dob_drop_color%%%">%%%dob_drop_overlink%%% Date Of Birth:%%%dob_drop_endlink%%%</span></td><td class='align_left_alt'>%%%dob_drop%%%</td></tr>
+	<tr class='height'><td class='align_left_bold'><span class="%%%street_color%%%">%%%street_overlink%%%Address%%%street_endlink%%%</span>/<span class="%%%unit_color%%%">%%%unit_overlink%%%Unit:%%%unit_endlink%%%</span></td><td class='align_left'><input type='text' name='street' value='%%%street_edit%%%'><input type='text' name='unit' value='%%%unit_edit%%%' size=5></td></tr>
+	<tr class='height'><td class='align_left_alt_bold'><span class="%%%city_color%%%">%%%city_overlink%%%City%%%city_endlink%%%</span>/<span class="%%%state_color%%%">%%%state_overlink%%%State:%%%state_endlink%%%</span></td><td class='align_left_alt'><input type='text' name='city' value='%%%city_edit%%%'>%%%state_drop%%%</td></tr>
+	<tr class='height'><td class='align_left_bold'><span class="%%%zip_color%%%">%%%zip_overlink%%%Zip:%%%zip_endlink%%%</span></td><td class='align_left'><input type='text' name='zip' value='%%%zip_edit%%%' maxlength="5"></td></tr>
+	<tr class='height'><td class='align_left_alt_bold'><span class="%%%phone_home_color%%%">%%%phone_home_overlink%%%Home Phone:%%%phone_home_endlink%%%</span></td><td class='align_left_alt'><input type='text' name='phone_home' value='%%%phone_home_edit%%%'></td></tr>
+	<tr class='height'><td class='align_left_bold'><span class="%%%phone_work%%%">%%%phone_work_overlink%%%Work Phone%%%phone_work_endlink%%%</span>/<span class="%%%phone_work_ext_color%%%">%%%phone_work_ext_overlink%%%Ext:%%%phone_work_ext_endlink%%%</span></td><td class='align_left'><input type='text' name='phone_work' value='%%%phone_work_edit%%%'><input type='text' name='phone_work_ext' value='%%%phone_work_ext%%%' size=5></td></tr>
+	<tr class='height'><td class='align_left_alt_bold'><span class="%%%phone_cell_color%%%">%%%phone_cell_overlink%%%Mobile Phone:%%%phone_cell_endlink%%%</td><td class='align_left_alt'><input type='text' name='phone_cell' value='%%%phone_cell_edit%%%'></td></tr>
+	<tr class='height'>
+		<td class='align_left_bold'>Mobile Carrier:</td>
+		<td class='align_left'><select name='carrier'>
+		<option value=''></option>
+		<option value='att'>AT&T</option>
+		<option value='cingular'>Cingular</option>
+		<option value='metro_pcs'>Metro PCS</option>
+		<option value='nextel'>Nextel</option>
+		<option value='sprint'>Sprint</option>
+		<option value='tmobile'>T-Mobile</option>
+		<option value='verizon'>Verizon</option>
+		<option value='virgin'>Virgin Mobile</option>
+		<option value='other'>Other</option>
+		</select>
+		</td></tr>
+	<tr class='height'><td class='align_left_alt_bold'><span class="%%%customer_email_color%%%">%%%customer_email_overlink%%%Email:%%%customer_email_endlink%%%</td><td class='align_left_alt'><input type='text' name='customer_email' id='reprocess_customer_email' value='%%%customer_email_edit%%%'></td></tr>
+
+	<tr class='height'><th colspan=2 class='customer_service'>Employment & Bank Info</th></tr>	
+	<tr class='height'><td class='align_left_alt_bold'>Time at Employer:</td><td class='align_left_alt'>
+		%%%tenure_drop%%%
+		
+	</td></tr>
+	<tr class='height'><td class='align_left_bold'>Checking Account:</td><td class='align_left'>
+		<input type=radio name=has_checking value='TRUE'> Yes
+		<input type=radio name=has_checking value='FALSE'> No
+	</td></tr>		
+	<tr class='height'><td class='align_left_alt_bold'>Savings Account:</td><td class='align_left_alt'>
+		<input type=radio name=savings_account value='yes'> Yes
+		<input type=radio name=savings_account value='no'> No
+	</td></tr>
+	<tr class='height'><td class='align_left_bold'>Credit/Debit Card:</td><td class='align_left'>
+		<input type=radio name=credit_account value='yes'> Yes
+		<input type=radio name=credit_account value='no'> No
+	</td></tr>
+
+	<tr class='height'><td class='align_left_alt_bold'><span class="%%%bank_aba_color%%%">%%%bank_aba_overlink%%%ABA #:%%%bank_aba_endlink%%%</span></td><td class='align_left_alt'><input type='text' name='bank_aba' value='%%%bank_aba%%%'></td></tr>
+	<tr class='height'><td class='align_left_bold'><span class="%%%bank_account_color%%%">%%%bank_account_overlink%%%Account #:%%%bank_account_endlink%%%</span></td><td class='align_left'><input type='text' name='bank_account' value='%%%bank_account%%%'></td></tr>
+
+	</table>
+	</td></tr></table>
+	</div>
+	<div id='tnc_div' style='position: absolute; left: 395px; top: 0px;'>
+	<table cellpadding='0' cellspacing='0' width='100%'>
+	<tr>
+		<td class='border' align='left'' valign='top'>
+	<table class='customer_service' cellpadding='0' cellspacing='0' width=100%>
+	<tr class='height'><th colspan=2 class='customer_service'>Terms and Conditions</th></tr>
+	<tr class='height'><td class='align_left_alt_bold'>Opt-in:</td><td class='align_left_alt_bold'><input type='checkbox' name='opt_in_txt' checked='checked' />&nbsp;SMS/TXT&nbsp;&nbsp;&nbsp;&nbsp;<input type='checkbox' name='opt_in' checked='checked' />&nbsp;email</td></tr>
+	<tr class='height'><td class='align_left_bold'>Terms:</td><td class='align_left_bold'><input type='checkbox' name='edisclosure' id='edisclosure' checked='checked' />&nbsp;Consent to Electronic Disclosures</td></tr>
+	<tr class='height'><td class='align_left_alt_bold'></td><td class='align_left_alt_bold'><input type='checkbox' name='tnc' id='tnc' checked='checked' />&nbsp;Accept Terms & Conditions</td></tr>
+
+	<tr class='height'><th colspan=2 class='customer_service'>Reprocess Rules</th></tr>
+	<tr class='height'><td class='align_left_alt_bold'>Rule Version:</td><td class='align_left_alt'>
+		%%%reprocess_ruleset_drop%%%
+	</td></tr>
+
+	<tr class='height'><td class='align_left_bold'>Start At:</td><td class='align_left'>
+		<select id='start_at' name='start_at'>
+		</select>
+	</td></tr>
+		
+	</table>
+
+	</td></tr></table>
+	</div>
+		
+	<div id='submit_div' style='position: absolute; left: 350px; top: 410px;'>
+	<input type='hidden' name='application_id' value='%%%application_id%%%'>
+	<input type='hidden' name='agent_id' value='%%%agent_id%%%'>
+	<input type='hidden' name='action' value='reprocess'/>
+	<input type='submit' name='Reprocess' value='Reprocess' class="button"  onclick="javascript:return check_reprocess_fields();" />
+	<input type="button" value="Cancel" class="button" onClick="javascript:SetDisplay(0,0,0,'view', '%%%mode_class%%%_buttons');">
+	</div>
+
+<div id='error_div' style='position: absolute; left: 350px; top: 255px;z-index:0;height:125px;visibility:hidden;'>
+	<table cellpadding='0' cellspacing='0' width=100% height=100%>
+	<tr>
+		<td class='border' align='left'' valign='top' height=100%>
+			<div style='height:125px;overflow:auto;'>
+			<table class='customer_service' width=100% height=100% cellpadding='0' cellspacing='0'>
+				<tr><td bgcolor='red' valign=top><div id=error_text></div></td></tr>
+			</table>
+			</div>
+		</td>
+	</tr>
+	</table>
+</div>
+
+<div id='paydate_div' style='position: absolute; left: 0px; top: 0px;z-index:0;visibility:hidden;'>
+	<table cellpadding='0' cellspacing='0'>
+	<tr>
+		<td class='border' align='left'' valign='top'>
+			<table class='customer_service'>
+			<tr><th class='customer_service'>PayDate Information:</th><th>[<a href='#' onClick='javascript:if(PayDate_To_String())ShowAllHidePayDate();'>return</a>]</th></tr>
+			<tr><td class='align_left_bold'></td></tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</div>
+
+</form>
+<script>
+function check_reprocess_fields()
+{
+	var tnc = document.getElementById('tnc');
+	var edisclosure = document.getElementById('edisclosure');
+	if(!(tnc.checked && edisclosure.checked))
+	{
+		alert("You must agree to both the Accept Terms & Conditions and the Consent to Electronic Disclosures");
+		return false;
+	}
+	return validateEmail(document.getElementById('reprocess_customer_email').value);;
+}
+
+
+var reprocess_rules_all = %%%js_reprocess_rules_all%%%;
+
+function build_reprocess_steps()
+{
+	var steps_select = document.getElementById('start_at');
+	//remove all rules
+	for(var i = 0; i < steps_select.length; i++)
+	{
+	    steps_select.remove(i);
+    }
+
+	//add new rules
+	var reprocess_select = document.getElementById('ruleset_id');
+	var ruleset_id = reprocess_select.options[reprocess_select.selectedIndex].value;
+	for (var key in reprocess_rules_all[ruleset_id]) 
+	{
+		var key_int = parseInt(key);
+		if(key_int != '' && !isNaN(key_int))
+		{
+			var option_new = document.createElement('option');
+    		option_new.text = reprocess_rules_all[ruleset_id][key];
+	    	option_new.value = key;
+			steps_select.add(option_new, null);
+    		//alert(reprocess_rules_all[ruleset_id][key]);
+		}
+	}
+}
+
+build_reprocess_steps();
+
+</script>
+
+</div>

@@ -1,0 +1,400 @@
+***************************** INSTRUCTIONS ****************************
+
+	- Every change that has been commited to the SVN repository should
+		have a corresponding entry in this file: if it's been committed,
+		then it has the potentital to go live. Listing the change in here
+		helps prevent changes that are not ready to be pushed live from
+		inadvertantly being included in a release.
+
+	- Your initials MUST be included with your changes. If they are not,
+		you will be hunted down and burned at the stake. And possibly
+		eaten, cannibal style, with a little pepper.
+		"Mmm.. taste like chicken!"
+
+	- All changes should be grouped by feature addition or bug fix, and
+		list ALL modified files for that change. In general, any change
+		that affects more than one file should not be grouped with ANY
+		other change. Conversely, a small change that affected one file
+		should not be piggie-backed onto an entry that includes more than
+		that one file. If there are several small bug fixes all affecting
+		the same file, then they can be listed together. However, bug fixes
+		should not be grouped with a feature addition, unless the fix was
+		required for proper operation.
+
+		** If the change was associated with a project, webadmin2 task, or mantis
+		bug, it must include that number along with the business owner of the
+		task. **
+
+	- Entries should follow this format:
+
+				files/that/were/changed.php
+				another/file/that/was/changed_as_well.php
+
+			1.	[DESCRIPTION] (See below)
+
+			Mantis Bug:
+				1.	Mantis #1234 - Bug Reporter's Name - Description of the change [INITIALS]
+				2.	Had to fix a small bug to get this to work [INITIALS]
+				Reviewed By: [INITIALS]
+
+	- Add entries to the top of the PENDING CHANGES section. As changes are released,
+		they will be moved to the current/previous release sections, under
+		their corresponding release, by the release manager.
+
+	- All changes must be reviewed by another OLP team member before they're scheduled to be
+		released. Specify the reviewer below the changes.
+
+*************************** PENDING RELEASE ****************************
+	[* Branch GFORGE_11067 *]
+	OLPBlackbox/Enterprise/LCS/Factory/Legacy/Target.php
+	
+1.	[#11067] OLP: The max loan amount on the LCS website is incorrect. [AE]
+
+	[* Branch GFORGE_11152 *]
+	OLPBlackbox/Factory/Legacy/Rule.php
+	OLPBlackbox/Rule/ReferencesCount.php
+	
+1.	[#11152] required_references rule not implemented [TF]
+
+	[* Branch GFORGE_10394 *]
+	OLPBlackbox/Factory/Legacy/TargetUK.php
+	[* Branch GFORGE_10394 *]
+	bfw.1.edataserver.com/include/modules/blackbox/blackbox.target.php
+	bfw.1.edataserver.com/include/modules/blackbox/vendor_post_impl_cg_uk.php
+
+1.	GForge #10394 - Valencia Chambers - BBx Check Giant - Change in UK Tier System [DY]
+	Reviewed By: [MJ]
+
+	[* Branch GFORGE_10745 *]
+	OLPBlackbox/Enterprise/CLK/Rule/DataX.php
+	OLPBlackbox/Enterprise/AALM/Rule/DataX.php
+	OLPBlackbox/Enterprise/Agean/Rule/DataX.php
+	OLPBlackbox/Enterprise/Generic/Rule/DataX.php
+	OLPBlackbox/Enterprise/Impact/Rule/DataX.php
+	OLPBlackbox/Rule/DataX.php
+
+1.	Gforge #10745 - Centralize Authentication ID's for DataX in New BlackBox [AE]
+
+	[* Branch HEAD *]
+	lib5/datax.2.php
+	[* Branch GFORGE_10363 *]
+	tests/OLPBlackbox/Enterprise/QEasy/Rule/_datax_xml/QEasy_Pass.xml
+	tests/OLPBlackbox/Enterprise/QEasy/Rule/_datax_xml/QEasy_Fail.xml
+	tests/OLPBlackbox/Enterprise/QEasy/Rule/DataXTest.php
+	OLPBlackbox/Enterprise/QEasy/Rule/DataX.php
+	OLPBlackbox/Enterprise/QEasy/Factory/Legacy/Target.php
+	OLPBlackbox/Config.php
+
+	Requires http://gforge.sellingsource.com/svn/olp/olp_blackbox/branches/GFORGE_10495
+	Requires http://gforge.sellingsource.com/svn/lib/lib5/trunk lib5 r3955 or better
+
+1.	GForge #10363 - quickeasyfin - Customer Factory - Set up performance call to DataX [AE]
+	Reviewed By: [DW]
+
+	[* Branch: GFORGE_10495 *]
+	olp_blackbox/OLPBlackbox/Enterprise/QEasy/Factory/Legacy/Target.php
+	olp_blackbox/OLPBlackbox/Factory/Legacy/Target.php
+
+	Requires http://gforge.sellingsource.com/svn/ecash/ecash_common/branches/ECASH_NEW_QUEUES
+	Requires http://gforge.sellingsource.com/svn/quickeasyfin/ecash_qeasy/trunk
+	Requires http://gforge.sellingsource.com/svn/olp/olp_lib/branches/GFORGE_10352
+	Requires http://gforge.sellingsource.com/svn/lib/lib/trunk lib r3954 or better
+
+1.	GForge #10495 quickeasyfin - OLP/BB - New Target BBx Customer - OLP Code Configuration [AE]
+	Reviewed By: [DW]
+
+	[* Branch GFORGE_9883 *]
+	OLPBlackbox/Config.php
+	OLPBlackbox/Rule/DataX.php
+	OLPBlackbox/Enterprise/LCS/Factory/Legacy/Target.php
+	OLPBlackbox/Enterprise/LCS/Rule/DataX.php
+	tests/OLPBlackbox/Enterprise/LCS/Rule/_datax_xml/LCS_Pass.xml
+	tests/OLPBlackbox/Enterprise/LCS/Rule/_datax_xml/LCS_Fail.xml
+	tests/OLPBlackbox/Enterprise/LCS/Rule/DataXTest.php
+
+	Requires http://gforge.sellingsource.com/svn/lib/lib5/trunk lib5 r3955 or better
+
+1.	GForge #9883 - Customer Factory - Set up performance call to DataX for LCS [AE]
+	Reviewd By: [DO]
+
+***************************** NEXT RELEASE *****************************
+	These changes have already been merged to trunk.
+************************************************************************
+
+*************************** CURRENT RELEASE ****************************
+ Date: 2008-04-14 10:00AM        Tag Name: RELEASE_3_0_12 (r20113) [BF]
+************************************************************************
+
+	OLPBlackbox/Enterprise/CustomerHistory.php
+	OLPBlackbox/Enterprise/TargetCollection.php
+	
+1.	Fixed previous customer checks to invalidate targets with pending applications in OLP. [AM]
+2.	Added strtolower to match on property short. [AM]
+
+************************************************************************
+ Date: 2008-04-11 1:00PM        Tag Name: RELEASE_3_0_11 (r20041) [BF]
+************************************************************************
+
+	[* branches/gforge_11189 *]
+	OLPBlackbox/Rule/DataX.php
+	tests/OLPBlackbox/Enterprise/CLK/Rule/DataXTest.php
+	tests/OLPBlackbox/Enterprise/AALM/Rule/DataXTest.php
+	tests/OLPBlackbox/Enterprise/Agean/Rule/DataXTest.php
+	tests/OLPBlackbox/Enterprise/Generic/Rule/DataXTest.php
+	tests/OLPBlackbox/Enterprise/Impact/Rule/DataXTest.php
+	
+1.	Gforge 11189 - Fixed setting track hash in datax rules. [BF]
+
+	[* Branch gforge_11199*]
+	OLPBlackbox/Enterprise/Generic/Factory/Legacy/PreviousCustomer.php
+	tests/OLPBlackbox/Enterprise/Generic/Factory/Legacy/PreviousCustomer.php
+
+1.	GForge #11199 - altered Previous Customer Factory to return correct
+	instance for the individual CLK companies, not just the parent target [AM]
+	
+	[* branches/gforge_11174 *]
+	OLPBlackbox/PercentPicker.php
+	tests/OLPBlackbox/PercentPickerTest.php
+	
+1.	gForge 11174 - Fixed percent picker to go off of the difference, not the raw percentage. [BF]
+
+	[* Branch GFORGE_11122 *]
+	/OLPBlackbox/Enterprise/Generic/ECashProvider.php
+
+1	[#11122] Previous customer checks running against master database [RV]
+
+	[* branches/gforge_11177 *]
+	OLPBlackbox/Factory/Legacy/OLPBlackbox.php
+
+1.	gForge 11177 - Fixed issue with bb_sequential_preferred running on online_confirmation mode
+	and preventing any targets from existing. [BF]
+	
+	[* branches/RC (r19951) *]
+	OLPBlackbox/Enterprise/Agean/Factory/Legacy/Target.php
+
+1.	Fix the Agean verify react call so it doesn't run in modes other than BROKER. [CB]
+
+	[* branches/gforge_11199 *]
+	OLPBlackbox/Enterprise/CLK/FActory/Legacy/PreviousCustomer.php
+
+1. Support running for both the CLK parent and each individual child [AM]
+
+************************************************************************
+ Date: 2008-04-10 11:45AM        Tag Name: RELEASE_3_0_10 (r19970) [BF]
+************************************************************************
+
+	OLPBlackbox/Enterprise/Generic/Rule/LegacyQualifiesForAmount.php
+	OLPBlackbox/Data.php
+
+1.	Added back in the react_app_id. [BF]
+
+************************************************************************
+ Date: 2008-04-10 09:00AM        Tag Name: RELEASE_3_0_9 (r19920) [BF]
+************************************************************************
+
+	[* Branch: gforge_11055 *]
+	OLPBlackbox/Enterprise/CLK/Factory/Legacy/Target.php
+	OLPBlackbox/Enterprise/CLK/Target.php
+
+1.	GForge #11055 - eCash reacts always fail in Blackbox v3. [RM]
+	Reviewed By: [BF] [DO]
+
+	[* Branch: minor_fix *]
+	OLPBlackbox/Enterprise/Generic/PreviousCustomerCollection.php
+
+1.	No ticket - Fix a minor logical error. [RM]
+	Reviewed By: [MP]
+
+	OLPBlackbox/Enterprise/Generic/ECashProvider.php
+	OLPBlackbox/Enterprise/Generic/Factory/Legacy/PreviousCustomer.php
+
+1.	gForge 11058 - Reuse database connections instead of creating new ones. [AM]
+
+*************************** CURRENT RELEASE ****************************
+ Date: 2008-04-08 09:35PM        Tag Name: RELEASE_3_0_8a (r19833) [CB]
+************************************************************************
+
+	[* branches/QUALIFY_FIX *]
+	OLPBlackbox/Enterprise/Generic/Rule/LegacyQualifiesForAmount.php
+	OLPBlackbox/Enterprise/Generic/Rule/QualifiesForAmount.php
+	tests/OLPBlackbox/Enterprise/Generic/Rule/LegacyQualifiesForAmountTest.php
+	tests/OLPBlackbox/Enterprise/Generic/Rule/LegacyQualifiesForAmountTest.php
+
+1.	Fixes so that qualify works with aliased companies. [CB]
+
+************************************************************************
+ Date: 2008-04-08 09:00PM        Tag Name: RELEASE_3_0_8 (r19824) [BF]
+************************************************************************
+
+	OLPBlackbox/Enterprise/TargetCollection.php
+
+1.	Removed logging of target collection failure on UFC verify rules. [BF]
+
+	OLPBlackbox/Factory/Legacy/OLPBlackbox.php
+
+1.	Unmerged 19462:19300 from trunk for the file above. Added a condition so it
+	fails the query if there are no tiers to use. [BF]
+
+	[* branches/GFORGE_10510 *]
+	OLPBlackbox/TargetStateData.php
+	OLPBlackbox/PriorityPicker.php
+	OLPBlackbox/LookPicker.php
+	OLPBlackbox/Factory/Legacy/Tier.php
+	OLPBlackbox/Factory/Legacy/OLPBlackbox.php
+
+1.	GForge #10510 - Add in 1st / 2nd / 3rd look functionality. [CB]
+
+	[* BFW/Blackbox Branch GFORGE_10559 *]
+	/OLPBlackbox/Enterprise/Agean/Factory/Legacy/Target.php
+	/bfw.1.edataserver.com/branches/GFORGE_10559/include/modules/olp/olp.php
+
+1	GForge #10559 - Add in react verification check for Agean reacts	[RV]
+
+*************************** CURRENT RELEASE ****************************
+ Date: 2008-04-08 8:40AM        Tag Name: RELEASE_3_0_7 (r19752) [BF]
+************************************************************************
+
+	OLPBlackbox/Campaign.php
+	tests/OLPBlackbox/CampaignTest.php
+
+1.	gForge 10882 - Changed it so that setInvalid for the Campaign object throws an exception. [BF]
+2.	Added have_state_data check to Campaign. [BF]
+
+	[* Branch GFORGE_10796 *]
+	/OLPBlackbox/Factory/Legacy/OLPBlackbox.php
+
+1	GForge #10796 - OLPAbaCheck needs to be skippable	[RV]
+
+************************************************************************
+ Date: 2008-04-07 2:30PM        Tag Name: RELEASE_3_0_6 () [BF]
+************************************************************************
+
+	OLPBlackbox/Enterprise/Impact/Factory/Legacy/PreviousCustomer.php
+
+1.	Fix for Impact not allowing Previous Customer checks to be skippable on non-BROKER modes. [BF]
+
+************************************************************************
+ Date: 2008-04-07 2:00PM        Tag Name: RELEASE_3_0_5 (r19705) [BF]
+************************************************************************
+
+	[* Branch gforge_10833 *]
+	OLPBlackbox/Enterprise/TargetCollection.php
+	OLPBlackbox/FailException.php
+	tests/OLPBlackbox/Enterprise/TargetCollectionTest.php
+
+1. [#10833] Application ran DataX Performance twice for CLK and repicked after failure in pickTarget [DO]
+
+	[* branches/GFORGE_9320 *]
+	OLPBlackbox/Enterprise/Generic/PreviousCustomerCollection.php
+
+1.	Fix the previous customer check so it writes out the event log entry properly.  Previously,
+	if it had skipped some checks, the variable would be null so it wouldn't write anything. [CB]
+
+	[* branches/AGEAN_QUALIFY_FIX *]
+	OLPBlackbox/Enterprise/Agean/Rule/QualifiesForAmount.php
+
+1.	Fix for bad canRun() arguments for title loans. [CB]
+
+*************************** CURRENT RELEASE ****************************
+ Date: 2008-04-07 8:30AM        Tag Name: RELEASE_3_0_4 (r19652) [BF]
+************************************************************************
+
+	[* branches/gforge_9452 (r19180:19628) *]
+	OLPBlackbox/Factory/Legacy/OLPBlackbox.php
+
+1.	GForge #9452 - Only run during broker mode. [AuMa]
+2.	Add in bypass option to webadmin1. [CB]
+
+	[* Branch GFORGE_10743 *]
+	/OLPBlackbox/Rule/DataX.php
+
+1.	GForge #10743 - Rob Voss - Waaay wrong mode being passed to DataX	[RV]
+
+	[* Branch GFORGE_10782 *]
+	OLPBlackbox/Rule/DataX.php
+
+1.	GForge #10782 - Added in parent::__construct() and moved some fields we were checking in
+	canRun() [RV]
+
+	[* branches/gforge_10479 *]
+	OLPBlackbox/Factory/Legacy/OLPBlackbox.php
+
+1.	gForge #10479 - Added in bb_sequential_preferred. [BF]
+
+************************************************************************
+ Date: 2008-04-04 9:00AM        Tag Name: RELEASE_3_0_3 (r19600) [BF]
+************************************************************************
+
+	OLPBlackbox/Target.php
+
+1.	Added back in the bb_*_look stat increment. [BF]
+
+	[* Branch: gforge_9452 *]
+	OLPBlackbox/Rule/NotEqualsNoCase.php (new)
+	OLPBlackbox/Rule/LegacyStateExclude.php (new)
+	OLPBlackbox/StateData.php
+	OLPBlackbox/Facotry/Legacy/OLPBlackbox.php
+
+	[* Branch: gforge_9452 *]
+	/olp_lib/Blackbox/Adapter/New.php
+
+1. GForge #9452 - Jennifer Quade - Excluded State Check [AuMa]/[DO]
+
+	[* branch: gforge_10695 *]
+	OLPBlackbox/Enterprise/CLK/Factory/Legacy/PreviousCustomer.php
+	OLPBlackbox/Enterprise/Generic/Factory/Legacy/PreviousCustomer.php
+	OLPBlackbox/Enterprise/Generic/PreviousCustomerCollection.php
+
+1. GForge #10695 - Dan Ostrowski - Previous customer check is not skippable but attempted to be skipped. [DO]
+
+	[* Branch GFORGE_10743 *]
+	/OLPBlackbox/Rule/DataX.php
+
+1	GForge #10743 - Rob Voss - Waaay wrong mode being passed to DataX	[RV]
+
+	[* branches/cfe_company_id *]
+	OLPBlackbox/CFE/Application.php
+
+1.	Moved the company_id to the AsynchEngine constructor rather than
+	beginExecution [SS]
+
+	[* branches/gforge_10686 *]
+	OLPBlackbox/Data.php
+
+1.	gForge #10686 - Added reference information to Data. [BF]
+
+************************************************************************
+ Date: 2008-04-03 7:30AM        Tag Name: RELEASE_3_0_2 (r19464) [BF]
+************************************************************************
+
+	[* Branch GFORGE_10391 *]
+	OLPBlackbox/Factory/Legacy/RuleCollection.php
+
+1.	GForge #10391 Default rules don't allow for skip on check dup phone [AE]
+
+	[* Branch: GFORGE_10558 *]
+	OLPBlackbox/Enterprise/Generic/ECashProvider.php
+	tests/OLPBlacbox/Enterprise/Generic/ECashProviderTest.php
+
+1.	GForge #10558 - Brian Feaver - Previous customer failed for old blackbox, passed on new [DW]
+	Reviewed By: [RM]
+
+	[* branches/gforge_10600 *]
+	OLPBlackbox/DebugConf.php
+	OLPBlackbox/Factory/Legacy/OLPBlackbox.php
+
+1.	gforge #10600 - fixed specifying that no tiers should be used. [DO]
+
+	[* branches/GFORGE_10605 *]
+	OLPBlackbox/OrderedCollection.php
+	tests/OLPBlackbox/OrderedCollectionTest.php
+
+1.	gForge #10605 - Fixed an issue where OrderedCollection was not re-picking the same target
+	if it was still valid. [BF]
+2.	Fixed problem where on multiple isValid calls the state data was being added again. [BF]
+
+************************************************************************
+ Date: 2008-04-01 9:00PM        Tag Name: RELEASE_3_0_1 (r19362) [BF]
+************************************************************************
+
+Initial release of Blackbox 3.

@@ -1,0 +1,121 @@
+<table width="100%" class="privs" height="500">
+<form name="agent_profile" action='/' method="post"><input name="action" type="hidden" value="save">
+<!-- Start Radio Buttons -->
+	<tr>
+		<td class="tiny_space">&nbsp;</td>
+	</tr>
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td><input id="add_profile_radio_btn" name="agent_action" type="radio" onClick="javascript:radio_btn_actions('add_profile');"><nobr><b>Add Profile</b></nobr></td>
+					<td><input id="mod_profile_radio_btn" name="agent_action" type="radio" onClick="javascript:radio_btn_actions('modify_profile');"><nobr><b>Modify Profile</b></nobr></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+<!-- Stop Radio Buttons -->
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<td>
+						<table height="380px" width="180px">
+							<tr>
+								<td class="align_left">&nbsp;<b>Existing Profiles</b></td>
+							</tr>
+							<tr>
+								<td class="border_one">
+									<table>
+										<tr>
+											<td>
+												<select name="agent" size="28" style="width:165px" disabled="false" onChange="javascript:display_user();" >
+													%%%user_select_list%%%
+												</select>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table width="100%" >
+							<tr>
+								<td class="align_left" colspan="3">&nbsp;<b>Agent Profile</b></td>
+							</tr>
+							<tr>
+								<td class="border_one">
+									<table height="405px" width="575px">
+											<td>
+												<table width="100%">
+													<tr>
+														<td width="26%">&nbsp;</td>
+														<td class="align_left">First Name:</td>
+														<td class="align_left">
+															<input tabindex="1" name="name_first" type="text" size="25">
+														</td>
+														<td width="26%">&nbsp;</td>
+													</tr>
+													<tr>
+														<td width="26%">&nbsp;</td>
+														<td class="align_left">Last Name:</td>
+														<td class="align_left"><input tabindex="2" name="name_last" type="text" size="25" ></td>
+														<td width="26%">&nbsp;</td>
+													</tr>
+													<tr>
+														<td width="26%">&nbsp;</td>
+														<td class="align_left">Login:</td>
+														<td class="align_left">
+															<input name="agent_login" tabindex="3" type="text" size="25" >
+														</td>
+														<td width="26%">&nbsp;</td>
+													</tr>
+													<tr>
+														<td width="26%">&nbsp;</td>
+														<td class="align_left">New Password:</td>
+														<td class="align_left">
+															<input tabindex="4" name="password1" type="password" size="25" >
+														</td>
+														<td width="26%">&nbsp;</td>
+													</tr>
+													<tr>
+														<td width="26%">&nbsp;</td>
+														<td class="align_left">Conf. Password:</td>
+														<td class="align_left">
+															<input tabindex="5" name="password2" type="password" size="25" >
+														</td>
+														<td width="26%">&nbsp;</td>
+													</tr>
+													<tr>
+														<td width="26%">&nbsp;</td>
+														<td>&nbsp;</td>
+														<td class="align_right">
+															<br />
+															<input name="commit" type="button" onclick="javascript:save();" >
+														</td>
+														<td width="26%">&nbsp;</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<table height="100px">
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>						
+				</tr>						
+			</table>
+		</td>
+	</tr>
+	</form>
+</table>

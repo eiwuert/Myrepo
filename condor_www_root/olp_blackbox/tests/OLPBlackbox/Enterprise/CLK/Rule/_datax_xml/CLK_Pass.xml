@@ -1,0 +1,230 @@
+<DataxResponse>
+<GenerationTime>20080201120157</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>42255452</TransactionId>
+<TrackHash>6d59586bbe975f3a66dd0ce5726b0c07</TrackHash>
+<Response>
+    <Summary>
+        <Ofac>1</Ofac>
+        <Decision>Y</Decision>
+        <DecisionBucket>P1</DecisionBucket>
+    </Summary>
+    <Detail>
+        <ASL>
+            <VerificationResult>
+                <General>
+                    <EmailAddress>
+                        <ValidationResultCode>E700</ValidationResultCode>
+                    </EmailAddress>
+                    <ErrorCode>0</ErrorCode>
+                    <Cust_Ref_Num>42255452</Cust_Ref_Num>
+                    <TransactionID>0498500780021201852916351</TransactionID>
+                    <AuthenticationScoreSet>
+                        <ScoreModelIndicator>3</ScoreModelIndicator>
+                        <AuthenticationScore>579</AuthenticationScore>
+                        <ASScoreFactor1>16</ASScoreFactor1>
+                        <ASScoreFactor2 />
+                        <ASScoreFactor3 />
+                        <ASScoreFactor4 />
+                    </AuthenticationScoreSet>
+                    <IPAddress>
+                        <IPAddressMatchCountry>1</IPAddressMatchCountry>
+                        <IPAddressCountry>USA</IPAddressCountry>
+                        <IPAddressMatchState>1</IPAddressMatchState>
+                        <IPAddressState>AZ</IPAddressState>
+                        <IPAddressMatchCity>1</IPAddressMatchCity>
+                        <IPAddressCity>PHOENIX</IPAddressCity>
+                        <IPAddressMatchZipCode>2</IPAddressMatchZipCode>
+                        <IPAddressZipCode>85001</IPAddressZipCode>
+                        <IPAddressMSA>753</IPAddressMSA>
+                        <IPAddressLatitude>33.449</IPAddressLatitude>
+                        <IPAddressLongitude>-112.073</IPAddressLongitude>
+                    </IPAddress>
+                </General>
+                <Response>
+                    <Checkpoint>
+                        <CheckpointScore>645</CheckpointScore>
+                        <LevelOne>
+                            <ModelScore>755</ModelScore>
+                            <ModelCodes />
+                            <ModelIndicator>B</ModelIndicator>
+                        </LevelOne>
+                        <AuditNumber>CP-Z96-FC93B550</AuditNumber>
+                        <StandardizedAddress>
+                            <STDA_LastName>SANMIGUEL</STDA_LastName>
+                            <STDA_FirstName>RICARDO</STDA_FirstName>
+                            <STDA_MiddleInitial />
+                            <STDA_Address>7212 W MONTEREY WAY</STDA_Address>
+                            <STDA_City>PHOENIX</STDA_City>
+                            <STDA_State>AZ</STDA_State>
+                            <STDA_ZipCode>85033</STDA_ZipCode>
+                            <STDA_ZipPlus4>5005</STDA_ZipPlus4>
+                        </StandardizedAddress>
+                        <PrimaryResult>00</PrimaryResult>
+                        <PrimaryResultMessage>Data found for search request</PrimaryResultMessage>
+                        <AddressVerificationResult>N</AddressVerificationResult>
+                        <AddressVerificationResultMessage>No match to name - residential address</AddressVerificationResultMessage>
+                        <AddressUnitMismatchResult />
+                        <AddressUnitMismatchResultMessage />
+                        <PhoneVerificationResult>A</PhoneVerificationResult>
+                        <PhoneVerificationResultMessage>Match to address only - residential phone</PhoneVerificationResultMessage>
+                        <PhoneUnitMismatchResult />
+                        <PhoneUnitMismatchResultMessage />
+                        <AddressTypeResult>S</AddressTypeResult>
+                        <AddressTypeResultMessage>Residential</AddressTypeResultMessage>
+                        <AddressHighRiskResult>N</AddressHighRiskResult>
+                        <AddressHighRiskResultMessage>No address high risk information found</AddressHighRiskResultMessage>
+                        <PhoneHighRiskResult>N</PhoneHighRiskResult>
+                        <PhoneHighRiskResultMessage>No phone high risk information found</PhoneHighRiskResultMessage>
+                        <SocialSecurityNumberResult>YA</SocialSecurityNumberResult>
+                        <SocialSecurityNumberResultMessage>Match to full name and address - match performed using SSN</SocialSecurityNumberResultMessage>
+                        <AddressVerificationResidentialMatches>1</AddressVerificationResidentialMatches>
+                        <AddressVerificationBusinessMatches>0</AddressVerificationBusinessMatches>
+                        <PhoneVerificationResidentialMatches>1</PhoneVerificationResidentialMatches>
+                        <PhoneVerificationBusinessMatches>0</PhoneVerificationBusinessMatches>
+                        <COAResultCode>N</COAResultCode>
+                        <NumResidentialAddressDetailRecords>1</NumResidentialAddressDetailRecords>
+                        <NumBusinessAddressDetailRecords>0</NumBusinessAddressDetailRecords>
+                        <NumAddressHighRiskDetailRecords>0</NumAddressHighRiskDetailRecords>
+                        <NumAddressHighRiskDescriptionRecords>1</NumAddressHighRiskDescriptionRecords>
+                        <NumResidentialPhoneDetailRecords>0</NumResidentialPhoneDetailRecords>
+                        <NumBusinessPhoneDetailRecords>0</NumBusinessPhoneDetailRecords>
+                        <NumPhoneHighRiskDetailRecords>0</NumPhoneHighRiskDetailRecords>
+                        <NumPhoneHighRiskDescriptionRecords>0</NumPhoneHighRiskDescriptionRecords>
+                        <NumSSNDetailRecords>1</NumSSNDetailRecords>
+                        <NumCOARecords>0</NumCOARecords>
+                        <NumCOADescriptionRecords>0</NumCOADescriptionRecords>
+                        <DLResultCode>M</DLResultCode>
+                        <DLResultMessage>Driver License number not submitted on inquiry</DLResultMessage>
+                        <DateOfBirth>
+                            <MonthOfBirth>07</MonthOfBirth>
+                            <DayOfBirth>13</DayOfBirth>
+                            <YearOfBirth>1955</YearOfBirth>
+                            <DateOfBirthMatch>1</DateOfBirthMatch>
+                        </DateOfBirth>
+                        <Checkpoint_Detail>
+                            <SSN_Detail>
+                                <SSN_Detail_Set>
+                                    <SSN_Surname>SANMIGUEL</SSN_Surname>
+                                    <SSN_First_Name>RICARDO</SSN_First_Name>
+                                    <SSN_Initial />
+                                    <SSN_Address>7212 W MONTEREY WAY</SSN_Address>
+                                    <SSN_City>PHOENIX</SSN_City>
+                                    <SSN_State>AZ</SSN_State>
+                                    <SSN_ZipCode>85033</SSN_ZipCode>
+                                    <SSN_ZipPlus4>5005</SSN_ZipPlus4>
+                                    <SSN_ReportedDate>20060301</SSN_ReportedDate>
+                                    <SSN_LastTouchedDate>20071213</SSN_LastTouchedDate>
+                                    <SSN_Area_Code>623</SSN_Area_Code>
+                                    <SSN_Phone_Number>8737889</SSN_Phone_Number>
+                                    <SSN_MonthOfBirth>07</SSN_MonthOfBirth>
+                                    <SSN_DayOfBirth>13</SSN_DayOfBirth>
+                                    <SSN_YearOfBirth>1955</SSN_YearOfBirth>
+                                    <SSN_DateOfBirthMatch>1</SSN_DateOfBirthMatch>
+                                </SSN_Detail_Set>
+                            </SSN_Detail>
+                            <Residential_Detail>
+                                <Residential_Address_Detail>
+                                    <Residential_Address_Detail_Set>
+                                        <RESA_Surname>TREVIZO</RESA_Surname>
+                                        <RESA_First_Name>TERESA</RESA_First_Name>
+                                        <RESA_Initial />
+                                        <RESA_Address>7212 W MONTEREY WAY</RESA_Address>
+                                        <RESA_City>PHOENIX</RESA_City>
+                                        <RESA_State>AZ</RESA_State>
+                                        <RESA_ZipCode>85033</RESA_ZipCode>
+                                        <RESA_ZipPlus4>5005</RESA_ZipPlus4>
+                                        <RESA_Area_Code>623</RESA_Area_Code>
+                                        <RESA_Phone_Number>8737889</RESA_Phone_Number>
+                                        <RESA_Spouse_Name />
+                                        <RESA_House_Member_1>ERNESTO</RESA_House_Member_1>
+                                        <RESA_House_Member_2 />
+                                        <RESA_House_Member_3 />
+                                        <RESA_Last_Touched>20080113</RESA_Last_Touched>
+                                        <RESA_Residence_Length>0024</RESA_Residence_Length>
+                                    </Residential_Address_Detail_Set>
+                                </Residential_Address_Detail>
+                                <Residential_Phone_Detail>
+                                    <Residential_Phone_Detail_Set>
+                                        <RESP_Surname>TREVIZO</RESP_Surname>
+                                        <RESP_First_Name>TERESA</RESP_First_Name>
+                                        <RESP_Initial />
+                                        <RESP_Address>7212 W MONTEREY WAY</RESP_Address>
+                                        <RESP_City>PHOENIX</RESP_City>
+                                        <RESP_State>AZ</RESP_State>
+                                        <RESP_ZipCode>85033</RESP_ZipCode>
+                                        <RESP_ZipPlus4>5005</RESP_ZipPlus4>
+                                        <RESP_Area_Code>623</RESP_Area_Code>
+                                        <RESP_Phone_Number>8737889</RESP_Phone_Number>
+                                        <RESP_Spouse_Name />
+                                        <RESP_House_Member_1>ERNESTO</RESP_House_Member_1>
+                                        <RESP_House_Member_2 />
+                                        <RESP_Last_Touched>20080113</RESP_Last_Touched>
+                                        <RESP_Residence_Length>0024</RESP_Residence_Length>
+                                    </Residential_Phone_Detail_Set>
+                                </Residential_Phone_Detail>
+                            </Residential_Detail>
+                            <Business_Detail>
+                                <Business_Address_Detail />
+                                <Business_Phone_Detail />
+                            </Business_Detail>
+                            <High_Risk_Address>
+                                <High_Risk_Address_Set>
+                                    <HRA_Business_Name />
+                                    <HRA_Address />
+                                    <HRA_City />
+                                    <HRA_State />
+                                    <HRA_ZipCode />
+                                    <HRA_ZipPlus4 />
+                                    <HRA_Area_Code />
+                                    <HRA_Phone_Number />
+                                    <HRA_Description>No high risk business at address/phone</HRA_Description>
+                                </High_Risk_Address_Set>
+                            </High_Risk_Address>
+                            <High_Risk_Phone />
+                            <Change_of_Address />
+                            <COA_Description />
+                            <Previous_Address>
+                                <Previous_Address_Set>
+                                    <PA_Address>19730 N COYOTE LAKES PKWY</PA_Address>
+                                    <PA_City>SURPRISE</PA_City>
+                                    <PA_State>AZ</PA_State>
+                                    <PA_ZipCode>85374</PA_ZipCode>
+                                    <PA_ZipPlus4>2623</PA_ZipPlus4>
+                                    <PA_Report_Date>20031204</PA_Report_Date>
+                                    <PA_Update_Date>20060309</PA_Update_Date>
+                                </Previous_Address_Set>
+                                <Previous_Address_Set>
+                                    <PA_Address>504 CEDAR AVE</PA_Address>
+                                    <PA_City>DUMAS</PA_City>
+                                    <PA_State>TX</PA_State>
+                                    <PA_ZipCode>79029</PA_ZipCode>
+                                    <PA_ZipPlus4>2806</PA_ZipPlus4>
+                                    <PA_Report_Date>19990806</PA_Report_Date>
+                                    <PA_Update_Date>20031214</PA_Update_Date>
+                                </Previous_Address_Set>
+                            </Previous_Address>
+                            <ValidationResultsGroup>
+                                <SSNValidation>
+                                    <SSNIssueState>TX</SSNIssueState>
+                                    <SSNDeceased>N</SSNDeceased>
+                                    <SSNFormat>V</SSNFormat>
+                                </SSNValidation>
+                                <SSNIssueDate>
+                                    <SSNIssueStartRange>1965</SSNIssueStartRange>
+                                    <SSNIssueEndRange>1967</SSNIssueEndRange>
+                                    <SSNIssueResultCode>I</SSNIssueResultCode>
+                                </SSNIssueDate>
+                                <OFACValidation>
+                                    <OFACValidationResult>1</OFACValidationResult>
+                                </OFACValidation>
+                            </ValidationResultsGroup>
+                        </Checkpoint_Detail>
+                    </Checkpoint>
+                </Response>
+            </VerificationResult>
+        </ASL>
+    </Detail>
+</Response>
+</DataxResponse>

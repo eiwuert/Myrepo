@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<dataset>
+	<table name="personal_encrypted">
+		<column>application_id</column>
+		<column>email</column>
+		<column>social_security_number</column>
+		<row>
+			<value>1</value>
+			<value>test1@test.com</value>
+			<value>800991111</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>test2@test.com</value>
+			<value>800993333</value>
+		</row>
+	</table>
+	<table name="application">
+		<column>application_id</column>
+		<column>application_type</column>
+		<column>created_date</column>
+		<column>target_id</column>
+		<row>
+			<value>1</value>
+			<value>COMPLETED</value>
+			<value>2008-02-24 12:00:00</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>AGREED</value>
+			<value>2008-02-24 12:00:00</value>
+			<value>1</value>
+		</row>
+	</table>
+	<table name="target">
+		<column>target_id</column>
+		<column>tier_id</column>
+		<row>
+			<value>1</value>
+			<value>2</value>
+		</row>
+	</table>
+	<table name="tier">
+		<column>tier_id</column>
+		<column>tier_number</column>
+		<row>
+			<value>2</value>
+			<value>2</value>
+		</row>
+	</table>
+</dataset>

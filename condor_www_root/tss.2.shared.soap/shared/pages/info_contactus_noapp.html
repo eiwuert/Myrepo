@@ -1,0 +1,50 @@
+<div id="wf-@@template_css@@-title" class="@@template_css@@-title">
+	Contact Us
+</div>
+<div id="wf-@@template_css@@-copy" class="@@template_css@@-copy">
+<form name="contact" method="post" action="@@URL_ROOT@@">
+	<input type="hidden" name="page" value="info_contactus_noapp">
+	<input type="hidden" name="page2" value="true">
+	<div class="sh-align-center">
+    	<table border="0">
+    		<tr>
+    			<td class="sh-align-right sh-bold">Full Name:</td>
+    			<td class="sh-align-left">@@name_first@@ @@name_last@@</td>
+    		</tr>
+    		<tr>
+    			<td class="sh-align-right sh-bold">Email Address:</td>
+    			<td class="sh-align-left">@@email_primary@@</td>
+    		</tr>
+    	</table>
+	</div>
+
+	<p>Due to significant volume, we cannot answer questions by phone or email 
+		if you do not have an existing or pending loan. All questions should be 
+		covered on the website. Questions regarding repayment dates, loan amounts 
+		and service fees are dependant upon your personal circumstances and can 
+		<b>ONLY</b> be answered by completing your online application. 
+		<a href="javascript:void(0)" onclick="back2opener('@@URL_ROOT@@')">Complete
+			your online application here</a>.</p>
+
+	<p>If you have questions regarding your pending loan after completing your 
+		online loan application you will be able to contact customer service 
+		with your Application I.D. number. If you still have questions not covered 
+		on the website or by completing your online loan application, please let 
+		us know and we will consider addressing them in the future versions of 
+		our website.</p>
+
+  <table border="0">
+		<tr>
+			<td class="sh-align-left" colspan="2"><label for="contactus_text">Comments:</label></td>
+		</tr>
+		<tr>
+			<td colspan="2"><textarea name="contactus_text" id="contactus_text" cols="40" rows="6">@@contactus_text@@</textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="sh-align-center"><br />
+				<input type="submit" name="submit" value="Submit" class="button" onclick="exit=false;">
+			</td>
+		</tr>
+	</table>
+</form>
+</div>

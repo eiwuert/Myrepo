@@ -1,0 +1,19 @@
+/* CSS Document */
+.text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #000000;
+	text-decoration: none;
+}
+.bold {
+	font-weight: bold;
+	}
+.valign {
+	vertical-align: top;
+}
+a:link, a:active, a:visited {
+	color: #339900;
+}
+a:hover {
+	color: #000000;
+}

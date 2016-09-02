@@ -1,0 +1,59 @@
+<div id="underwriting_buttons" style="display: none;">
+	<div id="app_attributes">
+			%%%app_attribute_buttons%%%
+	</div>
+		
+		<div id="app_actions">
+			<div class="app_attribute_title">
+				App Actions
+			</div>
+			<div style="float: left;">
+			<div class="app_button">
+			<input type="button" %%%follow_up_disabled%%% name="submit_button" id="AppActionFollowUp" class="button3%%%follow_up_disabled%%%" value="Follow Up" onClick="javascript:OpenDialogSized('/?action=get_followup&type=Underwriting&application_id=%%%application_id%%%', '400', '300');"%%%follow_up_disabled%%%>
+		</div>
+	
+		<div class="app_button">
+			<input type="button" %%%deny_button_disabled%%% name="submit_button" id="AppActionDenyApp" class="button3%%%deny_button_disabled%%%" value="Deny" onClick="javascript:OpenDialogTall('/?action=loan_action&mode=underwriting&type=Deny&application_id=%%%application_id%%%&customer_email=%%%customer_email%%%');">
+		</div>
+		</div>
+		<div style="float: left;">
+		<div class="app_button">
+			<input type="button" %%%withdraw_disabled%%% name="submit_button" id="AppActionWithdrawApp" class="button3%%%withdraw_disabled%%%" value="Withdraw" onClick="javascript:OpenDialogTall('/?action=loan_action&mode=underwriting&type=Withdraw&application_id=%%%application_id%%%&customer_email=%%%customer_email%%%');">
+		</div>
+		<div class="app_button">
+			<input type="button" %%%cs_reverify_disabled%%% name="submit_button" id="AppActionReverify" class="button3%%%cs_reverify_disabled%%%" value="Reverify" onClick="OpenDialogTall('/?action=loan_action&type=Reverify&loan_section=CS&application_id=%%%application_id%%%');">
+		</div>
+		</div>
+		</div>
+		</td>
+		<td rowspan="2">
+			<div id="app_actions">
+				<div class="app_attribute_title">
+					Fund
+				</div>
+				<div style="float: left;">
+					<div class="app_button">
+						<input type="button" %%%fund_button_disabled%%% name="submit_button" id="AppActionRenewal" class="button2%%%fund_button_disabled%%%" value="Renewal" onClick="javascript:Check_Due_Date('Fund','%%%application_id%%%','%%%customer_email%%%');">
+					</div>
+				</div>
+				<div style="float: left;">
+					<div class="app_button">
+						<input type="button" %%%fund_button_disabled%%% name="submit_button" id="AppActionPayout" class="button2%%%fund_button_disabled%%%" value="Payout" onClick="javascript:Check_Due_Date('Fund_Payout','%%%application_id%%%','%%%customer_email%%%');">
+					</div>
+				</div>
+				<div style="clear:both;">
+					%%%investor_groups%%%
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" align="left">  <div style="clear: both;text-align: center; color:red; font-weight: bold; padding-left: 10px; padding-right: 10px;">%%%fund_warning%%%</div></td>
+	</tr>
+</table>
+</div>
+
+<div style="clear: both;">
+	<span style="text-align: left; float: left;">%%%back_button_link%%%</span>
+	<span style="text-align: center; float: right; width: 755px;">Controlling Agent: &nbsp; <b>%%%controlling_agent_name%%% </b></span>
+</div>

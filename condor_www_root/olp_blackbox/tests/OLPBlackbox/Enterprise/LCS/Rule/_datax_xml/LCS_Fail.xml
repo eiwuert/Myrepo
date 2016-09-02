@@ -1,0 +1,299 @@
+<DataxResponse>
+<GenerationTime>20080201080156</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>42259556</TransactionId>
+<TrackHash>ab0335932b8590d085aa07a9ce1e92ae</TrackHash>
+<Response>
+    <Detail>
+        <ConsumerIDVerificationSegment>
+            <Input>
+                <LastName>williams</LastName>
+                <FirstName>betty</FirstName>
+                <MiddleName />
+                <Address1>3751 n 15th street</Address1>
+                <Address2 />
+                <City>milwaukee</City>
+                <State>wi</State>
+                <Zip>53206</Zip>
+            </Input>
+            <Standardized>
+                <LastName>WILLIAMS</LastName>
+                <FirstName>BETTY</FirstName>
+                <MiddleName />
+                <AddressVerification>5</AddressVerification>
+                <AddressVerificationMessage>No name match - residential</AddressVerificationMessage>
+                <AddressResult>S</AddressResult>
+                <DeliveryPointVerified>Y</DeliveryPointVerified>
+                <Address1>3751 N 15TH ST</Address1>
+                <City>MILWAUKEE</City>
+                <State>WI</State>
+                <Zip>53206</Zip>
+                <Zip4>2908</Zip4>
+                <CRRT>C085</CRRT>
+                <HighRiskAddress>N</HighRiskAddress>
+            </Standardized>
+            <PreviousAddresses>
+                <Address>
+                    <Address1>6911 W GRANTOSA DR</Address1>
+                    <City>MILWAUKEE</City>
+                    <State>WI</State>
+                    <Zip>53218</Zip>
+                    <Zip4>2910</Zip4>
+                    <ReportDate>19980113</ReportDate>
+                    <LastUpdate>20061223</LastUpdate>
+                </Address>
+                <Address>
+                    <Address1>4366 N 61ST ST APT 4</Address1>
+                    <City>MILWAUKEE</City>
+                    <State>WI</State>
+                    <Zip>53216</Zip>
+                    <Zip4>1259</Zip4>
+                    <ReportDate>19890813</ReportDate>
+                    <LastUpdate>19990325</LastUpdate>
+                </Address>
+            </PreviousAddresses>
+            <SocialSecurityNumber>
+                <InputSSN>393441164</InputSSN>
+                <Return>13</Return>
+                <ReturnMessage>Matches surname</ReturnMessage>
+                <Deceased>2</Deceased>
+                <DeceasedMessage>Not Deceased</DeceasedMessage>
+                <Valid>1</Valid>
+                <ValidMessage>Valid</ValidMessage>
+                <Issue>3</Issue>
+                <IssueMessage>Issued</IssueMessage>
+                <IsseuState>WI</IsseuState>
+                <IssueStartRange>1960</IssueStartRange>
+                <IssueEndRange>1963</IssueEndRange>
+            </SocialSecurityNumber>
+            <Aggregates>
+                <AddressUnitMismatch />
+                <AddressUnitMismatchMessage />
+                <AddressType>10</AddressType>
+                <AddressTypeMessage>Single-family residential</AddressTypeMessage>
+                <AddressHighRisk>1</AddressHighRisk>
+                <AddressHighRiskMessage>No high risk information found</AddressHighRiskMessage>
+                <ChangeOfAddress>2</ChangeOfAddress>
+                <ChangeOfAddressMessage>No change of address information found</ChangeOfAddressMessage>
+                <PhoneHighRisk>1</PhoneHighRisk>
+                <PhoneHighRiskMessage>No high risk information found</PhoneHighRiskMessage>
+            </Aggregates>
+            <SSNAddresses>
+                <Address>
+                    <LastName>WILLIAMS</LastName>
+                    <FirstName>ERNEST</FirstName>
+                    <MiddleInitial>T</MiddleInitial>
+                    <Address1>5739 N 68TH ST</Address1>
+                    <City>MILWAUKEE</City>
+                    <State>WI</State>
+                    <Zip>53218</Zip>
+                    <Zip4>2204</Zip4>
+                    <ReportedDate>20071116</ReportedDate>
+                    <LastTouchedDate>20071116</LastTouchedDate>
+                    <AreaCode />
+                    <PhoneNumber />
+                    <DateOfBirthMatch>3</DateOfBirthMatch>
+                </Address>
+            </SSNAddresses>
+            <ResidentialAddresses>
+                <Address>
+                    <LastName>BENTLEY</LastName>
+                    <FirstName>TAIKANA</FirstName>
+                    <MiddleInitial>T</MiddleInitial>
+                    <Address1>3751 N 15TH ST</Address1>
+                    <City>MILWAUKEE</City>
+                    <State>WI</State>
+                    <Zip>53206</Zip>
+                    <Zip4>2908</Zip4>
+                    <AreaCode>414</AreaCode>
+                    <PhoneNumber />
+                    <SpouseName />
+                    <HouseMember1 />
+                    <HouseMember2 />
+                    <HouseMember3 />
+                    <LastTouchedDate>20080117</LastTouchedDate>
+                    <ResidenceLength>0035</ResidenceLength>
+                </Address>
+                <Address>
+                    <LastName>CARTER</LastName>
+                    <FirstName>J</FirstName>
+                    <MiddleInitial />
+                    <Address1>3751 N 15TH ST</Address1>
+                    <City>MILWAUKEE</City>
+                    <State>WI</State>
+                    <Zip>53206</Zip>
+                    <Zip4>2908</Zip4>
+                    <AreaCode>414</AreaCode>
+                    <PhoneNumber />
+                    <SpouseName />
+                    <HouseMember1 />
+                    <HouseMember2 />
+                    <HouseMember3 />
+                    <LastTouchedDate>20080117</LastTouchedDate>
+                    <ResidenceLength>0051</ResidenceLength>
+                </Address>
+            </ResidentialAddresses>
+            <HighRiskAddresses>
+                <Address>
+                    <BusinessName />
+                    <Address1 />
+                    <City />
+                    <State />
+                    <Zip />
+                    <Zip4 />
+                    <AreaCode />
+                    <PhoneNumber />
+                    <Description>No high risk business at address/phone</Description>
+                </Address>
+            </HighRiskAddresses>
+            <ResidentialPhones>
+                <Phone>
+                    <LastName>WILLIAMS</LastName>
+                    <FirstName>BETTY</FirstName>
+                    <MiddleInitial />
+                    <Address1 />
+                    <City>MILWAUKEE</City>
+                    <State>WI</State>
+                    <Zip />
+                    <Zip4>4709</Zip4>
+                    <AreaCode>414</AreaCode>
+                    <PhoneNumber>4633826</PhoneNumber>
+                    <SpouseName />
+                    <HouseMember1 />
+                    <HouseMember2 />
+                    <HouseMember3 />
+                </Phone>
+            </ResidentialPhones>
+            <ChangesOfAddress>
+                <ResultCode>N</ResultCode>
+                <Description />
+            </ChangesOfAddress>
+            <DateOfBirth>
+                <InputMonth>09</InputMonth>
+                <InputDay>16</InputDay>
+                <InputYear>1956</InputYear>
+                <Result>3</Result>
+                <ResultMessage>No match</ResultMessage>
+                <Age>51</Age>
+            </DateOfBirth>
+            <DriversLicense>
+                <InputState>wi</InputState>
+                <InputNumber>w45194861746</InputNumber>
+                <LastName />
+                <FirstName />
+                <MiddleInitial />
+                <Address1 />
+                <City />
+                <State />
+                <Zip />
+                <Zip4 />
+                <Format>I</Format>
+                <Result>2</Result>
+                <ResultMessage>Format invalid</ResultMessage>
+            </DriversLicense>
+            <HomePhone>
+                <InputNumber>4144633826</InputNumber>
+                <Result>5</Result>
+                <ResultMessage>Match to full name - residential</ResultMessage>
+                <Type>Standard</Type>
+                <AreaCodeZipMatch>Y</AreaCodeZipMatch>
+                <AreaCodePrefixMatch>Y</AreaCodePrefixMatch>
+                <HighRiskPhone>N</HighRiskPhone>
+                <ListingType>Residential</ListingType>
+            </HomePhone>
+            <CellPhone>
+                <InputNumber>4144633826</InputNumber>
+                <Type>Standard</Type>
+            </CellPhone>
+            <InputEmployerInformation>
+                <Name>cegers furniture</Name>
+                <Address1 />
+                <Address2 />
+                <City />
+                <State />
+                <Zip />
+            </InputEmployerInformation>
+            <WorkPhone>
+                <InputEmployerName>cegers furniture</InputEmployerName>
+                <InputNumber>4146992970</InputNumber>
+                <InputExtension />
+                <Type>Cell</Type>
+                <EmployerMatch>N</EmployerMatch>
+                <Name />
+                <Address1 />
+                <City />
+                <State />
+                <Zip />
+                <Type>Unidentified</Type>
+            </WorkPhone>
+            <OFAC>1</OFAC>
+            <OFACMessage>No match</OFACMessage>
+            <IPAddress>
+                <InputAddress>75.44.33.150</InputAddress>
+                <MatchCountry>1</MatchCountry>
+                <MatchCountryMessage>Match for US</MatchCountryMessage>
+                <Country>USA</Country>
+                <MatchState>1</MatchState>
+                <MatchStateMessage>Match for input</MatchStateMessage>
+                <State>WI</State>
+                <MatchCity>1</MatchCity>
+                <MatchCityMessage>Match for input</MatchCityMessage>
+                <City>MILWAUKEE</City>
+                <MatchZip>2</MatchZip>
+                <MatchZipMessage>No match for input</MatchZipMessage>
+                <Zip>53201</Zip>
+                <MSA>617</MSA>
+                <Latitude>43.039</Latitude>
+                <Longitude>-87.907</Longitude>
+            </IPAddress>
+            <BankInformation>
+                <InputBankName>bank of americia</InputBankName>
+                <InputABANumber>051000017</InputABANumber>
+                <InputAccountNumber>435008707200</InputAccountNumber>
+                <Valid>Y</Valid>
+                <BankNameMatch>N</BankNameMatch>
+                <BankName>Bank of America, National Association</BankName>
+            </BankInformation>
+            <NumberRecords>
+                <AddressVerResidentialMatch>3</AddressVerResidentialMatch>
+                <AddressVerBusinessMatch>0</AddressVerBusinessMatch>
+                <PhoneVerResidentialMatch>1</PhoneVerResidentialMatch>
+                <PhoneVerBusinessMatch>0</PhoneVerBusinessMatch>
+                <ResidentialAddressDetRec>3</ResidentialAddressDetRec>
+                <BusinessAddressDetRec>0</BusinessAddressDetRec>
+                <AddressHighRiskDetRec>0</AddressHighRiskDetRec>
+                <AddressHighRiskDescRec>1</AddressHighRiskDescRec>
+                <ResidentialPhoneDetRec>0</ResidentialPhoneDetRec>
+                <BusinessPhoneDetRec>0</BusinessPhoneDetRec>
+                <PhoneHighRiskDetRec>0</PhoneHighRiskDetRec>
+                <PhoneHighRiskDescRet>0</PhoneHighRiskDescRet>
+                <SSNDetailRecords>1</SSNDetailRecords>
+                <COARecords>0</COARecords>
+            </NumberRecords>
+            <AuthenticationScore>433</AuthenticationScore>
+            <CustomDecision>
+                <Result>N</Result>
+                <Bucket>D1</Bucket>
+            </CustomDecision>
+            <LooseDecision>
+                <Result>N</Result>
+                <Bucket>D2</Bucket>
+            </LooseDecision>
+            <ModerateDecision>
+                <Result>N</Result>
+                <Bucket>D3</Bucket>
+            </ModerateDecision>
+            <ConservativeDecision>
+                <Result>N</Result>
+                <Bucket>D4</Bucket>
+            </ConservativeDecision>
+        </ConsumerIDVerificationSegment>
+        <GlobalDecision>
+            <Result>N</Result>
+            <IDVBucket>D1</IDVBucket>
+            <CRABucket />
+        </GlobalDecision>
+    </Detail>
+</Response>
+</DataxResponse>

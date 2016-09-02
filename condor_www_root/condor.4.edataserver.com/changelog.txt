@@ -1,0 +1,569 @@
+***************************** INSTRUCTIONS ****************************
+
+	- Every change that has been commited to the CVS repository should
+		have a corresponding entry in this file: if it's been committed,
+		then it has the potentital to go live. Listing the change in here
+		helps prevent changes that are not ready to be pushed live from
+		inadvertantly being included in a release.
+
+	- Your initials MUST be included with your changes. If they are not,
+		you will be hunted down and burned at the stake. And possibly
+		eaten, cannibal style, with a little pepper.
+
+	- All changes should be grouped by feature addition or bug fix, and
+		list ALL modified files for that change. In general, any change
+		that affects more than one file should not be grouped with ANY
+		other change. Conversely, a small change that affected one file
+		should not be piggie-backed onto an entry that includes more than
+		that one file. If there are several small bug fixes all affecting
+		the same file, then they can be listed together. However, bug fixes
+		should not be grouped with a feature addition, unless the fix was
+		required for proper operation.
+
+	- Entries should follow this format:
+
+				files/that/were/changed.php
+				another/file/that/was/changed_as_well.php
+
+			1. Short description of the feature addition [YOUR INITIALS]
+			2. Had to fix a small bug to get this to work [INITIALS]
+
+	- Add entries to the PENDING CHANGES section. As changes are released,
+		they will be moved to the current/previous release sections, under
+		their corresponding release, by the release manager.
+
+***************************** PENDING RELEASE ****************************
+
+1. Added ip_address to various methods to allow for OLP to pass an IP address for esigning applications. [benb][#18944]
+	M      lib/document.action.php
+	M      lib/document.php
+	M      lib/condor.class.php
+
+2. Fixed previous stuff to use a relational table [benb][#18944]
+	M		lib/document.action.php
+	
+3. Now including Crypt interface.
+	M		lib/condor_crypt.php
+
+4. We kept getting corrupted tiffs from the modems, when this is encountered in the future, it will be replaced by a valid tiff file indicating that the tiff is broken. [benb]
+	M      faxrcvd.php
+	M      faxrcvd.fax12.php
+	M      faxrcvd.fax34.php
+	A      data
+	A      data/corrupt.tiff
+	A      data/README
+
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.56, RELEASED: 2008-8-21 10:00AM, TAG: tags/RELEASE_1_1_56 [NT]
+**************************************************************************
+
+1. Fixed issue where messages were getting repeatedly inserted because their header was modified every time the message was downloaded.[W!-07-10-2008][CLK #14835]
+
+2. Added utility script template_cache_clear.php which clears the template cache for given company name short and mode (rc, live). [benb]
+	scripts/template_cache_clear.php
+
+3. Added utility script template_share.php which shares all templates from one company to many. [benb]
+	scripts/template_share.php
+
+4. Fixed issue (I think) with Add_Email_Attachment using the wrong arguments, and not giving things their proper paths. [benb][#14596]
+	lib/condor.class.php
+
+5. Unique ID is now generated using the sender/date/subject hash.  [W!-07-14-2008][#15343]
+
+6. Added stale lockfile detection to send_mail_for_account.php script [benb][#16050] 
+	scripts/send_mail_for_account.php 
+
+7. Added DEBUG_MODE check to where it complains about no main body on a document. Added Will, removed Josef from recipient list. [benb][#17181]
+	scripts/get_new_emails.php
+	
+8. Changed condor sever to use the company document template over the shared template. [rayl][#7528]
+	lib/condor.class.php
+
+9. Fixed fatal error stemming from an exception where it was using an object that had not been created yet in the try block [benb][#18523]
+	lib/smtp_mail.php
+
+10. Added printing of last 5 emails during queue alert. [benb][#15907]
+	scripts/queue_alert.php
+
+11. Fixed queue backups with a nasty hack. Identified but not looked into issue with prpc packed data being messed up.
+	scripts/send_mail_for_account.php
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.51, RELEASED: 2008-05-22 07:30AM, TAG: tags/RELEASE_1_1_51 [BR]
+**************************************************************************
+
+1. Fixed the database connection information. [BR]
+	scripts/import_tokens.php
+
+2. Removed Mike G and added Kelly and Nita to the Exception emails for Live. [BR]
+	lib/condor_exception.php
+	lib/document.php
+
+3. Fixed issue where messages lacking a client provided message-id were not getting recognized by condor, and deleted after 2 days. [benb]
+	scripts/get_new_emails.php
+
+4. Tweaked the SMTP settings so it will force a new connection for every message that gets
+   sent to the mail relay.  Postfix was having issues with the persistent connections and 
+   large batches were taking forever to clear. [BR]
+	lib/smtp_mail.php
+
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.50, RELEASED: 2008-04-23 07:30AM, TAG: tags/RELEASE_1_1_50 [BR]
+**************************************************************************
+
+1. Added the encrypt_password.php script which is useful in encrypting strings
+   for use in the pop_accounts table.  Added a switch to check the port in get_new_emails.php 
+   so if the port is 995 which is typical of an SSL POP3 connection it wil automatically
+   enable the SSL flag in the Impact connection.  Fixed some hard-coded EXECUTION_MODE settings
+   in send_mails.2.php and mail_queue_cleaner.php.  [BR]
+	scripts/encrypt_password.php
+	scripts/send_mails.2.php
+	scripts/mail_queue_cleaner.php
+	scripts/get_new_emails.php
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.36, RELEASED: 2007-09-06 09:00PM, TAG: RELEASE_1_1_36 [SS]
+**************************************************************************
+	lib/document.php
+
+1.	Changed join to LEFT JOIN since rows can be NULL on incoming email [SS]
+
+	[** TEMPLATE_CACHING **]
+	lib/condor.class.php
+
+1.	Added method to 'attach' a list of part_ids to an archvie_id [SS]
+
+
+
+	[** TEMPLATE_CACHING branch **]
+	lib/config.php
+	lib/condor.class.php
+	lib/template.php
+
+	lib/cache.php
+	/condor_admin/server/code/condor_template_query_class.php
+
+1.	Implemented template caching [SS]
+2.	Condor Admin will now tell condor api to clear the cache when template are altered [SS]
+
+	lib/document.php
+
+1.	Fixed the latest_dispatch call to actualyl work [SS]
+	
+	lib/condor.class.php
+
+1.	Merged release back onto head. Including blacklisting [SS]
+
+	lib/condor.class.php
+
+1.	Added API call to create a new token
+
+**************************************************************************
+RELEASE: 1.1.35, RELEASED: 2007-08-29 10:00AM, TAG: RELEASE_1_1_35 [SS]
+**************************************************************************
+
+	lib/part.php
+	[** TEMPLATE_CACHING **]
+	lib/condor.class.php
+
+1.	Added a method to attach a bunch of existing parts to an existing document
+[SS]
+2.	Added method to tell if a part is owned by a particular company [SS]
+
+**************************************************************************
+RELEASE: 1.1.34, RELEASED: 2007-08-20 10:00AM, TAG: RELEASE_1_1_34 [SS]
+**************************************************************************
+
+	lib/condor_exception.php
+
+1.	Added mike g to alerts [RM]
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.33, RELEASED: 2007-08-16 10:00AM, TAG: RELEASE_1_1_33 [CB]
+**************************************************************************
+
+	lib/security.php
+
+1.	Mantis #10731 - Stephan S - Documents were failing to load. [SS]
+
+**************************************************************************
+RELEASE: 1.1.32, RELEASED: 2007-08-14 9:00PM, TAG: RELEASE_1_1_32 [SS]
+**************************************************************************
+	lib/condor.class.hp
+	www/condor_api.php
+	lib/security.php
+
+1.	Mantis #9558 - Brian Feaver - Reversible 'api auth' instead of api_auth column [SS]
+2.	Condor constructor now takes username/pass used to connect in the constructor [SS]
+	
+	lib/condor.class.php
+
+1.	Mantis #9480 - Brian Feaver - Moved the 'incoming queue' to the database [SS]
+
+**************************************************************************
+RELEASE: 1.1.31, RELEASED: 2007-08-02 10:00AM, TAG: RELEASE_1_1_31 [CB]
+**************************************************************************
+
+	lib/condor_exception.php
+
+1.	Remove Mike G from SMS alerts. [RM]
+
+**************************************************************************
+RELEASE: 1.1.30, RELEASED: 2007-07-30 10:00AM, TAG: RELEASE_1_1_30 [CB]
+**************************************************************************
+
+	lib/condor.class.php [*Branch NO_ALERT*]
+
+1.	No Ticket - Brian Feaver - Removed the check for the mount from the condor
+constructor [SS]
+
+**************************************************************************
+RELEASE: 1.1.29, RELEASED: 2007-07-18 10:00AM, TAG: RELEASE_1_1_29 [CB]
+**************************************************************************
+
+	scripts/cron_audit.php
+
+1.	Fix so that it doesn't take up 1.21 jigawatts of memory. [SS]
+	
+**************************************************************************
+RELEASE: 1.1.28, RELEASED: 2007-07-07 10:00AM, TAG: RELEASE_1_1_28 [CB]
+**************************************************************************
+	
+	lib/condor.class.php [* BRANCH UCL_ECASH3 *]
+
+1.	Added faxqueues for ucl [SS] 
+
+**************************************************************************
+RELEASE: 1.1.27, RELEASED: 2007-07-05 10:00AM, TAG: RELEASE_1_1_27 [CB]
+**************************************************************************
+
+	scripts/cron_audit.php
+
+1.	Changed the live mode to actually be set properly [SS]
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.26, RELEASED: 2007-07-01 10:00AM, TAG: RELEASE_1_1_26 [CB]
+**************************************************************************
+
+	scripts/cron_audit.php
+
+1.	Rewritten to not audit every file every day. [SS]
+
+**************************************************************************
+RELEASE: 1.1.25, RELEASED: 2007-06-25 10:00AM, TAG: RELEASE_1_1_25 [CB]
+**************************************************************************
+
+	lib/condor.class.php * CONDOR_BLACLIST BRANCH *
+
+1.	Recipient blacklisting on sent documents [SS]
+
+**************************************************************************
+RELEASE: 1.1.24, RELEASED: 2007-06-18 10:00AM, TAG: RELEASE_1_1_24 [CB]
+**************************************************************************
+
+	scripts/send_mails.2.php
+
+1.	Some change Stephan made, I don't know, he didn't add an entry. [CB]
+
+**************************************************************************
+RELEASE: 1.1.23, RELEASED: 2007-06-05 9:00PM, TAG: RELEASE_1_1_23 [BF]
+**************************************************************************
+
+	scripts/send_mails.2.php
+	scripts/send_mail_for_account.php
+
+1.	Sends emails by accoutn [SS]
+
+**************************************************************************
+RELEASE: 1.1.22, RELEASED: 2007-06-04 10:00AM, TAG: RELEASE_1_1_22 [CB]
+**************************************************************************
+	
+	scripts/send_mails.php
+
+1.	Updated to no longer use PRPC for loading documents to make faster [SS]
+
+	lib/dispatch.php
+	lib/transport_email.php
+
+1.	Fix for attempting to hit stats when we have no track/space key. [SS]
+2.	Weak validation on emails to prevent blatantly bad emails from being
+queued [SS]
+
+**************************************************************************
+RELEASE: 1.1.21, RELEASED: 2007-05-29 10:00AM, TAG: RELEASE_1_1_21 [CB]
+**************************************************************************
+
+	lib/hylafax_routing.php
+	faxrcvd.php
+
+1.	Updated to use DID routing for faxes. [SS]
+
+
+	scripts/queue_alert.php
+	scripts/mail_queue_cleaner.php
+
+1.	Fixed them so they run now [SS] 
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.20, RELEASED: 2007-05-18 3:30PM, TAG: RELEASE_1_1_20 [CB]
+**************************************************************************
+
+	[*branch OCC_QUEUES *]
+	lib/condor.class.php
+
+1.	Added print queues for OCC
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.19, RELEASED: 2007-05-07 10:00AM, TAG: RELEASE_1_1_19 [CB]
+**************************************************************************
+
+	lib/mail_queue.php
+
+1.	Fixed a query that did not appreciate NULL for a start date [SS]
+
+	scripts/mail_queue_cleaner.php
+
+1.	Fixed the include path [SS]
+
+	scripts/queue_alert.php
+
+1.	Adjusted time on alert [SS]
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.18, RELEASED: 2007-05-02 10:00AM, TAG: RELEASE_1_1_18 [CB]
+**************************************************************************
+
+	scripts/mail_queue_cleaner.php
+
+1.	Cronjob to cleanup the mail_queue table [SS]
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.17, RELEASED: 2007-04-24 10:00AM, TAG: RELEASE_1_1_17 [JAG]
+RELEASE CODENAME: JASONS_BDAY_PRESENT
+**************************************************************************
+
+	lib/condor_exception.php
+	scripts/queue_alert.php
+	
+1.	Cronjob to monitor the mail queue to make sure it's not dead [SS]
+
+	lib/document.php
+	
+1.	Fix for ridiculous exception for not having a document id [SS]
+
+**************************************************************************
+RELEASE: 1.1.16, RELEASED: 2007-04-19 09:00PM, TAG: RELEASE_1_1_16 [CB]
+**************************************************************************
+
+	/lib5/filter.manager.php
+	www/condor_api.php
+	scripts/send_mails.php
+	scripts/get_new_mails.php
+	scripts/process_bounces.php
+	lib/condor_transport.php
+	lib/config.php
+	lib/dispatch.php
+	lib/document.php
+	lib/security.php
+	lib/smtp_mail.php
+	lib/transport_email.php
+	lib/transport_manager.php
+	lib/mail_queue.php
+	lib/condor.class.php
+	lib/part.php
+
+1.	Changed everything to allow for incoming/outgoing emails [SS]
+	
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.15, RELEASED: 2007-04-17 09:00PM, TAG: RELEASE_1_1_15 [CB]
+**************************************************************************
+	
+	lib/document.php
+	lib/transport_ole.php
+
+1.	Sends RTF documents as attachments instead of plain text [SS]
+
+**************************************************************************
+RELEASE: 1.1.14, RELEASED: , TAG: RELEASE_1_1_14 [SS]
+**************************************************************************
+	lib/transport_hylafax.php
+
+1.	Pull the fax server from the database instead of being hardcoded [SS]
+
+	scripts/cron_audit.php
+
+1.	Updated to only check directories that fit the Condorian Format [SS]
+
+	notify.php
+
+1.	Updated to wait to throw the reported exception until after the 
+	callback is processed [SS]
+
+	[*BRANCH INCOMING_DOCS_CHANGE*]
+	lib/condor.class.php
+
+1.	Added functions for to grab copia documents if they exist [SS]
+2.	Added a "backup" directory incase the NFS mount is lost. [SS] 
+	
+	
+	faxrcvd.php
+	lib/condor.class.php
+	lib/document.php
+
+1.	Incoming documents now have the page count attached in
+	Get_Incoming_Documents [SS]
+	
+	[*BRANCH RELEASE_1_1_10_DB_CHANGE*]
+	lib/condor.class.php
+	lib/security.php
+	www/view_part.php
+
+1.	Changed the database port [SS] 
+
+	[*BRANCH INCOMING_DOCS_CHANGE*]
+	faxrcvd.php
+
+1.	Incoming documents are no longer converted to PDF [SS]
+
+
+	lib/condor.class.php
+
+1.	Fixed Find_By_Archive id to return the proper content-type if it 
+	converts it to PDF [SS]
+
+2.	Added content-type to the Get_Incomign_Docs return stuff [SS]
+
+	lib/condor.class.php
+
+1.	Added a function to convert tiffs to pdf [SS]
+2.	Find_by_Archive_Id can be requested to return the tiff of 
+	an incoming document instead of the PDF.
+
+	lib/condor.class.php
+
+1.	Added API call to retrive all queue names [SS]
+
+	lib/condor.class.php
+1.	Added API call to get a queue name by an incoming number [SS]
+2.	Added API call to get all numbers inside a queue name [SS]
+3.	Added the queue named to the Get_Incoming_Documents return object [SS]
+
+	lib/condor.class.php
+	lib/document.action.php
+
+1.	Made the Get_Action_Id method public [SS]
+2.	Get_Incoming_Documents now returns the sender/recipient [SS]
+3.	Get_Incoming_Documents can now optionally limit by date [SS]
+4.	Get_Incoming_Documents can now optionally limit by recipient [SS]
+5	Get_Incoming_Documents can now optionally limit to 'unprinted' docs [SS]
+
+	lib/condor.class.php
+	lib/condor_exception.php
+	lib/condor_api.php
+	scripts/check_for_mount.php
+
+1.	Fixed a bug with condor_exceptions not mailing properly [SS]
+2.	Changed check_for_mount to define an execution mode so it'll actually mail
+people [SS]
+3.	Changed condor to only check for mount on LIVE otherwise it just looks for
+the ROOT_DIR directory [SS]
+4.	condor_api now sets a define for the mode for use in CondorException [SS]
+
+	lib/transport_hylafax.php
+
+1.	Prepends a 1 to numbers that need it, but don't already have it. [SS]
+	lib/condor.class.php
+	lib/security.php
+	www/view_part.php
+	scripts/import_ecash-condor.php
+
+1.	Updated database hosts to use new DNS names [SS]
+
+	lib/document.php
+1. Fixed unescaped stuff going into a query during Insert. [SS]
+
+	scripts/import_ecash-condor.php
+	scripts/import_condor3-condor4.php
+
+1. Added ability to build file list of eCASH documents to move to condor
+server for importing [SS]
+2. eCASH documents are now converted to PDF before stored
+3. Import scripts now properly update the user_id inside condor 4.
+
+	lib/condor.class.php
+	lib/security.php
+	lib/document.php
+
+1.	Added a check for document ownership vs condor login. [SS]
+
+	lib/condor.class.php
+	lib/template.php
+	
+1.	Added Shared Templates so that companies can share templates. [BF]
+
+	lib/condor.class.php
+	
+1.	Changed the RC database. [BF]
+
+	lib/ole_hack.php
+	
+1.	Changed the DNS name from db100 to olpdb.internal. [BF]
+
+	lib/security.php
+	
+1.	Changed security to use db101 for the rc db. [BF]
+
+	scripts/import_tokens.php
+
+1.	Script to import tokens from the templates in the condor db to
+	the templates table in condor_admin. [CB]
+	
+	lib/condor.class.php
+	lib/template.php
+	
+1. Added Get_Template_Tokens function to API; it calls the new Get_Tokens
+	function in the Template class. [AM]
+**************************************************************************
+RELEASE: 1.1.5, RELEASED: 2006-08-15 12:30PM, TAG: RELEASE_1_1_5 [BF]
+**************************************************************************
+
+	lib/condor.class.php
+	
+1.	Changed the RC and live database DNS names. [BF]
+
+**************************************************************************
+RELEASE: 1.1.4, RELEASED: 2006-08-03 12:30PM, TAG: RELEASE_1_1_4 [BF]
+**************************************************************************
+
+	[**ADD_FCR BRANCH**]
+	lib/condor.class.php
+	
+1.	Added FCR as a company with their own authentication. [BF]
+
+**************************************************************************
+RELEASE: 1.1.3, RELEASED: 2006-07-20 10:00PM, TAG: RELEASE_1_1_3 [BF]
+**************************************************************************
+
+	lib/ole_hack.php
+	
+1.	Changed the DNS name from db100 to olpdb.internal. [BF]
+2.	Changed DNS for OLE to olemaster.soapdataserver.com. [BF]
+
+**************************************************************************
+RELEASE: 1.1.2, RELEASED: 2006-05-25 13:08, TAG: RELEASE_1_1_2 [AM]
+**************************************************************************
+
+	scripts/cron_audit.php
+
+1.	Added a check to make sure the directory/file was readable before trying
+	to get a directory listing for it. [BF]
+
+***************************** PREVIOUS RELEASE ****************************
+
+	lib/part.php
+	
+1.	Changed it so that when adding a new part, the default value for audit
+	status is SUCCESS. This way if there were no errors writing the part
+	we don't have to do a query to set the value to SUCCESS. [BF]

@@ -1,0 +1,828 @@
+#! /bin/sh
+#    $Id: notify 768 2007-09-20 17:41:01Z  $
+#
+# HylaFAX Facsimile Software
+#
+# Copyright (c) 1990-1996 Sam Leffler
+# Copyright (c) 1991-1996 Silicon Graphics, Inc.
+# HylaFAX is a trademark of Silicon Graphics
+# 
+# Permission to use, copy, modify, distribute, and sell this software and 
+# its documentation for any purpose is hereby granted without fee, provided
+# that (i) the above copyright notices and this permission notice appear in
+# all copies of the software and related documentation, and (ii) the names of
+# Sam Leffler and Silicon Graphics may not be used in any advertising or
+# publicity relating to the software without the specific, prior written
+# permission of Sam Leffler and Silicon Graphics.
+# 
+# THE SOFTWARE IS PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND, 
+# EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY 
+# WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.  
+# 
+# IN NO EVENT SHALL SAM LEFFLER OR SILICON GRAPHICS BE LIABLE FOR
+# ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND,
+# OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+# WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON ANY THEORY OF 
+# LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE 
+# OF THIS SOFTWARE.
+#
+#   2004/02/28  Frank Brock
+#
+# The notify shell now behaves in a manner like faxrcvd.  
+# It is now written in shell with a little embedded awk as needed.
+
+#
+# notify qfile why jobtime [nextTry]
+#
+# Return mail to the submitter of a job when notification is needed.
+#
+if [ $# != 3 -a $# != 4 ]; then
+    echo "Usage: $0 qfile why jobtime [nextTry]"
+    exit 1
+fi
+
+test -f etc/setup.cache || {
+    SPOOL=`pwd`
+    cat<<EOF
+
+FATAL ERROR: $SPOOL/etc/setup.cache is missing!
+
+The file $SPOOL/etc/setup.cache is not present.  This
+probably means the machine has not been setup using the faxsetup(8C)
+command.  Read the documentation on setting up HylaFAX before you
+startup a server system.
+
+EOF
+    exit 1
+}
+
+# need to parse out the command line here.  some may be needed
+# in the FaxNotify.
+QFILE=$1
+WHY=$2
+JTIME=$3
+NEXT=${4:-'??:??'}
+
+ENCODING=base64
+
+. etc/setup.cache
+
+local_seq() {
+	if [ $1 -gt $2 ]; then
+		return
+	fi
+	COUNT=$1
+	while [ $COUNT -le $2 ]
+	do
+		echo $COUNT
+		COUNT=`expr $COUNT + 1`
+
+	done
+}
+
+FILE=file
+INFO=$SBIN/faxinfo
+TIFFINFO=tiffinfo
+FAX2PS=$TIFFBIN/fax2ps
+TIFF2PS=tiff2ps
+TIFF2PDF=bin/tiff2pdf
+PS2PDF=ps2pdf
+PDF2PS=pdf2ps
+PS2FAX=bin/ps2fax
+PDF2FAX=bin/pdf2fax
+TOADDR=FaxMaster
+FROMADDR=fax
+NOTIFY_FAXMASTER=never
+RETURNFILETYPE=
+MIMEBOUNDARY="NextPart$$"
+RETURNTECHINFO=yes
+
+case $WHY in
+    failed|requeued|poll_rejected|poll_no_document|poll_failed)
+	RETURNTRANSCRIPT=yes;;
+    *)
+	RETURNTRANSCRIPT=no;;
+esac
+#
+# Redirect errors to a tty, if possible, rather than
+# dev-nulling them or allowing them to creep into
+# the mail.
+#
+if $TTYCMD >/dev/null 2>&1; then
+    ERRORSTO=`$TTYCMD`
+else
+    ERRORSTO=/dev/null
+fi
+
+adjustNotifyFaxMaster()
+{
+#  Determine what NOTIFY_FAXMASTER should be set to based
+#  on the current value of NOTIFY_FAXMASTER and on other
+#  attributes set about this notification.
+#  NOTIFY_FAXMASTER can be set to
+#    yes - send everything
+#    no - send nothing
+#    errors - send only failed type faxes that are not from busy, no answer or no carrier
+#    always - send everything
+#    never - send nothing
+#
+# known $WHY values we can test to set NOTIFY_FAXMASTER are
+# "done" "failed" "rejected" "blocked" "requeued" "removed" "killed" "timedout"
+# "format_failed" "no_formatter" "poll_rejected" "poll_no_document" "poll_failed"
+    case $NOTIFY_FAXMASTER in
+        never|no) NOTIFY_FAXMASTER=no;;
+        always|yes) NOTIFY_FAXMASTER=yes;;
+        errors) 
+            case $WHY in
+                timedout|rejected|format_failed|no_formatter|poll_rejected|poll_no_document)
+		    NOTIFY_FAXMASTER=yes;;
+		"done"|blocked|removed|killed)
+		    NOTIFY_FAXMASTER=no;;
+                *)
+                    if (match "$faxstatus" "Busy signal|No answer|No carrier") ; then
+                        NOTIFY_FAXMASTER=no
+                    else 
+                        NOTIFY_FAXMASTER=yes
+                    fi;;
+            esac;;
+        *) NOTIFY_FAXMASTER=no;;
+    esac
+}
+
+setCustomValues()
+{
+    #
+    # Apply customizations.  All customizable variables should
+    # be set to their non-customized defaults prior to this.
+    #
+    if [ -f etc/FaxNotify ]; then
+        # FaxNotify sets all nofity preferecnes that can be accessed
+        # in the notify.awk script
+        . etc/FaxNotify
+    fi
+}
+
+parseQfile()
+{
+    eval `($AWK -F: ' 
+    function p(varname,val)
+    {
+        # print out variable name and value so we can eval it in the shell
+        printf "%s=\"%s\"\n",varname,val
+    }
+    BEGIN {
+        nfiles = 0;
+        npins = 0;
+        pagewidth = 0;
+        pagelength = 0;
+        resolution = 0;
+        jobtype = "facsimile";
+        signalrate = "unknown";
+        dataformat = "unknown";
+        doneop = "default";
+        pagernum = "unknown";
+        commid = "";
+    }
+    /^jobid/    { p("jobid",$2); }
+    /^groupid/    { p("groupid", $2); }
+    /^state/    { p("state", $2+0); }  
+    /^doneop/    { p("doneop", $2); }
+    /^number/    { p("number", $2); }
+    /^external/    { p("number", $2); }        # override unprocessed number
+    /^sender/    { p("sender", $2); }
+    /^mailaddr/    { p("mailaddr", $2); }
+    /^owner/    { p("owner", $2); }
+    /^jobtag/    { jobtag = $0; sub("jobtag:", "", jobtag); p("jobtag", jobtag)}
+    /^jobtype/    { p("jobtype", $2); }
+    # status needs to be used in the shell as faxstatus since status is reserved word
+    /^status/    { status = $0; sub("status:", "", status);
+              if (status ~ /\\$/) {
+                  sub("\\\\$", "\n", status);
+                  while (getline > 0) {
+                  status = status $0;
+                  sub("\\\\$", "\n", status);
+                  if ($0 !~ /\\$/)
+                      break;
+                  }
+              } p("faxstatus", status);
+            }
+    /^resolution/    { p("resolution", $2); }
+    /^npages/    { p("npages", $2); }
+    /^totpages/    { p("totpages", $2); }
+    /^dirnum/    { p("dirnum", $2); }
+    /^commid/    { p("commid", $2); }
+    /^ntries/    { p("ntries", $2); }
+    /^ndials/    { p("ndials", $2); }
+    /^pagewidth/    { p("pagewidth", $2); }
+    /^pagelength/    { p("pagelength", $2); }
+    /^signalrate/    { p("signalrate", $2); }
+    /^dataformat/    { p("dataformat", $2); }
+    /^modem/    { p("modem", $2); }
+    /^totdials/    { p("totdials", $2); }
+    /^tottries/    { p("tottries", $2); }
+    /^client/    { p("client", $2); }
+    /^[!]*post/    { p("files_"++nfiles, $4); }
+    /^[!]*tiff/    { p("files_"++nfiles, $4); }
+    /^[!]*pdf/    { p("files_"++nfiles, $4); }
+    /^[!]*pcl/    { p("files_"++nfiles, $4); }
+    /^page:/    { p("pins_"++npins, $4); }
+    /^data:/    { p("files_"++nfiles, $4); }
+    /^poll/        { p("poll", " -p"); }
+    END { p("nfiles", nfiles); p("npins", npins) } ' $QFILE )`
+
+}
+
+returnFaxImage()
+# output a mime encoded set of file attachments with mime headers
+# for each file listed in the files_XX set, make sure that it is 
+# a valid, non zero file.  Then test the file format of the source
+# file we are encoding that is is a known file type that we can 
+# convert from.  Out put to standard out the appropriate mime header.
+# Then based on the argument passed to this function,
+# convert the source file to the file format given as the argument.
+# finally, encode this converted file and put it out on std out.
+# Supported values of RETURNFORMAT are "tif","pdf", and "ps"
+# A ReturnFomat=original reutns the file in its original format.
+# Supported file formats of the source are "tiff", "pdf" and "ps" 
+{
+   RETURNFORMAT=$1
+   if [ $nfiles -gt 0 ] ; then
+    for i in `local_seq 1 $nfiles`; do 
+        name="files_$i"
+	eval filename=`echo "$"$name`
+
+	if [ -s $filename ] ; then # file is > 0 size
+	    FROMFMT=`fileType $filename`
+            case "$FROMFMT" in "ps" | "tif" | "pdf" ) # test we know the source format
+                if [ "$RETURNFORMAT" = "tif" ] ; then
+                    ENCODEDFILENAME="$number-$i.tif"
+                    putMimeImageTIFHeader "$ENCODEDFILENAME"
+		    putTifEncodedImage "$filename" "$FROMFMT"
+                elif [ "$RETURNFORMAT" = "pdf" ] ; then
+                    ENCODEDFILENAME="$number-$i.pdf"
+                    putMimeAppPDFHeader "$ENCODEDFILENAME"
+		    putPdfEncodedImage "$filename" "$FROMFMT"
+                elif [ "$RETURNFORMAT" = "ps" ] ; then
+                    ENCODEDFILENAME="$number-$i.ps"
+                    putMimeAppPSHeader "$ENCODEDFILENAME"
+		    putPsEncodedImage "$filename" "$FROMFMT"
+                elif [ "$RETURNFORMAT" = "original" ] ; then
+                    ENCODEDFILENAME="$number-$i.$FROMFMT"
+                    case "$FROMFMT" in
+                    "tif")
+                        putMimeImageTIFHeader "$ENCODEDFILENAME"
+			putTifEncodedImage "$filename" "$FROMFMT"
+                        ;;
+                    "ps")
+                        putMimeAppPSHeader "$ENCODEDFILENAME"
+			putPsEncodedImage "$filename" "$FROMFMT"
+                        ;;
+                    "pdf")
+                        putMimeAppPDFHeader "$ENCODEDFILENAME"
+			putPdfEncodedImage "$filename" "$FROMFMT"
+                        ;;
+                    esac
+                fi
+            ;;
+            esac
+        fi # file[i] exists
+    done # for each nfiles
+   fi  # nfiles > 0
+}
+
+putPdfEncodedImage()
+# Convert the source file from the CONVERTFROM type into a pdf file and 
+# then do a mimeEndode of the file
+{
+    SOURCEFILE=$1
+    CONVERTFROM=$2
+    OUTFILE="tmp/conv2pdf$$.out" ;
+    if [ "$CONVERTFROM" = "pdf" ] ; then
+        mimeEncode "$SOURCEFILE"
+        return # all done here
+    elif [ "$CONVERTFROM" = "tif" ] ; then
+        CONVERTCMD="$TIFF2PDF -o $OUTFILE $SOURCEFILE" 
+    elif [ "$CONVERTFROM" = "ps" ] ; then
+        CONVERTCMD="$PS2PDF $SOURCEFILE $OUTFILE" 
+    else
+        return # unknow convert from format
+    fi
+    $CONVERTCMD > $ERRORSTO 2>&1
+    mimeEncode "$OUTFILE"
+    $RM -f $OUTFILE > $ERRORSTO 2>&1
+}
+
+putPsEncodedImage()
+# Convert the source file from the CONVERTFROM type into a ps file and 
+# then do a mimeEndode of the file
+{
+    SOURCEFILE=$1
+    CONVERTFROM=$2
+    OUTFILE="tmp/conv2ps$$.out" ;
+    if [ "$CONVERTFROM" = "ps" ] ; then
+        mimeEncode "$SOURCEFILE"
+        return # all done here
+    elif [ "$CONVERTFROM" = "tif" ] ; then
+        #  tiff2ps -a for all pages, 
+        CONVERTCMD="$TIFF2PS -a  $SOURCEFILE > $OUTFILE" 
+    elif [ "$CONVERTFROM" = "pdf" ] ; then
+        CONVERTCMD="$PDF2PS $SOURCEFILE $OUTFILE" 
+    else
+        return # unknow convert from format
+    fi
+    $CONVERTCMD > $ERRORSTO 2>&1
+    mimeEncode "$OUTFILE"
+    $RM -f $OUTFILE > $ERRORSTO 2>&1
+}
+
+putTifEncodedImage()
+# Convert the source file from the CONVERTFROM type into a tif file and 
+# then do a mimeEndode of the file
+{
+    SOURCEFILE=$1
+    CONVERTFROM=$2
+    OUTFILE="tmp/conv2tif$$.out" ;
+    if [ $CONVERTFROM = "tif" ] ; then 
+        mimeEncode "$SOURCEFILE"
+        return # all done here
+    elif [ $CONVERTFROM = "pdf" ] ; then 
+        CONVERTCMD="$PDF2FAX -r $resolution -o $OUTFILE $SOURCEFILE" 
+    elif [ $CONVERTFROM = "ps" ] ; then 
+        CONVERTCMD="$PS2FAX -r $resolution -o $OUTFILE $SOURCEFILE" 
+    else
+        return # unknow convert from format
+    fi
+    $CONVERTCMD > $ERRORSTO 2>&1
+    mimeEncode "$OUTFILE"
+    $RM -f $OUTFILE > $ERRORSTO 2>&1
+}
+
+putMimeSetup()
+# write out the setup portions of the mime encoded message
+#
+# NOTES ABOUT MIME that I have figured out thus far since I am not a mime expert in any way.
+# The mimeboundary is defined in the setup of the email.
+# Mimeboundary, as defined, with a leading "--" must be used to seperate mime sections.
+# The mime email must be terminated by a mimeboundary with a leading AND trailing "--"
+# A MimeBoundary must immediately preceed the mime content definition section for each
+# of the mime sections. No blank lines between the mimeboundary and the content definition.
+# I think a blank line in front of the mimeboundary is required.
+# So, the code hear is organized such that all functions putting out a mime contect section
+# are respnosible for putting in their own leading mimeboundary. But they are NOT to put in 
+# any mime boundary trailers.
+# The last thing of the action section is to put in terminating mime boundary.
+#
+{
+    echo "MIME-Version: 1.0"
+    echo "Content-Type: Multipart/Mixed; Boundary=\"$MIMEBOUNDARY\""
+    echo "Content-Transfer-Encoding: 7bit"
+}
+
+putMimeTextHeader()
+# write out the beginning mime boundary for plain/text part
+{
+    echo ""
+    echo "This is a multi-part message in MIME format."
+    echo ""
+    echo "--$MIMEBOUNDARY"
+    echo "Content-Type: text/plain; charset=us-ascii"
+    echo "Content-Transfer-Encoding: 7bit"
+    echo ""
+}
+
+putMimeAppPDFHeader()
+# filename passed should already include the proper .pdf extension
+# write out the beginning mime boundary for the pdf file application part
+# filename is just the name of the file for mime header encoding and is what is
+# shown as the name of the attahced file.
+{
+    echo ""
+    echo "--$MIMEBOUNDARY"
+    echo "Content-Type: application/pdf; name=\"$1\""
+    echo "Content-Description: FAX document"
+    echo "Content-Transfer-Encoding: $ENCODING"
+    echo "Content-Disposition: attachment; filename=\"$1\""
+    echo ""
+}
+
+putMimeAppPSHeader()
+# filename passed should already include the proper .ps extension
+# write out the beginning mime boundary for the ps file application part
+# filename is just the name of the file for mime header encoding and is what is
+# shown as the name of the attahced file.
+{
+    echo ""
+    echo "--$MIMEBOUNDARY"
+    echo "Content-Type: application/postscript; name=\"$1\""
+    echo "Content-Description: FAX document"
+    echo "Content-Transfer-Encoding: $ENCODING"
+    echo "Content-Disposition: attachment; filename=\"$1\""
+    echo ""
+}
+
+putMimeImageTIFHeader()
+# filename passed should already include the proper .tif extension
+# write out the beginning mime boundary for the tif file image  part
+# filename is just the name of the file for mime header encoding and is what is
+# shown as the name of the attahced file.
+{
+    echo ""
+    echo "--$MIMEBOUNDARY"
+    echo "Content-Type: image/tiff; name=\"$1\""
+    echo "Content-Description: FAX document"
+    echo "Content-Transfer-Encoding: $ENCODING"
+    echo "Content-Disposition: attachment; filename=\"$1\""
+    echo ""
+}
+
+mimeEncode()
+# out put a mime encoded form of the given file
+{
+    FILENAME=$1
+    if [ ! -f "$FILENAME" ] ; then
+        return # cannot do much more without a file
+    fi
+    if [ -x "$MIMENCODE" ]; then
+        $MIMENCODE $FILENAME 2>$ERRORSTO
+    elif [ -x "$UUENCODE" ]; then
+        if [ "$ENCODING" = "base64" ]; then
+            $UUENCODE -m $FILENAME $FILENAME \
+	    	| $GREP -v "^begin" \
+		| $GREP -v "^====$" \
+		2>$ERRORSTO
+        else
+            $UUENCODE $FILENAME $FILENAME 2>$ERRORSTO
+        fi
+    else
+	# Do not use "-x" for backward compatibility; even if it fails
+	# this is last chance to encode data, so there's nothing to lose.
+	$MIMENCODE $FILENAME 2>$ERRORSTO
+    fi
+}
+
+printItem()
+{
+    FMT="$1"
+    TAG="$2"
+    VALUE="$3"
+    printf "%14s: $FMT\n" "$TAG" "$VALUE"
+}
+
+
+printBanner()
+{
+    echo ""
+    echo "    ---- $1 ----"
+    echo ""
+}
+
+match()
+#  look for substring in fullsting.  substring can be a regular expression or plain string
+#  if the substring is found anywhere in the full string, true(0) is returned.
+{
+    FULLSTR=$1
+    SUBSTR=$2
+    echo $FULLSTR | $GREP -i $SUBSTR > /dev/null 2>&1
+    if [ $? -eq 0 ] ; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+fileType()
+# determine the type of file passed using the unix 'file' command
+# with the '-i' option (mime type output)
+{
+    FILENAME=$1
+    if [ -f "$FILENAME" ] ; then
+	FILETYPE=`$FILE $FILENAME`
+        if (match "$FILETYPE" "postscript") ; then 
+            echo "ps"
+        elif (match "$FILETYPE" "tiff") ; then 
+            echo "tif"
+        elif (match "$FILETYPE" "pdf") ; then 
+            echo "pdf"
+        else
+            echo "Unknown document type"
+        fi
+    else
+        echo "File does not exisit"
+    fi
+}
+
+docType()
+# determine the type of file based on the file extension of the file name
+{
+    FILENAME=$1
+    if (match $FILENAME "\.cover$") ; then 
+        echo "PostScript cover page"
+    elif (match $FILENAME "\.ps$") ; then 
+        echo "PostScript"
+    elif (match $FILENAME "\.tif$") ; then
+        echo "TIFF"
+    elif (match $FILENAME "\.pdf$") ; then 
+        echo "PDF"
+    elif (match $FILENAME "\.pcl$") ; then
+        echo "PCL"
+    else
+        echo "Unknown document type"
+    fi
+}
+
+#
+# Construct a return-to-sender message.
+#
+returnToSender()
+{
+    printBanner "Unsent job status"
+    printItem "%s" "Destination" "$number"
+    printItem "%s" "JobID" "$jobid"
+    printItem "%s" "GroupID" "$groupid"
+    printItem "%s" "Sender" "$sender"
+    printItem "%s" "Mailaddr" "$mailaddr"
+    if [ -n "$commid" ] ; then
+        printItem "%s" "CommID" "$commid"
+    fi
+    if [ "$modem" != "any" -a "$RETURNTECHINFO" = "yes" ] ; then
+        printItem "%s" "Modem" "$modem"
+    fi
+    printItem "%s" 'Submitted From' "$client"
+    if [ "$jobtype" = "facsimile" -a "$RETURNTECHINFO" = "yes" ] ; then
+        printItem "%u (mm)" "Page Width" "$pagewidth"
+        printItem "%.0f (mm)" "Page Length" "$pagelength"
+        printItem "%.0f (lpi)" "Resolution" "$resolution"
+    fi
+    if [ -z "$faxstatus" ] ; then faxstatus="  (nothing available)" ; fi
+    printItem "%s" "Status" "$faxstatus"
+    printItem "%u (exchanges with remote device)" "Dialogs" "$tottries"
+    printItem "%u (consecutive failed calls to destination)" "Dials" "$ndials"
+    printItem "%u (total phone calls placed)" "Calls" "$totdials"
+    if [ "$jobtype" = "facsimile" ] ; then
+        printItem "%u (pages transmitted)" "Pages" "$npages"
+        printItem "%u (total pages to transmit)" "TotPages" "$totpages"
+        printItem "%u (attempts to send current page)" "Attempts" "$ntries"
+        printItem "%u (directory of next page to send)" "Dirnum" "$dirnum"
+        if [ $nfiles -gt 0 -a "$RETURNTECHINFO" = "yes" ] ; then
+            printBanner "Documents submitted for transmission"
+            echo "The following documents were submitted for transmission and are"
+            echo "available on the server for reuse until they are automatically"
+            echo "purged when this job is ${doneop}d.  Documents may also be manually"
+            echo "removed using the faxrm command; consult faxrm(1) for information."
+            echo ""
+            printf "%-20s %8s %s\n" "Filename" "Size" "Type"
+	    for i in `local_seq 1 $nfiles`; do
+                name="files_$i"
+                eval filename=`echo "$"$name`
+		if [ -f $filename ] ; then
+			set - `wc -c "$filename"`
+                    FILESIZE=$1
+		    printf "%-20s %8d %s\n" "$filename" "$FILESIZE" "`docType $filename`"
+                fi
+            done
+        fi
+    elif [ "$jobtype" = "pager" ] ; then
+        if [ $npins -ne 0 ] ; then
+            printBanner "Unsent pages submitted for transmission"
+	    for i in `local_seq 1 $npins`; do
+                name="files_$i"
+		eval pin=`echo "$"$name`
+                printf "%15s\n" "PIN " $pin
+            done
+        fi
+        if [ $nfiles -ne 0 -a -s $files_0 ] ; then
+            printBanner "Message text"
+            cat $files_0
+        fi
+    fi
+}
+
+returnTranscript()
+{
+    if [ "$RETURNTRANSCRIPT" = "yes" ] ; then
+        printBanner "Transcript of session follows"
+        COMFILE="log/c$commid"
+        if [ -a "$COMFILE" ] ; then
+            # dump the comfile to output except for '-- data' lines
+            cat $COMFILE | $GREP -v "\-\- data"
+        else 
+            printf "    No transcript available"
+            if [ -n "$commid" ] ; then  # non 0 len commid value
+                    printf "(CommID c$commid)"
+            fi
+            echo "."
+        fi
+    fi
+}
+
+printStatus()
+{
+    if [ -z "$1" ] ; then # 0 string len
+        echo "<no reason recorded>"
+    else
+        echo $1
+    fi
+}
+
+putHeaders()
+{
+    putMimeSetup
+    echo "To: $mailaddr"
+    echo "Subject: $1"
+    putMimeTextHeader
+    printf "Your $jobtype job to $number"
+}
+
+##########
+##  MAIN
+##########
+
+#  exports used for debug tracing
+#export -f fileType
+#export -f returnTranscript
+#export -f docType
+#export -f putMimeAppPDFHeader
+#export -f putMimeImageTIFHeader
+#export -f mimeEncode
+#export -f printItem
+#export -f putTifEncodedImage
+#export -f putMimeSetup
+#export -f printStatus
+#export -f putHeaders
+#export -f returnFaxImage
+#export -f putPdfEncodedImage
+#export -f putMimeTextHeader
+#export -f printBanner
+#export -f returnToSender
+#export -f parseQfile
+#export -f match
+# sh -x
+
+# we parse the q file fisrt in case any of the varialbe setting 
+# operations may want to know about the details of the fax
+parseQfile  
+
+#process the FaxNotify script after parse q file in case the admin wants to 
+# set any values based on what is in the q file
+setCustomValues 
+
+# adjust faxmaster notify based on some rules and what is found 
+# possibly in the q file.
+adjustNotifyFaxMaster 
+
+(if [ -z "$jobtag" ] ; then
+    jobtag="$jobtype job $jobid"
+fi
+if [ "$doneop" = "default" ] ; then
+    doneop="remove"
+fi
+if [ "$jobtype" = "pager" ] ; then
+    number=$pagernum
+fi
+if [ "$WHY" = "done" ] ; then
+    putHeaders "$jobtag to $number completed"
+    echo " was completed successfully."
+    echo "";
+    if [ "$jobtype" = "facsimile" ] ; then
+        printItem "%u" "Pages" "$npages"
+        if [ "$RETURNTECHINFO" = "yes" ] ; then
+            if [ "$resolution" = "196" ] ; then 
+                printItem "%s" "Quality" "Fine"
+            else
+                printItem "%s" "Quality" "Normal"
+            fi
+            printItem "%u (mm)" "Page Width" "$pagewidth"
+            printItem "%.0f (mm)" "Page Length" "$pagelength"
+            printItem "%s" "Signal Rate" "$signalrate"
+            printItem "%s" "Data Format" "$dataformat"
+        fi
+    fi
+    if [ "$RETURNTECHINFO" = "yes" ] ; then
+        if [ "$tottries" != "1" ] ; then 
+            printItem "%s (exchanges with remote device)" "Dialogs" "$tottries"
+        fi
+        if [ "$totdials" != "1" ] ; then 
+            printItem "%s (total phone calls placed)" "Calls" "$totdials"
+        fi
+        if [ "$modem" != "any" ] ; then 
+            printItem "%s" "Modem" "$modem"
+        fi
+        printItem "%s" "Submitted From" "$client"
+        printItem "%s" "JobID" "$jobid"
+        printItem "%s" "GroupID" "$groupid"
+        printItem "%s" "CommID" "c$commid"
+        printf "\nProcessing time was %s.\n" "$JTIME"
+    fi
+    if [ -n "$faxstatus" -a "$RETURNTRANSCRIPT" = "yes" ] ; then
+        echo "  Additional information:\n    " $faxstatus
+        returnTranscript
+    fi
+    if [ -n "$RETURNFILETYPE" ] ; then 
+        returnFaxImage "$RETURNFILETYPE"
+    fi
+elif [ "$WHY" = "failed" ] ; then 
+    putHeaders "$jobtag to $number failed"
+    printf " failed because:\n    "
+    printStatus "$faxstatus"
+    returnTranscript
+    returnToSender
+    if [ -n "$RETURNFILETYPE" ] ; then 
+        returnFaxImage "$RETURNFILETYPE"
+    fi
+elif [ "$WHY" = "rejected" ] ; then 
+    putHeaders "$jobtag to $number failed"
+    printf " was rejected because:\n    "
+    printStatus "$faxstatus"
+    returnToSender
+    if [ -n "$RETURNFILETYPE" ] ; then
+        returnFaxImage "$RETURNFILETYPE"
+    fi
+elif [ "$WHY" = "blocked" ] ; then
+    putHeaders "$jobtag to $number blocked"
+    printf " is delayed in the scheduling queues because:\n    "
+    printStatus "$faxstatus" 
+    echo ""
+    echo "The job will be processed as soon as possible."
+elif [ "$WHY" = "requeued" ] ; then
+    putHeaders "$jobtag to $number requeued" 
+    printf " was not sent because:\n    "
+    printStatus "$faxstatus" 
+    echo ""
+    echo "The job will be retried at $NEXT."
+    returnTranscript
+elif [ "$WHY" = "removed" ] || [ "$WHY" = "killed" ] ; then 
+    putHeaders "$jobtag to $number removed from queue" 
+    echo " was deleted from the queue."
+    if [ "$WHY"= "killed" ] ; then
+        returnToSender
+    fi
+elif [ "$WHY" = "timedout" ]; then 
+    putHeaders "$jobtag to $number failed" 
+    echo " could not be completed before the appointed deadline."
+    returnToSender
+    if [ -n "$RETURNFILETYPE" ] ; then
+        returnFaxImage "$RETURNFILETYPE"
+    fi
+elif [ "$WHY" = "format_failed" ] ; then 
+    putHeaders "$jobtag to $number failed" 
+    echo " was not sent because document conversion"
+    echo "to facsimile failed.  The output from the converter program was:\n"
+    echo $faxstatus "\n"
+    echo "Check any PostScript documents for non-standard fonts and invalid constructs"
+    returnToSender
+elif [ "$WHY" = "no_formatter" ] ; then 
+    putHeaders "$jobtag to $number failed" 
+    echo " was not sent because"
+    echo "the document conversion script was not found."
+    returnToSender
+elif (match "$WHY"  "poll_*") ; then 
+    putHeaders "Notice about $jobtag" 
+    printf ", a polling request,\ncould not be completed because "
+    if [ "$WHY" = "poll_rejected" ] ; then
+        echo "the remote side rejected your request."
+    elif [ "$WHY" = "poll_no_document" ] ; then
+        echo "no document was available for retrieval."
+    elif [ "$WHY" = "poll_failed" ] ; then
+        echo "an unspecified problem occurred."
+    fi
+    echo "";
+    printf "Processing time was %s.\n" "$JTIME"
+    returnTranscript
+else 
+    putHeaders "Notice about $jobtag" 
+    echo " had something happen to it."
+    echo "Unfortunately, the notification script was invoked with an unknown reason"
+    echo "so the rest of this message is for debugging:\n"
+    echo "why: $WHY"
+    echo "jobTime: $JTIME"
+    echo "nextTry: $NEXT"
+    echo  ""
+    echo "This should not happen, please report it to your administrator."
+    returnTranscript
+    returnToSender
+fi
+# put out a terminating MIME boundary
+echo ""
+echo "--$MIMEBOUNDARY--"
+) | 2>&1 $SENDMAIL -f$FROMADDR -oi -t
+
+if [ "$NOTIFY_FAXMASTER" = "yes" ]; then
+    (
+	if [ -z "$jobtag" ] ; then
+	    jobtag="$jobtype job $jobid"
+	fi
+	echo "To: $TOADDR"
+	echo "Subject: $jobtag to $number $WHY"
+	echo
+        COMFILE="log/c$commid"
+        if [ -a "$COMFILE" ] ; then
+            cat $COMFILE
+        else 
+            printf "    No transcript available"
+            if [ -n "$commid" ] ; then  # non 0 len commid value
+                    printf "(CommID c$commid)"
+            fi
+            echo "."
+        fi	
+    ) | 2>&1 $SENDMAIL -f$FROMADDR -oi -t
+fi

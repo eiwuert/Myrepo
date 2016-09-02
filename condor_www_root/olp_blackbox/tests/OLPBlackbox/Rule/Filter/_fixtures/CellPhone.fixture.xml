@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<dataset>
+	<table name="personal_encrypted">
+		<column>application_id</column>
+		<column>cell_phone</column>
+		<row>
+			<value>1</value>
+			<value>8885551111</value>
+		</row>
+	</table>
+	<table name="campaign_info">
+		<column>application_id</column>
+		<column>license_key</column>
+		<column>created_date</column>
+		<row>
+			<value>1</value>
+			<value>12345</value>
+			<value>2008-02-24 12:00:00</value>
+		</row>
+	</table>
+</dataset>

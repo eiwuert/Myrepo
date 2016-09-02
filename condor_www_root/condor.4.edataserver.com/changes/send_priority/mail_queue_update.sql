@@ -1,0 +1,1 @@
+ALTER TABLE mail_queue ADD COLUMN (send_priority TINYINT UNSIGNED DEFAULT 10);

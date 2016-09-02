@@ -1,0 +1,1532 @@
+body.bg_live
+{
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: black;
+	background: white url("/image/standard/page_live_bg.gif");
+}
+
+
+body.bg_local
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: black;
+	background: white url("/image/standard/page_local_bg.gif");
+}
+
+
+body.bg_rc
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: black;
+	background: white url("/image/standard/page_rc_bg.gif");
+}
+
+
+
+a
+{
+	text-decoration: none;
+	color: #3366FF;
+}
+
+a:link
+{
+	color: #3366FF;
+}
+
+a:visited
+{
+	color: #3366FF;
+}
+
+a:hover
+{
+	color: #3366FF;
+	text-decoration: underline;
+}
+
+a:active
+{
+	color: #3366FF;
+	text-decoration: underline;
+}
+
+a.menu
+{
+	text-decoration: none;
+	color: white;
+}
+
+a.search
+{
+	text-decoration: none;
+	color: black;
+}
+
+
+a.underwriting:link
+{
+	color: black;
+}
+
+a.underwriting:visited
+{
+	color: black;
+	background: #B4DCAF;
+}
+
+a.validation:hover
+{
+	color: darkblue;
+	text-decoration: underline;
+}
+
+a.validation:active
+{
+	color: darkblue;
+	text-decoration: underline;
+}
+
+a.underwriting
+{
+	color: black;
+}
+
+
+a.underwriting:visited
+{
+	color: black;
+}
+
+
+a.verification
+{
+	color: black;
+}
+
+
+a.download
+{
+	color: darkblue;
+	text-decoration: underline;
+	font-size: 8pt;
+}
+
+a.error_text:link
+{
+	color: red;
+}
+
+a.error_text:hover
+{
+	color: red;
+	text-decoration: none;
+	cursor: default;
+}
+
+
+div.verification
+{ 
+	background: #EEF0F4;
+}
+
+div.underwriting
+{ 
+	background: #DAF1DB;
+}
+
+div.tiffing
+{  
+	background: #FFF3EB;
+}
+
+div.fraud
+{ 
+        background: #EEF0F4;
+}
+
+div.customer_service
+{  
+	/*background: #FFF3EB; */
+	background: #E3DFF2;
+}
+
+
+div.reporting
+{
+	background: #EEEEEE;
+	position: static;
+	height: 409px;
+	overflow: auto;
+}
+
+table.verification
+{ 
+	background: #EEF0F4;
+}
+
+table.search
+{ 
+	background: #EEF0F4;
+}
+
+table.fraud
+{ 
+        background: #EEF0F4;
+}
+
+table.underwriting
+{ 
+	background: #DAF1DB;
+}
+
+table.tiffing
+{  
+	background: #FFF3EB;
+}
+
+
+table.customer_service
+{  
+	/*background: #FFF3EB; */
+	background: #E3DFF2;
+}
+
+
+table.agent
+{ 
+	background: #EEF0F4;
+}
+
+table.privs
+{ 
+	background: #EEF0F4;
+}
+
+
+table.profiles
+{ 
+	background: #FFF3EB;
+}
+
+table.groups
+{ 
+	background: #DAF1DB;
+}
+
+table.section
+{ 
+	background: #DAF1DB;
+}
+
+
+
+table.search_verification
+{
+	background: #EEF0F4;
+	width: 730px;
+}
+
+table.search_underwriting
+{
+	background: #DAF1DB;
+	width: 730px;
+}
+
+table.search_fraud
+{
+        background: #EEF0F4;
+        width: 730px;
+}
+
+table.search_tiffing
+{
+	background: #FFF3EB;
+	width: 730px;
+}
+
+
+table.search_customer_service
+{
+	background: #E3DFF2;
+	/*background: #FFF3EB; */
+	width: 730px;
+}
+
+
+ table.search
+{
+	font-size: 9px;
+	background: white;
+	width: 730px;
+}
+
+table.report
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	background: #E5F5D3;
+	width: 751px;
+	empty-cells: show;
+    border: 1px solid black;
+	color: black;
+	padding: 0px;
+}
+
+tr.height
+{
+	height: 19px;
+}
+
+tr.valign_top
+{
+	vertical-align: top;
+	border: 2px solid darkgray;
+	padding: 5px;
+}
+
+tr.align_left
+{
+	text-align: left;	
+}
+
+.in_process
+{
+	text-align: left;
+	background: #EFCAB9;
+}
+
+
+.collections
+{
+	text-align: left;
+	background: #FFDFDF;
+}
+
+
+.hold
+{
+	text-align: left;
+	background: #F4D2F4;
+}
+
+.cashline_dupe
+{
+	text-align: left;
+	background: #F1F1D6;
+}
+
+
+.verify_follow_up
+{
+	text-align: left;
+	background: #FFEAC4;
+}
+
+
+.transaction
+{
+	text-align: left;
+	background: #ECD5CA;
+}
+
+
+
+.confirmed
+{
+	text-align: left;
+	background: #EEEECE;
+}
+
+
+.underwriting_follow_up
+{
+	text-align: left;
+	background: #FF3300;
+}
+
+.fraud_follow_up
+{ 
+        text-align: left;
+        background: #CC33CC;
+}
+
+.fraud_verified
+{
+        text-align: left;
+        background: #FF0000;
+}
+
+.withdrawn
+{
+	text-align: left;
+	background: #ECD9D9;
+}
+
+
+.underwriting
+{
+	text-align: left;
+	background: #CAFFD8;
+}
+
+.fraud
+{ 
+        text-align: left;
+        background: lightsteelblue;
+  color: black;
+}
+
+.inactive
+{
+	text-align: left;
+	background: #E9F1EA;
+}
+
+
+
+.verify_follow_up
+{
+	text-align: left;
+	background: #00FFCC;
+}
+
+
+.denied
+{
+	text-align: left;
+	background: #CCCCCC;
+}
+
+.active
+{
+	text-align: left;
+	background: #FFF284;
+}
+
+
+.verify
+{
+	text-align: left;
+	background: #E0EAF8;
+}
+
+
+.agree
+{
+	text-align: left;
+	background: #E8C6FF;
+}
+
+.scanned
+{
+	text-align: left;
+	background: #FAEEFF;
+}
+
+.disagree
+{
+	text-align: left;
+	background: #F1EBFF;
+}
+
+.cashline
+{
+	text-align: left;
+	background: #EEF093;
+}
+
+
+.pending
+{
+	text-align: left;
+	background: #ECD9D9;
+}
+
+.in_verify
+{
+	text-align: left;
+	background: lightsteelblue;
+}
+
+
+.in_underwriting
+{
+	text-align: left;
+	color: darkgreen;
+	background: #9AC99C; 
+}
+
+.in_fraud
+{
+        text-align: left;
+        color: black;
+        background: lightsteelblue;
+}
+
+
+th.verification
+{
+	text-align: left;
+	background: lightsteelblue;
+	color: black;
+}
+
+
+
+th.in_underwriting
+{
+	text-align: left;
+	background: #B4DCAF;
+	color: black;
+}
+
+
+
+th.underwriting
+{
+	text-align: left;
+	background: #B4DCAF;
+	color: black;
+}
+
+
+th.tiffing
+{
+	text-align: left;
+	background: #F6C8A9;
+	color: black;
+}
+
+th.fraud
+{ 
+        text-align: left;
+        background: lightsteelblue;
+        color: black;
+}
+
+th.customer_service
+{
+	text-align: left;
+	/*background: #F6C8A9;*/
+	background: #FAF9CF;
+	color: black;
+}
+
+
+
+th.report_head
+{
+	font-size: 10px;
+	font-weight: bold;
+	background: lightsteelblue;
+	color: black;
+	text-align: center;
+}
+
+td.report_head
+{
+	font-size: 10px;
+	font-weight: bold;
+	background: #C0DDEF;
+	color: darkblue;
+	text-align: left;
+}
+
+th.report_foot
+{
+	font-size: 10px;
+	font-weight: bold;
+	background: #C0DDEF;
+	color: darkblue;
+	text-align: left;
+}
+
+td.report_spacer
+{
+	background: lightgrey;
+}
+
+
+th.search
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	font-weight: bold;
+}
+
+th.app_id
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	width: 36px;
+}
+
+th.first_name
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	width: 101px;
+}
+
+th.last_name
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	width: 121px;
+}
+
+th.ssn
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	width: 60px;
+}
+
+th.street
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	width: 173px;
+}
+
+th.city
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	width: 83px;
+}
+
+th.state
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	width: 15px;
+}
+
+th.status
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	width: 100px;
+}
+
+th.amount
+{
+	text-align: left;
+	background: white;
+	color: black;
+	font-weight: normal;
+	width: 35px;
+}
+
+th.align_left
+{
+	text-align: left;
+}
+
+
+td.tiny_space {
+	font-size: 1px;
+}
+
+td.menu_begin
+{
+	width: 30px;
+	height: 20px;
+	background: url("/image/main_nav/nav_begin.gif") 
+}
+
+td.menu_end
+{
+	width: 30px;
+	height: 20px;
+	background: url("/image/main_nav/nav_end.gif") 
+}
+
+td.app_id
+{
+	text-align: left;
+	color: black;
+	font-weight: normal;
+	width: 35px;
+}
+
+
+td.first_name
+{
+	text-align: left;
+	color: black;
+	font-weight: normal;
+	width: 100px;
+}
+
+td.last_name
+{
+	text-align: left;
+	color: black;
+	font-weight: normal;
+	width: 120px;
+}
+
+td.ssn
+{
+	text-align: left;
+	color: black;
+	font-weight: normal;
+	width: 60px;
+}
+
+td.street
+{
+	text-align: left;
+	color: black;
+	font-weight: normal;
+	width: 180px;
+}
+
+td.city
+{
+	text-align: left;
+	color: black;
+	font-weight: normal;
+	width: 80px;
+}
+
+td.state
+{
+	text-align: left;
+	color: black;
+	font-weight: normal;
+	width: 15px;
+}
+
+td.status
+{
+	text-align: left;
+	color: black;
+	font-weight: normal;
+	width: 100px;
+}
+
+td.amount
+{
+	text-align: left;
+	color: black;
+	font-weight: normal;
+	width: 35px;
+}
+
+td.align_left
+{
+	text-align: left;
+}
+
+td.align_left_alt
+{
+	text-align: left;
+	background: whitesmoke;	
+}
+
+
+td.align_left_bold
+{
+	text-align:left;
+	font-weight: bold;
+}
+
+td.align_left_alt_bold
+{
+	text-align:left;
+	font-weight: bold;
+	background: whitesmoke;	
+}
+
+td.align_left_red
+{
+	color: red;
+	text-align: left;
+}
+
+td.align_left_alt_red
+{
+	color: red;
+	text-align: left;
+	background: whitesmoke;
+}
+
+td.align_left_menu
+{
+	text-align: left;
+	background: url("/image/main_nav/center.gif");
+}
+
+td.align_right
+{
+	text-align: right;
+}
+
+
+td.align_center
+{
+	text-align: center;
+}
+
+td.align_right_alt
+{
+	text-align: right;
+	background: whitesmoke;
+}
+
+td.align_right_menu
+{
+	text-align: right;
+	background: url("/image/main_nav/center.gif");
+}
+
+
+td.align_center_menu
+{
+	text-align: center;
+	background: url("/image/main_nav/center.gif");
+}
+
+
+
+td.border
+{
+	border: 2px solid gray;
+}
+
+
+td.border_one
+{
+	border: 1px solid gray;
+}
+
+
+
+h2 {
+	text-align: center;
+	font-size: 12px;
+}
+
+h3 {
+	text-align: center;
+	font-size: 10px;
+}
+
+
+form.no_padding {
+	padding: 0px;
+}
+
+input.button
+{
+	background-color: whitesmoke;
+	color: black;
+	height: 20px;
+	text-align: "center";
+}
+input.browse
+{
+	background-color: whitesmoke;
+	color: black;
+	height: 20px;
+	text-align: "center";
+}
+input.button2
+{
+	background-color: whitesmoke;
+	color: black;
+	width: 100px;
+	height: 20px;
+	text-align: "center";
+}
+
+input.disabled
+{
+	background-color: lightgray;
+}
+
+/* CSS Menu Stuff */
+.menu_bar
+{
+	position: relative;
+	height: 20px;
+	padding: 0px;
+	border: 0px;
+}
+
+.menu_label
+{
+	position: absolute;
+	top: 0px;
+ 	width: 120px;
+	height: 14px;
+	color: white;
+	padding: 3px;
+	border: 0px;
+}
+
+
+.menu_label_privs
+{
+	position: absolute;
+ 	width: 115px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/verification.gif")
+}
+
+.menu_label_groups
+{
+	position: absolute;
+ 	width: 110px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/underwriting.gif")
+}
+
+.menu_label_profiles
+{
+	position: absolute;
+ 	width: 110px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/cashline.gif")
+}
+
+
+.menu_label_agent
+{
+	position: absolute;
+ 	width: 130px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/verification.gif")
+}
+
+.menu_label_performance_report
+{
+	position: absolute;
+ 	width: 130px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/verification.gif")
+}
+
+.menu_label_funding_performance_report
+{
+	position: absolute;
+ 	width: 130px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/underwriting.gif")
+}
+
+.menu_label_score_report
+{
+	position: absolute;
+ 	width: 130px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/cashline.gif")
+}
+
+.menu_label_applicant_report
+{
+	position: absolute;
+ 	width: 130px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/tiffing.gif");
+}
+
+
+
+.menu_label_withdrawn_deny
+{
+	position: absolute;
+ 	width: 130px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/customerservice.gif");
+}
+
+.menu_label_monitor
+{
+	position: absolute;
+ 	width: 130px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/verification.gif")
+}
+
+.menu_label_verification
+{
+	position: absolute;
+ 	width: 115px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/verification.gif")
+}
+
+.menu_label_underwriting
+{
+	position: absolute;
+ 	width: 110px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/underwriting.gif")
+}
+
+
+.menu_label_section
+{
+	position: absolute;
+ 	width: 100px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/underwriting.gif")
+}
+
+
+.menu_label_tiffing
+{
+	position: absolute;
+ 	width: 110px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/cashline.gif")
+}
+
+
+.menu_label_customer_service
+{
+	position: absolute;
+ 	width: 110px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/customerservice.gif");
+}
+
+
+.menu_label_cashline
+{
+	position: absolute;
+ 	width: 110px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/tiffing.gif")
+}
+
+.menu_label_nextapp
+{
+	position: absolute;
+ 	width: 120px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/nextapp.gif")
+}
+
+.menu_label_search
+{
+	position: absolute;
+ 	width: 115px;
+	height: 14px;
+	padding: 3px;
+	border: 0px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background: url("/image/main_nav/verification.gif")
+}
+
+.menu_layer
+{
+	position: absolute;
+	top: 20px;
+	height: = 60px;
+ 	width: 110px;
+	color: white;
+	padding: 3px;
+	border: 0px;
+}
+
+.report_menu_layer
+{
+	position: absolute;
+	top: 20px;
+	height: = 60px;
+ 	width: 145px;
+	color: white;
+	padding: 3px;
+	border: 0px;
+}
+
+a.std_text
+{
+	color:black;
+}
+
+a.error_text
+{
+	color:red;
+}
+
+.std_text
+{
+	color: black;
+}
+.error_text
+{
+	color: red;
+}
+
+.ccl_note
+{
+	color: red;
+}
+
+.queue_count
+{
+	color: black;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 7pt;
+}
+
+
+/* --------------------------- */
+/* PAYDATE WIDGET CLASSES	   */
+/* --------------------------- */
+	.center {
+		text-align:	center;
+	}
+	.vc { /* vertically centered */
+		vertical-align:middle;
+	}
+	.b {
+		font-weight:bold;
+	}
+	.tbl {
+		width:auto;
+		padding:0px;
+		margin:0px;
+		border:0px;
+	}
+	.col {
+		width:50%;
+	}
+	.suboption {
+		margin:	5px;
+		padding:10px;
+	}
+	.r {
+		text-align:right;
+	}
+	.example {
+		font-style:italic;
+	}
+	.bgl {
+		background-color:#dddddd;
+	}
+	.bgd {
+		background-color:#cccccc;
+	}	
+	.bl {
+		display:list-item;
+	}
+	.hide {
+		display:none;
+	}
+	.or {
+		font-style:italic;
+	}
+.sh-align-left {
+	text-align: left !important;
+   	padding-left: 2px !important;
+}
+.sh-align-right {
+	text-align: right !important;
+    padding-right: 2px !important;
+}
+.sh-align-center {
+	text-align: center !important;
+    padding: auto 2px !important;
+}
+.sh-bold {
+    font-weight: bold;
+}
+.sh-form-hint {
+    font-size:7pt;
+}
+
+a.sortcolumn {
+	color: #0000ff;
+}
+
+
+
+/*==================================*/
+/* beg: windows style Table effect ... for buttons*/
+DIV.winStyleListTable_titleDIV {
+	padding-bottom: 3px;
+}
+
+TABLE.winStyleListTable {
+	width: 100%;
+	height: 100%;	
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	background-color: #909090;	
+	border-right: 1px solid white; 
+	border-bottom: 0px solid white;
+	border-top: 1px solid #BCC0C3;
+	border-left: 1px solid #BCC0C3;
+}
+TABLE.winStyleListTable TR.header TD {
+	height: 1%;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+	
+	border-left: 1px solid white; 
+	border-top: 1px solid white;
+	border-bottom: 1px solid #BCC0C3;
+	border-right: 1px solid #BCC0C3;
+	background-color: #EBEBED; /* darker silver: DEE1E2*/
+	
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #595959;
+	white-space: nowrap;
+	cursor: default;
+}
+TABLE.winStyleListTable TR.header TD.header_click
+{
+    border-bottom: #dcdcdc 1px solid;
+    border-left: #8C8C8C 1px solid;
+    border-right: #dcdcdc 1px solid;
+    border-top: #8C8C8C 1px solid;
+    padding-top: 2px;
+	padding-bottom: 0px;
+	padding-left: 3px;
+	padding-right: 1px;
+}
+
+TABLE.winStyleListTable TR.content_1 TD,
+TABLE.winStyleListTable TR.content_1_over TD,
+TABLE.winStyleListTable TR.content_2_over TD {
+	height: 1%;
+	padding: 1px;
+	padding-left: 6px;
+	white-space: nowrap;
+	
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: gray; /*595959*/
+	cursor: hand;
+	
+}
+TABLE.winStyleListTable TR.content_1 TD,
+TABLE.winStyleListTable TR.content_spacer TD {
+	background-color: white;
+	color: gray; /*595959*/
+}
+TABLE.winStyleListTable TR.content_1_over TD,
+TABLE.winStyleListTable TR.content_2_over TD {
+	background-color: #f1f1f1;
+	color: gray; /*595959*/
+}
+TABLE.winStyleListTable TR.content_2 TD {
+	background-color: #f1f1f1;
+	color: gray; /*595959*/
+
+
+}
+
+/*==================================*/
+TABLE.formTable,
+DIV.contentDIV {
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: gray;
+	
+}
+TABLE.formTable TD {
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: gray;
+}
+
+/* hidden popup div===*/
+DIV.hiddenDIV {
+	width: 250px;
+	border: 0px solid black;
+	background-color: #ffffff;
+	display: none;
+	position: absolute;
+	padding: 0px;
+	filter:	progid:DXImageTransform.Microsoft.Shadow(color=#939393, Direction=135, Strength=4);
+}
+DIV.hiddenDIV TABLE.borderTable {
+	width: 100%;
+}
+DIV.hiddenDIV TABLE.borderTable TR.borderTable_header TD {
+	height: 1%;
+	background-image: url(/images/m_bg_hzheader.gif);
+	background-color: silver;	/* blue header */
+	text-align: center;
+	font-weight: bold;
+	color: #414141;
+	white-space: normal;
+}
+DIV.hiddenDIV TABLE.borderTable TD.formTD {
+	padding: 8px;
+	vertical-align: top;
+}
+
+TABLE.loginTable TD.loginTableTD A {	
+	text-decoration: none;
+	color: #3399ff;	/* color: sky blue */	
+}
+TABLE.loginTable TD.loginTableTD A:hover {	
+	text-decoration: underline;
+}
+TD.loginTableTD H2 {
+	color: gray;
+}
+/* ============================= */
+/* beg: banner's CSS */
+
+TABLE.bannerTable TD.list,
+TABLE.freecontentTable TD.list
+ {
+	font-size: 8pt;
+	border: 0px solid silver;
+}
+TABLE.bannerTable TD.list:first-line,
+TABLE.freecontentTable TD.list:first-line {
+	font-weight: bold;
+	color: gray;
+}
+TABLE.freecontentTable TD.list IMG {
+	margin: 4px;
+	border: 1px solid silver;
+}
+
+TABLE.winStyleListTable TR.content_2 TD { 
+	height: auto;
+	padding: 1px;
+	padding-left: 6px;
+	white-space: nowrap;
+	
+	/*font-family: Arial, Helvetica, sans-serif;*/
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: grey; /*595959*/
+	cursor: hand;
+ } 
+
+
+TABLE.winStyleListTable TR.content_1 TD {
+}
+/*#############################################################*/
+/* beg: Program Main */
+/*#############################################################*/
+
+/* beg: list table */
+
+TABLE.winStyleListTable TR.header TD {
+	padding-right: 3px;
+}
+TABLE.winStyleListTable TR.header TD.header_click {
+	padding-right: 2px;
+}
+TABLE.winStyleListTable TR.content_1 TD,
+TABLE.winStyleListTable TR.content_2 TD {
+	cursor: default;
+}
+.SearchTableID {
+	width: 35px;
+	text-align: right;
+	white-space: nowrap;
+	display: table-cell;
+	position: relative;
+}
+.SearchTableCC {
+	width: 90px;
+	white-space: nowrap;
+	text-align: right;
+	display: table-cell;
+	position: static;
+}
+.SearchTableDesc {
+	white-space: pre;
+	width: 200px;
+}
+.SearchTableAmount {
+	width: 65px;
+	white-space: nowrap;
+	text-align: right;
+	display: table-cell;
+}
+.SearchTableDate {
+	width: 65px;
+	white-space: nowrap;
+	text-align: right;
+	display: table-cell;
+	position: static;
+}
+.SearchTableFirst {
+	white-space: nowrap;
+	width: 85px;
+	text-align: left;
+	display: table-cell;
+	position: static;
+}
+.SearchTableLast {
+	width: 100px;
+	white-space: pre;
+}
+.SearchTableSSN {
+	width: 60px;
+	white-space: nowrap;
+	text-align: left;
+	display: table-cell;
+	position: static;
+}
+.SearchTableStatus {
+	width: 50px;
+	white-space: pre;
+}
+.SearchTableTotal {
+	font-weight: bold;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #999999;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+}
+.SearchTableSmall {
+	width: 15px;
+	text-align: left;
+	white-space: nowrap;
+	display: table-cell;
+	position: relative;
+}
+

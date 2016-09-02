@@ -1,0 +1,29 @@
+- On the load balancer -
+
+Connect to the alteon via serial (minicom) or ssh (ssh
+admin@192.168.1.1)
+
+Create the script:
+
+/c/slb/adv/script 1
+	open "81"
+	send "GET /serverstatus.php?module=epoint HTTP/1.0\\r\\n\\r\\n"
+	expect "PASS"
+	close
+
+
+Apply the script to a group:
+
+/c/slb/group 1
+	health script1
+
+
+Ensure its working:
+
+/info/slb/real 1
+
+
+Thats it!
+
+
+

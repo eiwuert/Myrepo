@@ -1,0 +1,83 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/transactions.css">
+<link rel="stylesheet" href="js/calendar/calendar-dp.css">
+<script type="text/javascript" src="get_js.php?override=transactions"></script>
+<script type="text/javascript" src="js/calendar/calendar.js"></script>
+<script type="text/javascript" src="js/calendar/lang/calendar-en.js"></script>
+
+<style>
+body { font-family:arial, sans-serif; }
+form.no_padding { padding: 0px; }
+td { text-align: center; }
+.left { text-align: left; }
+.right { text-align: right; }
+</style>
+</head>
+<form id="account_edit" name="Account Editor" method="post" action="/" class="no_padding" onSubmit="return CheckAccountEdit();">
+<input type="hidden" name="action" id="action" value="generate_schedule">
+<input type="hidden" name="date_fund_actual" id="date_fund_actual" value="%%%date_fund_actual%%%">
+<input type="hidden" name="action_type" id="action_type" value="save">
+<input type="hidden" name="contains_ach_fee" id="contains_ach_fee" value="false">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="height: 283px;" align="center">
+<tbody>
+<tr>
+  <td>Principal Balance:&nbsp;</td>
+  <td><input id="principal_balance" name="principal_balance" type="text" value="%%%posted_principal%%%"></td>
+</tr>
+<tr>
+  <td>Fees Balance: &nbsp;</td>
+  <td><input id="fees_balance" name="fees_balance" type="text" value="%%%posted_fees%%%"></td>
+</tr>
+<tr>
+  <td>No. of Service Charges Made:&nbsp;</td>
+  <td>
+    <select id="num_service_charges" name="num_service_charges">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="max">&gt; 4</option>
+    </select>
+  </td>
+</tr>
+<tr>
+  <td>Loan Situation:&nbsp;</td>
+  <td>
+    <select id="account_status" name="account_status" onChange="CheckStatusSelection(this);">
+      <option value="1">Just Funded</option>
+      <option value="17">Funds Pending</option>
+      <option value="2">Active</option>
+      <option value="18">Past Due</option>
+      <option value="4">2 failures (Collections)</option>
+      <option value="7">Bankruptcy Notified</option>
+      <option value="8">Inactive(Recovered)</option>      
+      <option value="9">Inactive (Paid)</option>
+      <option value="15">Funding Failed</option>
+      <option value="16">"Old" Account (Collections)</option>
+      <option value="19">Second Tier (Sent)</option>
+    </select>
+  </td>
+</tr>
+<tr>
+  <td>Date they were placed in status:&nbsp;</td>
+  <td><input type="text" id="status_date" name="status_date" disabled onBlur="return checkDate(this, true);" ><a href="#" 
+       onClick="if (!document.getElementById('status_date').disabled) TransactionGenerationPopCalendar('status_date', event.clientX - 230, event.clientY - 180);">select</a></td>
+</tr>
+<tr>
+  <td>Amount of Return:&nbsp;</td>
+  <td><input type="text" id="return_amount" name="return_amount" disabled></td>
+</tr>
+<tr>
+  <td>Add Watch Flag</td>
+  <td><input type="checkbox" name="watch_flag"></td>
+</tr>
+<tr>
+  <td><input type="button" value="Cancel" onClick="window.close();"></td>
+  <td><input type="button" value="Save" onClick="CheckAccountEdit();"></td>
+</tr>
+</tbody>
+</table>
+</form>
+</html>

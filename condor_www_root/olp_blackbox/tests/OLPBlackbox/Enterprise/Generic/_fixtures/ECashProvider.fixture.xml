@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<dataset>
+	<company name_short="ca"/>
+
+	<application_status active_status="active" name_short="*root" application_status_parent_id=""/>
+		<application_status active_status="active" name_short="customer" application_status_parent_id="1"/>
+			<application_status active_status="active" name_short="collections" application_status_parent_id="2"/>
+				<application_status active_status="active" name_short="arrangements" application_status_parent_id="3"/>
+					<application_status active_status="active" name_short="arrangements_failed" application_status_parent_id="4"/>
+					<application_status active_status="active" name_short="current" application_status_parent_id="4"/>
+					<application_status active_status="active" name_short="hold" application_status_parent_id="4"/>
+					<application_status active_status="active" name_short="amortization" application_status_parent_id="4"/>
+				<application_status active_status="active" name_short="bankruptcy" application_status_parent_id="3"/>
+					<application_status active_status="active" name_short="queued" application_status_parent_id="9"/>
+					<application_status active_status="active" name_short="dequeued" application_status_parent_id="9"/>
+					<application_status active_status="active" name_short="unverified" application_status_parent_id="9"/>
+					<application_status active_status="active" name_short="verified" application_status_parent_id="9"/>
+				<application_status active_status="active" name_short="contact" application_status_parent_id="3"/>
+					<application_status active_status="active" name_short="dequeued" application_status_parent_id="14"/>
+				<application_status active_status="active" name_short="quickcheck" application_status_parent_id="3"/>
+					<application_status active_status="active" name_short="ready" application_status_parent_id="16"/>
+					<application_status active_status="active" name_short="return" application_status_parent_id="16"/>
+					<application_status active_status="active" name_short="sent" application_status_parent_id="16"/>
+			<application_status active_status="active" name_short="servicing" application_status_parent_id="2"/>
+				<application_status active_status="active" name_short="past_due" application_status_parent_id="20"/>
+				<application_status active_status="active" name_short="active" application_status_parent_id="20"/>
+				<application_status active_status="active" name_short="approved" application_status_parent_id="20"/>
+				<application_status active_status="active" name_short="hold" application_status_parent_id="20"/>
+			<application_status active_status="active" name_short="paid" application_status_parent_id="2"/>
+		<application_status active_status="active" name_short="external_collections" application_status_parent_id="1"/>
+			<application_status active_status="active" name_short="pending" application_status_parent_id="26"/>
+			<application_status active_status="active" name_short="sent" application_status_parent_id="26"/>
+			<application_status active_status="active" name_short="recovered" application_status_parent_id="26"/>
+		<application_status active_status="active" name_short="prospect" application_status_parent_id="1"/>
+			<application_status active_status="active" name_short="agree" application_status_parent_id="30"/>
+			<application_status active_status="active" name_short="pending" application_status_parent_id="30"/>
+			<application_status active_status="active" name_short="confirmed" application_status_parent_id="30"/>
+			<application_status active_status="active" name_short="preact_confirmed" application_status_parent_id="30"/>
+		<application_status active_status="active" name_short="applicant" application_status_parent_id="1"/>
+			<application_status active_status="active" name_short="underwriting" application_status_parent_id="35"/>
+				<application_status active_status="active" name_short="queued" application_status_parent_id="36"/>
+				<application_status active_status="active" name_short="dequeued" application_status_parent_id="36"/>
+				<application_status active_status="active" name_short="follow_up" application_status_parent_id="36"/>
+				<application_status active_status="active" name_short="preact" application_status_parent_id="36"/>
+			<application_status active_status="active" name_short="verification" application_status_parent_id="35"/>
+				<application_status active_status="active" name_short="queued" application_status_parent_id="41"/>
+				<application_status active_status="active" name_short="dequeued" application_status_parent_id="41"/>
+				<application_status active_status="active" name_short="follow_up" application_status_parent_id="41"/>
+			<application_status active_status="active" name_short="denied" application_status_parent_id="35"/>
+			
+			<application_status active_status="active" name_short="queued" application_status_parent_id="14"/>
+			<application_status active_status="active" name_short="arrangements" application_status_parent_id="16"/>
+	<!-- now, bad loans -->
+	<application
+		application_id="100" company_id="1" customer_id="0" application_status_id="5" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="101" company_id="1" customer_id="0" application_status_id="6" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="102" company_id="1" customer_id="0" application_status_id="7" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="103" company_id="1" customer_id="0" application_status_id="8" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="104" company_id="1" customer_id="0" application_status_id="10" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="105" company_id="1" customer_id="0" application_status_id="11" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="106" company_id="1" customer_id="0" application_status_id="12" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="107" company_id="1" customer_id="0" application_status_id="13" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="108" company_id="1" customer_id="0" application_status_id="15" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="109" company_id="1" customer_id="0" application_status_id="17" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="110" company_id="1" customer_id="0" application_status_id="18" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="111" company_id="1" customer_id="0" application_status_id="19" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="112" company_id="1" customer_id="0" application_status_id="27" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="113" company_id="1" customer_id="0" application_status_id="28" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="123451000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="114" company_id="1" customer_id="0" application_status_id="21" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="1234510000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+
+	<application
+		application_id="115" company_id="1" customer_id="0" application_status_id="46" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="1234510000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	<application
+		application_id="116" company_id="1" customer_id="0" application_status_id="47" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123100" bank_account="123123123100" dob="1910-01-01" ssn="1234510000"
+		legal_id_number="NV1234100" email="test100@test.com" olp_process="online_confirmation" phone_home="1234561000"
+		/>
+	
+	<!-- denied -->
+	<application
+		application_id="200" company_id="1" customer_id="0" application_status_id="45" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123200" bank_account="123123123200" dob="1920-01-01" ssn="1234520000"
+		legal_id_number="NV1234200" email="test200@test.com" olp_process="online_confirmation" phone_home="1234562000"
+		/>
+
+
+	<!-- paid -->
+	<application
+		application_id="300" company_id="1" customer_id="0" application_status_id="25" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123300" bank_account="123123123300" dob="1930-01-01" ssn="1234530000"
+		legal_id_number="NV1234300" email="test300@test.com" olp_process="online_confirmation" phone_home="1234563000"
+		/>
+	<application
+		application_id="301" company_id="1" customer_id="0" application_status_id="29" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123300" bank_account="123123123300" dob="1930-01-01" ssn="1234530000"
+		legal_id_number="NV1234300" email="test300@test.com" olp_process="online_confirmation" phone_home="1234563000"
+		/>
+
+	<!-- active -->
+	<application
+		application_id="400" company_id="1" customer_id="0" application_status_id="22" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123400" bank_account="123123123400" dob="1940-01-01" ssn="1234540000"
+		legal_id_number="NV1234400" email="test400@test.com" olp_process="online_confirmation" phone_home="1234564000"
+		/>
+
+	<!-- pending -->
+	<application
+		application_id="500" company_id="1" customer_id="0" application_status_id="23" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="501" company_id="1" customer_id="0" application_status_id="24" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="502" company_id="1" customer_id="0" application_status_id="31" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="503" company_id="1" customer_id="0" application_status_id="32" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="504" company_id="1" customer_id="0" application_status_id="37" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="505" company_id="1" customer_id="0" application_status_id="38" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="506" company_id="1" customer_id="0" application_status_id="39" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="507" company_id="1" customer_id="0" application_status_id="40" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="508" company_id="1" customer_id="0" application_status_id="42" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="509" company_id="1" customer_id="0" application_status_id="43" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="510" company_id="1" customer_id="0" application_status_id="44" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="511" company_id="1" customer_id="0" application_status_id="33" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+	<application
+		application_id="512" company_id="1" customer_id="0" application_status_id="34" last_paydate="2007-01-01"
+		is_react="no" bank_aba="123123500" bank_account="123123123500" dob="1950-01-01" ssn="1234550000"
+		legal_id_number="NV1234500" email="test500@test.com" olp_process="online_confirmation" phone_home="1234565000"
+		/>
+</dataset>

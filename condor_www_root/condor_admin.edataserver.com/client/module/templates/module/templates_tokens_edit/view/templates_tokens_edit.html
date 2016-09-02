@@ -1,0 +1,40 @@
+%%%error_block%%%
+<div id="templates_tokens_edit">
+<form method="post" action="">
+<table cellpadding="2" cellspacing="0" border="0">
+	<tr>
+		<td class="bold">Token Name:</td>
+		<td>%%%token_name%%%</td>
+	</tr>
+	<tr>
+		<td class="%%%css_token_description%%%">Description:</td>
+		<td>
+			<input type="text" name="token_description" value="%%%token_description%%%" maxlength="255" size="50" />
+		</td>
+	</tr>
+	<tr>
+		<td class="%%%css_token_description%%%">Test Data:</td>
+		<td>
+			<input type="text" name="test_data" value="%%%test_data%%%" maxlength="255" size="50'" />
+		</td>
+	</tr>
+	<tr>
+		<td class="%%%css_token_description%%%">Test Data Type:</td>
+		<td>
+			<select name="test_data_type">
+				%%%test_data_type_list%%%
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2">
+			<input type="hidden" name="module" value="templates_tokens_edit" />
+			<input type="hidden" name="action" value="submit" />
+			<input type="hidden" name="token_data_id" value="%%%token_data_id%%%" />
+			<input type="submit" name="submit" value="Save" />
+			<input type="button" name="cancel" value="Cancel" onclick="window.location='?module=templates_tokens_list'" />
+		</td>
+	</tr>
+</table>
+</form>
+</div>

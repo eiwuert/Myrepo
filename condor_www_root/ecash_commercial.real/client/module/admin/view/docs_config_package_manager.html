@@ -1,0 +1,571 @@
+<script language="javascript">
+// Array of name shorts of packages so I can check for duplications for new packages
+var packaged_docs_short_list = %%%packaged_docs_short_list%%%;
+var packageNameShort = '';
+var curMode = 'new';
+function ajaxreq()
+{
+	if(window.XMLHttpRequest) 
+	{
+		try 
+		{
+			req = new XMLHttpRequest();
+		} 
+		catch(e) 
+		{
+			req = false;
+		}
+		// branch for IE/Windows ActiveX version
+	} 
+	else if(window.ActiveXObject) 
+	{
+		try 
+		{
+			req = new ActiveXObject("Msxml2.XMLHTTP");
+		} 
+		catch(e) 
+		{
+			try 
+			{
+				req = new ActiveXObject("Microsoft.XMLHTTP");
+			} 
+			catch(e) 
+			{
+				req = false;
+			}
+		}
+	}	
+	return req;	
+}
+
+
+function GetPackageData(id)
+{
+	var req = ajaxreq();
+
+	if(req) 
+	{
+		//req.onreadystatechange = processEditXML;
+		var url = "/?mode=docs_config&view=xml_package_data&document_package_id=" + id;
+		req.open("GET", url, false);
+		req.send("");
+		processPackageData(req);
+	} 		
+
+}
+
+function processPackageData(req) 
+{	
+	if (req.readyState == 4) 
+	{
+		if (req.status == 200) 
+		{
+			var xmldoc = req.responseXML;
+			var form = document.getElementById('dm_package_manager');
+			var doc = xmldoc.getElementsByTagName('document-package').item(0);
+
+			uNSet(document.getElementById('dm_pkg_body'));
+			uNSet(document.getElementById('dm_docpkg_list'));
+
+			for (var i = 0 ; i < document.getElementById('dm_document_list').options.length ; i++ ) 
+			{
+				document.getElementById('dm_document_list').options[i].disabled = false;
+			}
+
+			for (var i = document.getElementById('dm_docpkg_list').options.length ; i >= 0 ; i-- ) 
+			{
+				document.getElementById('dm_docpkg_list').remove(i);
+			}
+
+			for (var iNode = 0; iNode < doc.childNodes.length; iNode++) 
+			{
+				var node = doc.childNodes.item(iNode);
+
+				var nodeValue;
+				if (node.firstChild && node.firstChild.nodeValue) 
+				{
+					nodeValue = node.firstChild.nodeValue;
+				} else
+
+				{
+					nodeValue = "";
+				}
+
+				switch (node.nodeName) 
+				{
+					case 'document_package_id':
+						document.getElementById('dm_pkg_id').value = nodeValue;
+						break;
+
+					case 'document_list_id':
+						document.getElementById('dm_pkg_body').value = nodeValue;
+						break;
+
+					case 'name':
+						document.getElementById('dm_pkg_name').value = nodeValue;
+						break;
+
+					case 'name_short':
+						document.getElementById('dm_pkg_name_short').value = nodeValue;
+						packageNameShort = nodeValue;
+						break;
+
+					case 'active_status':
+						if(nodeValue == 'active') 
+						{
+							document.getElementById('dm_chk_active').checked = true;
+							document.getElementById('dm_flag_active').value = nodeValue;
+						} else
+
+						{
+							document.getElementById('dm_chk_active').checked = false;
+							document.getElementById('dm_flag_active').value = 'inactive';
+						}
+						break;
+
+					case 'attachments':
+						//FireFox 3 Requires That The Document Being Evaluted Be The XML Doc, Not 'document'
+						var attachment_ids = xmldoc.evaluate('attachment/document_list_id', node, null, XPathResult.ANY_TYPE, null);
+						var attachment_names = xmldoc.evaluate('attachment/name', node, null, XPathResult.ANY_TYPE, null);
+
+						try 
+						{
+							var thisNode = attachment_ids.iterateNext();
+							var thisName = attachment_names.iterateNext();
+
+							while (thisNode) 
+							{
+								var attachment_id = thisNode.textContent;
+								var attachment_name = thisName.textContent;
+
+								for (var i = 0 ; i < document.getElementById('dm_document_list').options.length ; i++ ) 
+								{
+									if (document.getElementById('dm_document_list').options[i].value == attachment_id) 
+									{
+										document.getElementById('dm_document_list').options[i].disabled = true;
+
+										addToDocList(document.getElementById('dm_docpkg_list'),attachment_name, attachment_id);
+
+									}
+
+								}
+
+								thisNode = attachment_ids.iterateNext();
+								thisName = attachment_names.iterateNext();
+							}
+						} 
+						catch (e) 
+						{
+							dump(e);
+						}
+
+
+				}
+			}
+
+		}
+	}
+}
+
+function removeSelectedFromDocList(tolist, fromlist)
+{
+	var eleValue = tolist.options[tolist.selectedIndex].value;
+
+	for (var i = 0 ; i < fromlist.options.length ; i++ ) 
+	{
+		if (fromlist.options[i].value == eleValue) 
+		{
+			fromlist.options[i].disabled = false;
+		}
+	}		
+
+	tolist.remove(tolist.selectedIndex);
+}
+
+function addSelectedToDocList(fromlist, tolist)
+{
+	var option = fromlist.options[fromlist.selectedIndex];
+
+	for (var i = 0 ; i < tolist.options.length ; i++ ) 
+	{
+		if (tolist.options[i].value == option.value) 
+		{
+			option.disabled = true;
+			return;
+		}
+	}
+	addToDocList(tolist,option.text,option.value);
+
+	option.disabled = true;
+}
+
+function addToDocList(ele, name, value)
+{
+	var op = document.createElement('option');
+	op.text = name;
+	op.value = value;
+	ele.add(op,null);
+
+}
+
+function uNSet(ele)
+{
+	for ( var i = 0 ; i < ele.options.length ; i++ ) 
+	{
+		ele.options[i].selected = false;
+	}	
+}
+
+function searchNSet(ele, value)
+{
+	var selectedArray = new Array();
+	var c = 0;
+
+	for ( var i = 0 ; i < ele.options.length ; i++ ) 
+	{
+		if (ele.options[i].value == value) 
+		{
+			ele.options[i].selected = true;
+		}
+	}	
+
+}
+
+function submitPkg(ele, form)
+{
+	ele.multiple = true;
+	for ( i = 0 ; i < ele.options.length ; i++ ) 
+	{
+
+		ele.options[i].selected  = true; 
+	}
+
+	form.submit();
+
+}
+
+function toggleSelect(ele, set)
+{
+	for (var i = 0 ; i < ele.options.length ; i++ ) 
+	{
+		ele.options[i].disabled = set;
+	}
+	ele.disabled = set;
+}
+
+function clearForm()
+{
+	document.getElementById('dm_pkg_name').value       = '';
+	document.getElementById('dm_pkg_name_short').value = '';
+	document.getElementById('dm_pkg_body').value       = '';
+	document.getElementById('dm_chk_active').checked   = false;
+
+	// Clear out the previously selected docs
+	for (var i = document.getElementById('dm_docpkg_list').options.length - 1 ; i >= 0 ; i-- )
+	{
+		document.getElementById('dm_docpkg_list').remove(i);
+	}
+
+	for (i = document.getElementById('dm_document_list').options.length - 1; i >= 0 ; i-- )
+	{
+		document.getElementById('dm_document_list').options[i].selected = false;
+	}
+
+	for (i = document.getElementById('dm_package_list').options.length - 1; i >= 0 ; i-- )
+	{
+		document.getElementById('dm_package_list').options[i].selected = false;
+	}
+
+}
+
+function toggleMode(mode)
+{
+	curMode = mode;
+	document.getElementById('dm_pkg_id').value = '';
+	switch(mode) 
+	{
+		case 'new':
+			toggleSelect(document.getElementById('dm_document_list'), false);
+			toggleSelect(document.getElementById('dm_package_list'), true);
+			toggleSelect(document.getElementById('dm_pkg_body'), false);
+			toggleSelect(document.getElementById('dm_docpkg_list'), false);
+			document.getElementById('dm_pkg_name').disabled = false;
+			document.getElementById('dm_pkg_name_short').disabled = false;
+			document.getElementById('dm_chk_active').disabled = false;
+			document.getElementById('dm_gt').disabled = false;
+			document.getElementById('dm_lt').disabled = false;
+			document.getElementById('dm_ac_del').disabled = true;
+			document.getElementById('dm_ac_saveas').disabled = true;
+			document.getElementById('dm_ac_save').disabled = false;
+
+			// Clear out the form
+			clearForm();
+
+			break;
+
+		case 'mod':
+			toggleSelect(document.getElementById('dm_document_list'), false);
+			toggleSelect(document.getElementById('dm_package_list'), false);
+			toggleSelect(document.getElementById('dm_pkg_body'), false);
+			toggleSelect(document.getElementById('dm_docpkg_list'), false);
+			document.getElementById('dm_pkg_name').disabled = false;
+			document.getElementById('dm_pkg_name_short').disabled = false;
+			document.getElementById('dm_chk_active').disabled = false;
+			document.getElementById('dm_gt').disabled = false;
+			document.getElementById('dm_lt').disabled = false;
+			document.getElementById('dm_ac_del').disabled = true;
+			document.getElementById('dm_ac_saveas').disabled = false;
+			document.getElementById('dm_ac_save').disabled = false;
+
+			break;
+
+		case 'del':
+			toggleSelect(document.getElementById('dm_document_list'), true);
+			toggleSelect(document.getElementById('dm_package_list'), false);
+			toggleSelect(document.getElementById('dm_pkg_body'), true);
+			toggleSelect(document.getElementById('dm_docpkg_list'), true);
+			document.getElementById('dm_pkg_name').disabled = true;
+			document.getElementById('dm_pkg_name_short').disabled = true;
+			document.getElementById('dm_chk_active').disabled = true;
+			document.getElementById('dm_gt').disabled = true;
+			document.getElementById('dm_lt').disabled = true;
+			document.getElementById('dm_ac_del').disabled = false;
+			document.getElementById('dm_ac_saveas').disabled = true;
+			document.getElementById('dm_ac_save').disabled = true;
+
+			break;
+	}
+}
+
+function formNameShort(field)
+{
+	var ns = document.getElementById('dm_pkg_name_short');
+
+	if (ns.value == "") 
+	{
+		var re = /\W+/gi;
+		ns.value = field.value.replace(re, "_").toLowerCase();
+	}
+
+}
+
+function isArray() 
+{
+
+	if (typeof arguments[0] == 'object') 
+	{  
+		var criterion = arguments[0][0]; 
+		return (criterion != null); 
+	}
+
+	return false;
+}	
+
+// function validate_fields
+// args
+// @validations_array : Object : a associative object with name of field and regular expression as the value to pass validation
+// @stdtext: string: class name of non error style
+// @errtext: string: class name of error style
+// @ext: string : optional post-fix for fields 
+function validate_fields(validation_array,stdtext,errtext,ext)
+{
+	ext = typeof(ext) != 'undefined' ? ext : '';
+	focusobj = null;
+	isvalid = true;
+
+	for (field in validation_array)
+	{
+		if (document.getElementById(field + '_span' + ext))
+		{
+			document.getElementById(field + '_span' + ext).className = stdtext;
+		}
+	}
+
+	for (field in validation_array)
+	{
+
+		if (document.getElementById(field + ext))
+		{
+			value_expersion = validation_array[field];
+			regex = new RegExp(value_expersion);
+
+
+			if (!(document.getElementById(field + ext).value.match(regex)) && ((isArray(document.getElementById(field + ext)) && !(document.getElementById(field + ext)[0].value.match(regex))) || !isArray(document.getElementById(field + ext)) ))
+			{
+				document.getElementById(field + '_span' + ext).className = errtext;	
+				isvalid = false;
+
+				if (focusobj)
+				{
+
+				}
+				else
+				{
+					focusobj = document.getElementById(field + ext);
+				}	
+			}
+		}
+	}
+
+	if(focusobj)
+	{
+		focusobj.focus();
+	}
+	return isvalid;
+
+}
+var pkg_validate_array = {
+	'dm_pkg_name' : /^[\s\S]+$/,
+	'dm_pkg_body' : /^[\s\S]+$/,
+	'dm_docpkg_list' : /^[\s\S]+$/
+
+};
+
+// Checks if a name_short already exists
+function check_dupe()
+{
+	if (curMode != 'new') return true;
+
+	var new_name_short = document.getElementById('dm_pkg_name_short').value;
+
+	for (var i = 0; i < packaged_docs_short_list.length; i++)
+	{
+		if (packaged_docs_short_list[i] == new_name_short)
+		{
+			alert('An existing packaged document already has a name short of ' + new_name_short);
+			return false;
+		}
+	}
+
+	return true;
+}
+
+
+
+function saveAsNew(form)
+{
+	if (document.getElementById('dm_pkg_name_short').value != packageNameShort)
+	{
+		document.getElementById('dm_action').value='update_package';
+		document.getElementById('dm_pkg_id').value = ''; 
+		submitPkg(document.getElementById('dm_docpkg_list'), form);
+	}
+	else
+	{
+		alert("There is already a package with the Name Short '"+packageNameShort+"'.\nPlease use a different Name Short");
+	}
+
+}
+</script>
+<table width="100%" class="queue_config" height="500">
+	<tr>
+		<th style="background: #ebaeae; height:19px;">Document Package Manager</th>
+	</tr>
+	<tr>
+		<td>
+			<form id="dm_package_manager" name="dm_package_manager" action='/' method="post">
+			<input type="hidden" id="dm_pkg_id" name="document_package_id"/>
+				<input type="hidden" name="mode" value="docs_config" />
+				<input type="hidden" id="dm_action" name="action" value="update_package" />
+
+		<table width="100%">
+			<tr>
+				<td>
+					<input id="dm_chooser_new" onclick="toggleMode('new');" type="radio" name="_">
+					<label for="dm_chooser_new">Add Package</label>
+				</td>
+				<td>
+					<input id="dm_chooser_mod" onclick="toggleMode('mod');" type="radio" name="_">
+					<label for="dm_chooser_mod">Modify Package</label>
+				</td>
+				<td>
+					<input id="dm_chooser_del" onclick="toggleMode('del');" type="radio" name="_">
+					<label for="dm_chooser_del">Delete Package</label>
+				</td>
+			</tr>
+		</table><br />
+	
+		<table width="100%" border="0" cols="2">
+			<tr>
+				<td width="50%" align="left" valign="top">
+					<fieldset>
+						<legend>Existing Package Documents</legend>
+						<div class="fieldset_div" style="padding-left: 10px; padding-right: 10px;"><br />
+						<select size="10" id="dm_package_list" style="width: 100%;" onChange="GetPackageData(this.options[this.selectedIndex].value);">
+						%%%package_list%%%
+						</select>
+						<br /><br /></div>
+					</fieldset>
+				</td>
+				<td width="50%" align="left" valign="top">
+					<fieldset>
+						<legend>Package Document Name</legend>
+						<div class="fieldset_div"><br />
+						<div style="padding-left: 15px; text-align: left">
+							<label for="dm_doc_name" style="text-align: left;"><span id = "dm_pkg_name_span" class="title">Document Name</span></label>
+							<input type="text" name="name" id="dm_pkg_name" style="width: 95%;" onBlur="formNameShort(this);">
+						</div>
+						<div style="padding-left: 15px; text-align: left">
+							<label for="dm_doc_name_short" style="text-align: left;"><span class=title>Name Short</span></label>
+							<input type="text" name="name_short" id="dm_pkg_name_short" style="width: 95%">
+						</div>
+						<div style="padding-left: 15px; text-align: left">
+							<label for="dm_pkg_body"><span id='dm_pkg_body_span' class="title">Body Document</span></label>
+							<select name="document_list_id" id="dm_pkg_body" style="width: 95%">
+							<option value="">Select a Body Document</option>
+							%%%document_list%%%
+							</select>
+						</div>
+						<br /><br /></div>
+					</fieldset>
+					<fieldset>
+						<legend>Flags</legend>
+						<div class="fieldset_div"><br />
+						<div style="padding-left: 15px; padding-bottom: 15px; text-align: left">
+							<input type="hidden" name="active_status" id="dm_flag_active" value="inactive"/>
+							<input type="checkbox" id="dm_chk_active" onChange="if (this.checked == true) { document.getElementById('dm_flag_active').value = 'active' } else { document.getElementById('dm_flag_active').value = 'inactive' } " />
+<label for="dm_flag_active" style="width: 50px;">Is Active</label>
+						</div>
+						</div>
+					</fieldset>
+				</td>
+			</tr>	
+			</table>			
+		<fieldset>
+		<legend><span id='dm_docpkg_list_span' class="std_text">Package Document Configuration</span></legend>
+		<div class="fieldset_div" style="padding-left: 10px; padding-right: 10px;"><br />
+			<table width="100%" border="0" cols="2">
+				<tr>
+					<td width="47%" align="left" valign="top">
+						<select size="10" id="dm_document_list" style="width: 100%;" onChange="">
+						%%%document_list%%%
+						</select>
+					</td>
+					<td align="center" valign="middle">
+						<input type="button" id="dm_gt" value=" &gt; " onClick="addSelectedToDocList(document.getElementById('dm_document_list'), document.getElementById('dm_docpkg_list'));">
+							<br>
+						<input type="button" id="dm_lt" value=" &lt; " onClick="removeSelectedFromDocList(document.getElementById('dm_docpkg_list'), document.getElementById('dm_document_list'));">
+					</td>
+					<td width="47%" align="left" valign="top">
+						<select size="10" id="dm_docpkg_list" name="attachments[]" style="width: 100%;" onChange="">
+						</select>
+					</td>
+				</tr>
+			</table>
+		<br /><br /></div>
+		</fieldset>
+		<div align="center">
+			<input type="button" value=" Save " id="dm_ac_save" onClick="if(validate_fields(pkg_validate_array,'data','error')) if (check_dupe())submitPkg(document.getElementById('dm_docpkg_list'),this.form);" />
+			<input type="button" value=" Save as New" id="dm_ac_saveas" onClick="if(validate_fields(pkg_validate_array,'data','error')){if (check_dupe()) saveAsNew(this.form);}" />			
+			<input type="button" value=" Delete " id="dm_ac_del" onClick="if(document.getElementById('dm_pkg_id').value != ''){document.getElementById('dm_action').value = 'delete_package'; this.form.submit();}" />
+		</div>
+
+</form>
+<script language="javascript">
+	document.getElementById('dm_chooser_new').checked = true;
+	toggleMode('new');
+</script>
+
+		</td>
+	</tr>
+</table>

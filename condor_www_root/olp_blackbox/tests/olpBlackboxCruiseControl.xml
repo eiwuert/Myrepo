@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<phpunit>
+    <testsuite name="OLP Blackbox Test Suite">
+        <directory>.</directory>
+    </testsuite>
+    <groups>
+    	<exclude>
+    		<group>olpbbx_factory_test</group>
+    		<group>datax_tests</group>
+    		<group>used_aba_check</group>
+    		<group>previousCustomer</group>
+    	</exclude>
+    </groups>
+    <php>
+    	<var name="TEST_DB_INFO_HOST" value="monster.tss"></var>
+    	<var name="TEST_DB_INFO_PORT" value="3326"></var>
+    	<var name="TEST_DB_INFO_USER" value="bbxtest"></var>
+    	<var name="TEST_DB_INFO_PASS" value="bbxtest"></var>
+    	<var name="TEST_DB_INFO_NAME" value="bbx_test"></var>
+		<var name="TEST_DB_INFO_LDB_NAME" value="ldb_test"></var>
+    </php>
+    <filter>
+        <blacklist>
+            <directory>/virtualhosts/lib</directory>
+            <directory>/virtualhosts/lib5</directory>
+            <directory>/virtualhosts/libolution</directory>
+            <directory>../blackbox</directory>
+        </blacklist>
+    </filter>
+</phpunit>

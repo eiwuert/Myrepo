@@ -1,0 +1,19 @@
+%%%error_block%%%
+<form method="post" action="?module=templates_attach_template&action=submit" enctype="multipart/form-data">
+  <table cellpadding="2" cellspacing="0" border="0" class="text">
+    <tr>
+      <td class="bold">Select Template: </td>
+	  <td>
+	  <select name="template_att_id">
+			%%%template_select_block%%%
+	  </select>
+	  </td>
+	     </tr>
+		 <tr>
+		 	<td colspan="2" align="center">
+		 		<input name="submit" type="image" src="image/attach_text.gif" style="border: 1px solid black;" />&nbsp;&nbsp;
+		 		<a href="?module=templates_list"><img src="image/cancel_text.gif" style="border: 1px solid black;"/></a>
+		 	</td>
+		</tr>
+  </table>
+</form>

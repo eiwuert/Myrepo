@@ -1,0 +1,39 @@
+<div id="verification_buttons" style="display: none;">
+	<div id="app_attributes">
+		%%%app_attribute_buttons%%%
+	</div>
+	
+	<div id="app_actions">
+		<div class="app_attribute_title">
+			App Actions
+		</div>
+		<div style="float: left;">
+			<div class="app_button">
+				<input type="button" %%%follow_up_disabled%%% name="submit_button" id="AppActionFollowUp" class="button2%%%follow_up_disabled%%%" value="Follow Up" onClick="javascript:OpenDialogSized('/?action=get_followup&type=Verification&application_id=%%%application_id%%%', '400', '300');">
+			</div>
+			<div class="app_button">
+				<input type="button" %%%approve_button_disabled%%% name="submit_button" id="AppActionApproveApp" class="button2%%%approve_button_disabled%%%" value="Approve" onClick="Check_Due_Date('Approve','%%%application_id%%%','%%%customer_email%%%')">
+			</div>
+			<div class="app_button">
+				<input type="button" %%%deny_button_disabled%%% name="submit_button" id="AppActionDenyApp" class="button2%%%deny_button_disabled%%%" value="Deny" onClick="OpenDialogTall('/?action=loan_action&mode=verification&type=Deny&application_id=%%%application_id%%%&customer_email=%%%customer_email%%%');">
+			</div>
+		</div>
+		<div style="float: left;">
+			<div class="app_button">
+				<input type="button" %%%withdraw_disabled%%% name="submit_button" id="AppActionWithdrawApp" class="button2%%%withdraw_disabled%%%" value="Withdraw" onClick="OpenDialogTall('/?action=loan_action&mode=verification&type=Withdraw&application_id=%%%application_id%%%&customer_email=%%%customer_email%%%');">
+			</div>
+			<div class="app_button">
+		<form id="AppActionSendConfirmEmailForm" method="post" action="/" class="no_padding">
+			<input type="hidden" id="AppActionAppId" name="application_id" value="%%%application_id%%%">
+			<input type="hidden" id="AppActionSendConfirmAction" name="action" value="send_confirm_email">
+			<input type="submit" id="AppActionSendConfirmEmailButton" %%%send_confirmation_disabled%%% name="submit_button" class="button2%%%send_confirmation_disabled%%%" value="Send Confirmation">
+		</form>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div style="clear: both;">
+	<span style="text-align: left; float: left;">%%%back_button_link%%%</span>
+	<span style="text-align: center; float: right; width: 755px;">Controlling Agent: &nbsp; <b>%%%controlling_agent_name%%% </b></span>
+</div>

@@ -1,0 +1,10 @@
+*/20 * * * 1-6 /usr/bin/php /virtualhosts/cashbackvalues.com/www/cb/log.php
+*/20 * * * 1-6 /usr/bin/php /virtualhosts/123onlinecash.com/www/st/log.php
+*/20 * * * 1-6 /usr/bin/php /virtualhosts/webfastcash.com/www/nms/log.php
+30 5 * * * /usr/bin/php /virtualhosts/webfastcash.com/www/nms/data/fundapps.php
+30 5 * * * /usr/bin/php /virtualhosts/123onlinecash.com/www/st/data/fundapps.php
+0 5 * * * /usr/bin/php /virtualhosts/cashbackvalues.com/www/cb/data/fundapps.php
+# 0 4 * * 1-6 /usr/bin/php /virtualhosts/123onlinecash.com/www/st/unicall-export.php
+*/20 * * * 1-6 /usr/bin/php /virtualhosts/123onlinecash.com/www/st/log_uc.php
+15 4 * * 1 /usr/bin/php /virtualhosts/123onlinecash.com/www/st/tracking/speedcash_affiliate_report.php
+1 0 * * * /usr/bin/php /virtualhosts/123onlinecash.com/www/st/automated_response.php

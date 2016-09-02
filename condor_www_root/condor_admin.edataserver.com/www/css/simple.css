@@ -1,0 +1,649 @@
+/* ================================== */
+/* 	file: 	simple.css
+	notes:	CSS styles for SMC Lite   */
+/* ================================== */
+
+BODY {
+	margin: 0px;
+}
+
+.error_msg {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #CC3300;
+}
+
+.succ_msg {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #00CC00;
+}
+
+#container_table {
+	width: 100%;
+	height: 100%;
+}
+
+.template_preview {
+	border: 1px solid gray;
+	overflow: auto;
+	width: 100%;
+	height: 300px
+}
+
+td.template_data {
+white-space: pre;
+}
+td {
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+td.bold {
+font-weight: bold;
+vertical-align: top
+}
+td.boldred {
+font-weight: bold;
+vertical-align: top;
+color: red;
+}
+DIV.containerDIV_nopadding { 
+	width: 100%;
+}
+TR.odd {
+background-color: #EEEEEE;
+}
+TR.even {
+background-color: #FFFFFF;
+}
+TD.top_title {
+	height: 20px;
+	background-color: #F1F1F1;
+	background-image: url("/images/m_bg_header.gif");
+	font-size: 8pt ;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #414141;
+	border-top: 1px solid white;
+	border-bottom: 1px solid silver;
+	padding-left: 5px;
+	text-align: left;
+}
+TD.top_title_hz {
+	height: 20px;
+	background-color: #DEE1E2;
+	
+	font-size: 8pt; 	
+	font-family: Arial, Helvetica, sans-serif; 
+	color: #414141;
+	border-top: 1px solid white;
+	border-bottom: 1px solid silver;
+	padding-left: 5px;
+}
+TD.top_title_hz_line {
+	height: 2px;
+	background-color: #DEE1E2;
+	
+	font-size: 8pt; 	
+	font-family: Arial, Helvetica, sans-serif; 
+	color: #414141;
+	border-top: 1px solid white;
+	border-bottom: 1px solid #BCC0C3;
+	padding: 0px;
+	text-align: right;
+}
+TD.left_nav {
+	width: 1%;
+	background-color: #F4F4F4;
+	border-right: 1px solid white; 
+	border-bottom: 1px solid white;
+	border-top: 1px solid #F1F1F1;
+	border-left: 1px solid #F1F1F1;
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #414141;
+	vertical-align: top;
+	text-align: right;
+	padding-top: 17px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+
+}
+/* menu title */
+DIV.menu_title {
+	border-left: 1px solid white; 
+	border-top: 1px solid white;
+	border-bottom: 1px solid #A7A7A7;
+	border-right: 1px solid #A7A7A7;
+	cursor: default;
+	
+	font-size: 8pt;
+	font-family:  Arial, Helvetica, sans-serif;
+	padding: 1px;
+	text-align: center;
+}
+TD.left_nav DIV {
+	padding: 2px;
+	padding-left: 8px;
+	padding-right: 4px;
+	white-space: nowrap;
+	font-weight: normal;
+}
+DIV.menu_title_over {
+	background-color: white;
+
+	cursor: pointer;
+	cursor: hand;
+}
+DIV.menu_title_selected {
+	background-color: white;
+	/*cursor: default;*/
+	cursor: pointer;
+	cursor: hand;
+	font-weight: bold;
+	color: #3366ff;
+	border-top: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+}
+DIV.menu_title_over A,
+TD.left_nav DIV A {
+	text-decoration: none;
+}
+TD.left_nav DIV A {
+	color: #414141;
+}
+
+TD.right_content {
+	background-color: white;
+	padding: 0px;
+	vertical-align: top;
+	font-size: 8pt; 	
+	font-family: Arial, Helvetica, sans-serif; 
+	color: gray;
+	
+	border-right: 1px solid white; 
+	border-bottom: 1px solid white;
+	border-top: 0px solid #A7A7A7;
+	border-left: 1px solid #A7A7A7;
+	
+}
+DIV.contentDIV {
+	padding: 10px;
+}
+TABLE.top_nav {
+	/*background-image: url("/images/m_bg_header3.gif");*/
+	background-color: #F7F7F7;
+	border-top: 1px solid white;
+	border-bottom: 1px solid #d0d0d0;
+	font-size: 8pt; 	
+	font-family: Arial, Helvetica, sans-serif; 
+	color: gray;
+	
+	height: 12px;
+	width: 100%;
+}
+TABLE.top_subnav {
+	background-color: #FFFFF;
+	border-bottom: 1px solid #d0d0d0;
+	font-size: 8pt; 	
+	font-family: Arial, Helvetica, sans-serif; 
+	color: gray;
+	
+	height: 12px;
+	width: 100%;
+}
+TABLE.top_subnav TD.subnav_item {
+	width: 1%;
+	white-space: nowrap;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+TABLE.top_subnav TD.subnav_item_over {
+	background-color: #FFFFFF;
+	width: 1%;
+	white-space: nowrap;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: black;	 
+	cursor: pointer;
+	cursor: hand;
+}
+TABLE.top_subnav TD.subnav_item_selected {
+	background-color: white;
+	width: 1%;
+	white-space: nowrap;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: #3366ff;	 
+	/*cursor: default;*/
+	cursor: pointer;
+	cursor: hand;
+	font-weight: normal;
+	border-left: 1px solid #d0d0d0;
+	border-right: 1px solid #d0d0d0;
+}
+TABLE.top_nav TD.nav_item {
+	width: 1%;
+	white-space: nowrap;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+TABLE.top_nav TD.nav_item_over {
+	background-color: white;
+	width: 1%;
+	white-space: nowrap;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: black;	 
+	cursor: pointer;
+	cursor: hand;
+}
+TABLE.top_nav TD.nav_item_selected {
+	background-color: white;
+	width: 1%;
+	white-space: nowrap;
+	padding-left: 12px;
+	padding-right: 12px;
+	color: #3366ff;	 
+	/*cursor: default;*/
+	cursor: pointer;
+	cursor: hand;
+	font-weight: normal;
+	border-left: 1px solid #d0d0d0;
+	border-right: 1px solid #d0d0d0;
+}
+
+/* = common ================== */
+FORM {
+	margin: 0px;
+}
+INPUT, 
+SELECT {
+	font-size: 8pt; 	
+	font-family: Arial, Helvetica, sans-serif; 
+	border: 1px solid silver;
+	/*color: #838383;*/
+	
+	padding-top: 0px;
+	background-color: #F5F5F5;	
+}
+INPUT.radio,
+INPUT.checkbox,
+INPUT.submitImage,
+IMG.noborder {
+	background-color: white;
+	border: 0px;
+	height: inherit;
+}
+INPUT.submitimage_graybg {
+	background-color: #EBEBED;
+	border: 0px;
+	height: inherit;
+}
+TEXTAREA {
+	font-size: 8pt; 	
+	font-family: Arial, Helvetica, sans-serif; 
+	border: 1px solid silver;
+	color: #838383;
+	padding-top: 0px;
+	background-color: #F5F5F5;	
+}
+TEXTAREA.clear_100w_100h {
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	background-color: white;
+	overflow: hidden;
+}
+TEXTAREA.100w_100h {
+	width: 100%;
+	height: 100%;
+}
+IMG.submitimage {
+	cursor: hand;
+}
+
+
+TABLE.formtable TD,
+TABLE.loginTable TD {
+	font-size: 8pt;
+	font-family:  Arial, Helvetica, sans-serif;
+	color: #414141;
+}
+TR.ListBorder {
+	border: 1px solid #C3C3C4;
+}
+.hz_header_bar {
+	background-color: #e5e5e5;
+	background-image: url(/images/m_bg_hzheader.gif);
+	border: 1px solid #C3C3C4;
+	padding: 3px;
+	font: bold 8pt Arial, Helvetica, sans-serif;
+	color: #414141;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	white-space: nowrap;	
+}
+.hz_header_bar2 {
+	background-image: url(/images/m_forum_bg_strip_silver.gif);	
+	background-color: #e5e5e5; /* gray subheader */
+	border: 1px solid #C3C3C4;
+	padding: 3px;
+	font: bold 8pt Arial, Helvetica, sans-serif;
+	color: #414141;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	white-space: nowrap;	
+}
+.hz_header_underline {
+	border-bottom: 1px solid #C3C3C4;
+	padding: 4px;
+	font: bold 8pt Arial, Helvetica, sans-serif;
+	color: #414141;
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+.hz_header_overline {
+	border-top: 1px solid silver;
+	padding: 4px;
+	font: bold 8pt Arial, Helvetica, sans-serif;
+	color: #414141;
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+.hz_header_overline_dotted {
+	border-top: 1px dotted silver;
+	padding: 4px;
+	font: bold 8pt Arial, Helvetica, sans-serif;
+	color: #414141;
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+.hr_dotted {
+	border: 1px dotted silver;
+	margin: 5px;
+}
+.red {
+	color: red;
+}
+.darkred {
+	color: #cc0000;
+}
+.darkgreen {
+	color: #339900;
+}
+.orange {
+	color: #ff6600;
+}
+.darkgray {
+	color: #414141;
+}
+.skyblue {
+	color: #3399ff;	 /*color: sky blue */
+}
+.brown {
+	color: #993300;
+}
+
+/*==================================*/
+/* beg: windows style Table effect ... for buttons*/
+DIV.winStyleListTable_titleDIV {
+	padding-bottom: 3px;
+}
+
+TABLE.winStyleListTable {
+	width: 100%;
+	height: 100%;	
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	background-color: #909090;	
+	border-right: 1px solid white; 
+	border-bottom: 0px solid white;
+	border-top: 1px solid #BCC0C3;
+	border-left: 1px solid #BCC0C3;
+}
+TABLE.winStyleListTable TR.header TD {
+	height: 1%;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+	
+	border-left: 1px solid white; 
+	border-top: 1px solid white;
+	border-bottom: 1px solid #BCC0C3;
+	border-right: 1px solid #BCC0C3;
+	background-color: #EBEBED; /* darker silver: DEE1E2*/
+	
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #595959;
+	white-space: nowrap;
+	cursor: default;
+}
+TABLE.winStyleListTable TR.header TD.header_click
+{
+    border-bottom: #dcdcdc 1px solid;
+    border-left: #8C8C8C 1px solid;
+    border-right: #dcdcdc 1px solid;
+    border-top: #8C8C8C 1px solid;
+    padding-top: 2px;
+	padding-bottom: 0px;
+	padding-left: 3px;
+	padding-right: 1px;
+}
+
+TABLE.winStyleListTable TR.content_1 TD,
+TABLE.winStyleListTable TR.content_1_over TD,
+TABLE.winStyleListTable TR.content_2_over TD {
+	height: 1%;
+	padding: 1px;
+	padding-left: 6px;
+	white-space: nowrap;
+	
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: gray; /*595959*/
+	cursor: hand;
+	
+}
+TABLE.winStyleListTable TR.content_1 TD,
+TABLE.winStyleListTable TR.content_spacer TD {
+	background-color: white;
+	color: gray; /*595959*/
+}
+TABLE.winStyleListTable TR.content_1_over TD,
+TABLE.winStyleListTable TR.content_2_over TD {
+	background-color: #f1f1f1;
+	color: gray; /*595959*/
+}
+TABLE.winStyleListTable TR.content_2 TD {
+	background-color: #f1f1f1;
+	color: gray; /*595959*/
+
+
+}
+
+/*==================================*/
+TABLE.formTable,
+DIV.contentDIV {
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: gray;
+	
+}
+TABLE.formTable TD {
+	font-size: 8pt;
+	font-family: Arial, Helvetica, sans-serif;
+	color: gray;
+}
+
+/* hidden popup div===*/
+DIV.hiddenDIV {
+	width: 250px;
+	border: 0px solid black;
+	background-color: #ffffff;
+	display: none;
+	position: absolute;
+	padding: 0px;
+	filter:	progid:DXImageTransform.Microsoft.Shadow(color=#939393, Direction=135, Strength=4);
+}
+DIV.hiddenDIV TABLE.borderTable {
+	width: 100%;
+}
+DIV.hiddenDIV TABLE.borderTable TR.borderTable_header TD {
+	height: 1%;
+	background-image: url(/images/m_bg_hzheader.gif);
+	background-color: silver;	/* blue header */
+	text-align: center;
+	font-weight: bold;
+	color: #414141;
+	white-space: normal;
+}
+DIV.hiddenDIV TABLE.borderTable TD.formTD {
+	padding: 8px;
+	vertical-align: top;
+}
+
+TABLE.loginTable TD.loginTableTD A {	
+	text-decoration: none;
+	color: #3399ff;	/* color: sky blue */	
+}
+TABLE.loginTable TD.loginTableTD A:hover {	
+	text-decoration: underline;
+}
+TD.loginTableTD H2 {
+	color: gray;
+}
+/* ============================= */
+/* beg: banner's CSS */
+
+TABLE.bannerTable TD.list,
+TABLE.freecontentTable TD.list
+ {
+	font-size: 8pt;
+	border: 0px solid silver;
+}
+TABLE.bannerTable TD.list:first-line,
+TABLE.freecontentTable TD.list:first-line {
+	font-weight: bold;
+	color: gray;
+}
+TABLE.freecontentTable TD.list IMG {
+	margin: 4px;
+	border: 1px solid silver;
+}
+
+TABLE.winStyleListTable TR.content_2 TD { 
+	height: auto;
+	padding: 1px;
+	padding-left: 6px;
+	white-space: nowrap;
+	
+	/*font-family: Arial, Helvetica, sans-serif;*/
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: grey; /*595959*/
+	cursor: hand;
+ } 
+
+
+TABLE.winStyleListTable TR.content_1 TD {
+}
+/*#############################################################*/
+/* beg: Program Main */
+/*#############################################################*/
+
+/* beg: list table */
+
+TABLE.winStyleListTable TR.header TD {
+	padding-right: 3px;
+}
+TABLE.winStyleListTable TR.header TD.header_click {
+	padding-right: 2px;
+}
+TABLE.winStyleListTable TR.content_1 TD,
+TABLE.winStyleListTable TR.content_2 TD {
+	cursor: default;
+}
+.SearchTableID {
+	width: 35px;
+	text-align: right;
+	white-space: nowrap;
+	display: table-cell;
+	position: relative;
+}
+.SearchTableCC {
+	width: 90px;
+	white-space: nowrap;
+	text-align: right;
+	display: table-cell;
+	position: static;
+}
+.SearchTableDesc {
+	white-space: pre;
+	width: 200px;
+}
+.SearchTableAmount {
+	width: 65px;
+	white-space: nowrap;
+	text-align: right;
+	display: table-cell;
+}
+.SearchTableDate {
+	width: 65px;
+	white-space: nowrap;
+	text-align: right;
+	display: table-cell;
+	position: static;
+}
+.SearchTableFirst {
+	white-space: nowrap;
+	width: 85px;
+	text-align: left;
+	display: table-cell;
+	position: static;
+}
+.SearchTableLast {
+	width: 100px;
+	white-space: pre;
+}
+.SearchTableSSN {
+	width: 60px;
+	white-space: nowrap;
+	text-align: left;
+	display: table-cell;
+	position: static;
+}
+.SearchTableStatus {
+	width: 50px;
+	white-space: pre;
+}
+.SearchTableTotal {
+	font-weight: bold;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #999999;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+}
+.SearchTableSmall {
+	width: 15px;
+	text-align: left;
+	white-space: nowrap;
+	display: table-cell;
+	position: relative;
+}

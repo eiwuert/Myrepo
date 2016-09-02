@@ -1,0 +1,261 @@
+<DataxResponse>
+<GenerationTime>20080201060510</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>42257223</TransactionId>
+<TrackHash>56dddd95a3eb4ab1943a668568824c08</TrackHash>
+<Response>
+    <Detail>
+        <ConsumerIDVerificationSegment>
+            <Input>
+                <LastName>thompson</LastName>
+                <FirstName>alexandra</FirstName>
+                <MiddleName />
+                <Address1>410 carroll ave</Address1>
+                <Address2 />
+                <City>bridgeport</City>
+                <State>ct</State>
+                <Zip>06607</Zip>
+            </Input>
+            <Standardized>
+                <LastName>THOMPSON</LastName>
+                <FirstName>ALEXANDRA</FirstName>
+                <MiddleName />
+                <AddressVerification>10</AddressVerification>
+                <AddressVerificationMessage>Surname match - residential</AddressVerificationMessage>
+                <AddressResult>S</AddressResult>
+                <DeliveryPointVerified>Y</DeliveryPointVerified>
+                <Address1>410 CARROLL AVE</Address1>
+                <City>BRIDGEPORT</City>
+                <State>CT</State>
+                <Zip>06607</Zip>
+                <Zip4>1819</Zip4>
+                <CRRT>C005</CRRT>
+                <HighRiskAddress>N</HighRiskAddress>
+            </Standardized>
+            <PreviousAddresses>
+                <Address>
+                    <Address1>410 CARROLL AVE FL 2</Address1>
+                    <City>BRIDGEPORT</City>
+                    <State>CT</State>
+                    <Zip>06607</Zip>
+                    <Zip4>1819</Zip4>
+                    <ReportDate>20040805</ReportDate>
+                    <LastUpdate>20051012</LastUpdate>
+                </Address>
+            </PreviousAddresses>
+            <SocialSecurityNumber>
+                <InputSSN>045780168</InputSSN>
+                <Return>16</Return>
+                <ReturnMessage>Matches full name</ReturnMessage>
+                <Deceased>2</Deceased>
+                <DeceasedMessage>Not Deceased</DeceasedMessage>
+                <Valid>1</Valid>
+                <ValidMessage>Valid</ValidMessage>
+                <Issue>3</Issue>
+                <IssueMessage>Issued</IssueMessage>
+                <IsseuState>CT</IsseuState>
+                <IssueStartRange>1984</IssueStartRange>
+                <IssueEndRange>1987</IssueEndRange>
+            </SocialSecurityNumber>
+            <Aggregates>
+                <AddressUnitMismatch>2</AddressUnitMismatch>
+                <AddressUnitMismatchMessage>Unit missing - expected</AddressUnitMismatchMessage>
+                <AddressType>5</AddressType>
+                <AddressTypeMessage>Multi-family residential</AddressTypeMessage>
+                <AddressHighRisk>1</AddressHighRisk>
+                <AddressHighRiskMessage>No high risk information found</AddressHighRiskMessage>
+                <ChangeOfAddress>2</ChangeOfAddress>
+                <ChangeOfAddressMessage>No change of address information found</ChangeOfAddressMessage>
+                <PhoneHighRisk>1</PhoneHighRisk>
+                <PhoneHighRiskMessage>No high risk information found</PhoneHighRiskMessage>
+            </Aggregates>
+            <SSNAddresses>
+                <Address>
+                    <LastName>THOMPSON</LastName>
+                    <FirstName>ALEXANDRA</FirstName>
+                    <MiddleInitial />
+                    <Address1>76 REMINGTON ST</Address1>
+                    <City>BRIDGEPORT</City>
+                    <State>CT</State>
+                    <Zip>06610</Zip>
+                    <Zip4>2278</Zip4>
+                    <ReportedDate>20060927</ReportedDate>
+                    <LastTouchedDate>20060927</LastTouchedDate>
+                    <AreaCode />
+                    <PhoneNumber />
+                    <DateOfBirthMatch>1</DateOfBirthMatch>
+                </Address>
+            </SSNAddresses>
+            <ResidentialAddresses>
+                <Address>
+                    <LastName>THOMPSON</LastName>
+                    <FirstName>JAMES</FirstName>
+                    <MiddleInitial>C</MiddleInitial>
+                    <Address1>410 CARROLL AVE FL 2</Address1>
+                    <City>BRIDGEPORT</City>
+                    <State>CT</State>
+                    <Zip>06607</Zip>
+                    <Zip4>1819</Zip4>
+                    <AreaCode>203</AreaCode>
+                    <PhoneNumber />
+                    <SpouseName />
+                    <HouseMember1>THEALSHE</HouseMember1>
+                    <HouseMember2>JASON</HouseMember2>
+                    <HouseMember3 />
+                    <LastTouchedDate>20080113</LastTouchedDate>
+                    <ResidenceLength>0042</ResidenceLength>
+                </Address>
+            </ResidentialAddresses>
+            <HighRiskAddresses>
+                <Address>
+                    <BusinessName />
+                    <Address1 />
+                    <City />
+                    <State />
+                    <Zip />
+                    <Zip4 />
+                    <AreaCode />
+                    <PhoneNumber />
+                    <Description>No high risk business at address/phone</Description>
+                </Address>
+            </HighRiskAddresses>
+            <ResidentialPhones />
+            <ChangesOfAddress>
+                <ResultCode>N</ResultCode>
+                <Description />
+            </ChangesOfAddress>
+            <DateOfBirth>
+                <InputMonth>04</InputMonth>
+                <InputDay>12</InputDay>
+                <InputYear>1985</InputYear>
+                <Result>1</Result>
+                <ResultMessage>Full date of birth match</ResultMessage>
+                <Age>22</Age>
+            </DateOfBirth>
+            <DriversLicense>
+                <InputState>ct</InputState>
+                <InputNumber>047652585</InputNumber>
+                <LastName />
+                <FirstName />
+                <MiddleInitial />
+                <Address1 />
+                <City />
+                <State />
+                <Zip />
+                <Zip4 />
+                <Format>V</Format>
+                <Result>5</Result>
+                <ResultMessage>Data unavailable</ResultMessage>
+            </DriversLicense>
+            <HomePhone>
+                <InputNumber>2033388248</InputNumber>
+                <Result>21</Result>
+                <ResultMessage>Data unavailable</ResultMessage>
+                <Type>Standard</Type>
+                <AreaCodeZipMatch>Y</AreaCodeZipMatch>
+                <AreaCodePrefixMatch>Y</AreaCodePrefixMatch>
+                <HighRiskPhone>N</HighRiskPhone>
+                <ListingType>Residential</ListingType>
+            </HomePhone>
+            <CellPhone>
+                <InputNumber>2038956587</InputNumber>
+                <Type>Cell</Type>
+            </CellPhone>
+            <InputEmployerInformation>
+                <Name>webloyalty.com</Name>
+                <Address1 />
+                <Address2 />
+                <City />
+                <State />
+                <Zip />
+            </InputEmployerInformation>
+            <WorkPhone>
+                <InputEmployerName>webloyalty.com</InputEmployerName>
+                <InputNumber>2036736533</InputNumber>
+                <InputExtension />
+                <Type>Standard</Type>
+                <EmployerMatch>N</EmployerMatch>
+                <Name />
+                <Address1 />
+                <City />
+                <State />
+                <Zip />
+                <Type>Unidentified</Type>
+            </WorkPhone>
+            <OFAC>1</OFAC>
+            <OFACMessage>No match</OFACMessage>
+            <IPAddress>
+                <InputAddress>69.120.164.229</InputAddress>
+                <MatchCountry>1</MatchCountry>
+                <MatchCountryMessage>Match for US</MatchCountryMessage>
+                <Country>USA</Country>
+                <MatchState>1</MatchState>
+                <MatchStateMessage>Match for input</MatchStateMessage>
+                <State>CT</State>
+                <MatchCity>1</MatchCity>
+                <MatchCityMessage>Match for input</MatchCityMessage>
+                <City>BRIDGEPORT</City>
+                <MatchZip>2</MatchZip>
+                <MatchZipMessage>No match for input</MatchZipMessage>
+                <Zip>6601</Zip>
+                <MSA>501</MSA>
+                <Latitude>41.167</Latitude>
+                <Longitude>-73.205</Longitude>
+            </IPAddress>
+            <BankInformation>
+                <InputBankName>sikorsky financial credit union</InputBankName>
+                <InputABANumber>221180806</InputABANumber>
+                <InputAccountNumber>72158966390</InputAccountNumber>
+                <Valid>Y</Valid>
+                <BankNameMatch>N</BankNameMatch>
+                <BankName>Sikorsky Financial CU, Inc.</BankName>
+            </BankInformation>
+            <NumberRecords>
+                <AddressVerResidentialMatch>1</AddressVerResidentialMatch>
+                <AddressVerBusinessMatch>0</AddressVerBusinessMatch>
+                <PhoneVerResidentialMatch>0</PhoneVerResidentialMatch>
+                <PhoneVerBusinessMatch>0</PhoneVerBusinessMatch>
+                <ResidentialAddressDetRec>1</ResidentialAddressDetRec>
+                <BusinessAddressDetRec>0</BusinessAddressDetRec>
+                <AddressHighRiskDetRec>0</AddressHighRiskDetRec>
+                <AddressHighRiskDescRec>1</AddressHighRiskDescRec>
+                <ResidentialPhoneDetRec>0</ResidentialPhoneDetRec>
+                <BusinessPhoneDetRec>0</BusinessPhoneDetRec>
+                <PhoneHighRiskDetRec>0</PhoneHighRiskDetRec>
+                <PhoneHighRiskDescRet>0</PhoneHighRiskDescRet>
+                <SSNDetailRecords>1</SSNDetailRecords>
+                <COARecords>0</COARecords>
+            </NumberRecords>
+            <AuthenticationScore>384</AuthenticationScore>
+            <CustomDecision>
+                <Result>Y</Result>
+                <Bucket>A1</Bucket>
+            </CustomDecision>
+            <LooseDecision>
+                <Result>N</Result>
+                <Bucket>D2</Bucket>
+            </LooseDecision>
+            <ModerateDecision>
+                <Result>N</Result>
+                <Bucket>D3</Bucket>
+            </ModerateDecision>
+            <ConservativeDecision>
+                <Result>N</Result>
+                <Bucket>D4</Bucket>
+            </ConservativeDecision>
+        </ConsumerIDVerificationSegment>
+        <CRASegment>
+            <Decision>
+                <Result>N</Result>
+                <Bucket>D3</Bucket>
+            </Decision>
+        </CRASegment>
+        <GlobalDecision>
+            <Result>N</Result>
+            <IDVBucket>A1</IDVBucket>
+            <CRABucket>D3</CRABucket>
+        </GlobalDecision>
+    </Detail>
+</Response>
+</DataxResponse>

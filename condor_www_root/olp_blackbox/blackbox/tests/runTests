@@ -1,0 +1,18 @@
+#!/bin/bash
+
+CONFIG_FILE="blackboxTests.xml";
+
+if test -z "$1"; then
+    phpunit --configuration $CONFIG_FILE
+    exit 0;
+fi
+
+COVERAGE="";
+
+if test "$1"="-c"; then
+    if test -n "$2"; then
+        COVERAGE="--coverage-html $2";
+    fi
+fi
+
+phpunit $COVERAGE --configuration $CONFIG_FILE

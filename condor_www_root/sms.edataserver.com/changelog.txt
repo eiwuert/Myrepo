@@ -1,0 +1,243 @@
+***************************** INSTRUCTIONS ****************************
+
+	- Every change that has been commited to the CVS repository should
+		have a corresponding entry in this file: if it's been committed,
+		then it has the potentital to go live. Listing the change in here
+		helps prevent changes that are not ready to be pushed live from
+		inadvertantly being included in a release.
+		
+	- Your initials MUST be included with your changes. If they are not,
+		you will be hunted down and burned at the stake. And possibly
+		eaten, cannibal style, with a little pepper.
+		
+	- All changes should be grouped by feature addition or bug fix, and
+		list ALL modified files for that change. In general, any change
+		that affects more than one file should not be grouped with ANY
+		other change. Conversely, a small change that affected one file
+		should not be piggie-backed onto an entry that includes more than
+		that one file. If there are several small bug fixes all affecting
+		the same file, then they can be listed together. However, bug fixes
+		should not be grouped with a feature addition, unless the fix was
+		required for proper operation.
+		
+	- Entries should follow this format:
+		
+				files/that/were/changed.php
+				another/file/that/was/changed_as_well.php
+			
+			1. Short description of the feature addition [YOUR INITIALS]
+			2. Had to fix a small bug to get this to work [INITIALS]
+			
+	- Add entries to the PENDING CHANGES section. As changes are released,
+		they will be moved to the current/previous release sections, under
+		their corresponding release, by the release manager.
+		
+
+
+*************************** PENDING CHANGES ***************************
+
+*************************** CURRENT RELEASE ***************************
+
+RELEASE 1.1.9, RELEASED 2006-07-11 10:35:00, TAG NAME: RELEASE_1_1_9 [DA]
+	includes/sms_query.class.php
+	scripts/check_system.php
+	www/sms.php
+1.  added scripts and supporting methods to check health of system
+	and notify via email if needed. [DLH]
+
+	includes/sms_query.class.php
+1.	get all message_status_id's in constructor to avoid subqueries. [DLH]
+
+
+RELEASE 1.1.8, RELEASED 2006-05-11 09:35:00, TAG NAME: RELEASE_1_1_8 [DA]
+	www/sms.php
+1.	now throwing exception when space_key can't be fixed. [DLH]
+2.	now even empty track_key/space_key's are fixed. The only reason for
+    not hitting a stat now is if a track_key or space_key is empty AND
+    the company is invalid. [DLH]
+3.	writing message to applog when prpc call fails for incoming message. [DLH]
+
+	includes/kannel.class.php
+1.	only one instance of kannel running on kannel.edataserver.com now. [DLH]
+
+	www/sms.php
+1.	added page_id for enterprise impact space key fix. [DLH]
+
+	www/modemcontrol.02.php
+1.	added config for rc-dev instance to be used for kannel development. [DLH]
+
+	www/sms.php
+	www/sms.config.php
+	www/sms_test.php
+	www/sms_test_blacklist.php
+1.	Modified sms.php to trap as many exceptions as possible, especially on
+	send_sms().  Fixed up some other testing stuff so that I could easily
+	test the exception trapping. [DLH]
+
+	www/sms_send_message.php
+1	Modified to set campaign to a reasonable value so that a new campaign
+	won't be created for every message sent using this utility. [DLH]
+
+	www/sms.php
+	www/sms_prpc.php
+1	Fixed timezone check and made a tester screen for testing the
+	timezone check.  the problem was that the database was not being
+	passed to the timezone class and mysql exceptions were being thrown
+	and ignored. [DLH]
+
+
+************************** PREVIOUS RELEASES **************************
+
+RELEASE 1.1.7, RELEASED 2006-04-17 09:45:00, TAG NAME: RELEASE_1_1_7 [DA]
+
+	www/sms.php
+	includes/sms_query.class.php
+1.  Send optout confirmation message. [DLH]
+
+	includes/sms_query.class.php
+1.  Fixed php error caused by blank campaigns in while loop. [DLH]
+
+	includes/kannel.class.php
+1.  make kannel port configurable for 2 instances. [DLH]
+	
+	www/sms.php
+1.  added stat hits "kannel_keyword" (fixed), "kannel_blacklist",
+	"sms_market_reply_{CAMPAIGN_KEYWORD}". [DLH]
+	
+	www/sms.php
+	www/sms_cron
+1.  added methods for catching messages stuck in "processing". [DLH]
+	
+
+RELEASE 1.1.6, RELEASED 2006-03-28 09:00:00, TAG NAME: RELEASE_1_1_6 [DA]
+
+	www/sms.php
+1. added the statpro parameter values when instantiating statpro_client.php
+[DA]
+
+
+RELEASE 1.1.5, RELEASED 2006-03-23 09:00:00, TAG NAME: RELEASE_1_1_5 [DA]
+    www/sms.php
+	includes/sms_query.class.php
+1.  Modified to fix space_key for stats for five enterprise sites.
+
+
+	www/sms.php
+1.	Modified so that failure to insert message to kannel queue does not
+	increment the increment counter. [DLH]
+
+
+
+RELEASE 1.1.3, RELEASED 2006-03-22 09:05:00, TAG NAME: RELEASE_1_1_3 [DA]
+	www/sms.php
+	www/sms_status_update.php
+	includes/sms_query.class.php
+1.	Modified to do accurate stats on messages - kannel will now log and post
+	a message indicating if a message succeeded or failed.
+
+
+
+RELEASE 1.1.2, RELEASED 2006-03-20 10:21:00, TAG NAME: RELEASE_1_1_2 [DA]
+	www/sms.php
+1. added track/space key to reply forwarding. [DA]
+
+	www/sms.php
+	includes/sms_query.class.php
+1. incoming messages are checked for campaign keywords for getting
+   campaign_id and track_key and space_key and hitting
+   stat "kannel_{keyword}". [DLH]
+
+
+
+RELEASE 1.1.1, RELEASED 2006-03-09 08:11:00, TAG NAME: RELEASE_1_1_1 [DA]
+	includes/kannel.class.php
+1. increased sleep within stop/start of a modem. [DA]
+
+
+
+RELEASE 1.1.0, RELEASED 2006-03-09 06:43:00, TAG NAME: RELEASE_1_1_0 [DA]
+	www/sms.php
+	includes/kannel.class.php
+1. added 'out' / optout to the optout keyword list.[DA]
+2. fixed failed count check. [DA]
+
+
+
+RELEASE 1.0.9, RELEASED 2006-03-08 19:30:00, TAG NAME: RELEASE_1_0_9 [DA]
+	www/sms.php
+1. changed grace period for overage to one minute [DA
+2. changed queue threshold to 3. [DA]
+
+RELEASE 1.0.8, RELEASED 2006-03-08 14:30:00, TAG NAME: RELEASE_1_0_8 [DA]
+	www/sms.php
+	includes/sms_query.class.php
+1. Added method to check status of specified message_id. [DA]
+2. Check to make sure that the current message to be sent out is in 'queued'
+status before sending. [DA]
+
+
+RELEASE 1.0.7, RELEASED 2006-03-08 10:30:00, TAG NAME: RELEASE_1_0_7 [DA]
+	www/sms.php
+
+1.  Added opt-out functionality to blacklist those choosing to opt-out. [DLH]
+
+
+
+
+RELEASE 1.0.6, RELEASED 2006-02-21 09:30:00, TAG NAME: RELEASE_1_0_6 [DA]
+	includes/kannel.class.php
+
+1.  Reduced queue-count limit from 20 to 10. [DLH]
+
+	scripts/kannel_status.php
+
+1.  Added my name to the email alert list. [DLH]
+2.  Tested login credentials for inserting stats to my own local database but
+    this is NOT currently being used. [DLH]
+
+
+RELEASE 1.0.4, RELEASED 2006-02-20 10:20:00, TAG NAME: RELEASE_1_0_4 [DA]
+	includes/kannel.class.php
+
+1.  Reduced queue-count limit from 20 to 10. [DLH]
+	
+
+RELEASE 1.0.3, RELEASED 2006-02-17 12:20:00, TAG NAME: RELEASE_1_0_3 [DA]
+	www/sms.php
+	includes/sms_query.class.php
+	includes/kannel.class.php
+
+1.  Message will be re-queued with 6 minute delay if modem queue has more than 20 entries.
+2.  PHP date_scheduled now calculated with 24 hour time and database time used whenever possible.
+	
+
+RELEASE 1.0.2, RELEASED 2006-02-15 10:00:00, TAG NAME: RELEASE_1_0_2 [DA]
+	www/sms.php
+	www/sms_test.php
+1. added one second to the send delay const. [DA]
+2. changed test script to send via prpc vs using the lib/sms.1.php. [DA]
+
+
+RELEASE 1.0.1, RELEASED 2006-02-14 10:00:00, TAG NAME: RELEASE_1_0_1 [DA]
+
+	www/sms_send_message.php
+
+1.	New screen modeled on sms_test.php for agents to use for sending messages. [DLH]
+	
+	www/sms_test_blacklist.php
+
+1.	Modified to work in all environments, LOCAL, RC, LIVE. [DLH]
+
+	www/sms.php
+	www/sms_send_message.php
+	includes/sms_query.class.php
+
+1.  Modified sms.php::Send_SMS() to return an array	of error/success codes and messages
+    instead of a boolean. [DLH]
+	
+
+RELEASE 1.0.0, RELEASED 2006-02-09 10:00:00, TAG NAME: RELEASE_1_0_0 [DA]
+
+Initial release in changelog
+
+

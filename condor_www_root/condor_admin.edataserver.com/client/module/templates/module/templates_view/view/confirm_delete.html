@@ -1,0 +1,17 @@
+<div style="text-align: center">
+	<img src="images/notice.gif" style="vertical-align: middle">
+	<strong>NOTICE:</strong>
+	Are you sure you want to remove the attachment
+	<strong>%%%attachment_name%%%</strong> from <strong>%%%template_name%%%</strong>?<br />
+	<br />
+	<form method="post" action="?module=templates_view&action=delete_confirm">
+		<div>
+			<input type="hidden" name="template_attachment_id" value="%%%template_attachment_id%%%" />
+			<input type="submit" name="confirm" value="Yes, remove this attachment." />
+		</div>
+	</form>
+	<br />
+	<form method="post" action="?module=templates_view">
+		<div><input type="submit" name="" value="No, cancel this action." /></div>
+	</form>
+</div>

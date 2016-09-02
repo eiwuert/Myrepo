@@ -1,0 +1,206 @@
+<DataxResponse>
+<GenerationTime>20080204125504</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>42307402</TransactionId>
+<TrackHash>b0d0490e9eda3b277cbef18df7cb9dc1</TrackHash>
+<Response>
+    <Summary>
+        <Ofac>1</Ofac>
+        <Decision>Y</Decision>
+        <DecisionBucket>P1</DecisionBucket>
+    </Summary>
+    <Detail>
+        <ASL>
+            <VerificationResult>
+                <General>
+                    <EmailAddress>
+                        <ValidationResultCode>E700</ValidationResultCode>
+                    </EmailAddress>
+                    <ErrorCode>0</ErrorCode>
+                    <Cust_Ref_Num>42307402</Cust_Ref_Num>
+                    <TransactionID>0430318910021202158504102</TransactionID>
+                    <AuthenticationScoreSet>
+                        <ScoreModelIndicator>3</ScoreModelIndicator>
+                        <AuthenticationScore>305</AuthenticationScore>
+                        <ASScoreFactor1>16</ASScoreFactor1>
+                        <ASScoreFactor2 />
+                        <ASScoreFactor3 />
+                        <ASScoreFactor4 />
+                    </AuthenticationScoreSet>
+                    <IPAddress>
+                        <IPAddressMatchCountry>1</IPAddressMatchCountry>
+                        <IPAddressCountry>USA</IPAddressCountry>
+                        <IPAddressMatchState>1</IPAddressMatchState>
+                        <IPAddressState>SC</IPAddressState>
+                        <IPAddressMatchCity>2</IPAddressMatchCity>
+                        <IPAddressCity>PAMPLICO</IPAddressCity>
+                        <IPAddressMatchZipCode>2</IPAddressMatchZipCode>
+                        <IPAddressZipCode>29583</IPAddressZipCode>
+                        <IPAddressMSA>570</IPAddressMSA>
+                        <IPAddressLatitude>33.986</IPAddressLatitude>
+                        <IPAddressLongitude>-79.596</IPAddressLongitude>
+                    </IPAddress>
+                </General>
+                <Response>
+                    <Checkpoint>
+                        <CheckpointScore>505</CheckpointScore>
+                        <LevelOne>
+                            <ModelScore>648</ModelScore>
+                            <ModelCodes />
+                            <ModelIndicator>B</ModelIndicator>
+                        </LevelOne>
+                        <AuditNumber>CP-2BL-CHS4SR951</AuditNumber>
+                        <StandardizedAddress>
+                            <STDA_LastName>SANDERSON</STDA_LastName>
+                            <STDA_FirstName>MELISSA</STDA_FirstName>
+                            <STDA_MiddleInitial>c</STDA_MiddleInitial>
+                            <STDA_Address>PO BOX 854</STDA_Address>
+                            <STDA_City>JOHNSONVILLE</STDA_City>
+                            <STDA_State>SC</STDA_State>
+                            <STDA_ZipCode>29555</STDA_ZipCode>
+                            <STDA_ZipPlus4>0854</STDA_ZipPlus4>
+                        </StandardizedAddress>
+                        <PrimaryResult>00</PrimaryResult>
+                        <PrimaryResultMessage>Data found for search request</PrimaryResultMessage>
+                        <AddressVerificationResult>U</AddressVerificationResult>
+                        <AddressVerificationResultMessage>Address unverifiable - not in database</AddressVerificationResultMessage>
+                        <AddressUnitMismatchResult />
+                        <AddressUnitMismatchResultMessage />
+                        <PhoneVerificationResult>C</PhoneVerificationResult>
+                        <PhoneVerificationResultMessage>Probable cellular phone</PhoneVerificationResultMessage>
+                        <PhoneUnitMismatchResult />
+                        <PhoneUnitMismatchResultMessage />
+                        <AddressTypeResult>P</AddressTypeResult>
+                        <AddressTypeResultMessage>Post office box</AddressTypeResultMessage>
+                        <AddressHighRiskResult>N</AddressHighRiskResult>
+                        <AddressHighRiskResultMessage>No address high risk information found</AddressHighRiskResultMessage>
+                        <PhoneHighRiskResult>N</PhoneHighRiskResult>
+                        <PhoneHighRiskResultMessage>No phone high risk information found</PhoneHighRiskResultMessage>
+                        <SocialSecurityNumberResult>A</SocialSecurityNumberResult>
+                        <SocialSecurityNumberResultMessage>Match to address only</SocialSecurityNumberResultMessage>
+                        <AddressVerificationResidentialMatches>0</AddressVerificationResidentialMatches>
+                        <AddressVerificationBusinessMatches>0</AddressVerificationBusinessMatches>
+                        <PhoneVerificationResidentialMatches>0</PhoneVerificationResidentialMatches>
+                        <PhoneVerificationBusinessMatches>0</PhoneVerificationBusinessMatches>
+                        <COAResultCode>N</COAResultCode>
+                        <NumResidentialAddressDetailRecords>0</NumResidentialAddressDetailRecords>
+                        <NumBusinessAddressDetailRecords>0</NumBusinessAddressDetailRecords>
+                        <NumAddressHighRiskDetailRecords>0</NumAddressHighRiskDetailRecords>
+                        <NumAddressHighRiskDescriptionRecords>1</NumAddressHighRiskDescriptionRecords>
+                        <NumResidentialPhoneDetailRecords>0</NumResidentialPhoneDetailRecords>
+                        <NumBusinessPhoneDetailRecords>0</NumBusinessPhoneDetailRecords>
+                        <NumPhoneHighRiskDetailRecords>0</NumPhoneHighRiskDetailRecords>
+                        <NumPhoneHighRiskDescriptionRecords>0</NumPhoneHighRiskDescriptionRecords>
+                        <NumSSNDetailRecords>1</NumSSNDetailRecords>
+                        <NumCOARecords>0</NumCOARecords>
+                        <NumCOADescriptionRecords>0</NumCOADescriptionRecords>
+                        <DLResultCode>NI</DLResultCode>
+                        <DLResultMessage>Input DL state and number not on file</DLResultMessage>
+                        <DateOfBirth>
+                            <MonthOfBirth>09</MonthOfBirth>
+                            <DayOfBirth>22</DayOfBirth>
+                            <YearOfBirth>1976</YearOfBirth>
+                            <DateOfBirthMatch>1</DateOfBirthMatch>
+                        </DateOfBirth>
+                        <Checkpoint_Detail>
+                            <SSN_Detail>
+                                <SSN_Detail_Set>
+                                    <SSN_Surname>COLLINS</SSN_Surname>
+                                    <SSN_First_Name>MELISSA</SSN_First_Name>
+                                    <SSN_Initial>K</SSN_Initial>
+                                    <SSN_Address>PO BOX 854</SSN_Address>
+                                    <SSN_City>JOHNSONVILLE</SSN_City>
+                                    <SSN_State>SC</SSN_State>
+                                    <SSN_ZipCode>29555</SSN_ZipCode>
+                                    <SSN_ZipPlus4>0854</SSN_ZipPlus4>
+                                    <SSN_ReportedDate>20050307</SSN_ReportedDate>
+                                    <SSN_LastTouchedDate>20071108</SSN_LastTouchedDate>
+                                    <SSN_Area_Code />
+                                    <SSN_Phone_Number />
+                                    <SSN_MonthOfBirth>09</SSN_MonthOfBirth>
+                                    <SSN_DayOfBirth>22</SSN_DayOfBirth>
+                                    <SSN_YearOfBirth>1976</SSN_YearOfBirth>
+                                    <SSN_DateOfBirthMatch>1</SSN_DateOfBirthMatch>
+                                </SSN_Detail_Set>
+                            </SSN_Detail>
+                            <Residential_Detail>
+                                <Residential_Address_Detail />
+                                <Residential_Phone_Detail />
+                            </Residential_Detail>
+                            <Business_Detail>
+                                <Business_Address_Detail />
+                                <Business_Phone_Detail />
+                            </Business_Detail>
+                            <High_Risk_Address>
+                                <High_Risk_Address_Set>
+                                    <HRA_Business_Name />
+                                    <HRA_Address />
+                                    <HRA_City />
+                                    <HRA_State />
+                                    <HRA_ZipCode />
+                                    <HRA_ZipPlus4 />
+                                    <HRA_Area_Code />
+                                    <HRA_Phone_Number />
+                                    <HRA_Description>No high risk business at address/phone</HRA_Description>
+                                </High_Risk_Address_Set>
+                            </High_Risk_Address>
+                            <High_Risk_Phone />
+                            <Change_of_Address />
+                            <COA_Description />
+                            <Previous_Address>
+                                <Previous_Address_Set>
+                                    <PA_Address>443 HUGGINS EADDY ST LOT 8</PA_Address>
+                                    <PA_City>JOHNSONVILLE</PA_City>
+                                    <PA_State>SC</PA_State>
+                                    <PA_ZipCode>29555</PA_ZipCode>
+                                    <PA_ZipPlus4>4228</PA_ZipPlus4>
+                                    <PA_Report_Date>20070104</PA_Report_Date>
+                                    <PA_Update_Date>20070130</PA_Update_Date>
+                                </Previous_Address_Set>
+                                <Previous_Address_Set>
+                                    <PA_Address>1176 COW HEAD RD</PA_Address>
+                                    <PA_City>HEMINGWAY</PA_City>
+                                    <PA_State>SC</PA_State>
+                                    <PA_ZipCode>29554</PA_ZipCode>
+                                    <PA_ZipPlus4>5782</PA_ZipPlus4>
+                                    <PA_Report_Date>20010818</PA_Report_Date>
+                                    <PA_Update_Date>20060114</PA_Update_Date>
+                                </Previous_Address_Set>
+                            </Previous_Address>
+                            <DriverLicenseDetail>
+                                <DLSurname />
+                                <DLFirstName />
+                                <DLMiddleInitial />
+                                <DLAddress />
+                                <DLCity />
+                                <DLState />
+                                <DLZipCode />
+                                <DLZip4 />
+                            </DriverLicenseDetail>
+                            <ValidationResultsGroup>
+                                <SSNValidation>
+                                    <SSNIssueState>SC</SSNIssueState>
+                                    <SSNDeceased>N</SSNDeceased>
+                                    <SSNFormat>V</SSNFormat>
+                                </SSNValidation>
+                                <SSNIssueDate>
+                                    <SSNIssueStartRange>1986</SSNIssueStartRange>
+                                    <SSNIssueEndRange>1988</SSNIssueEndRange>
+                                    <SSNIssueResultCode>I</SSNIssueResultCode>
+                                </SSNIssueDate>
+                                <DriverLicenseValidation>
+                                    <DLFormat>V</DLFormat>
+                                </DriverLicenseValidation>
+                                <OFACValidation>
+                                    <OFACValidationResult>1</OFACValidationResult>
+                                </OFACValidation>
+                            </ValidationResultsGroup>
+                        </Checkpoint_Detail>
+                    </Checkpoint>
+                </Response>
+            </VerificationResult>
+        </ASL>
+    </Detail>
+</Response>
+</DataxResponse>

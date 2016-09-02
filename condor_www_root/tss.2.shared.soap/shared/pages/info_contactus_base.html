@@ -1,0 +1,41 @@
+<div id="wf-@@template_css@@-title" class="@@template_css@@-title">
+	Contact Us
+</div>
+<div id="wf-@@template_css@@-copy" class="@@template_css@@-copy">
+<form name="contact" method="POST" action="@@URL_ROOT@@">
+	<input type="hidden" name="page" value="info_contactus_base">
+	<div align="center">
+		<table border="0" align="center" cellpadding="5" cellspacing="0">
+			<tr>
+				<td class="sh-align-right sh-nobr"><label for="name_first">First Name:</label></td>
+				<td class="sh-align-left"><input name="name_first" id="name_first" class="text sh-form-text-long" type="text" value="@@name_first@@"></td>
+			</tr>
+			<tr>
+				<td class="sh-align-right sh-nobr"><label for="name_last">Last Name:</label></td>
+				<td class="sh-align-left"><input name="name_last" id="name_last" class="text sh-form-text-long" type="text" value="@@name_last@@"></td>
+			</tr>
+			<tr>
+				<td class="sh-align-right sh-nobr"><label for="email_primary">Email Address:</label></td>
+				<td class="sh-align-left"><input name="email_primary" id="email_primary" class="text sh-form-text-long" type="text" width="40" size="40" value="@@email_primary@@"></td>
+			</tr>			
+			<tr>
+				<td class="sh-align-right sh-nobr"><input type="radio" name="radiobutton" id="radiobutton_existing" value="existing"></td>
+				<td class="sh-align-left"><label for="radiobutton_existing">I have questions regarding an EXISTING loan. <span class="sh-form-hint">(I have received funds.)</span></label></td>
+			</tr>
+			<tr>
+				<td class="sh-align-right sh-nobr"><input type="radio" name="radiobutton" id="radiobutton_pending" value="pending"></td>
+				<td class="sh-align-left"><label for="radiobutton_pending">I have a question regarding a PENDING loan. <span class="sh-form-hint">(I have NOT received funds yet.)</span></label></td>
+			</tr>
+			<tr>
+				<td class="sh-align-right sh-nobr"><input type="radio" name="radiobutton" id="radiobutton_general" value="general"></td>
+				<td class="sh-align-left"><label for="radiobutton_general">I have not yet applied, but have questions</label></td>
+			</tr>
+			<tr>
+				<td colspan="2"class="sh-align-center"><br />
+					<input type="submit" name="submit" value="Submit" class="button" onclick="exit=false;">
+				</td>
+			</tr>
+		</table>
+	</div>
+</form>
+</div>

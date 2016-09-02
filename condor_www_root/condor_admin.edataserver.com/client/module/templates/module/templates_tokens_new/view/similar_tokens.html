@@ -1,0 +1,27 @@
+<div style="text-align: center">
+	<p>%%%original_token%%% is similar to the following tokens that already exist:</p>
+	<table cellpadding="2" cellspacing="0" border="0" width="50%" style="margin-left: auto; margin-right: auto">
+		<tr>
+			<td class="bold">Name</td>
+			<td class="bold">Description</td>
+			<td class="bold">Test Data</td>
+			<td class="bold">Data Type</td>
+			<td class="bold">Date</td>
+		</tr>
+	%%%similar_tokens%%%
+	</table>
+	<p>Are you sure you want to add this token?<br />
+	<i>Check spelling above of the token name and description before submitting.</i></p>
+	<form action="" method="post">
+		<div>
+			<input type="hidden" name="token_name" value="%%%original_token%%%" />
+			<input type="hidden" name="token_description" value="%%%token_description%%%" />
+			<input type="hidden" name="test_data" value="%%%test_data%%%" />
+			<input type="hidden" name="test_data_type" value="%%%test_data_type%%%" />
+			<input type="hidden" name="confirm" value="1" />
+			<input type="hidden" name="action" value="submit" />
+			<input type="submit" name="submit" value="Yes, add this token." /><br /><br />
+			<input type="button" value="No, do not add this token." onclick="window.location = '?module=templates_tokens_list'"/>
+		</div>
+	</form>
+</div>

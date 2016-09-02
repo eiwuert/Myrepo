@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="application">
+		<column>application_id</column>
+		<column>ssn</column>
+		<column>bank_aba</column>
+		<column>bank_account</column>
+		<column>date_created</column>
+		<row>
+			<!-- data set one -->
+			<value>1</value>
+			<value>123121234</value>
+			<value>123456789</value>
+			<value>12345678901</value>
+			<value>2008-01-05</value>
+		</row>
+		<row>
+			<!-- also dataset one, but will 
+				 not show up because it's 2 years 
+				 past when the test is run -->
+			<value>2</value>
+			<value>133121234</value>
+			<value>123456789</value>
+			<value>12345678901</value>
+			<value>2006-03-05</value>
+		</row>
+		<row>
+			<!-- second data set, failure -->
+			<value>3</value>
+			<value>332112323</value>
+			<value>951753951</value>
+			<value>45685275321</value>
+			<value>2008-01-01</value>
+		</row>
+		<row>
+			<!-- second data set, failure -->
+			<value>4</value>
+			<value>332112324</value>
+			<value>951753951</value>
+			<value>45685275321</value>
+			<value>2008-01-03</value>
+		</row>
+	</table>
+</dataset>

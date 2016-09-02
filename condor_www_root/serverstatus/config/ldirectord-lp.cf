@@ -1,0 +1,253 @@
+#####################
+###               ###
+### ***WARNING ** ###
+###               ###
+#####################
+# 
+# ipvsadm is rather particular about the order in which
+# virtual server entries are added to the ipvs table.
+# for instance, if a group of real servers is created with 
+# a virtual server, and then later on another virtual block
+# has one same real server from the group, the real server
+# will be removed from the group while being added to the
+# new rule.   
+#
+# i.e. if you put the ps1 section below the LIVE
+# section ipvs will remove ps1 from the LIVE group while 
+# adding it to the port 8001 rule.  
+#
+# Avoid this by putting your groups below the individual
+# port entries
+#
+# Also, if two virtual blocks contain the same one real server
+# the incoming virtual entry that has the higher port number must
+# be listed first (look at the two ps5 entries as an example)
+#
+# The real way to check that ldirectord is executing the ipvsadm 
+# commands in the right order is by running:
+#
+# ldirectord -d /etc/ha.d/conf/ldirectord.cf start 2>&1 | grep ipvsadm
+#
+# Justin
+
+#################################
+###                           ###
+### ***ADDITIONAL WARNING *** ###
+###                           ###
+#################################
+#
+# I have no idea why the .245 and .246 entries didn't cooperate
+# when they were in the middle of this file :-/
+#
+
+# web1,2
+virtual = 71.4.57.245:443
+        real = 192.168.1.101:40000 masq 1
+        real = 192.168.1.102:40000 masq 1
+	service = http
+        scheduler = wlc
+        protocol = tcp
+        checkport = 81
+        request = "/serverstatus.php?module=lp4"
+        receive = "PASS"
+
+virtual = 71.4.57.245:80
+        real = 192.168.1.101:80 masq 1
+        real = 192.168.1.102:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+        checkport = 81
+        request = "/serverstatus.php?module=lp4"
+        receive = "PASS"
+
+
+# web3,4
+virtual = 71.4.57.246:443
+        real = 192.168.1.103:40000 masq 1
+        real = 192.168.1.104:40000 masq 1
+        service = http
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+
+virtual = 71.4.57.246:80
+        real = 192.168.1.103:80 masq 1
+        real = 192.168.1.104:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+        checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+# tributelaw.com
+virtual = 71.4.57.241:443
+        real = 192.168.1.103:40004 masq 1
+        real = 192.168.1.104:40004 masq 1
+        service = http
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+virtual = 71.4.57.241:80
+        real = 192.168.1.103:80 masq 1
+        real = 192.168.1.104:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+# platinumexpresscard.com
+virtual = 71.4.57.242:443
+        real = 192.168.1.101:40002 masq 1
+        real = 192.168.1.102:40002 masq 1
+        service = http
+        scheduler = wlc
+        protocol = tcp
+        checkport = 81
+        request = "/serverstatus.php?module=lp4"
+        receive = "PASS"
+
+virtual = 71.4.57.242:80
+        real = 192.168.1.101:80 masq 1
+        real = 192.168.1.102:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+        checkport = 81
+        request = "/serverstatus.php?module=lp4"
+        receive = "PASS"
+
+# credittravelcard.com
+virtual = 71.4.57.243:443
+        real = 192.168.1.101:40003 masq 1
+        real = 192.168.1.102:40003 masq 1
+        service = http
+        scheduler = wlc
+        protocol = tcp
+        checkport = 81
+        request = "/serverstatus.php?module=lp4"
+        receive = "PASS"
+
+virtual = 71.4.57.243:80
+        real = 192.168.1.101:80 masq 1
+        real = 192.168.1.102:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+        checkport = 81
+        request = "/serverstatus.php?module=lp4"
+        receive = "PASS"
+
+
+# web5,6
+#virtual = 71.4.57.247:80
+#        real = 192.168.1.105:9- masq 1
+#        real = 192.168.1.106:80 masq 1
+#        scheduler = wlc
+#        protocol = tcp
+#        checktype = connect
+
+
+# premiumquest.com
+virtual = 71.4.57.248:443
+        real = 192.168.1.103:40002 masq 1
+        real = 192.168.1.104:40002 masq 1
+        service = http
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+virtual = 71.4.57.248:80
+        real = 192.168.1.103:80 masq 1
+        real = 192.168.1.104:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+# absoluteroi.com
+virtual = 71.4.57.249:443
+        real = 192.168.1.103:40001 masq 1
+        real = 192.168.1.104:40001 masq 1
+        service = http
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+virtual = 71.4.57.249:80
+        real = 192.168.1.103:80 masq 1
+        real = 192.168.1.104:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+# shoppersedgecard.com
+virtual = 71.4.57.250:443
+        real = 192.168.1.101:40001 masq 1
+        real = 192.168.1.102:40001 masq 1
+        service = http
+        scheduler = wlc
+        protocol = tcp
+        checkport = 81
+        request = "/serverstatus.php?module=lp4"
+        receive = "PASS"
+
+virtual = 71.4.57.250:80
+        real = 192.168.1.101:80 masq 1
+        real = 192.168.1.102:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+        checkport = 81
+        request = "/serverstatus.php?module=lp4"
+        receive = "PASS"
+
+# bestcarloansource.com
+virtual = 71.4.57.251:443
+        real = 192.168.1.103:40003 masq 1
+        real = 192.168.1.104:40003 masq 1
+        service = http
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+virtual = 71.4.57.251:80
+        real = 192.168.1.103:80 masq 1
+        real = 192.168.1.104:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+		checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+# lpdataserver.com
+virtual = 71.4.57.238:443
+        real = 192.168.1.103:40005 masq 1
+        real = 192.168.1.104:40005 masq 1
+        service = http
+        scheduler = wlc
+        protocol = tcp
+                checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"
+
+virtual = 71.4.57.238:80
+        real = 192.168.1.103:80 masq 1
+        real = 192.168.1.104:80 masq 1
+        scheduler = wlc
+        protocol = tcp
+                checkport = 81
+        request = "/serverstatus.php?module=lp5"
+        receive = "PASS"

@@ -1,0 +1,18 @@
+%%%error_block%%%
+<form action="?module=document_resend&action=submit" method="post" enctype="multipart/form-data">
+  <table cellpadding="2" cellspacing="0" border="0" class="text">
+    <tr>
+      <td class="%%%method_css%%%">Send As: </td>
+	  <td>%%%method_select%%%</td>
+	     </tr>
+		     <tr>
+      <td class="%%%recipient_css%%%">Send To: </td>
+	  <td><input name="recipient" type="text" value="%%%recipient%%%"/></td>
+	     </tr>
+		 <tr><td colspan="2" align="center">
+		 
+		 	<input name="submit" type="image" src="image/send_text.gif" style="border: 1px solid black;" />&nbsp;&nbsp;
+		 	<a href="?module=document_view"><img src="image/cancel_text.gif" style="border: 1px solid black;" /></a></td>
+    </tr>
+  </table>
+</form>

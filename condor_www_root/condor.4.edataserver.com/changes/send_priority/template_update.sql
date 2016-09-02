@@ -1,0 +1,1 @@
+ALTER TABLE template ADD COLUMN (send_priority TINYINT UNSIGNED DEFAULT 10);

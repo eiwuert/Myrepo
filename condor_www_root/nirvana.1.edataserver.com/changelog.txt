@@ -1,0 +1,27 @@
+2006/07/27 -
+
+	nirvana.1.edatserver.com/www/index2.php
+	
+1.	Updated the session information return so that it returns SENDER and COMPANY_NAME
+	if those are already NULL. [BF]
+
+2006/03/01 -
+
+	nirvana.1.edataserver.com/www/index.php
+	
+1.	Added COREG_SITE as a passed variable. [BF]
+
+Previous Changes -
+
+	nirvana.1.edataserver.com/www/index.php
+
+1.	Added REFERRING_URL to the associative array returned by Get_Consumer_data [NR]
+
+	www/index2.php
+
+1.	Rewrote the index page. [BF]
+2.	Modified the lib and lib5 defines, rc is no longer different. [BF]
+
+	www/index2.php
+	
+1.	Added Enterprise contact data [RL]

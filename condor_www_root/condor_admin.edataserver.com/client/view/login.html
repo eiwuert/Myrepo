@@ -1,0 +1,79 @@
+<html><head>
+	
+<title>::: Condor Administration :::</title>
+<link type="text/css" rel="stylesheet" href="css/simple.css">
+<link type="text/css" rel="stylesheet" href="images/stats.css">
+<script type="text/javascript" src="js/menu.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/simple.js"></script>
+<style type="text/css">
+<!--
+body {
+	background-color: #FFFF99;
+	background-repeat: repeat-x;
+}
+.txt11 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+	color: #000000;
+}
+input {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	text-decoration: none;
+}
+select {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+}
+-->
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+<body>
+<table id="container_table" border="0" cellpadding="2" cellspacing="0">
+<tbody><tr>
+<td colspan="2" class="top_title">
+<img src="images/m_grip_hz36.gif" align="middle" border="0" height="36" width="4">&nbsp;&nbsp;&nbsp;<img src="images/logo_condor.gif" alt="Condor" align="middle" border="0" >
+</td>
+</tr>
+<tr>
+<td colspan="2" class="top_title_hz_line">
+<img src="images/spacer.gif" height="2"></td>
+</tr>
+<tr>
+      <td colspan="2" class="top_title_hz">&nbsp; </td>
+</tr>
+<form action="/" method="post" id="login_form">
+<tr>
+<td class="left_nav" nowrap>
+        </td>
+      <td class="right_content"> 
+        <div class="contentDIV">
+<table cellpadding=0 cellspacing=0 class="txt11">
+%%%login_errors%%%
+<tr><th colspan="2">Condor Admin Login - %%%current_server%%% </th><tr>
+<tr><td>&nbsp;Username:&nbsp;</td>
+	<td class="align_left"><input type="text" name="login"></td></tr>
+<tr><td >&nbsp;Password:&nbsp;</td>
+	<td class="align_left"><input type="password" name="password"></td></tr>
+<!--<tr><td class="align_left_bold">&nbsp;Company:&nbsp;</td>
+	<td class="align_left">
+	
+	<select name="abbrev" id="login_company">
+		<option value='clk'>CLK
+	</select>
+	</td></tr>-->
+
+<tr class="bg"><td></td><td >
+<input type="hidden" name="page" value="login">
+<input type="submit" value="login" class="button">
+</td></tr>
+</table> 
+          </div></td>
+</tr>
+</form>
+</tbody></table>
+</body></html>

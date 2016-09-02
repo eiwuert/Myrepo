@@ -1,0 +1,68 @@
+<!-- ### Sent Failed Table ### -->
+<style type="text/css">@import url(js/jscalendar/skins/aqua/theme.css);</style>
+<script type="text/javascript" src="js/jscalendar/calendar_stripped.js"></script>
+<script type="text/javascript" src="js/jscalendar/lang/calendar-en.js"></script>
+<script type="text/javascript" src="js/jscalendar/calendar-setup_stripped.js"></script>
+
+<div align="center">
+%%%error_block%%%
+<form action="" method="get">
+<table>
+	<tr>
+		<td class="%%%date_start_css%%%">Start Date:</td>
+		<td>
+			<input id="date_start" type="text" name="date_start" value="%%%date_start%%%" size="10"/>
+			<small><i>(mm/dd/yyyy)</i></small>
+		</td>
+	</tr>
+	<tr>
+		<td class="%%%date_end_css%%%">End Date:</td>
+		<td>
+			<input id="date_end" type="text" name="date_end" value="%%%date_end%%%" size="10"/>
+			<small><i>(mm/dd/yyyy)</i></small>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2"><input type="submit" name="submit" value="Submit" /></td>
+	</tr>
+</table>
+</form>
+
+<hr style="height: 2px; background-color: lightgray; border: 0px; width: 75%" />
+
+<table width="75%">
+<tr>
+	<td style="text-align: right;" colspan="10">
+	%%%num_results%%% result(s) on last search.
+	</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+Calendar.setup(
+	{
+		inputField	: "date_start",	// ID of the input field
+		ifFormat	: "%m/%d/%Y",	// the date format
+		button		: "date_start"
+	}
+);
+Calendar.setup(
+	{
+		inputField	: "date_end",	// ID of the input field
+		ifFormat	: "%m/%d/%Y",	// the date format
+		button		: "date_end"
+	}
+);
+</script>
+
+<table cellpadding="2" cellspacing="0" width="40%">
+	<tr>
+		<td>&nbsp;</td>
+		<td class="bold">Archive ID</td>
+		<td class="bold">Date Sent</td>
+		<td class="bold">Method</td>
+		<td class="bold">Status</td>
+	</tr>
+%%%table_rows%%%
+</table>
+</div>

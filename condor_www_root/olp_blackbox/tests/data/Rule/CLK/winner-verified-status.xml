@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DataxResponse>
+	<GenerationTime>20080220123856</GenerationTime>
+	<CodeVersion>4.0.6</CodeVersion>
+	<RequestVersion>3.0</RequestVersion>
+	<TransactionId>42600863</TransactionId>
+	<TrackHash>3516fc67f271cc58f0aec1cf4acb2055</TrackHash>
+	<Response>
+		<Summary>
+			<Bankruptcy>0</Bankruptcy>
+			<ChargeOffs>0</ChargeOffs>
+			<Inquiries>5</Inquiries>
+			<Decision>Y</Decision>
+			<DecisionBuckets>
+				<Bucket>R1</Bucket>
+				<Bucket>R5</Bucket>
+				<Bucket>P1</Bucket>
+			</DecisionBuckets>
+		</Summary>
+		<Detail>
+			<TLT>52,240352299,42600863,02/20/08,15:38,T1FU09,1982,NC,N,,
+			54,36267,UNITED CASH LOANS,CARSON CITY,NV,89706,8002798511,02/20/08,CA
+			54,36268,AMERILOAN,CARSON CITY,NV,89706,8003152871,02/20/08,CA
+			54,41415,BEACHSIDE COMPANIES,OXNARD,CA,93035,8054374361,02/20/08,CA
+			54,42678,SJM MARKETING,KANSAS CITY,MO,64111,8667222770,02/20/08,CA
+			54,45152,BMG GROUP,MISSION,KS,66202,8668561041,02/20/08,CA
+			</TLT>
+		</Detail>
+	</Response>
+</DataxResponse>

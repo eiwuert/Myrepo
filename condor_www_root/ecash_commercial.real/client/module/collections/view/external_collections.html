@@ -1,0 +1,114 @@
+
+<script type="text/javascript">
+function Process_2nd_Tier_Accounts() {
+	var form = document.getElementById('external_collections_form');
+	var action = document.getElementById('ec_form_action');
+	
+	action.value = 'external_apps_process';
+	form.submit();
+}
+
+function Process_Adjustments() {
+	var form = document.getElementById('external_collections_form');
+	var action = document.getElementById('ec_form_action');
+	
+	action.value = 'external_adj_process';
+	form.submit();
+}
+</script>
+<!-- Begin scrolling result screen -->
+<div id="external_collections_div" class="external_collections">
+	<!-- <form name="external_coll" id="external_collections_form" action='/ec_download.php' method="post"> -->
+	<form name="external_coll" id="external_collections_form" action='/?mode=external' method="post">
+		<!-- <input name="action" type="hidden" value="download_external_apps"> -->
+		<input name="action" id="ec_form_action" type="hidden" value="external_apps_process">
+		<input name="company_id" type="hidden" value='%%%company_id%%%' id='stupid_company_id'>
+		<input name="agent_id"   type="hidden" value='%%%agent_id%%%'   id='the_agent_id'>
+		<input name="system_id"  type="hidden" value='%%%system_id%%%'  id='the_system_id'>
+		
+		<!--mantis:5598 - delete
+		<table class="external_collections" align="left" cellspacing="5">
+			<tr>
+				<td>From Date: </td>
+				<td>%%%from_date%%%</td>
+				<td><input type="button" name="submitDateRange" value="Submit" onclick="document.forms['external_coll'].elements['action'].value = ''; document.forms['external_coll'].submit(); " ></td>
+			</tr>
+		<table>
+		-->
+		<!--mantis:5598 - add -->
+		<table class="external_collections" align="left" cellspacing="5">
+			<tr>
+				<td colspan="2">Search for Batches between these dates:</td>
+				<td colspan="4">&nbsp;</td>
+			</tr>
+			<tr>
+				<td>From Date: </td>
+				<td>%%%from_date%%%</td>
+				<td></td>
+				<td>To Date: </td>
+				<td>%%%to_date%%%</td>
+				<td><input type="button" name="submitDateRange" value="Submit" onclick="document.forms['external_coll'].elements['action'].value = ''; document.forms['external_coll'].submit(); " ></td>
+			</tr>
+		<table>
+
+		<br clear="all">&nbsp;<br>
+
+		<table width="100%" class="external_collections" align="left">
+			
+			<!--
+			<tr>
+				<td>
+					<span id='ext_count'>%%%ext_applications%%% </span><br/><br/>
+					<select name="collection_company" id ='external_collection_companies' style="width:200px">
+						<option value='crsi'>CRSI</option>
+						<option value='pinion'>Pinion</option>
+						<option value='pinion_north'>Pinion North</option>
+						<option value='other'>Other</option>
+					</select>
+					&nbsp;&nbsp;
+					<input name="download" type="submit" value="Download" onClick="javascript:myjs();">
+				</td>
+			</tr>
+			-->
+
+			<tr>
+				<td class="report_head">Date</td>
+				<td class="report_head">Company</td>
+				<td class="report_head"># in batch</td>
+				<td class="report_head">Status</td>
+				<td class="report_head">Action</td>
+			</tr>
+
+			<tr>
+				<td class="align_left_alt">Current</td>
+				<td class="align_left_alt">
+					<select name="collection_company" id ='external_collection_companies'>
+						%%%collection_companies%%%
+					</select>
+				</td>
+				<td class="align_left_alt">%%%pending_count%%%</td>
+				<td class="align_left_alt">Pending</td>
+				<td class="align_left_alt">
+					<input type="button" name="submitButton" onclick="Process_2nd_Tier_Accounts();" value="Process" style="font-weight:bold; color:blue;" >
+				</td>
+			</tr>
+
+			<tr>
+				<td class="align_left">Current</td>
+				<td class="align_left">Adjustment</td>
+				<td class="align_left">%%%adjustment_count%%%</td>
+				<td class="align_left">Pending</td>
+				<td class="align_left">
+					<input type="button" name="submitButton" onclick="Process_Adjustments();" value="Process" style="font-weight:bold; color:blue;" >
+				</td>
+			</tr>
+
+			%%%data_rows_concatenated%%%
+
+			<tr>
+				<td colspan="5">&nbsp;</td>
+			</tr>
+		</table>
+	</form>
+</div>
+

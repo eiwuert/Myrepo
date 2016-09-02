@@ -1,0 +1,601 @@
+<DataxResponse>
+<GenerationTime>20080201121034</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>42255472</TransactionId>
+<TrackHash>c4febad5c698b9e3fe6d539877d41d0f</TrackHash>
+<Response>
+    <Detail>
+        <ConsumerIDVerificationSegment>
+            <Input>
+                <LastName>sladek</LastName>
+                <FirstName>heidi</FirstName>
+                <MiddleName />
+                <Address1>40127 101st street</Address1>
+                <Address2 />
+                <City>genoa city</City>
+                <State>wi</State>
+                <Zip>53128</Zip>
+            </Input>
+            <Standardized>
+                <LastName>SLADEK</LastName>
+                <FirstName>HEIDI</FirstName>
+                <MiddleName />
+                <AddressVerification>10</AddressVerification>
+                <AddressVerificationMessage>Surname match - residential</AddressVerificationMessage>
+                <AddressResult>S</AddressResult>
+                <DeliveryPointVerified>Y</DeliveryPointVerified>
+                <Address1>40127 101ST ST</Address1>
+                <City>GENOA CITY</City>
+                <State>WI</State>
+                <Zip>53128</Zip>
+                <Zip4>2237</Zip4>
+                <CRRT>R001</CRRT>
+                <HighRiskAddress>N</HighRiskAddress>
+            </Standardized>
+            <PreviousAddresses>
+                <Address>
+                    <Address1>40127 ONE ST</Address1>
+                    <City>GENOA CITY</City>
+                    <State>WI</State>
+                    <Zip>53128</Zip>
+                    <Zip4 />
+                    <ReportDate>20071128</ReportDate>
+                    <LastUpdate>20071128</LastUpdate>
+                </Address>
+                <Address>
+                    <Address1>PO BOX 226</Address1>
+                    <City>WILLIAMS BAY</City>
+                    <State>WI</State>
+                    <Zip>53191</Zip>
+                    <Zip4>0226</Zip4>
+                    <ReportDate>20050228</ReportDate>
+                    <LastUpdate>20050228</LastUpdate>
+                </Address>
+            </PreviousAddresses>
+            <SocialSecurityNumber>
+                <InputSSN>346588195</InputSSN>
+                <Return>17</Return>
+                <ReturnMessage>Matches full name/address</ReturnMessage>
+                <Deceased>2</Deceased>
+                <DeceasedMessage>Not Deceased</DeceasedMessage>
+                <Valid>1</Valid>
+                <ValidMessage>Valid</ValidMessage>
+                <Issue>3</Issue>
+                <IssueMessage>Issued</IssueMessage>
+                <IsseuState>IL</IsseuState>
+                <IssueStartRange>1973</IssueStartRange>
+                <IssueEndRange>1975</IssueEndRange>
+            </SocialSecurityNumber>
+            <Aggregates>
+                <AddressUnitMismatch />
+                <AddressUnitMismatchMessage />
+                <AddressType>10</AddressType>
+                <AddressTypeMessage>Single-family residential</AddressTypeMessage>
+                <AddressHighRisk>1</AddressHighRisk>
+                <AddressHighRiskMessage>No high risk information found</AddressHighRiskMessage>
+                <ChangeOfAddress>2</ChangeOfAddress>
+                <ChangeOfAddressMessage>No change of address information found</ChangeOfAddressMessage>
+                <PhoneHighRisk>1</PhoneHighRisk>
+                <PhoneHighRiskMessage>No high risk information found</PhoneHighRiskMessage>
+            </Aggregates>
+            <SSNAddresses>
+                <Address>
+                    <LastName>SLADEK</LastName>
+                    <FirstName>HEIDI</FirstName>
+                    <MiddleInitial>S</MiddleInitial>
+                    <Address1>40127 101ST ST</Address1>
+                    <City>GENOA CITY</City>
+                    <State>WI</State>
+                    <Zip>53128</Zip>
+                    <Zip4>2237</Zip4>
+                    <ReportedDate>19950712</ReportedDate>
+                    <LastTouchedDate>20071024</LastTouchedDate>
+                    <AreaCode>262</AreaCode>
+                    <PhoneNumber>2793083</PhoneNumber>
+                    <DateOfBirthMatch>1</DateOfBirthMatch>
+                </Address>
+            </SSNAddresses>
+            <ResidentialAddresses>
+                <Address>
+                    <LastName>SLADEK</LastName>
+                    <FirstName>JEANETTE</FirstName>
+                    <MiddleInitial>M</MiddleInitial>
+                    <Address1>40127 101ST ST</Address1>
+                    <City>GENOA CITY</City>
+                    <State>WI</State>
+                    <Zip>53128</Zip>
+                    <Zip4>2237</Zip4>
+                    <AreaCode>262</AreaCode>
+                    <PhoneNumber>2793083</PhoneNumber>
+                    <SpouseName />
+                    <HouseMember1 />
+                    <HouseMember2 />
+                    <HouseMember3 />
+                    <LastTouchedDate>20080117</LastTouchedDate>
+                    <ResidenceLength>0186</ResidenceLength>
+                </Address>
+            </ResidentialAddresses>
+            <HighRiskAddresses>
+                <Address>
+                    <BusinessName />
+                    <Address1 />
+                    <City />
+                    <State />
+                    <Zip />
+                    <Zip4 />
+                    <AreaCode />
+                    <PhoneNumber />
+                    <Description>No high risk business at address/phone</Description>
+                </Address>
+            </HighRiskAddresses>
+            <ResidentialPhones />
+            <ChangesOfAddress>
+                <ResultCode>N</ResultCode>
+                <Description />
+            </ChangesOfAddress>
+            <DateOfBirth>
+                <InputMonth>07</InputMonth>
+                <InputDay>06</InputDay>
+                <InputYear>1962</InputYear>
+                <Result>1</Result>
+                <ResultMessage>Full date of birth match</ResultMessage>
+                <Age>45</Age>
+            </DateOfBirth>
+            <DriversLicense>
+                <InputState>wi</InputState>
+                <InputNumber>s4323376274609</InputNumber>
+                <LastName />
+                <FirstName />
+                <MiddleInitial />
+                <Address1 />
+                <City />
+                <State />
+                <Zip />
+                <Zip4 />
+                <Format>V</Format>
+                <Result>11</Result>
+                <ResultMessage>Matches full name</ResultMessage>
+            </DriversLicense>
+            <HomePhone>
+                <InputNumber>2627585166</InputNumber>
+                <Result>4</Result>
+                <ResultMessage>Mobile number</ResultMessage>
+                <Type>Cell</Type>
+                <AreaCodeZipMatch>Y</AreaCodeZipMatch>
+                <AreaCodePrefixMatch>Y</AreaCodePrefixMatch>
+                <HighRiskPhone>N</HighRiskPhone>
+                <ListingType>Residential</ListingType>
+            </HomePhone>
+            <CellPhone>
+                <InputNumber />
+                <Type />
+            </CellPhone>
+            <InputEmployerInformation>
+                <Name>su wings</Name>
+                <Address1 />
+                <Address2 />
+                <City />
+                <State />
+                <Zip />
+            </InputEmployerInformation>
+            <WorkPhone>
+                <InputEmployerName>su wings</InputEmployerName>
+                <InputNumber>2622481178</InputNumber>
+                <InputExtension />
+                <Type>Standard</Type>
+                <EmployerMatch>N</EmployerMatch>
+                <Name>Su Wing Chinese Restaurant</Name>
+                <Address1>743 North St</Address1>
+                <City>Lake Geneva</City>
+                <State>WI</State>
+                <Zip>531471437</Zip>
+                <Type>Business / Government</Type>
+            </WorkPhone>
+            <OFAC>1</OFAC>
+            <OFACMessage>No match</OFACMessage>
+            <IPAddress>
+                <InputAddress>66.190.48.233</InputAddress>
+                <MatchCountry>1</MatchCountry>
+                <MatchCountryMessage>Match for US</MatchCountryMessage>
+                <Country>USA</Country>
+                <MatchState>1</MatchState>
+                <MatchStateMessage>Match for input</MatchStateMessage>
+                <State>WI</State>
+                <MatchCity>2</MatchCity>
+                <MatchCityMessage>No match for input</MatchCityMessage>
+                <City>MADISON</City>
+                <MatchZip>2</MatchZip>
+                <MatchZipMessage>No match for input</MatchZipMessage>
+                <Zip>53701</Zip>
+                <MSA>669</MSA>
+                <Latitude>43.073</Latitude>
+                <Longitude>-89.401</Longitude>
+            </IPAddress>
+            <BankInformation>
+                <InputBankName>first banking center</InputBankName>
+                <InputABANumber>075910206</InputABANumber>
+                <InputAccountNumber>50082515</InputAccountNumber>
+                <Valid>Y</Valid>
+                <BankNameMatch>Y</BankNameMatch>
+                <BankName>First Banking Center</BankName>
+            </BankInformation>
+            <NumberRecords>
+                <AddressVerResidentialMatch>1</AddressVerResidentialMatch>
+                <AddressVerBusinessMatch>0</AddressVerBusinessMatch>
+                <PhoneVerResidentialMatch>0</PhoneVerResidentialMatch>
+                <PhoneVerBusinessMatch>0</PhoneVerBusinessMatch>
+                <ResidentialAddressDetRec>1</ResidentialAddressDetRec>
+                <BusinessAddressDetRec>0</BusinessAddressDetRec>
+                <AddressHighRiskDetRec>0</AddressHighRiskDetRec>
+                <AddressHighRiskDescRec>1</AddressHighRiskDescRec>
+                <ResidentialPhoneDetRec>0</ResidentialPhoneDetRec>
+                <BusinessPhoneDetRec>0</BusinessPhoneDetRec>
+                <PhoneHighRiskDetRec>0</PhoneHighRiskDetRec>
+                <PhoneHighRiskDescRet>0</PhoneHighRiskDescRet>
+                <SSNDetailRecords>1</SSNDetailRecords>
+                <COARecords>0</COARecords>
+            </NumberRecords>
+            <AuthenticationScore>525</AuthenticationScore>
+            <CustomDecision>
+                <Result>Y</Result>
+                <Buckets>
+                    <Bucket>A1</Bucket>
+                </Buckets>
+            </CustomDecision>
+            <LooseDecision>
+                <Result>Y</Result>
+                <Bucket>A1</Bucket>
+            </LooseDecision>
+            <ModerateDecision>
+                <Result>Y</Result>
+                <Bucket>A3</Bucket>
+            </ModerateDecision>
+            <ConservativeDecision>
+                <Result>Y</Result>
+                <Bucket>A5</Bucket>
+            </ConservativeDecision>
+        </ConsumerIDVerificationSegment>
+        <BankAccountVerificationSegment>
+            <ACH>
+                <Data>
+                    <achcode>001</achcode>
+                    <achmsg>Unable to Validate</achmsg>
+                </Data>
+            </ACH>
+            <Decision>
+                <Result>Y</Result>
+                <Buckets>
+                    <Bucket>A1</Bucket>
+                </Buckets>
+            </Decision>
+        </BankAccountVerificationSegment>
+        <DPBureauSegment>
+            <CLV>
+                <clv-response>
+                    <inquiry>
+                        <ssn>346588195</ssn>
+                        <client-id>42255472</client-id>
+                        <tran-id>8M9BHS</tran-id>
+                        <tran-link-id>281C6AE0FE16A994AC38F50D338772D9DFB5ADF8</tran-link-id>
+                        <score>610</score>
+                        <aa-item code="5V"
+                                 desc="Two or more current loans." />
+                        <aa-item code="4I"
+                                 desc="Two or more bank accounts and ABAs used in loan applications." />
+                        <aa-item code="5L"
+                                 desc="Loan(s) currently open." />
+                        <aa-item code="2B"
+                                 desc="Recent inquiry activity" />
+                        <tran-date>2008-02-01 01:10:31</tran-date>
+                        <last-name>SLADEK</last-name>
+                        <first-name>HEIDI</first-name>
+                        <address>
+                            <street>40127 101ST ST</street>
+                            <city>GENOA CITY</city>
+                            <state>WI</state>
+                            <zip>531282237</zip>
+                        </address>
+                        <address>
+                            <street>22 W GENEVA ST</street>
+                            <city>WILLIAMS BAY</city>
+                            <state>WI</state>
+                            <zip>531919518</zip>
+                        </address>
+                        <address>
+                            <street>904 CENTER ST APT B</street>
+                            <city>LAKE GENEVA</city>
+                            <state>WI</state>
+                            <zip>53147</zip>
+                        </address>
+                        <address>
+                            <street>4127 101ST ST</street>
+                            <city>GENOA CITY</city>
+                            <state>WI</state>
+                            <zip>53128</zip>
+                        </address>
+                        <address>
+                            <street>PO BOX 226</street>
+                            <city>WILLIAMS BAY</city>
+                            <state>WI</state>
+                            <zip>53191</zip>
+                        </address>
+                        <dda>
+                            <ssn>346588195</ssn>
+                            <dda-inquiries>
+                                <days-first>1082</days-first>
+                                <days-recent>91</days-recent>
+                                <inquiry-periods>
+                                    <period days="30"
+                                            quantity="0" />
+                                    <period days="60"
+                                            quantity="0" />
+                                    <period days="90"
+                                            quantity="0" />
+                                    <period days="180"
+                                            quantity="1" />
+                                    <period days="365"
+                                            quantity="1" />
+                                    <period days="730"
+                                            quantity="3" />
+                                    <period days="1095"
+                                            quantity="4" />
+                                </inquiry-periods>
+                                <inquiry-detail>
+                                    <detail date="20071102"
+                                            name="U.S. BANK, WISCONSIN"
+                                            state="WI"
+                                            zip="53181" />
+                                    <detail date="20060602"
+                                            name="FIRST BANKING CENTER"
+                                            state="WI"
+                                            zip="53147" />
+                                    <detail date="20060324"
+                                            name="FIRST BANKING CENTER"
+                                            state="WI"
+                                            zip="53105" />
+                                    <detail date="20050214"
+                                            name="WALWORTH STATE BANK"
+                                            state="WI"
+                                            zip="53184" />
+                                </inquiry-detail>
+                            </dda-inquiries>
+                            <dda-orders>
+                                <days-first>605</days-first>
+                                <days-recent>25</days-recent>
+                                <accounts>1</accounts>
+                                <min-checks>120</min-checks>
+                                <max-checks>150</max-checks>
+                                <avg-checks>135</avg-checks>
+                                <orders-periods>
+                                    <period days="30"
+                                            quantity="1" />
+                                    <period days="60"
+                                            quantity="1" />
+                                    <period days="90"
+                                            quantity="1" />
+                                    <period days="180"
+                                            quantity="2" />
+                                    <period days="365"
+                                            quantity="3" />
+                                    <period days="730"
+                                            quantity="4" />
+                                    <period days="1095"
+                                            quantity="4" />
+                                </orders-periods>
+                                <checks-periods>
+                                    <period days="30"
+                                            quantity="120" />
+                                    <period days="60"
+                                            quantity="120" />
+                                    <period days="90"
+                                            quantity="120" />
+                                    <period days="180"
+                                            quantity="240" />
+                                    <period days="365"
+                                            quantity="390" />
+                                    <period days="730"
+                                            quantity="540" />
+                                    <period days="1095"
+                                            quantity="540" />
+                                </checks-periods>
+                                <orders-detail>
+                                    <detail name="FIRST BANKING CENTER-BURLINGTON"
+                                            quantity="540"
+                                            start="1421" />
+                                </orders-detail>
+                            </dda-orders>
+                        </dda>
+                        <pda>
+                            <validity>OK</validity>
+                            <summary>
+                                <inquiries>4</inquiries>
+                                <recent-inquiries>0</recent-inquiries>
+                                <merchants>1</merchants>
+                                <recent-merchants>0</recent-merchants>
+                                <last-inquiry-date>20071018</last-inquiry-date>
+                                <bad-loans>0</bad-loans>
+                                <bad-loan-merchants>0</bad-loan-merchants>
+                                <loans-current>2</loans-current>
+                                <loans-past-due>0</loans-past-due>
+                                <loans-written-off>0</loans-written-off>
+                                <loans-discharged>0</loans-discharged>
+                                <loans-collections>0</loans-collections>
+                                <loans>2</loans>
+                                <last-loan-date>20071019</last-loan-date>
+                                <fdic-loan-days>141</fdic-loan-days>
+                            </summary>
+                            <detail>
+                                <inq city-state-zip="Lake Bluff, IL  60044"
+                                     date="20071018"
+                                     merchant="Cash Net USA"
+                                     phone="8475829750"
+                                     time="01:17:56" />
+                                <inq city-state-zip="Lake Bluff, IL  60044"
+                                     date="20070912"
+                                     merchant="Cash Net USA"
+                                     phone="8475829750"
+                                     time="13:26:51" />
+                                <inq city-state-zip="Lake Bluff, IL  60044"
+                                     date="20070312"
+                                     merchant="Cash Net USA"
+                                     phone="8475829750"
+                                     time="13:34:14" />
+                                <inq city-state-zip="Lake Bluff, IL  60044"
+                                     date="20060714"
+                                     merchant="Cash Net USA"
+                                     phone="8475829750"
+                                     time="12:09:00" />
+                                <loan amount="300.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20071019"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Current" />
+                                <loan amount="100.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20070813"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="100.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20070801"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="300.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20070702"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="300.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20070622"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="200.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20070521"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      previous-bad="true"
+                                      status="Paid" />
+                                <loan amount="200.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20070507"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="150.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20070326"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="150.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20070313"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="200.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20070102"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="200.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20061221"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="100.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20060817"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="200.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20060731"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="200.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20060717"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Current" />
+                                <loan amount="150.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20051216"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                                <loan amount="150.00"
+                                      city-state-zip="Lake Bluff, IL  60044"
+                                      date="20051202"
+                                      merchant="Cash Net USA"
+                                      phone="8475829750"
+                                      status="Paid" />
+                            </detail>
+                        </pda>
+                        <aba-report>
+                            <aba-count>2</aba-count>
+                            <account-count>2</account-count>
+                            <aba-detail>
+                                <aba>075910206</aba>
+                                <bank-name>FIRST BANKING CENTER</bank-name>
+                                <state>WI</state>
+                                <times-seen>4</times-seen>
+                                <last-seen>10-18-2007</last-seen>
+                                <ach>Y</ach>
+                                <loan-range-indicator>2</loan-range-indicator>
+                                <loan-default-differential>20.044</loan-default-differential>
+                            </aba-detail>
+                            <aba-detail>
+                                <aba>075907073</aba>
+                                <bank-name>WALWORTH STATE BANK</bank-name>
+                                <state>WI</state>
+                                <times-seen>1</times-seen>
+                                <last-seen>12-01-2005</last-seen>
+                                <ach>Y</ach>
+                                <loan-range-indicator>1</loan-range-indicator>
+                                <loan-default-differential>10.547</loan-default-differential>
+                            </aba-detail>
+                        </aba-report>
+                    </inquiry>
+                </clv-response>
+            </CLV>
+            <Decision>
+                <Result>N</Result>
+                <Buckets>
+                    <Bucket>D9</Bucket>
+                </Buckets>
+            </Decision>
+        </DPBureauSegment>
+        <GlobalDecision>
+            <Result>N</Result>
+            <Buckets>
+                <IDV>
+                    <Bucket>A1</Bucket>
+                </IDV>
+                <BAV>
+                    <Bucket>A1</Bucket>
+                </BAV>
+                <DPB>
+                    <Bucket>D9</Bucket>
+                </DPB>
+                <CRA>
+                    <Bucket>A1</Bucket>
+                </CRA>
+            </Buckets>
+        </GlobalDecision>
+    </Detail>
+</Response>
+</DataxResponse>

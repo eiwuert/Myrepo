@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<dataset>
+	<table name="application">
+		<column>application_id</column>
+		<column>modified_date</column>
+		<column>application_type</column>
+		<column>target_id</column>
+		<row>
+			<value>1</value>
+			<value>2008-02-01 08:00:00</value>
+			<value>COMPLETED</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2008-02-01 08:00:00</value>
+			<value>DISAGREED</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>2008-02-01 08:00:00</value>
+			<value>CONFIRMED_DISAGREED</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>2008-02-01 08:00:00</value>
+			<value>VISITOR</value>
+			<value>null</value>
+		</row>
+	</table>
+	<table name="personal_encrypted">
+		<column>application_id</column>
+		<column>social_security_number</column>
+		<row>
+			<value>1</value>
+			<value>800552222</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>800553333</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>800554444</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>800555555</value>
+		</row>
+	</table>
+	<table name="blackbox_post">
+		<column>application_id</column>
+		<column>winner</column>
+		<column>date_created</column>
+		<row>
+			<value>4</value>
+			<value>FWC</value>
+			<value>2008-02-01 08:00:00</value>
+		</row>
+	</table>
+	<table name="target">
+		<column>target_id</column>
+		<column>property_short</column>
+		<row>
+			<value>1</value>
+			<value>CAC</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>UFC</value>
+		</row>
+	</table>
+</dataset>

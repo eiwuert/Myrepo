@@ -1,0 +1,42 @@
+
+- On the load balanced servers -
+
+Put the 99_serverstatus.conf file in /etc/apache2/modules.d or a
+similar directory where apache will pick it up.  TCP port 81 must be
+available... once this is insure, apache can be safely reloaded:
+
+/etc/init.d/apache2 reload
+
+Verify that the serverstatus script is being served and works
+successfully any of the load balanced servers from the load balancer:
+
+telnet LB.SERVER.IP.ADDR 81<return>
+GET /serverstatus.php HTTP/1.0<return><return>
+
+*Your session should look something like this*
+----------------------------------------------
+fw1 ~ # telnet 10.9.2.2 81
+Trying 10.9.2.2...
+Connected to 10.9.2.2.
+Escape character is '^]'.
+GET /serverstatus.php HTTP/1.0
+
+HTTP/1.1 200 OK
+Date: Fri, 26 May 2006 20:24:58 GMT
+Server: Apache
+X-Powered-By: PHP/5.2.0-dev
+Content-Length: 2
+Connection: close
+Content-Type: text/html; charset=ISO-8859-1
+
+PASS
+Connection closed by foreign host.
+----------------------------------------------
+
+You may also substitute the get string forthe following to test an
+individual module:
+
+GET /serverstatus.php?module=epoint HTTP/1.0
+
+This will load the epoint.class.module (or whatever module you
+specify)

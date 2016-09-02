@@ -1,0 +1,45 @@
+#!/bin/bash
+
+if [ $1 == "ca" ]
+then
+    FILE="/home/ecross/PDLMS/NEVIS/$2"
+    LOCAL="/virtualhosts/cronjobs/cldata/ca/$2"
+fi
+
+if [ $1 == "d1" ]
+then
+    FILE="/home/ecross/PDLMS/NMS/$2"
+    LOCAL="/virtualhosts/cronjobs/cldata/d1/$2"
+fi
+
+if [ $1 == "pcl" ]
+then
+    FILE="/home/ecross/PDLMS/PCL/$2"
+    LOCAL="/virtualhosts/cronjobs/cldata/pcl/$2"
+fi
+
+if [ $1 == "ucl" ]
+then
+    FILE="/home/ecross/PDLMS/UCL/$2"
+    LOCAL="/virtualhosts/cronjobs/cldata/ucl/$2"
+fi
+
+if [ $1 == "ufc" ]
+then
+    FILE="/home/ecross/PDLMS/UFC/$2"
+    LOCAL="/virtualhosts/cronjobs/cldata/ufc/$2"
+fi
+
+HOP_1="69.151.59.101"
+HOP_2="10.100.1.190"
+
+ssh -N -L 2022:$HOP_2:22 -lcashline $HOP_1 &
+TUNNEL_PID=$!
+
+sleep 10
+
+scp -P2022 cashline@localhost:$FILE $LOCAL
+
+sleep 1
+
+kill $TUNNEL_PID

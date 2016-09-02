@@ -1,0 +1,96 @@
+<table>
+<form action=''>
+	<tr>
+	<td>Starting Date: </td>
+	<td><SELECT NAME='month1'>
+	<?php 
+	for($i=1;$i<=12;$i++)
+	{
+		$flag = $i == date('m')? "SELECTED" : NULL;
+		echo "<OPTION VALUE='".str_pad($i,2,"0",STR_PAD_LEFT)."' $flag>".str_pad($i,2,"0",STR_PAD_LEFT)."</OPTION>\n";
+	}
+	?>
+	</SELECT>
+
+	<SELECT NAME='day1'>
+	<?php 
+	for($i=1;$i<=31;$i++)
+	{
+		$flag = $i == date('d')? "SELECTED" : NULL;
+		echo "<OPTION VALUE='".str_pad($i,2,"0",STR_PAD_LEFT)."' $flag>".str_pad($i,2,"0",STR_PAD_LEFT)."</OPTION>\n";
+	}
+	?>
+	</SELECT>
+
+	<SELECT NAME='year1'>
+	<?php 
+	$year = date('Y');
+	for($i=($year+5);$i>=($year-30);$i--)
+	{
+		$flag = $i == date('Y')? "SELECTED" : NULL;
+		echo "<OPTION VALUE='".str_pad($i,2,"0",STR_PAD_LEFT)."' $flag>".str_pad($i,2,"0",STR_PAD_LEFT)."</OPTION>\n";
+	}
+	?>
+	</SELECT>
+
+	</td>
+	</tr>
+
+	<tr>
+	<td>Ending Date: </td>
+	<td><SELECT NAME='month2'>
+	<?php 
+	for($i=1;$i<=12;$i++)
+	{
+		$flag = $i == date('m')? "SELECTED" : NULL;
+		echo "<OPTION VALUE='".str_pad($i,2,"0",STR_PAD_LEFT)."' $flag>".str_pad($i,2,"0",STR_PAD_LEFT)."</OPTION>\n";
+	}
+	?>
+	</SELECT>
+	
+	<SELECT NAME='day2'>
+	<?php 
+	for($i=1;$i<=31;$i++)
+	{
+		$flag = $i == (date('d')+1)? "SELECTED" : NULL;
+		echo "<OPTION VALUE='".str_pad($i,2,"0",STR_PAD_LEFT)."' $flag>".str_pad($i,2,"0",STR_PAD_LEFT)."</OPTION>\n";
+	}
+	?>
+	</SELECT>
+
+	<SELECT NAME='year2'>
+	<?php 
+	$year = date('Y');
+	for($i=($year+5);$i>=($year-30);$i--)
+	{
+		$flag = $i == date('Y')? "SELECTED" : NULL;
+		echo "<OPTION VALUE='".str_pad($i,2,"0",STR_PAD_LEFT)."' $flag>".str_pad($i,2,"0",STR_PAD_LEFT)."</OPTION>\n";
+	}
+	?>
+	</SELECT>
+	<input type=hidden name='page' value='admin'>
+	<input type=hidden name='show' value='<? echo $show;?>'>
+	</td>
+	</tr>
+
+	<tr>
+	<td colspan=3 align=right><input type=submit value='List Report'></td>
+	</tr>
+	</form>
+	
+</table>
+<br><br><br>
+<!--<table>
+<form action=''>
+	<tr valign=top>
+	<td>Transaction ID's :</td>
+	<td><textarea name='transaction_id' rows=10 cols=30></textarea></td>
+	</tr>
+	<input type=hidden name='page' value='admin'>
+	<input type=hidden name='show' value='<? echo $show;?>'>
+	<tr>
+	<td colspan=2 align=right><input type=submit value='Search by transaction id'></td>
+	</tr>
+</form>
+</table>
+-->

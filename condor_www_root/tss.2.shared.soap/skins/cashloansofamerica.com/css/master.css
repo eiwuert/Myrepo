@@ -1,0 +1,306 @@
+body {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10pt;
+	margin: auto;
+}
+
+p {
+    font-size: 10pt;
+}
+
+img {
+	border: 0px;
+}
+
+#wf-animated-arrows {
+	width: 32px;
+	height: 20px;
+	background-image: url(../images/app_pg2_arrows.gif);
+	background-repeat: no-repeat;
+}
+
+.header {
+	font-weight: bold;
+	color: #003399;
+	font-size: 16px;
+}
+
+.footer {
+	color: #fff;
+	font-size: 9px;
+}
+
+.footer a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+	color: #fff;
+}
+
+.notice {
+	padding: 10px; font-weight: bold; font-size: 9pt;
+}
+
+.help 
+{
+	cursor: help;
+}
+
+img.help 
+{
+	width: 10px;
+	height: 10px;
+}
+
+.sh-align-left {
+	text-align: left !important;
+    padding-left: 2px !important;
+}
+
+.sh-align-right {
+	text-align: right !important;
+    padding-right: 2px !important;
+}
+
+.sh-align-center {
+	text-align: center !important;
+    padding: auto 2px !important;
+}
+
+.sh-nobr {
+	white-space: nowrap;
+}
+
+.sh-bold {
+    font-weight: bold;
+}
+
+label {
+    text-align: inherit;
+}
+
+input.sh-form-checkbox {
+
+}
+
+input.sh-form-label {
+
+}
+
+input.sh-form-label-required {
+
+}
+
+input.sh-form-radio {
+
+}
+
+input.sh-form-select {
+
+}
+
+select.sh-form-select-date {
+	width: 55px;
+}
+
+select.sh-form-select-year {
+	width: 70px;
+}
+
+input.sh-form-text {
+
+}
+
+input.sh-form-text-bank-name {
+	width: 200px;
+}
+
+input.sh-form-text-income {
+	width: 60px;
+}
+
+input.sh-form-text-long {
+	width: 155px;
+}
+
+input.sh-form-text-mi {
+	width: 155px;
+}
+
+input.sh-form-text-name-first {
+	width: 80px;
+}
+
+input.sh-form-text-phone {
+	width: 95px;
+}
+
+input.sh-form-text-short {
+	width: 50px;
+}
+
+input.sh-form-text-ssn1 {
+	width: 34px;
+}
+
+input.sh-form-text-ssn2 {
+	width: 24px;
+}
+
+input.sh-form-text-ssn3 {
+	width: 44px;
+}
+
+input.sh-form-text-stateid {
+	width: 100px;
+}
+
+input.sh-form-text-street {
+	width: 260px;
+}
+
+.sh-form-hint {
+    font-size:7pt;
+}
+
+textarea, select, input.text {
+    margin: 2px !important;
+    padding: 0px 2px;
+}
+
+td {
+	padding: 0px;
+    vertical-align: top;
+}
+
+form * td {
+	vertical-align: middle;
+}
+
+select {
+    font-size: 10px;
+    padding: 1px;
+    border: 1px solid #000000;
+}
+
+#wf-notices
+{
+	font-size: 8pt; padding-left: 30px; padding-right: 30px;
+}
+#wf-notices p
+{
+font-size: 8pt;
+}
+
+
+/* --------------------------- */
+/* ERROR BLOCK
+/* --------------------------- */
+#wf-trunk-errors-container {
+font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+left: 0px;
+top: 0px;
+width: auto;
+height: auto;
+padding: 0px;
+margin: 0px;
+text-align: left;
+color: #FFFFFF;
+background-color: #E60000;
+}
+
+#wf-trunk-errors-header {
+left: 0px;
+top: 0px;
+width: auto;
+padding: 5px;
+margin: 0px;
+text-align: left;
+font-size: 16pt;
+font-weight: bold;
+color: #FFFFFF;
+background-color: #000000;
+}
+
+#wf-trunk-error-body {
+padding: 10px;
+margin: 0px;
+text-align: left;
+font-size: 10pt;
+font-weight: bold;
+}
+
+#wf-trunk-errors-footer {
+left: 0px;
+top: 0px;
+padding: 3px;
+margin: 0px;
+text-align: right;
+font-size: 10pt;
+font-weight: bold;
+color: #FFFFFF;
+background-color: #000000;
+}
+
+/* --------------------------- */
+/* POPUPS
+/* --------------------------- */
+
+.pop-copy {
+	margin: 10px;
+}
+
+.pop-title {
+	margin: 10px;
+	font-size: 12pt;
+	font-weight: bold;
+	color: #053aae;
+}
+
+.pop-copy a {
+	color: #053aae;
+}
+
+.pop-copy hr {
+	color: #053aae;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.pop-top a {
+	font-size: 9pt;
+}
+
+.pop-copy p {
+	margin: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.pop-copy#testimonials p
+{
+	margin-bottom: 20px;
+	font-size: 8pt;
+}
+
+.pop-copy#testimonials strong
+{
+	display: block;
+	font-size: 10pt;
+}
+
+.pop-top {
+	margin-bottom: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-top: 1px solid #c0c0c0;
+}
+
+.pop-copy em {
+	display: block;
+	margin: 20px;
+	text-align: center;
+}

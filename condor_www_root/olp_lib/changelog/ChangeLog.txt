@@ -1,0 +1,64 @@
+***************************** INSTRUCTIONS ****************************
+
+	- Every change that has been commited to the SVN repository should
+		have a corresponding entry in this file: if it's been committed,
+		then it has the potentital to go live. Listing the change in here
+		helps prevent changes that are not ready to be pushed live from
+		inadvertantly being included in a release.
+
+	- Your initials MUST be included with your changes. If they are not,
+		you will be hunted down and burned at the stake. And possibly
+		eaten, cannibal style, with a little pepper.
+		"Mmm.. taste like chicken!"
+
+	- All changes should be grouped by feature addition or bug fix, and
+		list ALL modified files for that change. In general, any change
+		that affects more than one file should not be grouped with ANY
+		other change. Conversely, a small change that affected one file
+		should not be piggie-backed onto an entry that includes more than
+		that one file. If there are several small bug fixes all affecting
+		the same file, then they can be listed together. However, bug fixes
+		should not be grouped with a feature addition, unless the fix was
+		required for proper operation.
+
+		** If the change was associated with a project, webadmin2 task, or mantis
+		bug, it must include that number along with the business owner of the
+		task. **
+
+	- Entries should follow this format:
+
+				files/that/were/changed.php
+				another/file/that/was/changed_as_well.php
+
+			1.	[DESCRIPTION] (See below)
+
+			Mantis Bug:
+				1.	Mantis #1234 - Bug Reporter's Name - Description of the change [INITIALS]
+				2.	Had to fix a small bug to get this to work [INITIALS]
+				Reviewed By: [INITIALS]
+
+	- Add entries to the top of the PENDING CHANGES section. As changes are released,
+		they will be moved to the current/previous release sections, under
+		their corresponding release, by the release manager.
+
+	- All changes must be reviewed by another OLP team member before they're scheduled to be
+		released. Specify the reviewer below the changes.
+
+*************************** PENDING RELEASE ****************************
+
+*************************** CURRENT RELEASE ****************************
+ Date: 2008-04-04 9:00AM        Tag Name: RELEASE_1_0_5 (r19602) [BF]
+************************************************************************
+
+	DBInfo/Enterprise/Impact.php
+	
+1.	Updated Impact's RC environment. [RM]
+
+	[* Branch: gforge_9452 *]
+	Blackbox/Adapter/New.php
+	
+1.	GForge #9452 - Jennifer Quade - Excluded State Check [AuMa]/[DO]
+
+*************************** CURRENT RELEASE ****************************
+ Date: 2008-04-03 8:00AM        Tag Name: RELEASE_1_0_4 (r19466) [BF]
+************************************************************************

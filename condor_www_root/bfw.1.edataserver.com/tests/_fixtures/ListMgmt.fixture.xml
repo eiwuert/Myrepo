@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<dataset>
+	<table name="list_mgmt_buffer">
+		<column>date_created</column>
+		<column>application_id</column>
+		<column>email</column>
+		<column>first_name</column>
+		<column>last_name</column>
+		<column>ole_site_id</column>
+		<column>ole_list_id</column>
+		<column>group_id</column>
+		<column>mode</column>
+		<column>license_key</column>
+		<column>address_1</column>
+		<column>apartment</column>
+		<column>city</column>
+		<column>state</column>
+		<column>zip</column>
+		<column>url</column>
+		<column>phone_home</column>
+		<column>phone_cell</column>
+		<column>date_of_birth</column>
+		<column>promo_id</column>
+		<column>bb_vendor_bypass</column>
+		<column>tier</column>
+		<row>
+			<value>2007-09-07 09:50:44</value> 
+			<value>900021888</value> 
+			<value>5646345@PARTNERMASTERD.COM</value> 
+			<value>TEST</value> 
+			<value>TEST</value> 
+			<value>1</value> 
+			<value>588</value> 
+			<value>1</value> 
+			<value>RC</value> 
+			<value>54418e3912ce6ea2544c3013f72b5a69</value> 
+			<value>123 TEST</value> 
+			<value></value>
+			<value>las vegas</value> 
+			<value>NV</value> 
+			<value>89119</value> 
+			<value>EarlyPaydayDepositApp2.com</value> 
+			<value>7026300058</value> 
+			<value></value>
+			<value></value>
+			<value>10000</value> 
+			<value></value>
+			<value></value> 
+		</row>
+		<row>
+			<value>2007-09-07 09:34:23</value> 
+			<value>900021883</value> 
+			<value>DSFSDF@PARTNERMASTERD.COM</value> 
+			<value>TEST</value> 
+			<value>TEST</value> 
+			<value>1</value> 
+			<value>588</value> 
+			<value>1</value> 
+			<value>RC</value> 
+			<value>56863679792cb4f8b951030448cf306d</value> 
+			<value>123 TEST</value> 
+			<value></value>
+			<value>las vegas</value> 
+			<value>NV</value> 
+			<value>89119</value> 
+			<value>EasySMSLoan.com</value> 
+			<value>7025620002</value> 
+			<value></value> 
+			<value></value> 
+			<value>98765</value> 
+			<value></value> 
+			<value></value> 
+		</row>
+
+	</table>
+	<table name="list_mgmt_nosell">
+		<column>date_created</column>
+		<column>email</column>
+		<column>target_id</column>
+		<row>
+			<value>2007-07-30 09:09:23</value> 
+			<value>234234DFJ@PARTNERMASTERD.COM</value> 
+			<value>143</value> 
+		</row>
+		<row>
+			<value>2007-08-05 08:26:56</value> 
+			<value>TEMPEST.JOHNSON@PREMIERCOMM.COM</value> 
+			<value>166</value> 
+		</row>
+		<row>
+			<value>2008-01-16 12:33:27</value> 
+			<value>BEN_COKER198027@YAHOO.COM</value> 
+			<value>82</value> 
+		</row>
+	</table>
+</dataset>

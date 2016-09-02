@@ -1,0 +1,75 @@
+#!/bin/bash
+
+#
+## Config
+
+# The array of all the hosts in the load balance group
+# Must match the output of the `hostname -f` command
+hosts=( ps1.tss ps2.tss )
+
+# Files and folders to watch space separated, it will monitor recurisly
+#watch="/tmp/watch1/ /tmp/watch2/"
+watch="/virtualhosts/sellingsource.com/webadmin2/www/files/"
+
+
+#
+## Main
+
+BN=`basename $0`
+
+if [ -f /var/run/$BN ]; then
+	PID=`cat /var/run/$BN`
+	kill -0 $PID 2>/dev/null
+	RC=$?
+	if [ $RC -eq 0 ]; then
+		echo "PID $PID already running"
+		PS=`ps ex | grep -E "^[ ]*$PID "`
+		PC=`echo "$PS" | grep $BN | wc -l`
+		if [ "$PC" = "0" ]; then
+			echo "But it dosen't seen to be us!" ; echo ; echo $PS ; echo
+		fi
+		exit
+	else
+		echo "PID $PID found in /var/run/$BN but its not running!"
+	fi
+fi
+
+echo "Putting our PID ($$) in /var/run/$BN"
+echo -n $$ > /var/run/$BN
+
+# Watch for events
+inotifywait -mr --timefmt '%d/%m %H:%M:%S' --format '%T %w %e %f' --exclude "\.~tmp~" \
+ -e close_write -e delete -e create -e moved_to ${watch} | \
+while read date time folder event file; do
+
+	for (( i = 0 ; i <  ${#hosts[@]} ; i++ ))
+	do
+		#Find this host in the list of hosts
+		if [ ${hosts[$i]} = $(hostname -f) ] ; then
+
+			#If this is the last host in the list update the first host
+			if [ $(($i+1)) = ${#hosts[@]} ] ; then
+				i=-1
+			fi
+
+			if [ "${event}" = "DELETE" ] || [ "${event}" = "DELETE,ISDIR" ] ; then
+
+				echo "${date} ${time} ${event} Remove ${hosts[$i+1]}:${folder}${file}" 
+				ssh ${hosts[$i+1]} rm -rf ${folder}${file} &
+
+			elif [ "${event}" = "IGNORED" ] || [ "${event}" = "CREATE" ] ; then
+
+				echo "${date} ${time} ${event} Ignore ${hosts[$i+1]}:${folder}${file}" 
+
+			else 
+
+				echo "${date} ${time} ${event} Rsync  ${hosts[$i+1]}:${folder}${file}" 
+				rsync --ignore-errors -aR -T /var/tmp ${folder}${file} ${hosts[$i+1]}:/ &
+
+			fi
+
+			break #Only update one server
+		fi
+	done
+done
+

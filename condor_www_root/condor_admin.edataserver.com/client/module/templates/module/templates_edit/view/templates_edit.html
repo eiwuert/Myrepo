@@ -1,0 +1,136 @@
+%%%error_block%%%
+%%%preview_window%%%
+<script language="javascript" type="text/javascript" src="../js/tiny_mce/tiny_mce.js"></script>
+<form action="?module=templates_edit&action=submit" method="post" enctype="multipart/form-data">
+<table cellpadding="2" cellspacing="0" border="0" class="text" width="100%" height="500px">
+    <tr>
+      <td class="bold" style="width: 100px;">Template Name</td><td>%%%template_name%%%</td>
+    </tr>
+    <tr>
+      <td class="%%%css_template_subject%%%" style="width: 100px;">Template Subject</td><td><input type="text" size="30" name="template_subject" value="%%%template_subject%%%"></td>
+    </tr>
+    <tr>
+    	<td class="bold">Template Type</td>
+    	<td>%%%template_type%%%</td>
+    </tr>
+	<tr>
+    	<td style="width: 100px;">&nbsp;</td>
+    	<td>
+    		Help: <a href="" onclick="showHiddenPopup('image_help_popup',120,117,1); return false">Inserting Images</a> |
+    		<a href="" onclick="showHiddenPopup('help_avail_tokens',120,117,1); return false">Available Tokens</a> |
+    		<a href="" onclick="showHiddenPopup('cover_help_popup',120,117,1); return false">Cover Sheets</a></td>
+    </tr>
+    <tr>
+      <td class="%%%css_template_data%%%" style="width: 100px;">Data</td><td>%%%wysiwyg%%%</td>
+    </tr>
+    <tr>
+      <td valign="top" align="center" colspan="2">
+      <input name="preview" type="image" src="image/preview.gif" border="0" width="60" height="15" style="border: 1px solid black;" />&nbsp;&nbsp;<input name="submit" type="image" src="image/save_text.gif" width="47" height="15" style="border: 1px solid black;" />&nbsp;&nbsp;<a href="?module=templates_list"><img src="image/cancel_text.gif" width="57" height="15"  style="border: 1px solid black;" /></a></td>
+    </tr>
+  </table>
+</form>
+<div id="image_help_popup" style="position: absolute; display: none; background-color: #dee1e2; border: 1px solid black; padding: 5px; width: 500px">
+
+<div style="float: right; text-align: right">
+<a href="" onclick="hideHiddenPopup('image_help_popup'); return false;">Close</a>
+</div>
+
+<h2 style="text-align: left; margin: 2px">Image Help</h2>
+
+<p>To attach an image to an outgoing email or fax, there are two options:</p>
+
+<ul>
+<li>Attach an image to the template.</li>
+<li>Use an external image located on a webserver.</li>
+</ul>
+
+<p><strong>Attachment</strong><br />
+To attach an image to the template, make the image tag's source the name of the
+attached image. So if the image name is unique_name.jpg, then the image tag should
+look like:
+<pre>&lt;img src=&quot;unique_name.jpg&quot;&gt;</pre>
+The image will need to be attached to the template once the template has been
+saved if the attachment does not already exist (i.e. editing an existing template).
+Condor will then use the attachment to display the image in outgoing emails and faxes.
+</p>
+
+<p><strong>External Image</strong><br />
+To use an external image, point the image to a valid image URL located on
+the web. When the fax is created or an email viewed, it will attempt to load
+the image from the external source.
+<pre>&lt;img src=&quot;http://www.example.com/image_name.jpg&quot;&gt;</pre>
+</p>
+
+<p>The downside to using an external image is that if the image changes,
+it will change what the user sees and it will <strong>not</strong> have a
+historical copy inside of Condor.</p>
+
+<div style="text-align: right">
+<a href="" onclick="hideHiddenPopup('image_help_popup'); return false">Close</a>
+</div>
+
+</div>
+
+<style type="text/css">
+	#help_avail_tokens {
+		overflow: auto;
+		position: absolute;
+		display: none;
+		background-color: #dee1e2;
+		border: 1px solid #000;
+		padding: 5px;
+		width: 700px;
+		height: 250px;
+	}
+</style>
+
+<!-- Available Tokens Popup -->
+<div id="help_avail_tokens">
+	<div style="float: right; text-align: right">
+		<a href="" onclick="hideHiddenPopup('help_avail_tokens'); return false;">Close</a>
+	</div>
+
+	<h2 style="text-align: left; margin: 2px">Available Tokens (%%%token_count%%%)</h2>
+
+	<table width="99%" cellpadding="2" cellspacing="0" style="margin-right: auto; margin-left: auto; border: 1px solid black">
+	<tr style="background-color:silver">
+		<td class="bold">Token</td>
+		<td class="bold">Description</td>
+		<td class="bold">Test Data</td>
+		<td class="bold">Data Type</td>
+	</tr>
+%%%token_rows%%%</table>
+
+	<div style="text-align: right">
+		<a href="" onclick="hideHiddenPopup('help_avail_tokens'); return false">Close</a>
+	</div>
+</div>
+
+<!-- Cover Sheet Help -->
+
+<div id="cover_help_popup" style="position: absolute; display: none; background-color: #dee1e2; border: 1px solid black; padding: 5px; width: 500px">
+
+<div style="float: right; text-align: right">
+<a href="" onclick="hideHiddenPopup('cover_help_popup'); return false;">Close</a>
+</div>
+
+<h2 style="text-align: left; margin: 2px">Cover Sheet Help</h2>
+
+<p>Cover sheets can be created just like any other template. Currently
+only tokens populated by the eCash application will display anything.
+You must select Cover Sheet as the Template Type for the template to
+be created as a cover sheet.</p>
+
+<p>There is one special token when creating a cover sheet. To display
+the number of pages being sent after the cover sheet, insert the following
+token:</p>
+<blockquote><pre>@@fax_pages@@</pre></blockquote>
+
+<p>This is a special token used by Condor to determine where in the cover
+page you want the page count to appear.</p>
+
+<div style="text-align: right">
+<a href="" onclick="hideHiddenPopup('cover_help_popup'); return false">Close</a>
+</div>
+
+</div>

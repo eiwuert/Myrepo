@@ -1,0 +1,16 @@
+<DataxResponse>
+<GenerationTime>20080201124558</GenerationTime>
+<CodeVersion>4.0.6</CodeVersion>
+<RequestVersion>3.0</RequestVersion>
+<TransactionId>42255581</TransactionId>
+<TrackHash>e79e66fa877469956d34ae2b0e1ed20b</TrackHash>
+<Response>
+	<Summary>
+		<Decision>Y</Decision>
+		<Buckets>
+			<Bucket />
+		</Buckets>
+	</Summary>
+	<TLT />
+</Response>
+</DataxResponse>

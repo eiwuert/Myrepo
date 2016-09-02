@@ -1,0 +1,34 @@
+<style type="text/css">@import url(js/jscalendar/skins/aqua/theme.css);</style>
+<script type="text/javascript" src="js/jscalendar/calendar_stripped.js"></script>
+<script type="text/javascript" src="js/jscalendar/lang/calendar-en.js"></script>
+<script type="text/javascript" src="js/jscalendar/calendar-setup_stripped.js"></script>
+
+<div id="view_statistics" style="text-align: center">
+<form action="" method="get">
+<table cellpadding="2" cellspacing="0" border="0" style="margin-left: auto; margin-right: auto; margin-bottom: 5px">
+	<tr>
+		<td>Date:</td>
+		<td><input id="date" type="text" name="date" size="10" value="%%%date%%%" /></td>
+		<td><input type="submit" name="action" value="Submit" /></td>
+	</tr>
+</table>
+</form>
+<img src="transport_graph.php?date=%%%date%%%&company_id=%%%company_id%%%&mode=%%%mode%%%&title=Sent+Emails&%%%sent_email_plots%%%" alt ="Sent Email Documents" /><br />
+<img src="transport_graph.php?date=%%%date%%%&company_id=%%%company_id%%%&mode=%%%mode%%%&title=Failed+Emails&%%%fail_email_plots%%%" alt ="Failed Email Documents" /><br />
+<img src="transport_graph.php?date=%%%date%%%&company_id=%%%company_id%%%&mode=%%%mode%%%&title=Sent+Faxes&%%%sent_fax_plots%%%" alt ="Sent Fax Documents" /><br />
+<img src="transport_graph.php?date=%%%date%%%&company_id=%%%company_id%%%&mode=%%%mode%%%&title=Failed+Faxes&%%%fail_fax_plots%%%" alt ="Failed Fax Documents" /><br />
+<!--
+<img src="sent_docs.php?date=%%%date%%%&amp;company_id=%%%company_id%%%" alt="Sent Documents" /><br />
+<img src="failed_docs.php?date=%%%date%%%&amp;company_id=%%%company_id%%%" alt="Failed Sends" /><br />
+-->
+</div>
+
+<script type="text/javascript">
+Calendar.setup(
+	{
+		inputField	: "date",	// ID of the input field
+		ifFormat	: "%m/%d/%Y",	// the date format
+		button		: "date"
+	}
+);
+</script>

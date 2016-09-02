@@ -1,0 +1,41 @@
+<!-- Begin scrolling result screen -->
+<div id="external_collections_div" class="quick_checks">
+	<form name="quick_checks" id="quick_checks_form" action='http://%%%master_domain%%%/?mode=quick_checks' method="post">
+		<input type="hidden" name="action"     value="process_quick_checks">
+		<input type="hidden" name="company_id" value='%%%company_id%%%' id='company_id' >
+		<table class="quick_checks" align="left" cellspacing="5">
+			<tr>
+				<td colspan="2">Search for Batches between these dates:</td>
+				<td colspan="4">&nbsp;</td>
+			</tr>
+			<tr>
+				<td>From Date: </td>
+				<td>%%%from_date%%%</td>
+				<td></td>
+				<td>To Date: </td>
+				<td>%%%to_date%%%</td>
+				<td><input type="button" name="submitDateRange" value="Submit" onclick="javascript: if(ValidDateRange(document.forms['quick_checks'])){ document.forms['quick_checks'].elements['action'].value = 'search_quick_checks'; document.forms['quick_checks'].submit();}" ></td>
+			</tr>
+		<table>
+
+		<br clear="all">&nbsp;<br>
+
+		<table width="100%" class="quick_checks" align="left">
+			<tr>
+				<td class="report_head">Date</td>
+				<td class="report_head">Type</td>
+				<td class="report_head"># in batch</td>
+				<td class="report_head">Total Amount</td>
+				<td class="report_head">Status</td>
+				<td class="report_head">Action</td>
+			</tr>
+			%%%current_form%%%
+
+			%%%data_rows_concatenated%%%
+
+			<tr>
+				<td colspan="5">&nbsp;</td>
+			</tr>
+		</table>
+	</form>
+</div>

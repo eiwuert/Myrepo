@@ -1,0 +1,219 @@
+***************************** INSTRUCTIONS ****************************
+
+	- Every change that has been commited to the CVS repository should
+		have a corresponding entry in this file: if it's been committed,
+		then it has the potentital to go live. Listing the change in here
+		helps prevent changes that are not ready to be pushed live from
+		inadvertantly being included in a release.
+
+	- Your initials MUST be included with your changes. If they are not,
+		you will be hunted down and burned at the stake. And possibly
+		eaten, cannibal style, with a little pepper.
+
+	- All changes should be grouped by feature addition or bug fix, and
+		list ALL modified files for that change. In general, any change
+		that affects more than one file should not be grouped with ANY
+		other change. Conversely, a small change that affected one file
+		should not be piggie-backed onto an entry that includes more than
+		that one file. If there are several small bug fixes all affecting
+		the same file, then they can be listed together. However, bug fixes
+		should not be grouped with a feature addition, unless the fix was
+		required for proper operation.
+
+	- Entries should follow this format:
+
+				files/that/were/changed.php
+				another/file/that/was/changed_as_well.php
+
+			1. Short description of the feature addition [YOUR INITIALS]
+			2. Had to fix a small bug to get this to work [INITIALS]
+
+	- Add entries to the PENDING CHANGES section. As changes are released,
+		they will be moved to the current/previous release sections, under
+		their corresponding release, by the release manager.
+
+***************************** PENDING CHANGES ****************************
+
+
+
+
+	server/module/templates/module/templates_new/module.class.php
+
+1.	Stricter 'similar token' requirements to prevent 80% of tokens coming up
+every time you create a token. [SS]
+
+	www/js/admin_groups.js
+	client/module/admin/view/admin_groups.html
+
+2. Added "Select All" and "Deselect All" to condor admin groups section because
+it was annoying and stressful having to click all those little boxes. [BB]
+
+3. Removed completely unnecessary logging which was doing nothing but filling HD space. [benb]
+	server/code/condor_document_query.class.php
+
+4. Added IP address field to document_event_view module to show the IP addressed used when esigning docs [benb]
+	M      server/code/condor_document_query.class.php
+	M      client/module/archives/module/document_event_view/code/client_display.class.php
+	M      client/module/archives/module/document_event_view/view/event_view_row.html
+	M      client/module/archives/module/document_event_view/view/event_view.html
+
+5. Fixed condor admin to use the relational table [benb]
+	M      server/code/condor_document_query.class.php
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.12, RELEASED: 2007-09-06 21:00, TAG: RELEASE_1_1_12 [SS]
+**************************************************************************
+	server/code/condor_template_query.class.php
+
+1.	Clears template cache when altering the templates [SS]
+
+	server/code/condor_template_query.class.php
+
+1.	It now orders shared templates [SS]
+2.	Only lists shared templates that are 'active' even though deactivating
+[SS]
+
+**************************************************************************
+RELEASE: 1.1.11, RELEASED: 2007-08-14 21:00, TAG: RELEASE_1_1_11 [SS]
+**************************************************************************
+	lib/security.php
+
+1.	Mantis #9558 - Brian Feaver - Now reverses the api auth from the agent table rather than api_auth [SS]
+
+**************************************************************************
+RELEASE: 1.1.10, RELEASED: 2007-06-06 10:00, TAG: RELEASE_1_1_10 [CB]
+**************************************************************************
+
+	www/transport_graph.php
+	client/module/archives/module/archives_search/code/client_display.class.php
+	client/module/archives/module/archives_search/view/document_search.html
+	client/module/incoming/module/incoming_unlinked/code/client_display.class.php
+	client/module/incoming/module/incoming_unlinked/code/document_search.html
+	server/code/condor_document_query.class.php
+	server/code/search_server.class.php
+
+1. Document lists now page so you can get ALL the documents. [SS]
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.9, RELEASED: 2007-05-30 10:00, TAG: RELEASE_1_1_9 [CB]
+**************************************************************************
+
+	www/transport_graph.php
+	lib/transport_graph.php
+	cronjobs/transport_graphs.php
+	client/module/statistics/module/statistics_view/code/client.display.class.php
+	client/module/statistics/module/statistics_view/view/view_stats.html
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.8, RELEASED: 2007-05-02 10:00, TAG: RELEASE_1_1_8 [CB]
+**************************************************************************
+
+	www/send_docs.php
+	www/failed_docs.php
+	report_framework/include/display.jpgraph.php
+	report_framework/sources/email_failed.php
+	report_framework/sources/email_sent.php
+	report_framework/sources/fax_failed.php
+	report_framework/sources/fax_sent.php
+	cronjobs/transport_graphs.php
+
+1.	It now caches the images and only generates them if theres no cache [SS]
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.7, RELEASED: 2007-04-17 09:00, TAG: RELEASE_1_1_7 [CB]
+**************************************************************************
+
+	server/code/server.class.php
+	client/modules/templates/module/templates_list/view/template_list_row.html
+	server/code/condor_template_query.class.php
+	client/modules/templates/module/templates_view/view/templates_view_rtf.html
+	client/modules/templates/modules/client_display.class.php
+	client/modules/templates/modules/templates_edit/view/templates_edit_rtf.html
+	client/modules/templates/modules/templates_edit/view/templates_rtf_updated.html
+	client/modules/templates/modules/templates_list/code/client_display.class.php
+	client_modules/templates/modules/templates_list/view/templates_list.html
+	client/modules/templates/modules/templates_new/code/client_display.class.php
+	client/modules/templates/modules/templates_new/view/templates_new.html
+	client/modules/templates/modules/templates_new/view/templates_new_html.html
+	client/modules/templates/modules/templates_new/view/templates_new_rtf.html
+	client/modules/templates/modules/templates_view/code/client_display.class.php
+	client/modules/templates/modules/templates_edit/module.class.php
+	client/modules/templates/modules/templates_new/module.class.php
+	client/modules/templates/modules/templates_preview/module.class.php
+
+1.	Added support for RTF Templates [SS] 
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.x, RELEASED: ????-??-?? 09:00, TAG: RELEASE_1_1_x [V/A]
+**************************************************************************
+
+	server/code/server.class.php
+
+1	Fixed session_8 to work with php516 [SS] 
+
+	lib/security.php
+	lib/condor_api.php
+	server/code/server.class.php
+
+1.	Updated to use the API Auth stored in the database [SS]
+
+	report_framework/config.php
+	report_framework/sources/email_failed.php
+	report_framework/sources/email_sent.php
+	report_framework/fax_failed.php
+	report_framework/fax_sent.php
+	www/config.php
+
+1.	Changed host names to the new DNS names [SS]
+
+	client/module/templates/module/templates_list/code/client_display.class.php
+	client/module/templates/module/templates_list/view/templates_list.html
+	client/module/templates/module/templates_list/view/templates_list_row.html
+	client/module/templates/module/templates_list/view/templates_list_view_shared.html
+	server/code/condor_template_query.class.php
+	server/module/templates/module/templates_edit/module.class.php
+	server/module/templates/module/templates_list/module.class.php
+	server/module/templates/module/templates_new/module.class.php
+	
+1.	Added shared template functionality. [BF]
+
+	lib/condor_api.php
+	
+1. 	Added UFC's API login. [BF]
+
+	server/code/condor_template_query.class.php
+	
+1.	Fixed bug #2849 in Mantis - When no tokens are defined, you can add templates. [BF]
+2.	Fixed bug #2847 in Mantis - Created By column was showing the person who created
+	the first template ever. [BF]
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.3, RELEASED: 2006-10-10 13:15, TAG: RELEASE_1_1_3 [BF]
+**************************************************************************
+
+	lib/condor_api.php
+	
+1.	Added NFP_AGENT and NFP_ORG company's API login. [BF]
+
+***************************** CURRENT RELEASE ****************************
+RELEASE: 1.1.2, RELEASED: 2006-08-06 13:00, TAG: RELEASE_1_1_2 [BF]
+**************************************************************************
+
+	lib/condor_api.php
+	
+1. 	Added FCR's API login. [BF]
+
+***************************** INITIAL RELEASE ****************************
+RELEASE: 1.1.1, RELEASED: 2006-05-25 13:08, TAG: RELEASE_1_1_1 [AM]
+**************************************************************************
+
+	client/module/archives/module/document_view/code/client_display.class.php
+	client/module/archives/module/document_view/view/document_view.html
+	
+1.	Added the document ID to the src of the iframe. Hoping this will help
+	fix the times when the document doesn't show up. [BF]
+
+	lib/condor_api.php
+	
+1.	Changed the Condor API URL to condor.4.internal.edataserver.com for LIVE. [BF]
+2.	Changed the password for the Condor API. [BF]

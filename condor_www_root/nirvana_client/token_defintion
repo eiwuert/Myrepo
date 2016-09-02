@@ -1,0 +1,109 @@
+# syntax
+# 
+# data_name : data_type
+#
+# data_type is a loose discription of the type of data we're expecting
+#
+# data_name is the name of the data as we expect it in the personal data array
+# during the request
+#
+# items marked with a *** are required, and if not supplied, the action will NOT
+# occur.
+
+# transaction data
+#
+
+	# we need this for the original point of entry.
+	# this should be the point in time which we received their e-mail address.
+	# NOTE: This is a Trendex requirement and can not be avoided.
+	*** transaction_date : unix timestamp
+	
+	# should relate back to your unique id within your system (OLP's application_id for example)
+	transaction_id : int
+	
+	
+	session_id : string
+	
+
+# campaign data
+#
+
+	promo_id : int
+	promo_sub_code : string
+	*** ip_address : string (aaa.bbb.ccc.ddd)
+	*** originating_address : string
+	company_phone : string (no symbols)
+	company_name : string
+	company_name_short : string
+
+
+# bank data 
+#
+
+	bank_name : string
+	bank_account : string 
+	bank_routing : string (9)
+	bank_account_type : enum('checking', 'savings')
+
+# personal data
+#
+
+	name_first : string
+	name_middle : string
+	name_last : string 
+	
+	dob : string (YYYY-mm-dd)
+	ssn : string (9)
+	legal_id_number : string 
+	legal_id_state : string (2)
+
+# contact data
+#
+
+	phone_home : string (no symbols)
+	phone_cell : string (no symbols)
+	phone_fax : string (no symbols)
+	phone_work : string (no symbols)
+	phone_work_ext : string (no symbols)
+	
+	address_street : string
+	address_unit : string
+	address_city : string
+	address_state : string
+	address_zipcode : string (5)
+	
+	*** email : string
+	best_call_time : enum('MORNING','AFTERNOON','EVENING')
+	
+	personal_ref_1_name : string
+	personal_ref_1_phone : string (no symbols)
+	personal_ref_1_relationship : string
+	
+	personal_ref_2_name : string
+	personal_ref_2_phone : string (no symbols)
+	personal_ref_2_relationship : string
+
+# employment data
+#
+
+	income_amount : int
+	income_frequency : enum('WEEKLY','BI_WEEKLY','TWICE_MONTHLY','MONTHLY')
+	income_type : enum('BENEFITS', 'EMPLOYMENT')
+	income_direct_deposit : bool
+	
+	work_name : string
+	work_title : string
+	work_shift : string
+	work_date_of_hire : string
+	
+	
+# paydate modeling
+#
+	paydate_model_id     | enum('DW','DWPD','DWDM','WWDW','DM','DMDM','WDW')
+	pdm_day_of_week      | int(11)                                          
+	pdm_next_paydate     | date                                             
+	pdm_day_of_month_1   | int(11)                                          
+	pdm_day_of_month_2   | int(11)                                          
+	pdm_week_1           | int(11)                                          
+	pdm_week_2           | int(11)                                          
+

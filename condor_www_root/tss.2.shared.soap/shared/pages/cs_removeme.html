@@ -1,0 +1,21 @@
+<div id="wf-@@template_css@@-title" class="@@template_css@@-title">
+	Remove Me
+</div>
+<div id="wf-@@template_css@@-copy" class="@@template_css@@-copy">
+	@@BLOCK_ERRORS@@
+	<form action="@@URL_ROOT@@" method="post" onsubmit="exit=false;">
+		<input type="hidden" name="page" value="remove" />
+		
+		<p>@@eds_name_view@@ takes your privacy seriously and does not tolerate spam. 
+		To learn more about how we use your name or how it may have been acquired 
+		please view our <a href="javascript:void(0)" onclick="pop_menu('?page=info_privacy')">privacy policy</a>.</p>
+		
+		<p>To remove your name from our records and no longer receive information from 
+		us, please enter your email address below and press submit. Once you have 
+		done so, you may enter additional email addresses.</p>
+		
+		Email Address:&nbsp; 
+		<input type="text" class="text sh-form-long" name="rmemail" size="30" value="@@rmemail@@"/>&nbsp;&nbsp;
+		<input type="submit" class="button" name="Submit" value="Send" />
+	</form>
+</div>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<phpunit>
+	<testsuite name="Libolution Test Suite">
+		<directory>.</directory>
+	</testsuite>
+    <filter>
+        <blacklist>
+            <directory>.</directory>
+        </blacklist>
+    </filter>
+</phpunit>

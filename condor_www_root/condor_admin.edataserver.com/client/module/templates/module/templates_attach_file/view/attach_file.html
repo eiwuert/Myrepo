@@ -1,0 +1,33 @@
+<p>You can attach a file from your local workstation or from a URL (website).</p>
+%%%error_block%%%
+<form action="" enctype="multipart/form-data" method="post">
+	<table cellpadding="2" cellspacing="5" border="0" class="text">
+		<tr>
+			<td style="vertical-align: top">
+				<input id="radio_file" type="radio" name="upload_type" value="file" checked="checked" />
+			</td>
+			<td class="bold">File Name</td>
+			<td>
+				<input name="attachment" type="file" onfocus="document.getElementById('radio_file').checked = true" />
+		</tr>
+		<tr>
+			<td style="vertical-align: top">
+				<input id="radio_url" type="radio" name="upload_type" value="url" />
+			</td>
+			<td class="bold">URL</td>
+			<td>
+				<input type="text" name="url" value="%%%attachment_url%%%" onfocus="document.getElementById('radio_url').checked = true" />
+				<i>(http://www.example.com/attachment.jpg)</i>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<input type="hidden" name="module" value="templates_attach_file" />
+				<input type="image" src="image/attach_text.gif" name="action" value="submit" style="border: 1px solid black;" />
+				<a href="?module=templates_view">
+					<img src="image/cancel_text.gif" style="border: 1px solid black;" />
+				</a>
+			</td>
+		</tr>
+	</table>
+</form>
